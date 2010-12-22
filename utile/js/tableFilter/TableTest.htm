@@ -1,0 +1,1049 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<link rel="stylesheet" type="text/css" href="includes/tableFilter.css">
+<link rel="stylesheet" type="text/css" href="includes/tableFilter.aggregator.css">
+<title>jQuery tableFilter normal table test</title>
+<style>
+body {
+	font-family:Calibri, tahoma, arial, sans-serif;
+}
+table {
+	font-size:12px;
+	font-family:Calibri, tahoma, arial, sans-serif;
+	white-space:nowrap;
+	border-collapse:collapse;
+	background-color:#FFFFFF;
+}
+td {
+	padding:2px;
+}
+tr {
+	height:20px;
+	border:.5pt solid #F79646;
+	background-color:#FFFFFF;
+}
+.offColor {
+	background-color:#FDE9D9;
+}
+.header { 
+	text-align:center;
+	background-color:#F79646;
+	color:white;
+	font-weight:bold;
+}
+.header a{
+	color:white;
+}
+</style>
+
+<script type="text/javascript" src="http://erenweb.ecodev.ch/ecoical/utile/js/jquery.pack.js"></script>
+<script type="text/JavaScript" src="_dist/jquery.cookies-packed.js"></script>
+<script type="text/javascript" src="_dist/prototypes-packed.js"></script>
+<script type="text/javascript" src="_dist/json-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.truemouseout-packed.js"></script>
+<script type="text/javascript" src="_dist/daemachTools-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.aggregator-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.columnStyle-packed.js"></script>
+
+
+<!--
+
+<script type="text/javascript" src="_dist/jquery-packed.js"></script>
+<script type="text/JavaScript" src="_dist/jquery.cookies-packed.js"></script>
+<script type="text/javascript" src="_dist/prototypes-packed.js"></script>
+<script type="text/javascript" src="_dist/json-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.truemouseout-packed.js"></script>
+<script type="text/javascript" src="_dist/daemachTools-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.aggregator-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.columnStyle-packed.js"></script>
+
+
+<script type="text/javascript" src="../lib/src/jquery.js"></script>
+<script type="text/JavaScript" src="../lib/src/jquery.cookies.js"></script>
+<script type="text/javascript" src="../lib/src/prototypes.js"></script>
+<script type="text/javascript" src="../lib/src/json.js"></script>
+<script type="text/javascript" src="../lib/src/jquery.truemouseout.js"></script>
+<script type="text/javascript" src="../daemach/src/daemachTools.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.aggregator.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.columnStyle.js"></script>
+<script type="text/javascript" src="../lib/src/jquery.debug.js"></script>
+-->
+
+</head>
+<body>
+<h3>Normal Table Test</h3>
+This table consists of 86 rows, 774 total cells.  (<a href="mediumtabletest.htm">not big enough for you?</a>)<br>
+Rather than auto-build the table on page load, the button allows you to control the process so you can get a better sense of the speed.    
+<hr /> <input onClick='$("table").eq(0).tableFilter();' type="button" value="Go">  (ctrl-click to sort/filter multiple columns)
+<hr />
+<table>
+	<colgroup><col><col><col><col><col><col><col><col><col></colgroup>
+	
+	<tr class="header" height=20>
+		<td>CustomerID</td>
+		<td>CompanyName</td>
+		<td>ContactName</td>
+		<td>ContactTitle</td>
+		<td>Phone</td>
+		<td>City</td>
+		<td>Country</td>
+		<td>Quantity</td>
+		<td>Amount</td>
+	</tr>
+
+ <tr height="20">
+  <td>ALFKI</td>
+  <td>Alfreds Futterkiste</td>
+  <td>Maria Anders</td>
+  <td>Sales Representative</td>
+  <td>030-0074321</td>
+  <td>Berlin</td>
+  <td>Germany</td>
+  <td>79</td>
+  <td>$147.50</td>
+ </tr>
+ <tr height="20">
+  <td>ANATR</td>
+  <td>Ana Trujillo Emparedados y helados</td>
+  <td>Ana Trujillo</td>
+  <td>Owner</td>
+  <td>(5) 555-4729</td>
+  <td>Mexico D.F.</td>
+  <td>Mexico</td>
+  <td>28</td>
+  <td>$103.25</td>
+ </tr>
+ <tr height="20">
+  <td>ANTON</td>
+  <td>Antonio Moreno Taqueria</td>
+  <td>Antonio Moreno</td>
+  <td>Owner</td>
+  <td>(5) 555-3932</td>
+  <td>Mexico D.F.</td>
+  <td>Mexico</td>
+  <td>295</td>
+  <td>$319.43</td>
+ </tr>
+ <tr height="20">
+  <td>AROUT</td>
+  <td>Around the Horn</td>
+  <td>Thomas Hardy</td>
+  <td>Sales Representative</td>
+  <td>(171) 555-7788</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>371</td>
+  <td>$334.65</td>
+ </tr>
+ <tr height="20">
+  <td>BERGS</td>
+  <td>Berglunds snabbkop</td>
+  <td>Christina Berglund</td>
+  <td>Order Administrator</td>
+  <td>0921-12 34 65</td>
+  <td>Lulea</td>
+  <td>Sweden</td>
+  <td>481</td>
+  <td>$808.69</td>
+ </tr>
+ <tr height="20">
+  <td>BLAUS</td>
+  <td>Blauer See Delikatessen</td>
+  <td>Hanna Moos</td>
+  <td>Sales Representative</td>
+  <td>0621-08460</td>
+  <td>Mannheim</td>
+  <td>Germany</td>
+  <td>68</td>
+  <td>$139.55</td>
+ </tr>
+ <tr height="20">
+  <td>BLONP</td>
+  <td>Blondesddsl pere et fils</td>
+  <td>Frederique Citeaux</td>
+  <td>Marketing Manager</td>
+  <td>88.60.15.31</td>
+  <td>Strasbourg</td>
+  <td>France</td>
+  <td>348</td>
+  <td>$363.25</td>
+ </tr>
+ <tr height="20">
+  <td>BOLID</td>
+  <td>Bolido Comidas preparadas</td>
+  <td>Martin Sommer</td>
+  <td>Owner</td>
+  <td>(91) 555 22 82</td>
+  <td>Madrid</td>
+  <td>Spain</td>
+  <td>60</td>
+  <td>$162.79</td>
+ </tr>
+ <tr height="20">
+  <td>BONAP</td>
+  <td>Bon app'</td>
+  <td>Laurence Lebihan</td>
+  <td>Owner</td>
+  <td>91.24.45.40</td>
+  <td>Marseille</td>
+  <td>France</td>
+  <td>486</td>
+  <td>$523.10</td>
+ </tr>
+ <tr height="20">
+  <td>BOTTM</td>
+  <td>Bottom-Dollar Markets</td>
+  <td>Elizabeth Lincoln</td>
+  <td>Accounting Manager</td>
+  <td>(604) 555-4729</td>
+  <td>Tsawassen</td>
+  <td>Canada</td>
+  <td>454</td>
+  <td>$267.90</td>
+ </tr>
+ <tr height="20">
+  <td>BSBEV</td>
+  <td>B's Beverages</td>
+  <td>Victoria Ashworth</td>
+  <td>Sales Representative</td>
+  <td>(171) 555-1212</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>165</td>
+  <td>$294.60</td>
+ </tr>
+ <tr height="20">
+  <td>CACTU</td>
+  <td>Cactus Comidas para llevar</td>
+  <td>Patricio Simpson</td>
+  <td>Sales Agent</td>
+  <td>(1) 135-5555</td>
+  <td>Buenos Aires</td>
+  <td>Argentina</td>
+  <td>20</td>
+  <td>$52.65</td>
+ </tr>
+ <tr height="20">
+  <td>CHOPS</td>
+  <td>Chop-suey Chinese</td>
+  <td>Yang Wang</td>
+  <td>Owner</td>
+  <td>0452-076545</td>
+  <td>Bern</td>
+  <td>Switzerland</td>
+  <td>219</td>
+  <td>$271.30</td>
+ </tr>
+ <tr height="20">
+  <td>COMMI</td>
+  <td>Comercio Mineiro</td>
+  <td>Pedro Afonso</td>
+  <td>Sales Associate</td>
+  <td>(11) 555-7647</td>
+  <td>Sao Paulo</td>
+  <td>Brazil</td>
+  <td>45</td>
+  <td>$56.80</td>
+ </tr>
+ <tr height="20">
+  <td>CONSH</td>
+  <td>Consolidated Holdings</td>
+  <td>Elizabeth Brown</td>
+  <td>Sales Representative</td>
+  <td>(171) 555-2282</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>54</td>
+  <td>$71.80</td>
+ </tr>
+ <tr height="20">
+  <td>DRACD</td>
+  <td>Drachenblut Delikatessen</td>
+  <td>Sven Ottlieb</td>
+  <td>Order Administrator</td>
+  <td>0241-039123</td>
+  <td>Aachen</td>
+  <td>Germany</td>
+  <td>20</td>
+  <td>$21.00</td>
+ </tr>
+ <tr height="20">
+  <td>DUMON</td>
+  <td>Du monde entier</td>
+  <td>Janine Labrune</td>
+  <td>Owner</td>
+  <td>40.67.88.88</td>
+  <td>Nantes</td>
+  <td>France</td>
+  <td>28</td>
+  <td>$66.00</td>
+ </tr>
+ <tr height="20">
+  <td>EASTC</td>
+  <td>Eastern Connection</td>
+  <td>Ann Devon</td>
+  <td>Sales Agent</td>
+  <td>(171) 555-0297</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>155</td>
+  <td>$215.29</td>
+ </tr>
+ <tr height="20">
+  <td>ERNSH</td>
+  <td>Ernst Handel</td>
+  <td>Roland Mendel</td>
+  <td>Sales Manager</td>
+  <td>7675-3425</td>
+  <td>Graz</td>
+  <td>Austria</td>
+  <td>1950</td>
+  <td>$1,185.52</td>
+ </tr>
+ <tr height="20">
+  <td>FAMIA</td>
+  <td>Familia Arquibaldo</td>
+  <td>Aria Cruz</td>
+  <td>Marketing Assistant</td>
+  <td>(11) 555-9857</td>
+  <td>Sao Paulo</td>
+  <td>Brazil</td>
+  <td>262</td>
+  <td>$183.84</td>
+ </tr>
+ <tr height="20">
+  <td>FOLIG</td>
+  <td>Folies gourmandes</td>
+  <td>Martine Rance</td>
+  <td>Assistant Sales Agent</td>
+  <td>20.16.10.16</td>
+  <td>Lille</td>
+  <td>France</td>
+  <td>354</td>
+  <td>$443.35</td>
+ </tr>
+ <tr height="20">
+  <td>FOLKO</td>
+  <td>Folk och fa HB</td>
+  <td>Maria Larsson</td>
+  <td>Owner</td>
+  <td>0695-34 67 21</td>
+  <td>Bracke</td>
+  <td>Sweden</td>
+  <td>468</td>
+  <td>$428.65</td>
+ </tr>
+ <tr height="20">
+  <td>FRANK</td>
+  <td>Frankenversand</td>
+  <td>Peter Franken</td>
+  <td>Marketing Manager</td>
+  <td>089-0877310</td>
+  <td>Munchen</td>
+  <td>Germany</td>
+  <td>597</td>
+  <td>$561.53</td>
+ </tr>
+ <tr height="20">
+  <td>FRANR</td>
+  <td>France restauration</td>
+  <td>Carine Schmitt</td>
+  <td>Marketing Manager</td>
+  <td>40.32.21.21</td>
+  <td>Nantes</td>
+  <td>France</td>
+  <td>32</td>
+  <td>$87.80</td>
+ </tr>
+ <tr height="20">
+  <td>FRANS</td>
+  <td>Franchi S.p.A.</td>
+  <td>Paolo Accorti</td>
+  <td>Sales Representative</td>
+  <td>011-4988260</td>
+  <td>Torino</td>
+  <td>Italy</td>
+  <td>22</td>
+  <td>$81.50</td>
+ </tr>
+ <tr height="20">
+  <td>FURIB</td>
+  <td>Furia Bacalhau e Frutos do Mar</td>
+  <td>Lino Rodriguez</td>
+  <td>Sales Manager</td>
+  <td>(1) 354-2534</td>
+  <td>Lisboa</td>
+  <td>Portugal</td>
+  <td>258</td>
+  <td>$313.60</td>
+ </tr>
+ <tr height="20">
+  <td>GALED</td>
+  <td>Galeria del gastronomo</td>
+  <td>Eduardo Saavedra</td>
+  <td>Marketing Manager</td>
+  <td>(93) 203 4560</td>
+  <td>Barcelona</td>
+  <td>Spain</td>
+  <td>17</td>
+  <td>$88.00</td>
+ </tr>
+ <tr height="20">
+  <td>GODOS</td>
+  <td>Godos Cocina Tipica</td>
+  <td>Jose Pedro Freyre</td>
+  <td>Sales Manager</td>
+  <td>(95) 555 82 82</td>
+  <td>Sevilla</td>
+  <td>Spain</td>
+  <td>63</td>
+  <td>$243.74</td>
+ </tr>
+ <tr height="20">
+  <td>GOURL</td>
+  <td>Gourmet Lanchonetes</td>
+  <td>Andre Fonseca</td>
+  <td>Sales Associate</td>
+  <td>(11) 555-9482</td>
+  <td>Campinas</td>
+  <td>Brazil</td>
+  <td>281</td>
+  <td>$421.93</td>
+ </tr>
+ <tr height="20">
+  <td>GREAL</td>
+  <td>Great Lakes Food Market</td>
+  <td>Howard Snyder</td>
+  <td>Marketing Manager</td>
+  <td>(503) 555-7555</td>
+  <td>Eugene</td>
+  <td>USA</td>
+  <td>220</td>
+  <td>$573.95</td>
+ </tr>
+ <tr height="20">
+  <td>GROSR</td>
+  <td>GROSELLA-Restaurante</td>
+  <td>Manuel Pereira</td>
+  <td>Owner</td>
+  <td>(2) 283-2951</td>
+  <td>Caracas</td>
+  <td>Venezuela</td>
+  <td>20</td>
+  <td>$38.75</td>
+ </tr>
+ <tr height="20">
+  <td>HANAR</td>
+  <td>Hanari Carnes</td>
+  <td>Mario Pontes</td>
+  <td>Accounting Manager</td>
+  <td>(21) 555-0091</td>
+  <td>Rio de Janeiro</td>
+  <td>Brazil</td>
+  <td>199</td>
+  <td>$740.05</td>
+ </tr>
+ <tr height="20">
+  <td>HILAA</td>
+  <td>HILARION-Abastos</td>
+  <td>Carlos Hernandez</td>
+  <td>Sales Representative</td>
+  <td>(5) 555-1340</td>
+  <td>San Cristobal</td>
+  <td>Venezuela</td>
+  <td>650</td>
+  <td>$515.83</td>
+ </tr>
+ <tr height="20">
+  <td>HUNGC</td>
+  <td>Hungry Coyote Import Store</td>
+  <td>Yoshi Latimer</td>
+  <td>Sales Representative</td>
+  <td>(503) 555-6874</td>
+  <td>Elgin</td>
+  <td>USA</td>
+  <td>77</td>
+  <td>$136.65</td>
+ </tr>
+ <tr height="20">
+  <td>HUNGO</td>
+  <td>Hungry Owl All-Night Grocers</td>
+  <td>Patricia McKenna</td>
+  <td>Sales Associate</td>
+  <td>2967 542</td>
+  <td>Cork</td>
+  <td>Ireland</td>
+  <td>799</td>
+  <td>$847.69</td>
+ </tr>
+ <tr height="20">
+  <td>ISLAT</td>
+  <td>Island Trading</td>
+  <td>Helen Bennett</td>
+  <td>Marketing Manager</td>
+  <td>(198) 555-8888</td>
+  <td>Cowes</td>
+  <td>UK</td>
+  <td>122</td>
+  <td>$278.00</td>
+ </tr>
+ <tr height="20">
+  <td>KOENE</td>
+  <td>Koniglich Essen</td>
+  <td>Philip Cramer</td>
+  <td>Sales Associate</td>
+  <td>0555-09876</td>
+  <td>Brandenburg</td>
+  <td>Germany</td>
+  <td>419</td>
+  <td>$414.20</td>
+ </tr>
+ <tr height="20">
+  <td>LAMAI</td>
+  <td>La maison d'Asie</td>
+  <td>Annette Roulet</td>
+  <td>Sales Manager</td>
+  <td>61.77.61.10</td>
+  <td>Toulouse</td>
+  <td>France</td>
+  <td>277</td>
+  <td>$417.14</td>
+ </tr>
+ <tr height="20">
+  <td>LAUGB</td>
+  <td>Laughing Bacchus Wine Cellars</td>
+  <td>Yoshi Tannamuri</td>
+  <td>Marketing Assistant</td>
+  <td>(604) 555-3392</td>
+  <td>Vancouver</td>
+  <td>Canada</td>
+  <td>45</td>
+  <td>$36.80</td>
+ </tr>
+ <tr height="20">
+  <td>LAZYK</td>
+  <td>Lazy K Kountry Store</td>
+  <td>John Steel</td>
+  <td>Marketing Manager</td>
+  <td>(509) 555-7969</td>
+  <td>Walla Walla</td>
+  <td>USA</td>
+  <td>20</td>
+  <td>$35.70</td>
+ </tr>
+ <tr height="20">
+  <td>LEHMS</td>
+  <td>Lehmanns Marktstand</td>
+  <td>Renate Messner</td>
+  <td>Sales Representative</td>
+  <td>069-0245984</td>
+  <td>Frankfurt a.M.</td>
+  <td>Germany</td>
+  <td>471</td>
+  <td>$711.15</td>
+ </tr>
+ <tr height="20">
+  <td>LETSS</td>
+  <td>Let's Stop N Shop</td>
+  <td>Jaime Yorres</td>
+  <td>Owner</td>
+  <td>(415) 555-5938</td>
+  <td>San Francisco</td>
+  <td>USA</td>
+  <td>108</td>
+  <td>$160.59</td>
+ </tr>
+ <tr height="20">
+  <td>LILAS</td>
+  <td>LILA-Supermercado</td>
+  <td>Carlos Gonzalez</td>
+  <td>Accounting Manager</td>
+  <td>(9) 331-6954</td>
+  <td>Barquisimeto</td>
+  <td>Venezuela</td>
+  <td>323</td>
+  <td>$188.50</td>
+ </tr>
+ <tr height="20">
+  <td>LINOD</td>
+  <td>LINO-Delicateses</td>
+  <td>Felipe Izquierdo</td>
+  <td>Owner</td>
+  <td>(8) 34-56-12</td>
+  <td>I. de Margarita</td>
+  <td>Venezuela</td>
+  <td>477</td>
+  <td>$227.45</td>
+ </tr>
+ <tr height="20">
+  <td>LONEP</td>
+  <td>Lonesome Pine Restaurant</td>
+  <td>Fran Wilson</td>
+  <td>Sales Manager</td>
+  <td>(503) 555-9573</td>
+  <td>Portland</td>
+  <td>USA</td>
+  <td>55</td>
+  <td>$198.10</td>
+ </tr>
+ <tr height="20">
+  <td>MAGAA</td>
+  <td>Magazzini Alimentari Riuniti</td>
+  <td>Giovanni Rovelli</td>
+  <td>Marketing Manager</td>
+  <td>035-640230</td>
+  <td>Bergamo</td>
+  <td>Italy</td>
+  <td>270</td>
+  <td>$221.45</td>
+ </tr>
+ <tr height="20">
+  <td>MAISD</td>
+  <td>Maison Dewey</td>
+  <td>Catherine Dewey</td>
+  <td>Sales Agent</td>
+  <td>(02) 201 24 67</td>
+  <td>Bruxelles</td>
+  <td>Belgium</td>
+  <td>161</td>
+  <td>$256.80</td>
+ </tr>
+ <tr height="20">
+  <td>MEREP</td>
+  <td>Mere Paillarde</td>
+  <td>Jean Fresniere</td>
+  <td>Marketing Assistant</td>
+  <td>(514) 555-8054</td>
+  <td>Montreal</td>
+  <td>Canada</td>
+  <td>750</td>
+  <td>$785.10</td>
+ </tr>
+ <tr height="20">
+  <td>MORGK</td>
+  <td>Morgenstern Gesundkost</td>
+  <td>Alexander Feuer</td>
+  <td>Marketing Assistant</td>
+  <td>0342-023176</td>
+  <td>Leipzig</td>
+  <td>Germany</td>
+  <td>110</td>
+  <td>$227.95</td>
+ </tr>
+ <tr height="20">
+  <td>NORTS</td>
+  <td>North/South</td>
+  <td>Simon Crowther</td>
+  <td>Sales Associate</td>
+  <td>(171) 555-7733</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>27</td>
+  <td>$131.00</td>
+ </tr>
+ <tr height="20">
+  <td>OCEAN</td>
+  <td>Oceano Atlantico Ltda.</td>
+  <td>Yvonne Moncada</td>
+  <td>Sales Agent</td>
+  <td>(1) 135-5333</td>
+  <td>Buenos Aires</td>
+  <td>Argentina</td>
+  <td>26</td>
+  <td>$81.60</td>
+ </tr>
+ <tr height="20">
+  <td>OLDWO</td>
+  <td>Old World Delicatessen</td>
+  <td>Rene Phillips</td>
+  <td>Sales Representative</td>
+  <td>(907) 555-7584</td>
+  <td>Anchorage</td>
+  <td>USA</td>
+  <td>266</td>
+  <td>$217.75</td>
+ </tr>
+ <tr height="20">
+  <td>OTTIK</td>
+  <td>Ottilies Kaseladen</td>
+  <td>Henriette Pfalzheim</td>
+  <td>Owner</td>
+  <td>0221-0644327</td>
+  <td>Koln</td>
+  <td>Germany</td>
+  <td>419</td>
+  <td>$352.90</td>
+ </tr>
+ <tr height="20">
+  <td>PERIC</td>
+  <td>Pericles Comidas clasicas</td>
+  <td>Guillermo Fernandez</td>
+  <td>Sales Representative</td>
+  <td>(5) 552-3745</td>
+  <td>Mexico D.F.</td>
+  <td>Mexico</td>
+  <td>118</td>
+  <td>$132.20</td>
+ </tr>
+ <tr height="20">
+  <td>PICCO</td>
+  <td>Piccolo und mehr</td>
+  <td>Georg Pipps</td>
+  <td>Sales Manager</td>
+  <td>6562-9722</td>
+  <td>Salzburg</td>
+  <td>Austria</td>
+  <td>397</td>
+  <td>$398.13</td>
+ </tr>
+ <tr height="20">
+  <td>PRINI</td>
+  <td>Princesa Isabel Vinhos</td>
+  <td>Isabel de Castro</td>
+  <td>Sales Representative</td>
+  <td>(1) 356-5634</td>
+  <td>Lisboa</td>
+  <td>Portugal</td>
+  <td>84</td>
+  <td>$67.20</td>
+ </tr>
+ <tr height="20">
+  <td>QUEDE</td>
+  <td>Que Delicia</td>
+  <td>Bernardo Batista</td>
+  <td>Accounting Manager</td>
+  <td>(21) 555-4252</td>
+  <td>Rio de Janeiro</td>
+  <td>Brazil</td>
+  <td>205</td>
+  <td>$228.43</td>
+ </tr>
+ <tr height="20">
+  <td>QUEEN</td>
+  <td>Queen Cozinha</td>
+  <td>Lucia Carvalho</td>
+  <td>Marketing Assistant</td>
+  <td>(11) 555-1189</td>
+  <td>Sao Paulo</td>
+  <td>Brazil</td>
+  <td>527</td>
+  <td>$463.13</td>
+ </tr>
+ <tr height="20">
+  <td>QUICK</td>
+  <td>QUICK-Stop</td>
+  <td>Horst Kloss</td>
+  <td>Accounting Manager</td>
+  <td>0372-035188</td>
+  <td>Cunewalde</td>
+  <td>Germany</td>
+  <td>2172</td>
+  <td>$1,492.32</td>
+ </tr>
+ <tr height="20">
+  <td>RANCH</td>
+  <td>Rancho grande</td>
+  <td>Sergio Gutierrez</td>
+  <td>Sales Representative</td>
+  <td>(1) 123-5555</td>
+  <td>Buenos Aires</td>
+  <td>Argentina</td>
+  <td>48</td>
+  <td>$131.10</td>
+ </tr>
+ <tr height="20">
+  <td>RATTC</td>
+  <td>Rattlesnake Canyon Grocery</td>
+  <td>Paula Wilson</td>
+  <td>Assistant Sales Representative</td>
+  <td>(505) 555-5939</td>
+  <td>Albuquerque</td>
+  <td>USA</td>
+  <td>540</td>
+  <td>$585.85</td>
+ </tr>
+ <tr height="20">
+  <td>REGGC</td>
+  <td>Reggiani Caseifici</td>
+  <td>Maurizio Moroni</td>
+  <td>Sales Associate</td>
+  <td>0522-556721</td>
+  <td>Reggio Emilia</td>
+  <td>Italy</td>
+  <td>132</td>
+  <td>$263.25</td>
+ </tr>
+ <tr height="20">
+  <td>RICAR</td>
+  <td>Ricardo Adocicados</td>
+  <td>Janete Limeira</td>
+  <td>Assistant Sales Agent</td>
+  <td>(21) 555-3412</td>
+  <td>Rio de Janeiro</td>
+  <td>Brazil</td>
+  <td>304</td>
+  <td>$167.50</td>
+ </tr>
+ <tr height="20">
+  <td>RICSU</td>
+  <td>Richter Supermarkt</td>
+  <td>Michael Holz</td>
+  <td>Sales Manager</td>
+  <td>0897-034214</td>
+  <td>Geneve</td>
+  <td>Switzerland</td>
+  <td>409</td>
+  <td>$470.99</td>
+ </tr>
+ <tr height="20">
+  <td>SANTG</td>
+  <td>Sante Gourmet</td>
+  <td>Jonas Bergulfsen</td>
+  <td>Owner</td>
+  <td>07-98 92 35</td>
+  <td>Stavern</td>
+  <td>Norway</td>
+  <td>21</td>
+  <td>$99.80</td>
+ </tr>
+ <tr height="20">
+  <td>SAVEA</td>
+  <td>Save-a-lot Markets</td>
+  <td>Jose Pavarotti</td>
+  <td>Sales Representative</td>
+  <td>(208) 555-8097</td>
+  <td>Boise</td>
+  <td>USA</td>
+  <td>2574</td>
+  <td>$1,579.37</td>
+ </tr>
+ <tr height="20">
+  <td>SEVES</td>
+  <td>Seven Seas Imports</td>
+  <td>Hari Kumar</td>
+  <td>Sales Manager</td>
+  <td>(171) 555-1717</td>
+  <td>London</td>
+  <td>UK</td>
+  <td>377</td>
+  <td>$430.70</td>
+ </tr>
+ <tr height="20">
+  <td>SIMOB</td>
+  <td>Simons bistro</td>
+  <td>Jytte Petersen</td>
+  <td>Owner</td>
+  <td>31 12 34 56</td>
+  <td>Kobenhavn</td>
+  <td>Denmark</td>
+  <td>347</td>
+  <td>$485.29</td>
+ </tr>
+ <tr height="20">
+  <td>SPECD</td>
+  <td>Specialites du monde</td>
+  <td>Dominique Perrier</td>
+  <td>Marketing Manager</td>
+  <td>(1) 47.55.60.10</td>
+  <td>Paris</td>
+  <td>France</td>
+  <td>3</td>
+  <td>$17.45</td>
+ </tr>
+ <tr height="20">
+  <td>SPLIR</td>
+  <td>Split Rail Beer &amp; Ale</td>
+  <td>Art Braunschweiger</td>
+  <td>Sales Manager</td>
+  <td>(307) 555-4680</td>
+  <td>Lander</td>
+  <td>USA</td>
+  <td>117</td>
+  <td>$160.80</td>
+ </tr>
+ <tr height="20">
+  <td>SUPRD</td>
+  <td>Supremes delices</td>
+  <td>Pascale Cartrain</td>
+  <td>Accounting Manager</td>
+  <td>(071) 23 67 22 20</td>
+  <td>Charleroi</td>
+  <td>Belgium</td>
+  <td>355</td>
+  <td>$216.20</td>
+ </tr>
+ <tr height="20">
+  <td>THEBI</td>
+  <td>The Big Cheese</td>
+  <td>Liz Nixon</td>
+  <td>Marketing Manager</td>
+  <td>(503) 555-3612</td>
+  <td>Portland</td>
+  <td>USA</td>
+  <td>29</td>
+  <td>$317.85</td>
+ </tr>
+ <tr height="20">
+  <td>THECR</td>
+  <td>The Cracker Box</td>
+  <td>Liu Wong</td>
+  <td>Marketing Assistant</td>
+  <td>(406) 555-5834</td>
+  <td>Butte</td>
+  <td>USA</td>
+  <td>35</td>
+  <td>$233.84</td>
+ </tr>
+ <tr height="20">
+  <td>TOMSP</td>
+  <td>Toms Spezialitaten</td>
+  <td>Karin Josephs</td>
+  <td>Marketing Manager</td>
+  <td>0251-031259</td>
+  <td>Munster</td>
+  <td>Germany</td>
+  <td>152</td>
+  <td>$122.25</td>
+ </tr>
+ <tr height="20">
+  <td>TORTU</td>
+  <td>Tortuga Restaurante</td>
+  <td>Miguel Angel Paolino</td>
+  <td>Owner</td>
+  <td>(5) 555-2933</td>
+  <td>Mexico D.F.</td>
+  <td>Mexico</td>
+  <td>110</td>
+  <td>$397.05</td>
+ </tr>
+ <tr height="20">
+  <td>TRADH</td>
+  <td>Tradicao Hipermercados</td>
+  <td>Anabela Domingues</td>
+  <td>Sales Representative</td>
+  <td>(11) 555-2167</td>
+  <td>Sao Paulo</td>
+  <td>Brazil</td>
+  <td>70</td>
+  <td>$105.30</td>
+ </tr>
+ <tr height="20">
+  <td>TRAIH</td>
+  <td>Trail's Head Gourmet Provisioners</td>
+  <td>Helvetius Nagy</td>
+  <td>Sales Associate</td>
+  <td>(206) 555-8257</td>
+  <td>Kirkland</td>
+  <td>USA</td>
+  <td>80</td>
+  <td>$142.20</td>
+ </tr>
+ <tr height="20">
+  <td>VAFFE</td>
+  <td>Vaffeljernet</td>
+  <td>Palle Ibsen</td>
+  <td>Sales Manager</td>
+  <td>86 21 32 43</td>
+  <td>Arhus</td>
+  <td>Denmark</td>
+  <td>419</td>
+  <td>$401.80</td>
+ </tr>
+ <tr height="20">
+  <td>VICTE</td>
+  <td>Victuailles en stock</td>
+  <td>Mary Saveley</td>
+  <td>Sales Agent</td>
+  <td>78.32.54.86</td>
+  <td>Lyon</td>
+  <td>France</td>
+  <td>239</td>
+  <td>$264.25</td>
+ </tr>
+ <tr height="20">
+  <td>VINET</td>
+  <td>Vins et alcools Chevalier</td>
+  <td>Paul Henriot</td>
+  <td>Accounting Manager</td>
+  <td>26.47.15.10</td>
+  <td>Reims</td>
+  <td>France</td>
+  <td>40</td>
+  <td>$41.65</td>
+ </tr>
+ <tr height="20">
+  <td>WANDK</td>
+  <td>Die Wandernde Kuh</td>
+  <td>Rita Muller</td>
+  <td>Sales Representative</td>
+  <td>0711-020361</td>
+  <td>Stuttgart</td>
+  <td>Germany</td>
+  <td>249</td>
+  <td>$242.95</td>
+ </tr>
+ <tr height="20">
+  <td>WARTH</td>
+  <td>Wartian Herkku</td>
+  <td>Pirkko Koskitalo</td>
+  <td>Accounting Manager</td>
+  <td>981-443655</td>
+  <td>Oulu</td>
+  <td>Finland</td>
+  <td>550</td>
+  <td>$698.69</td>
+ </tr>
+ <tr height="20">
+  <td>WELLI</td>
+  <td>Wellington Importadora</td>
+  <td>Paula Parente</td>
+  <td>Sales Manager</td>
+  <td>(14) 555-8122</td>
+  <td>Resende</td>
+  <td>Brazil</td>
+  <td>164</td>
+  <td>$314.60</td>
+ </tr>
+ <tr height="20">
+  <td>WHITC</td>
+  <td>White Clover Markets</td>
+  <td>Karl Jablonski</td>
+  <td>Owner</td>
+  <td>(206) 555-4112</td>
+  <td>Seattle</td>
+  <td>USA</td>
+  <td>518</td>
+  <td>$594.93</td>
+ </tr>
+ <tr height="20">
+  <td>WILMK</td>
+  <td>Wilman Kala</td>
+  <td>Matti Karttunen</td>
+  <td>Owner/Marketing Assistant</td>
+  <td>90-224 8858</td>
+  <td>Helsinki</td>
+  <td>Finland</td>
+  <td>54</td>
+  <td>$183.95</td>
+ </tr>
+ <tr height="20">
+  <td>WOLZA</td>
+  <td>Wolski Zajazd</td>
+  <td>Zbyszek Piestrzeniewicz</td>
+  <td>Owner</td>
+  <td>(26) 642-7012</td>
+  <td>Warszawa</td>
+  <td>Poland</td>
+  <td>59</td>
+  <td>$109.95</td>
+ </tr>
+
+
+</table>
+</body>
+</html>

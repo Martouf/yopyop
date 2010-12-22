@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer &raquo; Usage</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1>Shadowbox.js</h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a href="../index.html">Home</a> //
+            <a href="support.html">Support</a> //
+            <a class="selected">Usage</a> //
+            <a href="api.html">API</a> //
+            <a href="download.html">Download</a> //
+            <a href="faq.html">FAQ</a>
+        </div>
+
+        <h2><a name="overview">Overview</a></h2>
+
+        <p>Shadowbox was designed with both the web hobbyist and the experienced  programmer in mind. As such, it can be easily added to any web page with very little time and effort using the default settings. At the same time, Shadowbox offers a great deal of flexibility for those users who need to fine-tune the details of its appearance and operation for a given project.</p>
+
+        <p>This page contains detailed instructions on how to set up and run Shadowbox from both perspectives.</p>
+
+        <h2><a name="setup">Setup</a></h2>
+
+        <p>There are several ways to set up your Shadowbox environment, depending on the needs of your project. Regardless of the route you choose, you'll need the following four basic components in order to properly run Shadowbox:</p>
+
+        <ul>
+            <li><a href="#adapter">Adapter</a></li>
+            <li><a href="#skin">Skin</a></li>
+            <li><a href="#language">Language</a></li>
+            <li><a href="#player">Player(s)</a></li>
+        </ul>
+
+        <p>Each of these is explained in greater detail in the sections below.</p>
+
+        <h3><a name="adapter">Adapter</a></h3>
+
+        <p>The first thing you'll need to set up in order to use Shadowbox is an adapter. For an explanation of what an adapter is, see <a href="support.html#adapters">this page</a>.</p>
+
+        <p class="note"><span>Note:</span> I should clarify at this time that you don't technically <em>need</em> an adapter at all. Shadowbox actually ships with a base "adapter" that can be used if you're not already using some other library and you'd prefer to use Shadowbox in standalone mode.</p>
+
+        <p>The adapter must be included before you include your <code>shadowbox.js</code> file. For example, if I were using the popular <a href="http://www.prototypejs.org">Prototype</a> library with Shadowbox, I would include the files in the following order:</p>
+
+<pre><code>&lt;script type="text/javascript" src="prototype.js">&lt;/script>
+&lt;script type="text/javascript" src="shadowbox-prototype.js">&lt;/script>
+&lt;script type="text/javascript" src="shadowbox.js">&lt;/script>
+</code></pre>
+
+        <p>To use Shadowbox in standalone mode, you only need to include the <code>base</code> adapter:</p>
+
+<pre><code>&lt;script type="text/javascript" src="shadowbox-base.js">&lt;/script>
+&lt;script type="text/javascript" src="shadowbox.js">&lt;/script>
+</code></pre>
+
+        <h3><a name="skin">Skin</a></h3>
+
+        <p>A Shadowbox skin is a directory of files that determine what Shadowbox will look like when it is displayed. The "classic" skin is included with the default distribution, and it is hoped that more skins will become available as third-party developers have some time to explore the Shadowbox code.</p>
+
+        <p class="note"><span>Note for Developers:</span> A skin directory contains all of the markup, CSS, and images that Shadowbox will need to display properly. The skinning API is built to give designers maximum flexibility over the appearance of the application. Some nice features are supported, including string formatting and transparent PNG support. See the <a href="../src/skin/README">README</a> for more information.</p>
+
+        <p>To use a skin, simply call <code>Shadowbox.loadSkin</code>, as in the following example:</p>
+
+<pre><code>Shadowbox.loadSkin('classic', 'my/skin/dir');
+</code></pre>
+
+        <p>The first parameter is the name of the skin you'd like to use, and the second is the path to the directory where the skin is located. As always, you can view the source of the <a href="../index.html">demo page</a> if you want to see an example of how this is to be done.</p>
+
+        <p class="note"><span>Note:</span> Because it is not possible to compile the code for a Shadowbox skin into a <a href="download.html">static build</a>, you must either use the above mentioned method of loading the skin or manually include both the <code>skin.js</code> and <code>skin.css</code> files for the appropriate skin (using <code>&lt;script></code> and <code>&lt;link></code> tags respectively) at the top of your page.</p>
+
+        <h3><a name="language">Language</a></h3>
+
+        <p>Shadowbox uses textual messages for error display and while hovering over navigation controls. Thanks to the efforts of the Shadowbox community, all messages used in the application have been translated into several different languages. The desired language may either be compiled into the <a href="download.html">build</a> or loaded at runtime using <code>Shadowbox.loadLanguage</code>. For example, you would use the following code to load the Italian language file:</p>
+
+<pre><code>Shadowbox.loadLanguage('it', 'my/lang/dir');
+</code></pre>
+
+        <p>The first parameter is the two-letter abbreviation for the language you'd like to use (as found in the <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> standard), and the second is the path to the directory where the language files are stored. Have a look through the <a href="../src/lang/">lang</a> directory to see which languages are available.</p>
+
+        <h3><a name="player">Player</a></h3>
+
+        <p>Shadowbox supports a wide range of <a href="support.html#media">media formats</a>. However, you may not need to display all of the supported formats on your page. For this purpose, several media "player" classes have been created that are able to display different types of content. The following table lists the different players and gives a short description of the type of content each is capable of displaying.</p>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr><th>Player</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="option">img</td><td>Used to display various image formats including gif, jpeg, and png. Supports dragging of oversized images via the <a href="api.html#handleoversize">handleOversize</a> configuration option.</td></tr>
+                <tr><td class="option">swf</td><td>Used to display SWF's. Supports background color setting via the <a href="api.html#flashbgcolor">flashBgColor</a> configuration option.</td></tr>
+                <tr><td class="option">flv</td><td>Used to play Flash video files via <a href="http://www.jeroenwijering.com/">Jeroen Wijering's</a> <a href="http://www.jeroenwijering.com/?item=JW_FLV_Player">JW FLV Player</a>.</td></tr>
+                <tr><td class="option">qt</td><td>Uses the <a href="http://www.apple.com/quicktime/">QuickTime</a> browser plugin to play content.</td></tr>
+                <tr><td class="option">wmp</td><td>Uses the <a href="http://www.microsoft.com/windows/windowsmedia/">Windows Media Player</a> browser plugin to play content.</td></tr>
+                <tr><td class="option">iframe</td><td>Displays content in an HTML Iframe. Useful for playing videos from YouTube and Google video, as well as displaying exterior web sites.</td></tr>
+                <tr><td class="option">html</td><td>Injects some pure HTML code into the Shadowbox display. Useful for displaying inline tables and forms.</td></tr>
+            </tbody>
+        </table>
+
+        <p>Just like <a href="#language">language</a> files, players may either be compiled into the <a href="download.html">build</a> or loaded at runtime using <code>Shadowbox.loadPlayer</code>. For example, if I only need to display images and Flash video, I'd make the following function call:</p>
+
+<pre><code>Shadowbox.loadPlayer(['img', 'flv'], 'my/player/dir');
+</code></pre>
+
+        <p>The first parameter of this function should be an array containing the names of the players you'd like to use, and the second is the path to the directory where the player class files are located.</p>
+
+        <h3><a name="setup-sample">Sample</a></h3>
+
+        <p>Whew! That's a lot of setup, I know. So in conclusion of this section, here is some sample code that should help you get going. As always, don't forget to check out the source of the <a href="../index.html">demo page</a> for yet another example.</p>
+
+<pre><code>&lt;script type="text/javascript" src="shadowbox-base.js">&lt;/script>
+&lt;script type="text/javascript" src="shadowbox.js">&lt;/script>
+&lt;script type="text/javascript">
+
+Shadowbox.loadSkin('classic', 'my/skin/dir'); // use the "classic" skin
+Shadowbox.loadLanguage('en', 'my/lang/dir'); // use the English language
+Shadowbox.loadPlayer(['img', 'qt'], 'my/player/dir'); // use img and qt players
+
+window.onload = Shadowbox.init;
+
+&lt;/script>
+</code></pre>
+
+        <p>It should be noted that all paths used in the <code>Shadowbox.load*</code> functions are inserted directly into <code>&lt;script></code> and <code>&lt;link></code> tags, so you can use either absolute or relative paths. In fact, if you don't care about the speed of your load time, you can always link to the Shadowbox <a href="http://michaeljackson.googlecode.com/svn/trunk/shadowbox/">SVN repository</a> for your skin, language, and player files. However, although Google is generally pretty fast, you'd better be prepared to wait a while! You'll get much faster load times storing everything on your server.</p>
+
+        <p class="note"><span>Note:</span> All setup code must be called <em>before</em> the page loads, as in the previous example. Also, keep in mind that you may compile a given language and/or player classes into a <a href="download.html">static build</a>, thus eliminating the need to use <code>Shadowbox.loadLanguage</code> and/or <code>Shadowbox.loadPlayer</code> entirely.</p>
+
+        <h2><a name="usage-basic">Basic Usage</a></h2>
+
+        <p>In order to use Shadowbox, you must do at least two basic things. First you must initialize the Shadowbox environment. Initialization should only happen once&mdash;when the page first loads. Second, you must tell Shadowbox which links you would like it to open. These steps are described in greater detail below.</p>
+
+        <h3><a name="initialization">Initialization</a></h3>
+
+        <p>The first step to using Shadowbox is to initialize the Shadowbox environment by calling <code>Shadowbox.init</code> as soon as the page loads. When using any of the <code>Shadowbox.load*</code> methods mentioned <a href="#setup">above</a>, initialization should happen as soon as the <code>window</code> loads. This allows the external files to load before using them in the initialization process.</p>
+
+<pre><code>&lt;script type="text/javascript">
+
+// calls to Shadowbox.load* here (see above example)
+
+window.onload = Shadowbox.init;
+
+&lt;/script>
+</code></pre>
+
+        <p>In the case that you don't like loading external files on the fly, you must link to the skin, language, and player files statically using <code>&lt;script></code> and <code>&lt;link></code> tags. If you do this, you may call <code>Shadowbox.init</code> as soon as the DOM loads. For example, if I were using the YUI library, I would do the following:</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="path/to/skin.css">
+&lt;script type="text/javascript" src="path/to/skin.js">
+
+&lt;script type="text/javascript" src="">
+
+&lt;script type="text/javascript">
+
+YAHOO.util.Event.onDOMReady(Shadowbox.init);
+
+&lt;/script>
+</code></pre>
+
+        <p class="note"><span>Note:</span> Read <a href="http://dean.edwards.name/weblog/2005/09/busted/">this</a> article for more information on the DOM ready event.</p>
+
+        <h3><a name="markup">Markup</a></h3>
+
+        <p>Secondly, you need to tell Shadowbox which links you want it to open. The simplest way to do this is through your HTML markup. If you're going to take this route, at the very least you must add a <code>rel="shadowbox"</code> attribute to each link. For example, say you have this link to an image on your page:</p>
+
+<pre><code>&lt;a href="myimage.jpg">My Image&lt;/a>
+</code></pre>
+
+        <p>In order to set up this link for use with Shadowbox, simply change it to this:</p>
+
+<pre><code>&lt;a href="myimage.jpg" rel="shadowbox">My Image&lt;/a>
+</code></pre>
+
+        <p>That's it! Clicking on this link should now open up the image in Shadowbox.</p>
+
+        <p class="note"><span>Note:</span> The word <code>lightbox</code> will also work here. This feature was added for compatibility with the original <a href="http://www.huddletogether.com/projects/lightbox2/">Lightbox</a> script. Also note that because HTML <a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.6.1">area</a> tags do not support the <code>rel</code> attribute, you cannot use this method to set them up for use with Shadowbox. Instead, use <code>Shadowbox.setup</code> as described <a href="#usage-advanced">below</a>.</p>
+
+        <p>If you would like to display a title for your image, simply add a <code>title</code> attribute to the link.</p>
+
+<pre><code>&lt;a href="myimage.jpg" rel="shadowbox" title="My Image">My Image&lt;/a>
+</code></pre>
+
+        <p>You must explicitly tell Shadowbox the dimensions to use to display content other than images. This is done by adding a few parameters to the end of the <code>rel</code> attribute, separated by semi-colons. To specify a movie's height and width (in pixels), use the <code>height</code> and <code>width</code> parameters.</p>
+
+<pre><code>&lt;a href="mymovie.swf" rel="shadowbox;height=140;width=120">My Movie&lt;/a>
+</code></pre>
+
+        <p>Additionally, you may set Shadowbox <a href="#options">options</a> on a per-link basis. To do this, you must include a <a href="http://www.json.org/">JSON</a>-formatted parameter called <code>options</code>.</p>
+
+<pre><code>&lt;a href="myimage.jpg" rel="shadowbox;options={animate: false}">My Image&lt;/a>
+</code></pre>
+
+        <p>In addition to displaying single images and movies, Shadowbox is also capable of displaying galleries of content. In order to designate a link as part of a gallery, you must add the gallery name to the <code>rel</code> attribute between square brackets immediately following the word "shadowbox". The following markup creates a gallery called "Vacation" with two pictures.</p>
+
+<pre><code>&lt;a href="beach.jpg" rel="shadowbox[Vacation]">The Beach&lt;/a>
+&lt;a href="pier.jpg" rel="shadowbox[Vacation]">The Pier&lt;/a>
+</code></pre>
+
+        <p>Galleries may be composed of content of many different types. The following markup is a compressed version of the last <a href="../index.html#demos">demo</a>. It demonstrates how various media can be combined into a single gallery.</p>
+
+<pre><code>&lt;a rel="shadowbox[Mixed];options={counterType:'skip',continuous:true}" href="vanquish.jpg">jpg&lt;/a>
+&lt;a rel="shadowbox[Mixed];width=520;height=390" href="caveman.swf">swf&lt;/a>
+&lt;a rel="shadowbox[Mixed];width=292;height=218" href="kayak.mp4">movie&lt;/a>
+&lt;a rel="shadowbox[Mixed]" href="index.html">iframe&lt;/a>
+</code></pre>
+
+        <h2><a name="usage-advanced">Advanced</a></h2>
+
+        <p>If you don't want to add to your markup, you don't have to. Shadowbox may be manipulated with pure JavaScript. This use is slightly more complex, but it has several benefits including the fact that your HTML markup will be cleaner and you can more easily integrate Shadowbox into an existing project.
+
+        <p>If you were paying attention in the section about <a href="#markup">markup</a>, you'll notice that there are several parameters that commonly accompany Shadowbox gallery elements. These parameters are listed in the table below.</p>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr><th>Parameter</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="option">player</td><td>The <a href="#player">player</a> that should be used for the content. May be <code>"img"</code>, <code>"swf"</code>, <code>"flv"</code>, <code>"qt"</code> (QuickTime), <code>"wmp"</code> (Windows Media Player), <code>"iframe"</code>, or <code>"html"</code>.</td></tr>
+                <tr><td class="option">title</td><td>The title to use for the gallery element.</td></tr>
+                <tr><td class="option">height</td><td>The content's height (in pixels, not necessary for images).</td></tr>
+                <tr><td class="option">width</td><td>The content's width (in pixels, not necessary for images).</td></tr>
+                <tr><td class="option">gallery</td><td>The gallery name to use for the content (optional).</td></tr>
+                <tr><td class="option">content</td><td>The actual content to display (e.g. URL, HTML code, etc.).</td></tr>
+            </tbody>
+        </table>
+
+        <p>When using the markup method, each of these options may be present in one form or another. A link's gallery name, height, and width may all be configured within the link's <code>rel</code> attribute. Similarly, its title is contained in the <code>title</code> attribute and the content value defaults to the link's <code>href</code>. The content type is then derived from the extension on the linked file.</p>
+
+        <p>So, now that you know what's really going on behind the scenes, you can just pass objects that contain these pieces of information to <code>Shadowbox.open</code> as in the following example.</p>
+
+<pre><code>&lt;script type="text/javascript">
+
+window.onload = function(){
+
+    Shadowbox.init({
+        // let's skip the automatic setup because we don't have any
+        // properly configured link elements on the page
+        skipSetup: true
+    });
+
+    // open a welcome message
+    Shadowbox.open({
+        player:     'html',
+        title:      'Welcome',
+        content:    '&lt;div id="welcome-msg">Welcome to my website!&lt;/div>',
+        height:     350,
+        width:      350
+    });
+
+};
+
+&lt;/script>
+</code></pre>
+
+        <p class="note"><span>Note:</span> <code>Shadowbox.open</code> may also accept a second argument that contains some <a href="api.html#options">options</a> to apply.</p>
+
+        <p>You can also use <code>Shadowbox.setup</code> to manually set up link elements for use with Shadowbox. This can be useful, for example, if you have a dynamic page with links being created and destroyed dynamically.</p>
+
+        <p>The following example uses <a href="http://prototypejs.org">Prototype</a> 1.6 syntax.</p>
+
+<pre><code>&lt;script type="text/javascript">
+
+document.observe('dom:loaded', function(){
+
+    Shadowbox.init({
+        skipSetup: true // skip the automatic setup
+    });
+
+    // set up all anchor elements with a 'movie' class to work with Shadowbox
+    Shadowbox.setup($$('a.movie'), {
+        gallery:            'My Movies',
+        autoplayMovies:     true
+    });
+
+});
+
+&lt;/script>
+</code></pre>
+
+        <p>When using this method to set up links with Shadowbox, you may mix in the link parameters with the options argument as the second parameter. However, the same parameters will apply to all links set up in the same call, so you may want to make separate calls to <code>Shadowbox.setup</code> for each link.</p>
+
+        <p class="note"><span>Note:</span> Any options found in a link's HTML markup automatically trump those passed in via <code>setup()</code>.</p>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+/* Interface admin */
+body{
+	background-color: #fff;
+	margin-top: 10px; 
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 0.7em;
+	color: #000;
+}
+p{
+	text-align: justify;
+}
+pre{
+	font-size: 1.2em;
+}
+blockquote{
+	border-left: solid 1px #22f;
+	padding-left: 0.3em;
+}
+img {
+	border: none;
+}
+img.right{
+	margin: 2px 0px 2px 6px;
+	float: right;
+}
+img.left{
+	margin: 2px 6px 2px 0px;
+}
+hr {clear:both;visibility:hidden;}
+
+/* style liens */
+a:link{text-decoration:none;color:#00f;}
+a:active{text-decoration:none;color:#00f;}
+a:visited{text-decoration:none;color:#00f;}
+
+#cadre_admin{
+	margin: auto;
+	margin-top: 3%;
+	background-color: white;
+	text-align: center;
+	border: solid 1px #777;
+	width: 50%;
+	-moz-border-radius: 10px;  /*arrondi les cadre, mais ne fonctionne que pour firefox*/
+}
+#cadre_admin_popup{
+	padding: 1%;
+	width: 95%;
+	margin: auto;
+	margin-top: 3%;
+	background-color: white;
+	text-align: center;
+	border: solid 1px #777;
+	-moz-border-radius: 10px;  /*arrondi les cadre, mais ne fonctionne que pour firefox*/
+}
+#cadre_admin ul{
+	text-align: left;
+}
+
+/** Pour faire une bordure qui n'apparait pas dans firefox sur macosx **/
+input, textarea {
+	border-right: solid 1px #aaa;
+	border-bottom: solid 1px #aaa;
+}
+.erreur{
+	color: red;
+}
+.ok{
+	color: green;
+}
+#menu_admin{
+	width: 30%;
+	margin: auto;
+	margin-bottom: 2%;
+}
+#cadre_admin table {
+    margin: auto;
+}
+/* Coloration des lignes des tableau de manière alternative */
+.odd {background-color: #e3e3e3;}
+.even {background-color: #f5f5f5;}
+
+/* Lorsque l'on passe le curseur au dessus d'un champ de tableau "delete" il devient rouge */
+td[headers="entete_delete"]:hover{
+    background-color: red;
+}
+
+
+/***********************************/
+
+#cadre_admin{
+	padding: 1%;
+	min-width: 720px; /* taille minimale avant que les boites ne commence à se déplacer*/
+}
+input, textarea {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 11px;
+}
+
+/****** Formulaire d'ajout *******/
+label{ 
+	margin: 0 9px 0 0;
+	font-weight: bold;
+}
+label:after{
+	content: ":";
+}
+#bloc_article{
+	width: 95%;
+}
+/* Placement des boites */
+input#submit{
+	margin: auto;
+}
+fieldset {
+	border: solid 1px #777;
+	float: left;
+	text-align: left;
+	margin: 1%;
+	padding: 1%;
+	-moz-border-radius: 5px;
+}
+
+/** Largeur des champs texte **/
+#bloc_article textarea{
+	width: 100%;
+	height: 400px;
+}
+
+/*
+dl{
+    padding: 0;
+    list-style-type: none;
+}
+
+dt{
+	float: left;
+	width: 60%;
+	text-align: left;
+}
+dd{
+	text-align: left;
+}
+*/
+span {
+    margin: 0 20px 0 10px;
+}
+
+.boutons{
+	clear: both;
+	text-align: center;
+}
+
+/* jolis effets */
+input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  background: #efdbff;
+}
+
+/* aspect général */
+#liste{
+	width: 20%;
+	float: left;
+}
+
+ul#menu{
+	margin: 1px;
+	padding:0;
+}
+#contenu{
+	margin-left: 3%;
+	padding: 10px;
+	width: 90%;
+}
+#conteneur{
+	width: 60%;
+	margin: auto;
+}
+#ajout{
+	text-align: center;
+}
+
+#contenu h1{
+	/*background-color: #bbf;*/
+	background-color: #6487dc;
+	color: #fff;	
+	padding-left: 0.2em;
+}
+
+#commandes, #palette_outils{
+	margin: 20px;
+}
+
+/* Quelques styles qui sont pratique */
+div.postit{
+	background-color: #ff8;
+	width: 40%;
+	float: right;
+	padding: 5px;
+	border: solid 1px black;
+	-moz-border-radius: 5px;
+}
+div.gauche{
+	float: left;
+}
+div.droite{
+	float: right;
+}
+/* Le texte qui est dans un bloc est mis dans un paragraphe qui lui est par défaut justifié donc on le change à centré */
+div.centre p{
+	text-align: center !important;
+}
+div.centre{
+	text-align: center !important;
+}
+div.cadre{
+	border: solid 1px black;
+	padding: 5px;
+	margin: 3px;
+	-moz-border-radius: 5px;
+}
+/* conu pour faire un article sur 3 colonne */
+div.colonne{
+	float: left;
+	width: 30%;
+	margin: 10px;
+}
+div.moitie{
+	float: left;
+	width: 45%;
+	margin: 10px;
+}
+div.fondjaune{
+	background-color: #ff8;
+	color: black;
+}
+div.fondbleu{
+	background-color: #6487dc;  /*aliceblue F0F8FF*/
+	color: white;
+}
+div.fondvert{
+	background-color: #bfb;
+	color: black;
+}
+div.fondrouge{
+	background-color: #fbb;
+	color: black;
+}
+/* à placer absolument après les autres classes utilisées pour la mise en page , ceci afin surcharger les marges qu'aurait fait une autre classe*/
+div.bloccentre{
+	width: 50%;
+	margin: auto;
+}
+div.blocnews{
+	width: 90%;
+	border: solid 1px #ffe;
+	margin-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+.blocnews p{
+	padding: 5px;
+}
+.blocnews h3, .blocnews h1, .blocnews h2{
+	margin: 0px;
+	padding: 1px;
+	color: black !important;
+	background-color: #ff8;
+	background-image: url('fond-titre-news.png');
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-radius-top: 6px;
+}
+div.sanspuce ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+/* masque automatiquement au départ les sous listes */
+li ul{
+	padding: 0;
+	margin: 5px;
+	display: none;
+}
+.toggle_image{
+	padding-left: 6px;
+}
+/* formulaire de login */
+#bloc_identification{
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	width: 10%;
+	margin: 2px;
+	padding: 2px;
+}
+#login_form > #bloc_identification{
+	position: fixed;
+}
+#bloc_identification input{
+	width: 95%;
+}
+#bloc_identification label{
+	text-align: left;
+	display: block;
+}
+/*
+#form_identification{
+	display: none;
+}*/
+#nom_utilisateur, #deconnexion, #lien_motscles{
+	position: absolute;
+	top: 0;
+	background-color: #000;
+	color: #fff;
+	opacity: 0.7;
+	padding: 2px;
+	z-index: 10;
+}
+body > #nom_utilisateur, body >  #deconnexion, #contenu > #lien_motscles{
+	position: fixed;
+}
+#nom_utilisateur{
+	right: 160px;
+}
+#lien_motscles{
+	right: 90px;
+}
+#deconnexion{
+	right: 3px;
+}
+#deconnexion a, #nom_utilisateur a, #lien_motscles a{
+	color: #fff;
+}
+/*popup ajouter une image*/
+#bloc_position_vignette{
+	width: 95%;
+}
+#bloc_taille_vignette{
+	width: 30%;
+}
+#bloc_taille_vignette input{
+	width: 30%;
+}
+/*date de modif*/
+#date_modification{
+	float: right;
+	font-size: 0.85em;
+	width: 120px;
+	color: white;
+}
+/*page de recherche*/
+a.nuage:link{text-decoration:none;color:#ff3;}
+a.nuage:active{text-decoration:none;color:#ff3;}
+a.nuage:visited{text-decoration:none;color:#ff3;}
+#rechercher label{
+	text-align: left;
+}
+.nuage:hover{
+	background-color: #f33;
+	color: #fff;
+}
+.boite_nuage{
+	text-align: justify;
+	margin: 5px;	
+}
+input#l{
+	width: 70%;
+}
+.motcle_strate{
+	display: block;
+	float: left;
+	margin:0;
+	padding:0;
+}
+.ligne_strate{
+	clear: both;
+	margin: 0px;
+/*	border-top: solid 1px #fff; */
+}
+/* forum */
+#liens_ajouter_message{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 10px;
+}
+#bloc_ajouter_messages{
+	text-align: left;
+}
+input#pseudo{
+	width: 20%;
+	text-align: left;
+}
+#message{
+	width: 100%;
+	text-align: justify;
+}
+div.postforum{
+	width: 50%;
+	border: solid 1px #ff0;
+	margin-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ff8;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+.postforum p{
+	padding: 5px;
+}
+.postforum h3{
+	margin: 0px;
+	padding: 1px;
+	background-color: #fa4;
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-radius-top: 6px;
+}
+div#taille{
+	margin: auto;
+	margin-top: 5px;
+	background-color: #f99;
+	width: 160px;
+	height: 120px;
+	border: solid 1px #f00;
+}
+#dctoolbar{
+	float: right;
+}
+.labelTb{
+	padding-top: 8px;
+}
+#dctoolbar span{
+	margin:0;
+}
+#form_identification,#bloc_identification,#nom_utilisateur, #deconnexion, #lien_motscles,#pied,#entete,#utile{
+	display: none;
+}
+#conteneur{
+	width: 100% !important;
+}
+/*** blog ***/
+
+#bloc_commentaires{
+	width: 50%;
+	margin: auto;
+}
+#bloc_commentaires p{
+	text-align: left;
+}
+#bloc_commentaires a{
+	font-weight: bold;
+}
+
+.commentaire{
+	margin: 10px;
+}
+.commentaire_texte{
+	background: #ffd26b;
+	padding: 3px;
+	margin-bottom: 0px;
+	text-align: justify;
+	font-weight: normal;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+}
+#bloc_commentaires #texte,#bloc_commentaires #nom,#bloc_commentaires #email,#bloc_commentaires #url{
+	width: 100%;
+}
+/*** blog ***/
+
+#bloc_commentaires{
+	width: 50%;
+	margin: auto;
+}
+#bloc_commentaires p{
+	text-align: left;
+}
+#bloc_commentaires a{
+	font-weight: bold;
+}
+
+.commentaire{
+	margin: 10px;
+}
+.commentaire_texte{
+	background: #ffd26b;
+	padding: 3px;
+	margin-bottom: 0px;
+	text-align: justify;
+	font-weight: normal;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+}
+#bloc_commentaires #texte,#bloc_commentaires #nom,#bloc_commentaires #email,#bloc_commentaires #url{
+	width: 100%;
+}
+/****** Blog ******/
+
+.blocblog{
+	width: 80%;
+	margin-top: 20px;
+}
+
+.date{
+	height: 50px;
+	width: 45px;
+	background-color: transparent;
+	background-image: url(calendrier.gif);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	font-size: 12px;
+	color: #666666;
+	text-align: center;
+	padding-top: 0px;
+	padding-right: 2px;
+	padding-bottom: 0pt;
+	padding-left: 0pt;
+	float: left;
+	margin-bottom:0;
+}
+h2.titreblog{
+	width: 85%;
+	float: left;
+	margin-left: 10px;
+}
+.post{
+	clear: both;
+}
+.mois{
+	margin-top: 2px;
+	color: #fff;
+	text-align: center;
+}
+.jour{
+	text-align: center;
+
+}

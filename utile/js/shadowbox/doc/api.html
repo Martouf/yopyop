@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer &raquo; API</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1>Shadowbox.js</h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a href="../index.html">Home</a> //
+            <a href="support.html">Support</a> //
+            <a href="usage.html">Usage</a> //
+            <a class="selected">API</a> //
+            <a href="download.html">Download</a> //
+            <a href="faq.html">FAQ</a>
+        </div>
+
+        <h2><a name="api">API</a></h2>
+
+        <p>The following table contains the complete Shadowbox application programming interface (API) for your reference.</p>
+
+        <table border="0" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="width:200px">Method</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>init( [options] )</code></td>
+                    <td>Initializes the Shadowbox environment. Appends Shadowbox' HTML to the document and sets up several listeners. The optional <code>options</code> parameter may be used here to set the default universal set of options. This function may not be called twice.</td>
+                </tr>
+                <tr>
+                    <td><code>setup( links [, options] )</code></td>
+                    <td>Sets up listeners on the given links that will trigger Shadowbox. If no links are given, this method will set up every anchor element on the page with the appropriate rel attribute. Please note that because HTML area elements do not support the <code>rel</code> attribute, they must be explicitly passed to this method. The optional <code>options</code> parameter specifies a set of options that will be applied to all links in this set by default.</td>
+                </tr>
+                <tr>
+                    <td><code>applyOptions( options )</code></td>
+                    <td>Applies the given set of options to those currently in use. Note: Options will be reset on <code>Shadowbox.open</code> so this function is only useful after it has already been called (while Shadowbox is open).</td>
+                </tr>
+                <tr>
+                    <td><code>revertOptions()</code></td>
+                    <td>Reverts Shadowbox' options to the last default set in use before <code>Shadowbox.applyOptions</code> was called.</td>
+                </tr>
+                <tr>
+                    <td><code>open( obj [, options] )</code></td>
+                    <td>Opens the specified object in Shadowbox. The optional <code>options</code> parameter may be used here to specify the set of options to apply on this call only.</td>
+                </tr>
+                <tr>
+                    <td><code>change( n )</code></td>
+                    <td>Jumps to the piece in the current gallery with index <code>n</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>next()</code></td>
+                    <td>Jumps to the next piece in the gallery.</td>
+                </tr>
+                <tr>
+                    <td><code>previous()</code></td>
+                    <td>Jumps to the previous piece in the gallery.</td>
+                </tr>
+                <tr>
+                    <td><code>close()</code></td>
+                    <td>Deactivates Shadowbox.</td>
+                </tr>
+                <tr>
+                    <td><code>clearCache()</code></td>
+                    <td>Clears Shadowbox' cache and removes listeners and expandos from all cached link elements. May be used to completely reset Shadowbox in case links on a page change.</td>
+                </tr>
+                <tr>
+                    <td><code>getPlugins()</code></td>
+                    <td>Gets an object that lists which plugins are supported by the client. The keys of this object will be:
+                        <ul>
+                            <li><code>fla</code>&mdash;Adobe Flash Player</li>
+                            <li><code>qt</code>&mdash;QuickTime Player</li>
+                            <li><code>wmp</code>&mdash;Windows Media Player</li>
+                            <li><code>f4m</code>&mdash;Flip4Mac QuickTime Player</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>getOptions()</code></td>
+                    <td>Gets the current options object in use.</td>
+                </tr>
+                <tr>
+                    <td><code>getCurrent()</code></td>
+                    <td>Gets the current gallery object.</td>
+                </tr>
+                <tr>
+                    <td><code>getVersion()</code></td>
+                    <td>Gets the current version number of Shadowbox.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2><a name="options">Options</a></h2>
+
+        <p>The following table contains a list of options that may be used to configure Shadowbox.</p>
+
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr><th>Option</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="option">animate</td><td>Set this <code>false</code> to disable all fancy animations (except <a href="#animatefade">fades</a>). This can improve the overall effect on computers with poor performance. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option"><a name="animatefade">animateFade</a></td><td>Set this <code>false</code> to disable all fading animations. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option"><a name="animsequence">animSequence</a></td><td>The animation sequence to use when resizing Shadowbox. May be either <code>"wh"</code> (width first, then height), <code>"hw"</code> (height first, then width), or <code>"sync"</code> (both simultaneously). Defaults to <code>"wh"</code>.</td></tr>
+                <tr><td class="option"><a name="flvplayer">flvPlayer</a></td><td>The URL of the flash video player. Only needed when displaying Flash video content. Defaults to <code>"flvplayer.swf"</code>.</td></tr>
+                <tr><td class="option">modal</td><td>Set this <code>false</code> to disable listening for mouse clicks on the overlay that will close Shadowbox. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option">overlayColor</td><td>The color to use for the modal overlay (in hex). Defaults to <code>"#000"</code>.</td></tr>
+                <tr><td class="option">overlayOpacity</td><td>The opacity to use for the modal overlay. Defaults to <code>0.8</code>.</td></tr>
+                <tr><td class="option"><a name="flashbgcolor">flashBgColor</a></td><td>The default background color to use for Flash movies. Defaults to <code>"#000000"</code>.</td></tr>
+                <tr><td class="option">autoplayMovies</td><td>Set this <code>false</code> to disable automatically playing movies when they are loaded. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option">showMovieControls</td><td>Set this <code>false</code> to disable displaying QuickTime and Windows Media player movie control bars. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option">slideshowDelay</td><td>A delay (in seconds) to use for slideshows. If set to anything other than 0, this value determines an interval at which Shadowbox will automatically proceed to the next piece in the gallery. Defaults to <code>0</code>.</td></tr>
+                <tr><td class="option">resizeDuration</td><td>The duration (in seconds) of the resizing animations. Defaults to <code>0.55</code>.</td></tr>
+                <tr><td class="option">fadeDuration</td><td>The duration (in seconds) of the fade animations. Defaults to <code>0.35</code>.</td></tr>
+                <tr><td class="option">displayNav</td><td>Set this <code>false</code> to hide the gallery navigation controls. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option"><a name="continuous">continuous</a></td><td>Set this <code>true</code> to enable "continuous" galleries. By default, the galleries will not let a user go before the first image or after the last. Enabling this feature will let the user go directly to the first image in a gallery from the last one by selecting "Next". Defaults to <code>false</code>.</td></tr>
+                <tr><td class="option">displayCounter</td><td>Set this <code>false</code> to hide the gallery counter. Counters are never displayed on elements that are not part of a gallery. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option"><a name="countertype">counterType</a></td><td>The mode to use for the gallery counter. May be either <code>"default"</code> or <code>"skip"</code>. The default counter is a simple "1 of 5" message. The skip counter displays a separate link to each piece in the gallery, enabling quick navigation in large galleries. Defaults to <code>"default"</code>.</td></tr>
+                <tr><td class="option">counterLimit</td><td>Limits the number of counter links that will be displayed in a "skip" <a href="#countertype">style counter</a>. If the actual number of gallery elements is greater than this value, the counter will be restrained to the elements immediately preceding and following the current element. Defaults to <code>10</code>.</td></tr>
+                <tr><td class="option">viewportPadding</td><td>The amount of padding (in pixels) to maintain around the edge of the browser window. Defaults to <code>20</code>.</td></tr>
+                <tr><td class="option"><a name="handleoversize">handleOversize</a></td><td>The mode to use for handling content that is too large for the viewport. May be one of <code>"none"</code>, <code>"resize"</code>, or <code>"drag"</code> (for images). The <code>"none"</code> setting will not alter the image dimensions, though clipping may occur. Setting this to <code>"resize"</code> enables on-the-fly resizing of large content. In this mode, the height and width of large, resizable content will be adjusted so that it may still be viewed in its entirety while maintaining its original aspect ratio. The <code>"drag"</code> mode will display an oversized image at its original resolution, but will allow the user to drag it within the view to see portions that may be clipped. See the <a href="../index.html#lgimage-demo">demo</a> for a demonstration of all three modes of operation. Defaults to <code>"resize"</code>.</td></tr>
+                <tr><td class="option"><a name="handleexception">handleException</a></td><td>A function to use for handling exceptions. This function will be passed the error message (string) as its only argument. If this value is left <code>null</code>, exceptions will not be caught. Defaults to <code>null</code>.</td></tr>
+                <tr><td class="option"><a name="handleunsupported">handleUnsupported</a></td><td>The mode to use for handling unsupported media. May be either <code>"link"</code> or <code>"remove"</code>. Media are unsupported when the browser plugin required to display the media properly is not installed. The link option will display a user-friendly error message with a link to a page where the needed plugin can be downloaded. The remove option will simply remove any unsupported gallery elements from the gallery before displaying it. With this option, if the element is not part of a gallery, the link will simply be followed. Defaults to <code>"link"</code>.</td></tr>
+                <tr><td class="option">initialHeight</td><td>The height of Shadowbox (in pixels) when it first appears on the screen. Defaults to <code>160</code>.</td></tr>
+                <tr><td class="option">initialWidth</td><td>The width of Shadowbox (in pixels) when it first appears on the screen. Defaults to <code>320</code>.</td></tr>
+                <tr><td class="option">enableKeys</td><td>Set this false to disable keyboard navigation of galleries. Defaults to <code>true</code>.</td></tr>
+                <tr><td class="option">onOpen</td><td>A hook function that will be fired when Shadowbox opens. The single argument of this function will be the current gallery element.</td></tr>
+                <tr><td class="option">onFinish</td><td>A hook function that will fire when Shadowbox finishes loading the current gallery piece (after all animations are complete). The single argument of this function will be the current gallery element.</td></tr>
+                <tr><td class="option">onChange</td><td>A hook function that will be fired when Shadowbox changes from one gallery element to another. The single argument of this function will be the gallery element that is about to be displayed.</td></tr>
+                <tr><td class="option">onClose</td><td>A hook function that will be fired when Shadowbox closes. The single argument of this function will be the gallery element that was last displayed.</td></tr>
+                <tr><td class="option">skipSetup</td><td>Set this <code>true</code> to skip automatically calling <code>Shadowbox.setup</code> when Shadowbox initializes. Defaults to <code>true</code>. Note: This option may only be used in <code>Shadowbox.init</code>.</td></tr>
+                <tr><td class="option">errors</td><td>An object containing the names and URL's of plugins and their respective download pages.</td></tr>
+                <tr><td class="option">ext</td><td>A map of players to their supported extensions. See the <a href="../src/shadowbox.js">source</a> for further details. Note: This option may only be used in <code>Shadowbox.init</code>.</td></tr>
+            </tbody>
+        </table>
+
+        <p>Unless otherwise noted, any of these options may be passed to <code>Shadowbox.init</code> in a JavaScript object (hash) once the page loads. The following example uses <a href="http://jquery.com/">jQuery</a> syntax to demonstrate how this is to be done.</p>
+
+<pre><code>&lt;script type="text/javascript">
+
+$(window).load(function(){
+
+    var options = {
+        handleOversize:     'drag',
+        displayNav:         false,
+        handleUnsupported:  'remove',
+        autoplayMovies:     false
+    };
+
+    Shadowbox.init(options);
+
+});
+
+&lt;/script>
+</code></pre>
+
+        <p>If options are passed to <code>Shadowbox.init</code>, they will be applied as the default for all instances of Shadowbox on a page. However, options may also be used on a per-link basis as described on <a href="usage.html">this page</a>.</p>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

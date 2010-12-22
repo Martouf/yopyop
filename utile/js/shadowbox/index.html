@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer</title>
+
+<link rel="stylesheet" type="text/css" href="doc/css/style.css">
+
+<!-- the following two lines are only required for the demos -->
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAl9cpfw69cLkrXP2Twqd_WRQlJUWJBX1_MH5CCmfsGz8ZlG5tEBSm26uqRds3eVGiKaHezXv2fm1woQ"></script>
+<script type="text/javascript" src="doc/demo.js"></script>
+
+<!-- other adapters (for testing purposes) -->
+<!--script type="text/javascript" src="/js/dojo-release-1.0.2/dojo/dojo.js"></script-->
+<!--script type="text/javascript" src="/js/ext-2.0/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="/js/ext-2.0/ext-core.js"></script-->
+<!--script type="text/javascript" src="/js/jquery-1.2.6.js"></script-->
+<!--script type="text/javascript" src="/js/mootools-1.2.js"></script-->
+<!--script type="text/javascript" src="/js/prototype-1.6.js"></script-->
+<!--script type="text/javascript" src="/js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script-->
+<!--script type="text/javascript" src="src/adapter/shadowbox-dojo.js"></script-->
+
+<script type="text/javascript" src="src/adapter/shadowbox-base.js"></script>
+<script type="text/javascript" src="src/shadowbox.js"></script>
+<script type="text/javascript">
+
+Shadowbox.loadSkin('classic', 'src/skin');
+Shadowbox.loadLanguage('en', 'src/lang');
+Shadowbox.loadPlayer(['flv', 'html', 'iframe', 'img', 'qt', 'swf', 'wmp'], 'src/player');
+
+window.onload = function(){
+
+    Shadowbox.init();
+
+    /**
+     * Note: The following function call is not necessary in your own project.
+     * It is only used here to set up the demonstrations on this page.
+     */
+    initDemos();
+
+};
+
+</script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1><a name="top">Shadowbox.js</a> </h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a class="selected">Home</a> //
+            <a href="doc/support.html">Support</a> //
+            <a href="doc/usage.html">Usage</a> //
+            <a href="doc/api.html">API</a> //
+            <a href="doc/download.html">Download</a> //
+            <a href="doc/faq.html">FAQ</a>
+        </div>
+
+        <h2><a name="overview">Overview</a></h2>
+
+        <p>Shadowbox is an online media viewer application that supports all of the web's <a href="doc/support.html#media">most popular</a> media publishing formats. Shadowbox is written entirely in JavaScript and CSS and is <a href="doc/api.html#options">highly customizable</a>. Using Shadowbox, website authors can showcase a wide assortment of media in <a href="doc/support.html#browsers">all major browsers</a> without navigating users away from the linking page.</p>
+
+        <h2><a name="features">Features</a></h2>
+
+        <p>What sets Shadowbox apart from every other "box" out there? Here is a rather lengthy list:</p>
+
+        <table id="features-table" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td class="strong">Standards</td>
+                    <td>Shadowbox uses HTML markup that <a href="http://validator.w3.org/check/referer">validates</a>. It doesn't depend on phony HTML attributes in your anchor tags to make it work. The web has enough problems with <a href="http://www.webstandards.org/">standards</a> compliance as it is, and I believe we should try to not perpetuate them.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Adapters</td>
+                    <td>It's easy to make Shadowbox <a href="doc/support.html#adapters">adapt</a> to whatever platform you choose. This means that you're not tied to a particular framework if you don't want to be.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Skins</td>
+                    <td>Customizing the appearance of Shadowbox is easy because it was built with designers in mind. As such, its appearance can easily be altered using the only language that's really designed for such a task, <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a>.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Media</td>
+                    <td>Shadowbox supports all of the web's <a href="doc/support.html#media">most popular</a> media publishing formats including images, QuickTime, Windows Media Player, Flash, Flash video, HTML, and even external web pages. This makes it easy to display your content without converting it to some other format.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Smarts</td>
+                    <td>Shadowbox is smart. It uses a plugin detection mechanism behind the scenes that can spare your users from confusing torn image or puzzle piece icons when they don't have the plugins they need. Instead, Shadowbox displays a helpful link to a page where your users can download the software that will allow them to view your content properly. Also, Shadowbox will never overflow the viewport, showing those obnoxious scrollbars. Instead, Shadowbox will automatically adjust to whatever size the client can handle.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Options</td>
+                    <td>Shadowbox supports a host of <a href="doc/api.html#options">options</a> that make it highly configurable. If you don't like the way something works, chances are very good that you can change it without digging through the code.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Universal</td>
+                    <td>Shadowbox ships with support for many of the world's most-spoken languages. That means that your users will probably be able to interact with the application in their native tongue.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Modules</td>
+                    <td>The Shadowbox code is modular. Using a custom <a href="doc/download.html">build form</a>, you can build a streamlined version that contains only the features you need.</td>
+                </tr>
+                <tr>
+                    <td class="strong">Unobtrusive</td>
+                    <td>Shadowbox uses HTML anchor elements to collect data about content to display. So if your client doesn't have JavaScript enabled, Shadowbox will stay out of the way and allow the user to follow the link normally.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2><a name="demos">Demos</a></h2>
+
+        <h3>Images</h3>
+
+        <p>
+            <a rel="shadowbox" href="http://farm2.static.flickr.com/1177/1150569783_61dbc56834.jpg" class="option">Single Image (Flickr)</a>
+            <a rel="shadowbox[Aston Martin];options={slideshowDelay:3}" href="gallery/aston_martin/vantage.jpg" class="option" title="Vantage">Image Gallery (slideshow)</a>
+            <a rel="shadowbox[Aston Martin]" href="gallery/aston_martin/vanquish.jpg" class="hidden">image</a>
+            <a rel="shadowbox[Aston Martin]" href="gallery/aston_martin/db9.jpg" class="hidden" title="DB9">image</a>
+        </p>
+
+        <h3><a name="lgimage-demo">Large Image</a></h3>
+
+        <p>You may have to shrink your browser window to view the difference between the various options here. See the <a href="doc/api.html#handleoversize">handleOversize</a> option for more information.</p>
+
+        <table class="thumbs" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>Clipped (no resizing)</td>
+                    <td>Resized</td>
+                    <td>Draggable</td>
+                </tr>
+                <tr>
+                    <td><a rel="shadowbox;options={handleOversize:'none'}" href="gallery/greatwall.jpg" title="Great Wall of China"><img src="gallery/greatwall-thumb.jpg" alt=""></a></td>
+                    <td><a rel="shadowbox" href="gallery/greatwall.jpg" title="Great Wall of China"><img src="gallery/greatwall-thumb.jpg" alt=""></a></td>
+                    <td><a rel="shadowbox;options={handleOversize:'drag'}" href="gallery/greatwall.jpg" title="Great Wall of China"><img src="gallery/greatwall-thumb.jpg" alt=""></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Thumb Gallery</h3>
+
+        <p>Unlike the previous image gallery, this one is triggered by thumbnail links. It also uses a <a href="doc/api.html#countertype">skip counter</a>, <a href="doc/api.html#animsequence">synchronous</a> animations, and is <a href="doc/api.html#continuous">continuous</a>.</p>
+
+        <table class="thumbs" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td><a rel="shadowbox[MustangThumbs];options={counterType:'skip',continuous:true,animSequence:'sync'}" href="gallery/mustang/red.jpg"><img src="gallery/mustang/red-thumb.jpg" alt="Red"></a></td>
+                    <td><a rel="shadowbox[MustangThumbs];options={counterType:'skip',continuous:true,animSequence:'sync'}" href="gallery/mustang/blue.jpg" title="Blue"><img src="gallery/mustang/blue-thumb.jpg" alt="Red"></a></td>
+                    <td><a rel="shadowbox[MustangThumbs];options={counterType:'skip',continuous:true,animSequence:'sync'}" href="gallery/mustang/grey.jpg"><img src="gallery/mustang/grey-thumb.jpg" alt="Red"></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Image Map</h3>
+
+        <p>Shadowbox supports client-side image maps through the use of <a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.6.1">area</a> tags.</p>
+
+        <div id="hongkong">
+            <img src="gallery/hongkong.jpg" width="600" height="82" alt="Hong Kong" usemap="#hongkongmap">
+            <map id="hongkongmap" name="hongkongmap">
+                <area shape="rect" coords="43,27,135,77" href="gallery/hongkong-1.jpg" alt="">
+                <area shape="rect" coords="191,11,286,74" href="gallery/hongkong-2.jpg" alt="">
+                <area shape="rect" coords="419,2,502,81" href="gallery/hongkong-3.jpg" alt="">
+            </map>
+        </div>
+
+        <h3>Flash</h3>
+
+        <p>
+            <a rel="shadowbox;width=400;height=300" class="option" title="Girl Skipping" href="gallery/skip.swf">Single SWF</a>
+            <a id="flash1" rel="width=600;height=450" class="option" title="Hollywood or Bust" href="gallery/old_man.swf">SWF Gallery</a>
+            <a id="flash2" rel="width=400;height=300" class="hidden" title="Girl Skipping" href="gallery/skip.swf">swf</a>
+            <a id="flash3" rel="width=520;height=390" class="hidden" title="Caveman" href="gallery/caveman.swf">swf</a>
+            <a rel="shadowbox;width=600;height=450" class="option" title="Alien" href="gallery/alien.flv">Flash Video</a>
+        </p>
+
+        <h3>Movies</h3>
+
+        <p>
+            <a rel="shadowbox;width=292;height=218" class="option" title="Unfortunate Kayaker" href="gallery/kayak.mov">QuickTime (mov)</a>
+            <a rel="shadowbox;width=292;height=218;options={showMovieControls:false}" class="option" title="Unfortunate Kayaker" href="gallery/kayak.mp4">MPEG-4 Movie (controller disabled)</a>
+            <a rel="shadowbox;width=320;height=240" class="option" title="Curious Cat" href="gallery/cat.wmv">Windows Media (wmv)</a>
+            <a rel="shadowbox;width=480;height=204" class="option" title="The Dark Knight" href="http://movies.apple.com/movies/wb/the_dark_knight/the_dark_knight-tlr2-h.ref.mov">Apple.com Trailer</a>
+            <a rel="shadowbox;width=405;height=340" class="option" title="David Beckham" href="http://www.youtube.com/v/wbzLpteC8ng&amp;autoplay=1">YouTube</a>
+            <a rel="shadowbox;width=405;height=340" class="option" title="While My Ukulele Gently Weeps" href="http://video.google.com/googleplayer.swf?docid=1352016870638076087&amp;autoplay=1">Google Video</a>
+            <a rel="shadowbox[Movies];width=405;height=340;options={continuous:true}" class="option" title="YouTube" href="http://www.youtube.com/v/r6tlw-oPDBM&amp;autoplay=1">Movie Gallery</a>
+            <a rel="shadowbox[Movies];width=292;height=218" class="hidden" title="QuickTime" href="gallery/kayak.mov">MOV</a>
+            <a rel="shadowbox[Movies];width=320;height=240" class="hidden" title="Windows Media" href="gallery/cat.wmv">WMV</a>
+            <a rel="shadowbox[Movies];width=600;height=450" class="hidden" title="Flash Video" href="gallery/alien.flv">FLV</a>
+            <a rel="shadowbox[Mixed];options={counterType:'skip',continuous:true}" class="option" title="JPG" href="gallery/aston_martin/vanquish.jpg">Mixed Content Gallery</a>
+            <a rel="shadowbox[Mixed];width=520;height=390" class="hidden" title="SWF" href="gallery/caveman.swf">swf</a>
+            <a rel="shadowbox[Mixed];width=292;height=218" class="hidden" title="MPEG-4" href="gallery/kayak.mp4">movie</a>
+            <a rel="shadowbox[Mixed]" class="hidden" title="IFRAME" href="index.html">iframe</a>
+        </p>
+
+        <h3>Web</h3>
+
+        <p>
+            <a rel="shadowbox;width=200;height=400" class="option" title="Inline content" href="index.html#inline-sample">Inline Content</a>
+            <a rel="shadowbox" class="option" title="This page" href="index.html">This Page</a>
+            <a rel="shadowbox" class="option" title="Google.com" href="http://www.google.com/">External Site</a>
+            <a class="option" onclick="demoMap();">Google Maps</a>
+            <a rel="shadowbox;width=400;height=100" class="option" title="Search Form" href="doc/form.html">Simple Form</a>
+        </p>
+
+        <h3>Script</h3>
+
+        <p>
+            <a class="option" onclick="demoMessage();">Script-triggered Message</a>
+            <a class="option" onclick="demoGallery();">Script-triggered Gallery</a>
+        </p>
+
+        <div id="inline-sample" class="hidden">
+            <div id="inline-sample-content">
+                <p>This content was taken from a hidden div somewhere in this page!</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus velit. Fusce consectetuer, neque aliquam tempus ultrices, purus urna condimentum lacus, ut placerat pede orci non elit. Integer et metus eget sem egestas varius. Vivamus ac lorem quis augue tempus pharetra. Aenean semper tempus tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut id dui vitae nisl tincidunt tincidunt. Pellentesque vestibulum mollis tellus. Praesent ac ipsum sed diam pellentesque convallis. Phasellus varius. Duis rutrum nisi ac nisi. Duis libero eros, luctus faucibus, fermentum eu, malesuada vitae, nulla. Aliquam pede purus, aliquet et, iaculis sed, faucibus vel, nibh. Nam et ante eu velit cursus luctus. Sed eget mauris a lacus egestas congue. Etiam vehicula. Nam quis turpis. Aenean tempus mi in massa.</p>
+            </div>
+        </div>
+
+        <h2><a name="license">License</a></h2>
+
+        <p>Shadowbox is licensed under version 3.0 of the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike</a> license. This means that it is absolutely free for personal, noncommercial use provided that you 1) make attribution to the author and 2) release any derivative work under the same or a similar license.</p>
+
+        <p>If you would like to use Shadowbox for commercial purposes, you can purchase a license that allows you to use Shadowbox in your projects.</p>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <p>
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+            <input id="license-button" class="button" type="submit" value="Purchase a License" name="submit" alt="Purchase a license with PayPal - it's fast, free and secure!">
+            </p>
+        </form>
+
+        <h2><a name="tip">Tip Jar</a></h2>
+
+        <p>If you don't plan on purchasing a commercial license but you simply like to reward people's hard work, please consider giving a tip via PayPal. All donations are sincerely appreciated!</p>
+
+        <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+            <p>
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+            <input id="tip-button" class="button" type="submit" value="Give a Tip" name="submit" alt="Make a donation with PayPal - it's fast, free and secure!">
+            </p>
+        </form>
+
+        <h2><a name="credits">Credits</a></h2>
+
+        <p>Shadowbox was inspired by <a href="http://www.lokeshdhakar.com">Lokesh Dhakar's</a> <a href="http://www.huddletogether.com/projects/lightbox2/">Lightbox</a> and <a href="http://www.stickmanlabs.com/">Kevin Miller's</a> <a href="http://www.stickmanlabs.com/lightwindow/">LightWindow</a>. Credit should be given to the authors of those libraries for the basic idea behind Shadowbox.</p>
+
+        <p>The default Shadowbox Flash video player is <a href="http://www.jeroenwijering.com/">Jeroen Wijering's</a> <a href="http://www.jeroenwijering.com/?item=JW_FLV_Player">JW FLV Player</a>. It is licensed under version 2.0 of the <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons Attribution-Noncommercial-Share Alike</a> license.</p>
+
+        <p>All Flash animation pieces in this gallery are original pieces included courtesy of <a href="http://flashpotatoes.com/">Wyatt Miles</a>.</p>
+
+        <p>Compressed versions of the files necessary to run Shadowbox are included in the default distribution in the <code>build</code> directory. The compression was performed with the excellent <a href="http://www.julienlecomte.net/yuicompressor/">YUI compressor</a> by <a href="http://www.julienlecomte.net">Julien Lecomte</a>.</p>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

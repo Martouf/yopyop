@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2"
+   name=""
+   committed-date="2006-09-26T13:01:30.554177Z"
+   url="https://svn.ecodev.ch:808/svn-wssinfo/trunk/include/lib/smarty"
+   last-author="mdespont"
+   kind="dir"
+   uuid="481838be-5a1e-0410-8dc6-ddd10237c564"
+   repos="https://svn.ecodev.ch:808/svn-wssinfo"
+   revision="99"/>
+<entry
+   name="internals"
+   kind="dir"/>
+<entry
+   name="plugins"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="Smarty_Compiler.class.php"
+   text-time="2007-01-03T08:35:21.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="348841a029ab7a7e5f51ca3b2cd3b3b1"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:21.000000Z"/>
+<entry
+   committed-rev="2"
+   name="debug.tpl"
+   text-time="2007-01-03T08:35:21.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="861630bd981a49c455633557e7976bf3"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:21.000000Z"/>
+<entry
+   committed-rev="2"
+   name="Smarty.class.php"
+   text-time="2007-01-03T08:35:21.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="ac146cfd830944566d74a36e50533795"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:21.000000Z"/>
+<entry
+   committed-rev="2"
+   name="Config_File.class.php"
+   text-time="2007-01-03T08:35:21.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="59f0403e97481642dd380b5ae880c9c6"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:21.000000Z"/>
+</wc-entries>

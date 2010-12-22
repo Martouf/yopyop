@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer &raquo; Download</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1>Shadowbox.js</h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a href="../index.html">Home</a> //
+            <a href="support.html">Support</a> //
+            <a href="usage.html">Usage</a> //
+            <a href="api.html">API</a> //
+            <a class="selected">Download</a> //
+            <a href="faq.html">FAQ</a>
+        </div>
+
+        <h2><a name="build">Build</a></h2>
+
+        <p>The full Shadowbox distribution is comprised of many files, most of which you won't need. Use the form below to create a compact build that contains only the features you want.</p>
+
+        <form id="build-form" action="http://www.mjijackson.com/shadowbox/download.php" method="post">
+
+            <h3>Adapter</h3>
+
+            <p>Shadowbox may be used in standalone mode, or in harmony with your favorite JavaScript library. See <a href="support.html#adapters">this page</a> for more information on adapters.</p>
+
+            <p>
+            <select name="adapter">
+                <option value="base" selected="selected">None (standalone)</option>
+                <option value="yui">Yahoo! User Interface Library (requires yahoo-dom-event.js)</option>
+                <option value="ext">Ext (requires ext-core.js)</option>
+                <option value="prototype">Prototype</option>
+                <option value="jquery">jQuery</option>
+                <option value="mootools">MooTools (requires 1.2 Core)</option>
+                <option value="dojo">Dojo Toolkit</option>
+            </select>
+            </p>
+
+            <h3>Language</h3>
+
+            <p>Thanks to the Shadowbox community, Shadowbox has been translated into many of the world's most widely-spoken languages. You may compile a language into the distribution now, or see <a href="usage.html#language">this page</a> for more information on dynamically loading language files at runtime.</p>
+
+            <p>
+            <select name="lang">
+                <option value="none">None</option>
+                <option value="ar">العربية</option>
+                <option value="ca">Català</option>
+                <option value="cs">Čeština</option>
+                <option value="de-CH">Deutsch (Schweiz)</option>
+                <option value="de-DE">Deutsch (Deutschland)</option>
+                <option value="en" selected="selected">English</option>
+                <option value="es">Español</option>
+                <option value="et">Eesti keel</option>
+                <option value="fi">Suomi</option>
+                <option value="fr">Français</option>
+                <option value="gl">Galego</option>
+                <option value="he">עִבְרִית</option>
+                <option value="id">Bahasa Indonesia</option>
+                <option value="is">Íslenska</option>
+                <option value="it">Italiano</option>
+                <option value="ko">한국말</option>
+                <option value="my">Burmese</option>
+                <option value="nl">Nederlands</option>
+                <option value="no">Norsk</option>
+                <option value="pl">Polski</option>
+                <option value="pt-BR">Português (Brasil)</option>
+                <option value="pt-PT">Português (Portugal)</option>
+                <option value="ro">Română</option>
+                <option value="ru">русский язык</option>
+                <option value="sk">Slovenčina</option>
+                <option value="sv">Svenska</option>
+                <option value="tr">Türkçe</option>
+                <option value="zh-CN">中文 (Simplified)</option>
+                <option value="zh-TW">中文 (Traditional)</option>
+            </select>
+            </p>
+
+            <h3>Players</h3>
+
+            <p>Shadowbox players are small classes that are responsible for displaying different types of content. See <a href="usage.html#player">this page</a> for more information on which players are required for certain types of content.</p>
+
+            <table border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="width:20px"></th>
+                        <th>Player</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="img"></td>
+                        <td class="option">img</td>
+                        <td>Used to display various image formats including gif, jpeg, and png.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="html"></td>
+                        <td class="option">html</td>
+                        <td>Injects some pure HTML code into the Shadowbox display. Useful for displaying inline tables and forms.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="iframe"></td>
+                        <td class="option">iframe</td>
+                        <td>Displays content in an HTML Iframe. Useful for playing videos from YouTube and Google video, as well as displaying exterior web sites.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="swf"></td>
+                        <td class="option">swf</td>
+                        <td>Used to display SWF's.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="flv"></td>
+                        <td class="option">flv</td>
+                        <td>Used to display Flash video.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="qt"></td>
+                        <td class="option">qt</td>
+                        <td>Uses the <a href="http://www.apple.com/quicktime/">QuickTime</a> browser plugin to play content.</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="player[]" value="wmp"></td>
+                        <td class="option">wmp</td>
+                        <td>Uses the <a href="http://www.microsoft.com/windows/windowsmedia/">Windows Media Player</a> browser plugin to play content.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+            <input id="build-button" class="button" type="submit" value="Build it!" alt="Build your own Shadowbox distribution!">
+            </p>
+
+        </form>
+
+        <h2><a name="source">Source</a></h2>
+
+        <table id="download-table" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="button-container"><button onclick="window.location.href='http://www.mjijackson.com/shadowbox/download.php?full';">Download Full</button></td>
+                <td>The full Shadowbox distribution, including the sample gallery and documentation files.</td>
+            </tr>
+            <tr>
+                <td class="button-container"><button onclick="window.location.href='http://www.mjijackson.com/shadowbox/download.php?code';">Download Code</button></td>
+                <td>A subset of the full distribution, containing only the code necessary to run Shadowbox.</td>
+            </tr>
+        </table>
+
+        <p>Alternatively, you can always check out the latest source code from Shadowbox' Subversion <a href="http://michaeljackson.googlecode.com/svn/trunk/shadowbox/">repository</a> on Google Code. However, there is a good chance that this code won't work properly because I'm constantly tinkering with it.</p>
+
+<pre><code>$ svn checkout http://michaeljackson.googlecode.com/svn/trunk/shadowbox
+</code></pre>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

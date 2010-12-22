@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2"
+   name=""
+   committed-date="2006-09-26T13:01:30.554177Z"
+   url="https://svn.ecodev.ch:808/svn-wssinfo/trunk/include/lib/smarty/internals"
+   last-author="mdespont"
+   kind="dir"
+   uuid="481838be-5a1e-0410-8dc6-ddd10237c564"
+   repos="https://svn.ecodev.ch:808/svn-wssinfo"
+   revision="99"/>
+<entry
+   committed-rev="2"
+   name="core.assign_smarty_interface.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="4c2dd142c1c59e101b2f60cfc7a7cdc2"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.load_resource_plugin.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="08d531fb688eed7253b316b11436e512"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.rm_auto.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="8834d9e9a8aa8473244d74096638b5c2"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.write_compiled_include.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="93584e495a0bfb25f946f20f459889fb"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.process_cached_inserts.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="2a846ebfec89211b7090149052374059"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.write_cache_file.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="6e0ca7e246ee7a6fea7e2e6e4381332b"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.rmdir.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="08209df8f3113b0d8322bcac3b5e055b"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.write_compiled_resource.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="caa79e832d4587991606dd9a0988c852"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.load_plugins.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="d60028c542ec06749cd2d381bc07d0c2"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.is_secure.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="7ea83dd65e64bc0bc893d44096ec61e0"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.create_dir_structure.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="a12f6e4653dc814369202e0ed57206b0"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.is_trusted.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="83e22de7a251fef6a033769b35989bf6"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.assemble_plugin_filepath.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="c98832bd718c94629c732b5d4c2980cb"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.run_insert_handler.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="f6452eb1f0f65cf3b07634228ea4c938"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.get_microtime.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="72eb40e8367f77f0bd251e15a5bd4f5f"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.smarty_include_php.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="0d87e492eb18ec8b4fa492f2ac34c163"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.write_file.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="77045cbf9677c5bc165b668a0f039005"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.read_cache_file.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="e7de28f374768f8b319687a34e226c80"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.process_compiled_include.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="6da8abe9ab2050618fd6e344fbc8059b"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.get_php_resource.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="e0fccd538d6f0ed8915d39cc2f9dd860"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.display_debug_console.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="297b9baf349e7f32e8e815612e823e3c"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+<entry
+   committed-rev="2"
+   name="core.get_include_path.php"
+   text-time="2007-01-03T08:35:20.000000Z"
+   committed-date="2006-09-26T13:01:30.554177Z"
+   checksum="ba78ea6d4112d4325b00e4b8101497c6"
+   last-author="mdespont"
+   kind="file"
+   prop-time="2007-01-03T08:35:20.000000Z"/>
+</wc-entries>

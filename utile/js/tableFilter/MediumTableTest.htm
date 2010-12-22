@@ -1,0 +1,5148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<link rel="stylesheet" type="text/css" href="includes/tableFilter.css">
+<link rel="stylesheet" type="text/css" href="includes/tableFilter.aggregator.css">
+<title>jQuery tableFilter medium table test</title>
+<style>
+body {
+	font-family:Calibri, tahoma, arial, sans-serif;
+}
+table {
+	font-size:12px;
+	font-family:Calibri, tahoma, arial, sans-serif;
+	border-collapse:collapse;
+	background-color:#F2DDDC;
+}
+td {
+	padding:3px;
+	white-space:nowrap;
+}
+tr {
+	height:20px;
+	border:.5pt solid #FFFFFF;
+	background-color:#F2DDDC;
+}
+.offColor {
+	background-color:#E6B9B8;
+}
+.header { 
+	text-align:center;
+	background-color:#C0504D;
+	color:white;
+	font-weight: bold;
+}
+.header a{
+	color:white;
+}
+tr.header {
+	border:0pt;
+}
+</style>
+<script type="text/javascript" src="_dist/jquery-packed.js"></script>
+<script type="text/JavaScript" src="_dist/jquery.cookies-packed.js"></script>
+<script type="text/javascript" src="_dist/prototypes-packed.js"></script>
+<script type="text/javascript" src="_dist/json-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.truemouseout-packed.js"></script>
+<script type="text/javascript" src="_dist/daemachTools-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.aggregator-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.columnStyle-packed.js"></script>
+<!--
+
+<script type="text/javascript" src="_dist/jquery-packed.js"></script>
+<script type="text/JavaScript" src="_dist/jquery.cookies-packed.js"></script>
+<script type="text/javascript" src="_dist/prototypes-packed.js"></script>
+<script type="text/javascript" src="_dist/json-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.truemouseout-packed.js"></script>
+<script type="text/javascript" src="_dist/daemachTools-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.aggregator-packed.js"></script>
+<script type="text/javascript" src="_dist/jquery.tableFilter.columnStyle-packed.js"></script>
+
+
+<script type="text/javascript" src="../lib/src/jquery.js"></script>
+<script type="text/JavaScript" src="../lib/src/jquery.cookies.js"></script>
+<script type="text/javascript" src="../lib/src/prototypes.js"></script>
+<script type="text/javascript" src="../lib/src/json.js"></script>
+<script type="text/javascript" src="../lib/src/jquery.truemouseout.js"></script>
+<script type="text/javascript" src="../daemach/src/daemachTools.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.aggregator.js"></script>
+<script type="text/javascript" src="src/jquery.tableFilter.columnStyle.js"></script>
+<script type="text/javascript" src="../lib/src/firebug.js"></script>
+<script type="text/javascript" src="../lib/src/jquery.debug.js"></script>
+
+-->
+
+</head>
+
+<body>
+<h3>Medium Table Test</h3>
+This table consists of 15 columns, 296 rows, 4400 total cells.  (<a href="largetabletest.htm">still not big enough for you?</a>)<br>
+<hr /> <input onClick='$("table").eq(0).tableFilter();' type="button" value="Go">  (ctrl-click to sort/filter multiple columns)
+<hr />
+
+<table>
+ <colgroup><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col></colgroup>
+
+
+
+ <tr class="header">
+  <td>EmployeeID</td>
+  <td>FirstName</td>
+  <td>LastName</td>
+  <td>HireDate</td>
+  <td>Department</td>
+  <td>JobTitle</td>
+  <td>Rate</td>
+  <td>Shift</td>
+  <td>Phone</td>
+  <td>EmailAddress</td>
+  <td>AddressLine1</td>
+  <td>City</td>
+  <td>StateProvinceName</td>
+  <td>PostalCode</td>
+  <td>CountryRegionName</td>
+ </tr>
+
+ <tr>
+  <td>261</td>
+  <td>Ben</td>
+  <td>Miller</td>
+  <td>4/9/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>151-555-0113</td>
+  <td>ben0@adventure-works.com</td>
+  <td>101 Candy Rd.</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+
+
+ <tr>
+  <td>278</td>
+  <td>Garrett</td>
+  <td>Vargas</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>922-555-0165</td>
+  <td>garrett1@adventure-works.com</td>
+  <td>10203 Acorn Avenue</td>
+  <td>Calgary</td>
+  <td>Alberta</td>
+  <td>T2P 2G8</td>
+  <td>Canada</td>
+ </tr>
+ <tr>
+  <td>215</td>
+  <td>Gabe</td>
+  <td>Mares</td>
+  <td>4/9/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>310-555-0117</td>
+  <td>gabe0@adventure-works.com</td>
+  <td>1061 Buskrik Avenue</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>51</td>
+  <td>Reuben</td>
+  <td>D'sa</td>
+  <td>1/16/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC40</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>191-555-0112</td>
+  <td>reuben0@adventure-works.com</td>
+  <td>1064 Slow Creek Road</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>233</td>
+  <td>Gordon</td>
+  <td>Hee</td>
+  <td>2/12/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>230-555-0144</td>
+  <td>gordon0@adventure-works.com</td>
+  <td>108 Lakeside Court</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>226</td>
+  <td>Karan</td>
+  <td>Khanna</td>
+  <td>1/23/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>447-555-0186</td>
+  <td>karan0@adventure-works.com</td>
+  <td>1102 Ravenwood</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>117</td>
+  <td>François</td>
+  <td>Ajenstat</td>
+  <td>2/18/1999</td>
+  <td>Information Services</td>
+  <td>Database Administrator</td>
+  <td>$38.46</td>
+  <td>Day</td>
+  <td>785-555-0110</td>
+  <td>françois0@adventure-works.com</td>
+  <td>1144 Paradise Ct.</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>46</td>
+  <td>Sariya</td>
+  <td>Harnpadoungsataya</td>
+  <td>1/13/1999</td>
+  <td>Marketing</td>
+  <td>Marketing Specialist</td>
+  <td>$14.42</td>
+  <td>Day</td>
+  <td>399-555-0176</td>
+  <td>sariya0@adventure-works.com</td>
+  <td>1185 Dallas Drive</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>52</td>
+  <td>Kirk</td>
+  <td>Koenigsbauer</td>
+  <td>1/16/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Day</td>
+  <td>669-555-0150</td>
+  <td>kirk0@adventure-works.com</td>
+  <td>1220 Bradford Way</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>72</td>
+  <td>Kim</td>
+  <td>Ralls</td>
+  <td>1/27/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Stocker</td>
+  <td>$9.00</td>
+  <td>Night</td>
+  <td>309-555-0129</td>
+  <td>kim0@adventure-works.com</td>
+  <td>1226 Shoe St.</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>217</td>
+  <td>Michael</td>
+  <td>Raheem</td>
+  <td>6/4/1999</td>
+  <td>Research and Development</td>
+  <td>Research and Development Manager</td>
+  <td>$42.48</td>
+  <td>Day</td>
+  <td>330-555-2568</td>
+  <td>michael6@adventure-works.com</td>
+  <td>1234 Seaside Way</td>
+  <td>San Francisco</td>
+  <td>California</td>
+  <td>94109</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>216</td>
+  <td>Mike</td>
+  <td>Seamans</td>
+  <td>4/9/1999</td>
+  <td>Finance</td>
+  <td>Accountant</td>
+  <td>$26.44</td>
+  <td>Day</td>
+  <td>927-555-0150</td>
+  <td>mike0@adventure-works.com</td>
+  <td>1245 Clay Road</td>
+  <td>Index</td>
+  <td>Washington</td>
+  <td>98256</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>146</td>
+  <td>Reed</td>
+  <td>Koch</td>
+  <td>3/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>678-555-0110</td>
+  <td>reed0@adventure-works.com</td>
+  <td>1275 West Street</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>92</td>
+  <td>Fadi</td>
+  <td>Fakhouri</td>
+  <td>2/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>935-555-0116</td>
+  <td>fadi0@adventure-works.com</td>
+  <td>1285 Greenbrier Street</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>115</td>
+  <td>Paul</td>
+  <td>Singh</td>
+  <td>2/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>727-555-0112</td>
+  <td>paul1@adventure-works.com</td>
+  <td>1343 Prospect St</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>210</td>
+  <td>Brenda</td>
+  <td>Diaz</td>
+  <td>4/6/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC40</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>142-555-0139</td>
+  <td>brenda0@adventure-works.com</td>
+  <td>1349 Steven Way</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>184</td>
+  <td>Jack</td>
+  <td>Richins</td>
+  <td>3/25/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC30</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>552-555-0111</td>
+  <td>jack0@adventure-works.com</td>
+  <td>1356 Grove Way</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>83</td>
+  <td>John</td>
+  <td>Evans</td>
+  <td>2/2/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>172-555-0130</td>
+  <td>john1@adventure-works.com</td>
+  <td>136 Balboa Court</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>190</td>
+  <td>Ken</td>
+  <td>Myer</td>
+  <td>3/28/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>949-555-0174</td>
+  <td>ken1@adventure-works.com</td>
+  <td>1362 Somerset Place</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>178</td>
+  <td>Barbara</td>
+  <td>Moreland</td>
+  <td>3/22/1999</td>
+  <td>Finance</td>
+  <td>Accountant</td>
+  <td>$26.44</td>
+  <td>Day</td>
+  <td>822-555-0145</td>
+  <td>barbara1@adventure-works.com</td>
+  <td>137 Mazatlan</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>241</td>
+  <td>Eric</td>
+  <td>Kurjan</td>
+  <td>2/28/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>265-555-0195</td>
+  <td>eric2@adventure-works.com</td>
+  <td>1378 String Dr</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>130</td>
+  <td>Bryan</td>
+  <td>Walton</td>
+  <td>2/25/1999</td>
+  <td>Finance</td>
+  <td>Accounts Receivable Specialist</td>
+  <td>$19.00</td>
+  <td>Day</td>
+  <td>935-555-0199</td>
+  <td>bryan1@adventure-works.com</td>
+  <td>1397 Paradise Ct.</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>174</td>
+  <td>Steve</td>
+  <td>Masters</td>
+  <td>3/19/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>712-555-0170</td>
+  <td>steve0@adventure-works.com</td>
+  <td>1398 Yorba Linda</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>181</td>
+  <td>Belinda</td>
+  <td>Newman</td>
+  <td>3/24/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Night</td>
+  <td>319-555-0126</td>
+  <td>belinda0@adventure-works.com</td>
+  <td>1399 Firestone Drive</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>155</td>
+  <td>Alex</td>
+  <td>Nayberg</td>
+  <td>3/12/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Day</td>
+  <td>819-555-0198</td>
+  <td>alex0@adventure-works.com</td>
+  <td>1400 Gate Drive</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>169</td>
+  <td>Don</td>
+  <td>Hall</td>
+  <td>3/17/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>100-555-0174</td>
+  <td>don0@adventure-works.com</td>
+  <td>1411 Ranch Drive</td>
+  <td>Carnation</td>
+  <td>Washington</td>
+  <td>98014</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>171</td>
+  <td>David</td>
+  <td>Lawrence</td>
+  <td>3/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>118-555-0177</td>
+  <td>david7@adventure-works.com</td>
+  <td>158 Walnut Ave</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>73</td>
+  <td>Sandra</td>
+  <td>Reátegui Alayo</td>
+  <td>1/27/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>896-555-0168</td>
+  <td>sandra0@adventure-works.com</td>
+  <td>1619 Stillman Court</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>151</td>
+  <td>Samantha</td>
+  <td>Smith</td>
+  <td>3/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>587-555-0114</td>
+  <td>samantha0@adventure-works.com</td>
+  <td>1648 Eastgate Lane</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>60</td>
+  <td>Jim</td>
+  <td>Scardelis</td>
+  <td>1/20/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>679-555-0113</td>
+  <td>jim0@adventure-works.com</td>
+  <td>172 Turning Dr.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>260</td>
+  <td>Jo</td>
+  <td>Berry</td>
+  <td>4/7/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Janitor</td>
+  <td>$9.25</td>
+  <td>Night</td>
+  <td>228-555-0159</td>
+  <td>jo1@adventure-works.com</td>
+  <td>1748 Bird Drive</td>
+  <td>Index</td>
+  <td>Washington</td>
+  <td>98256</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>93</td>
+  <td>Ryan</td>
+  <td>Cornelsen</td>
+  <td>2/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>208-555-0114</td>
+  <td>ryan0@adventure-works.com</td>
+  <td>177 11th Ave</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>39</td>
+  <td>Michael</td>
+  <td>Hines</td>
+  <td>1/10/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Night</td>
+  <td>218-555-0126</td>
+  <td>michael0@adventure-works.com</td>
+  <td>1792 Belmont Rd.</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>145</td>
+  <td>Andreas</td>
+  <td>Berglund</td>
+  <td>3/6/1999</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Technician</td>
+  <td>$10.58</td>
+  <td>Evening</td>
+  <td>181-555-0124</td>
+  <td>andreas0@adventure-works.com</td>
+  <td>1803 Olive Hill</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>20</td>
+  <td>Steven</td>
+  <td>Selikoff</td>
+  <td>1/2/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>925-555-0114</td>
+  <td>steven0@adventure-works.com</td>
+  <td>181 Gaining Drive</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>88</td>
+  <td>Laura</td>
+  <td>Steele</td>
+  <td>2/4/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Day</td>
+  <td>777-555-0141</td>
+  <td>laura0@adventure-works.com</td>
+  <td>1825 Corte Del Prado</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>248</td>
+  <td>Christopher</td>
+  <td>Hill</td>
+  <td>3/11/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Evening</td>
+  <td>153-555-0166</td>
+  <td>christopher0@adventure-works.com</td>
+  <td>1902 Santa Cruz</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>102</td>
+  <td>Dan</td>
+  <td>Bacon</td>
+  <td>2/12/1999</td>
+  <td>Information Services</td>
+  <td>Application Specialist</td>
+  <td>$27.40</td>
+  <td>Day</td>
+  <td>166-555-0159</td>
+  <td>dan0@adventure-works.com</td>
+  <td>1921 Ranch Road</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>40</td>
+  <td>Yvonne</td>
+  <td>McKay</td>
+  <td>1/10/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Evening</td>
+  <td>286-555-0189</td>
+  <td>yvonne0@adventure-works.com</td>
+  <td>1962 Cotton Ct.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>133</td>
+  <td>Michiko</td>
+  <td>Osada</td>
+  <td>2/27/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>984-555-0148</td>
+  <td>michiko0@adventure-works.com</td>
+  <td>1962 Ferndale Lane</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>5</td>
+  <td>Thierry</td>
+  <td>D'Hers</td>
+  <td>1/11/1998</td>
+  <td>Tool Design</td>
+  <td>Tool Designer</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>168-555-0183</td>
+  <td>thierry0@adventure-works.com</td>
+  <td>1970 Napa Ct.</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>141</td>
+  <td>Michael</td>
+  <td>Patten</td>
+  <td>3/4/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>441-555-0195</td>
+  <td>michael2@adventure-works.com</td>
+  <td>2038 Encino Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>137</td>
+  <td>Britta</td>
+  <td>Simon</td>
+  <td>3/2/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>955-555-0169</td>
+  <td>britta0@adventure-works.com</td>
+  <td>2046 Las Palmas</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>91</td>
+  <td>Lorraine</td>
+  <td>Nay</td>
+  <td>2/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>845-555-0184</td>
+  <td>lorraine0@adventure-works.com</td>
+  <td>2059 Clay Rd</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>99</td>
+  <td>Michael</td>
+  <td>Rothkugel</td>
+  <td>2/11/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>454-555-0119</td>
+  <td>michael1@adventure-works.com</td>
+  <td>207 Berry Court</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>89</td>
+  <td>Margie</td>
+  <td>Shoop</td>
+  <td>2/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>818-555-0128</td>
+  <td>margie0@adventure-works.com</td>
+  <td>2080 Sycamore Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>32</td>
+  <td>Garrett</td>
+  <td>Young</td>
+  <td>1/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>609-555-0179</td>
+  <td>garrett0@adventure-works.com</td>
+  <td>2115 Passing</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>191</td>
+  <td>Grant</td>
+  <td>Culbertson</td>
+  <td>3/29/1999</td>
+  <td>Human Resources</td>
+  <td>Human Resources Administrative Assistant</td>
+  <td>$13.94</td>
+  <td>Day</td>
+  <td>955-555-0131</td>
+  <td>grant0@adventure-works.com</td>
+  <td>213 Stonewood Drive</td>
+  <td>Gold Bar</td>
+  <td>Washington</td>
+  <td>98251</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>3</td>
+  <td>Roberto</td>
+  <td>Tamburello</td>
+  <td>12/12/1997</td>
+  <td>Engineering</td>
+  <td>Engineering Manager</td>
+  <td>$43.27</td>
+  <td>Day</td>
+  <td>212-555-0187</td>
+  <td>roberto0@adventure-works.com</td>
+  <td>2137 Birchwood Dr</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>105</td>
+  <td>Paula</td>
+  <td>Nartker</td>
+  <td>2/13/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>476-555-0119</td>
+  <td>paula1@adventure-works.com</td>
+  <td>2144 San Rafael</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>Ruth</td>
+  <td>Ellerbrock</td>
+  <td>2/6/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>145-555-0130</td>
+  <td>ruth0@adventure-works.com</td>
+  <td>2176 Apollo Way</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>195</td>
+  <td>Jimmy</td>
+  <td>Bischoff</td>
+  <td>3/30/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Stocker</td>
+  <td>$9.00</td>
+  <td>Day</td>
+  <td>927-555-0168</td>
+  <td>jimmy0@adventure-works.com</td>
+  <td>2176 Brown Street</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>259</td>
+  <td>Stuart</td>
+  <td>Macrae</td>
+  <td>4/5/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Janitor</td>
+  <td>$9.25</td>
+  <td>Evening</td>
+  <td>539-555-0149</td>
+  <td>stuart1@adventure-works.com</td>
+  <td>2266 Greenwood Circle</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>122</td>
+  <td>Bryan</td>
+  <td>Baker</td>
+  <td>2/22/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>712-555-0113</td>
+  <td>bryan0@adventure-works.com</td>
+  <td>2275 Valley Blvd.</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>283</td>
+  <td>David</td>
+  <td>Campbell</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>740-555-0182</td>
+  <td>david8@adventure-works.com</td>
+  <td>2284 Azalea Avenue</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>206</td>
+  <td>Brian</td>
+  <td>LaMee</td>
+  <td>4/4/1999</td>
+  <td>Production Control</td>
+  <td>Scheduling Assistant</td>
+  <td>$16.00</td>
+  <td>Night</td>
+  <td>313-555-0196</td>
+  <td>brian1@adventure-works.com</td>
+  <td>2294 West 39th St.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>227</td>
+  <td>Mary</td>
+  <td>Baker</td>
+  <td>1/26/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Evening</td>
+  <td>283-555-0185</td>
+  <td>mary1@adventure-works.com</td>
+  <td>2354 Frame Ln.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>42</td>
+  <td>Jean</td>
+  <td>Trenary</td>
+  <td>1/12/1999</td>
+  <td>Information Services</td>
+  <td>Information Services Manager</td>
+  <td>$50.48</td>
+  <td>Day</td>
+  <td>685-555-0120</td>
+  <td>jean0@adventure-works.com</td>
+  <td>2383 Pepper Drive</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>242</td>
+  <td>Pat</td>
+  <td>Coleman</td>
+  <td>2/28/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Janitor</td>
+  <td>$9.25</td>
+  <td>Evening</td>
+  <td>720-555-0158</td>
+  <td>pat0@adventure-works.com</td>
+  <td>2425 Notre Dame Ave</td>
+  <td>Gold Bar</td>
+  <td>Washington</td>
+  <td>98251</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>268</td>
+  <td>Stephen</td>
+  <td>Jiang</td>
+  <td>2/4/2001</td>
+  <td>Sales</td>
+  <td>North American Sales Manager</td>
+  <td>$48.10</td>
+  <td>Day</td>
+  <td>238-555-0197</td>
+  <td>stephen0@adventure-works.com</td>
+  <td>2427 Notre Dame Ave.</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>229</td>
+  <td>Mihail</td>
+  <td>Frintu</td>
+  <td>1/30/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>733-555-0128</td>
+  <td>mihail0@adventure-works.com</td>
+  <td>2466 Clearland Circle</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>113</td>
+  <td>Marc</td>
+  <td>Ingle</td>
+  <td>2/17/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>234-555-0169</td>
+  <td>marc0@adventure-works.com</td>
+  <td>2473 Orchard Way</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>192</td>
+  <td>Michael</td>
+  <td>Entin</td>
+  <td>3/29/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>817-555-0186</td>
+  <td>michael4@adventure-works.com</td>
+  <td>2482 Buckingham Dr.</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>276</td>
+  <td>Linda</td>
+  <td>Mitchell</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>883-555-0116</td>
+  <td>linda3@adventure-works.com</td>
+  <td>2487 Riverside Drive</td>
+  <td>Nevada</td>
+  <td>Utah</td>
+  <td>84407</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>170</td>
+  <td>Alan</td>
+  <td>Brewer</td>
+  <td>3/17/1999</td>
+  <td>Production Control</td>
+  <td>Scheduling Assistant</td>
+  <td>$16.00</td>
+  <td>Evening</td>
+  <td>438-555-0172</td>
+  <td>alan0@adventure-works.com</td>
+  <td>25 95th Ave NE</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>41</td>
+  <td>Peng</td>
+  <td>Wu</td>
+  <td>1/10/1999</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Supervisor</td>
+  <td>$21.63</td>
+  <td>Day</td>
+  <td>164-555-0164</td>
+  <td>peng0@adventure-works.com</td>
+  <td>250 Race Court</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>218</td>
+  <td>Gary</td>
+  <td>Altman</td>
+  <td>1/3/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Facilities Manager</td>
+  <td>$24.04</td>
+  <td>Day</td>
+  <td>110-555-0112</td>
+  <td>gary1@adventure-works.com</td>
+  <td>2598 Breck Court</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>163</td>
+  <td>Mandar</td>
+  <td>Samant</td>
+  <td>3/14/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>140-555-0132</td>
+  <td>mandar0@adventure-works.com</td>
+  <td>2598 La Vista Circle</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>45</td>
+  <td>Fred</td>
+  <td>Northup</td>
+  <td>1/13/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>818-555-0192</td>
+  <td>fred0@adventure-works.com</td>
+  <td>2601 Cambridge Drive</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>18</td>
+  <td>John</td>
+  <td>Campbell</td>
+  <td>4/18/1998</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC60</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>435-555-0113</td>
+  <td>john0@adventure-works.com</td>
+  <td>2639 Anchor Court</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>120</td>
+  <td>Angela</td>
+  <td>Barbariol</td>
+  <td>2/21/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>150-555-0194</td>
+  <td>angela0@adventure-works.com</td>
+  <td>2687 Ridge Road</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>34</td>
+  <td>Susan</td>
+  <td>Eaton</td>
+  <td>1/8/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Stocker</td>
+  <td>$9.00</td>
+  <td>Evening</td>
+  <td>943-555-0196</td>
+  <td>susan0@adventure-works.com</td>
+  <td>2736 Scramble Rd</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>196</td>
+  <td>Michael</td>
+  <td>Vanderhyde</td>
+  <td>3/30/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>296-555-0121</td>
+  <td>michael5@adventure-works.com</td>
+  <td>2812 Mazatlan</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>244</td>
+  <td>Erin</td>
+  <td>Hagens</td>
+  <td>3/3/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>842-555-0158</td>
+  <td>erin0@adventure-works.com</td>
+  <td>2947 Vine Lane</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>243</td>
+  <td>Maciej</td>
+  <td>Dusza</td>
+  <td>3/1/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>237-555-0128</td>
+  <td>maciej0@adventure-works.com</td>
+  <td>3026 Anchor Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>100</td>
+  <td>Lane</td>
+  <td>Sacksteder</td>
+  <td>2/12/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>200-555-0117</td>
+  <td>lane0@adventure-works.com</td>
+  <td>3029 Pastime Dr</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>82</td>
+  <td>Vidur</td>
+  <td>Luthra</td>
+  <td>2/2/1999</td>
+  <td>Human Resources</td>
+  <td>Recruiter</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>153-555-0186</td>
+  <td>vidur0@adventure-works.com</td>
+  <td>3030 Blackburn Ct.</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>197</td>
+  <td>Lori</td>
+  <td>Kane</td>
+  <td>3/30/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC45</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>289-555-0196</td>
+  <td>lori0@adventure-works.com</td>
+  <td>3066 Wallace Dr.</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>245</td>
+  <td>Patrick</td>
+  <td>Wedge</td>
+  <td>3/4/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Night</td>
+  <td>413-555-0124</td>
+  <td>patrick0@adventure-works.com</td>
+  <td>3067 Maya</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>62</td>
+  <td>George</td>
+  <td>Li</td>
+  <td>1/22/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>518-555-0199</td>
+  <td>george0@adventure-works.com</td>
+  <td>3074 Arbor Drive</td>
+  <td>Carnation</td>
+  <td>Washington</td>
+  <td>98014</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>94</td>
+  <td>Candy</td>
+  <td>Spoon</td>
+  <td>2/7/1999</td>
+  <td>Finance</td>
+  <td>Accounts Receivable Specialist</td>
+  <td>$19.00</td>
+  <td>Day</td>
+  <td>920-555-0177</td>
+  <td>candy0@adventure-works.com</td>
+  <td>310 Winter Lane</td>
+  <td>Index</td>
+  <td>Washington</td>
+  <td>98256</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>Barry</td>
+  <td>Johnson</td>
+  <td>2/7/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>206-555-0180</td>
+  <td>barry0@adventure-works.com</td>
+  <td>3114 Notre Dame Ave.</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>161</td>
+  <td>Karen</td>
+  <td>Berge</td>
+  <td>3/13/1999</td>
+  <td>Document Control</td>
+  <td>Document Control Assistant</td>
+  <td>$10.25</td>
+  <td>Day</td>
+  <td>746-555-0164</td>
+  <td>karen0@adventure-works.com</td>
+  <td>3127 El Camino Drive</td>
+  <td>Index</td>
+  <td>Washington</td>
+  <td>98256</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>80</td>
+  <td>Rebecca</td>
+  <td>Laszlo</td>
+  <td>1/30/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>314-555-0113</td>
+  <td>rebecca0@adventure-works.com</td>
+  <td>3197 Thornhill Place</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>119</td>
+  <td>Jill</td>
+  <td>Williams</td>
+  <td>2/19/1999</td>
+  <td>Marketing</td>
+  <td>Marketing Specialist</td>
+  <td>$14.42</td>
+  <td>Day</td>
+  <td>510-555-0121</td>
+  <td>jill0@adventure-works.com</td>
+  <td>3238 Laguna Circle</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>186</td>
+  <td>Nicole</td>
+  <td>Holliday</td>
+  <td>3/26/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>508-555-0129</td>
+  <td>nicole0@adventure-works.com</td>
+  <td>3243 Buckingham Dr.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>36</td>
+  <td>Alice</td>
+  <td>Ciccu</td>
+  <td>1/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>333-555-0173</td>
+  <td>alice0@adventure-works.com</td>
+  <td>3280 Pheasant Circle</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>58</td>
+  <td>Suroor</td>
+  <td>Fatima</td>
+  <td>1/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>932-555-0161</td>
+  <td>suroor0@adventure-works.com</td>
+  <td>3281 Hillview Dr.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>69</td>
+  <td>Linda</td>
+  <td>Moschell</td>
+  <td>1/26/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>612-555-0171</td>
+  <td>linda0@adventure-works.com</td>
+  <td>3284 S. Blank Avenue</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>68</td>
+  <td>Shammi</td>
+  <td>Mohamed</td>
+  <td>1/25/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>793-555-0179</td>
+  <td>shammi0@adventure-works.com</td>
+  <td>332 Laguna Niguel</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>54</td>
+  <td>Tengiz</td>
+  <td>Kharatishvili</td>
+  <td>1/17/1999</td>
+  <td>Document Control</td>
+  <td>Control Specialist</td>
+  <td>$16.83</td>
+  <td>Night</td>
+  <td>910-555-0116</td>
+  <td>tengiz0@adventure-works.com</td>
+  <td>3333 Madhatter Circle</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>123</td>
+  <td>Jeff</td>
+  <td>Hay</td>
+  <td>2/22/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC45</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>350-555-0167</td>
+  <td>jeff0@adventure-works.com</td>
+  <td>3385 Crestview Drive</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>265</td>
+  <td>Janice</td>
+  <td>Galvin</td>
+  <td>1/23/2001</td>
+  <td>Tool Design</td>
+  <td>Tool Designer</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>473-555-0117</td>
+  <td>janice0@adventure-works.com</td>
+  <td>3397 Rancho View Drive</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>290</td>
+  <td>Lynn</td>
+  <td>Tsoflias</td>
+  <td>7/1/2003</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>1 (11) 500 555-0190</td>
+  <td>lynn0@adventure-works.com</td>
+  <td>34 Waterloo Road</td>
+  <td>Melbourne</td>
+  <td>Victoria</td>
+  <td>3000</td>
+  <td>Australia</td>
+ </tr>
+ <tr>
+  <td>90</td>
+  <td>Zainal</td>
+  <td>Arifin</td>
+  <td>2/5/1999</td>
+  <td>Document Control</td>
+  <td>Document Control Manager</td>
+  <td>$17.79</td>
+  <td>Day</td>
+  <td>204-555-0115</td>
+  <td>zainal0@adventure-works.com</td>
+  <td>342 San Simeon</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>37</td>
+  <td>Simon</td>
+  <td>Rapier</td>
+  <td>1/9/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>963-555-0134</td>
+  <td>simon0@adventure-works.com</td>
+  <td>3421 Bouncing Road</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>95</td>
+  <td>Nuan</td>
+  <td>Yu</td>
+  <td>2/7/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>913-555-0184</td>
+  <td>nuan0@adventure-works.com</td>
+  <td>3454 Bel Air Drive</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>202</td>
+  <td>Elizabeth</td>
+  <td>Keyser</td>
+  <td>4/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>318-555-0137</td>
+  <td>elizabeth0@adventure-works.com</td>
+  <td>350 Pastel Drive</td>
+  <td>Kent</td>
+  <td>Washington</td>
+  <td>98031</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>251</td>
+  <td>Lori</td>
+  <td>Penor</td>
+  <td>3/19/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Janitor</td>
+  <td>$9.25</td>
+  <td>Night</td>
+  <td>295-555-0161</td>
+  <td>lori1@adventure-works.com</td>
+  <td>3514 Sunshine</td>
+  <td>Index</td>
+  <td>Washington</td>
+  <td>98256</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>255</td>
+  <td>Randy</td>
+  <td>Reeves</td>
+  <td>3/26/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>961-555-0122</td>
+  <td>randy0@adventure-works.com</td>
+  <td>3632 Bank Way</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>204</td>
+  <td>John</td>
+  <td>Frum</td>
+  <td>4/4/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>663-555-0172</td>
+  <td>john3@adventure-works.com</td>
+  <td>3665 Oak Creek Ct.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>21</td>
+  <td>Peter</td>
+  <td>Krebs</td>
+  <td>1/2/1999</td>
+  <td>Production Control</td>
+  <td>Production Control Manager</td>
+  <td>$24.52</td>
+  <td>Day</td>
+  <td>913-555-0196</td>
+  <td>peter0@adventure-works.com</td>
+  <td>3670 All Ways Drive</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>74</td>
+  <td>Kok-Ho</td>
+  <td>Loh</td>
+  <td>1/28/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC50</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>999-555-0155</td>
+  <td>kok-ho0@adventure-works.com</td>
+  <td>3708 Montana</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>108</td>
+  <td>Eric</td>
+  <td>Gubbels</td>
+  <td>2/15/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC20</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>260-555-0119</td>
+  <td>eric0@adventure-works.com</td>
+  <td>371 Apple Dr.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>180</td>
+  <td>Rostislav</td>
+  <td>Shabalin</td>
+  <td>3/23/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>751-555-0134</td>
+  <td>rostislav0@adventure-works.com</td>
+  <td>3711 Rollingwood Dr</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>214</td>
+  <td>Shelley</td>
+  <td>Dyck</td>
+  <td>4/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>991-555-0184</td>
+  <td>shelley0@adventure-works.com</td>
+  <td>3747 W. Landing Avenue</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>6</td>
+  <td>David</td>
+  <td>Bradley</td>
+  <td>1/20/1998</td>
+  <td>Purchasing</td>
+  <td>Marketing Manager</td>
+  <td>$37.50</td>
+  <td>Day</td>
+  <td>913-555-0172</td>
+  <td>david0@adventure-works.com</td>
+  <td>3768 Door Way</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>6</td>
+  <td>David</td>
+  <td>Bradley</td>
+  <td>1/20/1998</td>
+  <td>Marketing</td>
+  <td>Marketing Manager</td>
+  <td>$37.50</td>
+  <td>Day</td>
+  <td>913-555-0172</td>
+  <td>david0@adventure-works.com</td>
+  <td>3768 Door Way</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>26</td>
+  <td>Ivo</td>
+  <td>Salmre</td>
+  <td>1/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>115-555-0179</td>
+  <td>ivo0@adventure-works.com</td>
+  <td>3841 Silver Oaks Place</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>149</td>
+  <td>Ramesh</td>
+  <td>Meyyappan</td>
+  <td>3/7/1999</td>
+  <td>Information Services</td>
+  <td>Application Specialist</td>
+  <td>$27.40</td>
+  <td>Day</td>
+  <td>182-555-0134</td>
+  <td>ramesh0@adventure-works.com</td>
+  <td>3848 East 39th Street</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>166</td>
+  <td>Dragan</td>
+  <td>Tomic</td>
+  <td>3/15/1999</td>
+  <td>Finance</td>
+  <td>Accounts Payable Specialist</td>
+  <td>$19.00</td>
+  <td>Day</td>
+  <td>117-555-0185</td>
+  <td>dragan0@adventure-works.com</td>
+  <td>3884 Beauty Street</td>
+  <td>Gold Bar</td>
+  <td>Washington</td>
+  <td>98251</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>75</td>
+  <td>Douglas</td>
+  <td>Hite</td>
+  <td>1/28/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Evening</td>
+  <td>808-555-0172</td>
+  <td>douglas0@adventure-works.com</td>
+  <td>390 Ridgewood Ct.</td>
+  <td>Carnation</td>
+  <td>Washington</td>
+  <td>98014</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>183</td>
+  <td>Russell</td>
+  <td>King</td>
+  <td>3/25/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>517-555-0122</td>
+  <td>russell1@adventure-works.com</td>
+  <td>3919 Pinto Road</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>106</td>
+  <td>Mary</td>
+  <td>Gibson</td>
+  <td>2/13/1999</td>
+  <td>Marketing</td>
+  <td>Marketing Specialist</td>
+  <td>$14.42</td>
+  <td>Day</td>
+  <td>531-555-0183</td>
+  <td>mary0@adventure-works.com</td>
+  <td>3928 San Francisco</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>160</td>
+  <td>John</td>
+  <td>Chen</td>
+  <td>3/13/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Night</td>
+  <td>201-555-0163</td>
+  <td>john2@adventure-works.com</td>
+  <td>3977 Central Avenue</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>287</td>
+  <td>Tete</td>
+  <td>Mensa-Annan</td>
+  <td>11/1/2002</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>615-555-0153</td>
+  <td>tete0@adventure-works.com</td>
+  <td>3997 Via De Luna</td>
+  <td>Cambridge</td>
+  <td>Massachusetts</td>
+  <td>02139</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>87</td>
+  <td>David</td>
+  <td>Hamilton</td>
+  <td>2/4/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC40</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>986-555-0177</td>
+  <td>david4@adventure-works.com</td>
+  <td>4095 Cooper Dr.</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>78</td>
+  <td>Nitin</td>
+  <td>Mirchandani</td>
+  <td>1/29/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Night</td>
+  <td>143-555-0173</td>
+  <td>nitin0@adventure-works.com</td>
+  <td>4096 San Remo</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>253</td>
+  <td>Sootha</td>
+  <td>Charncherngkha</td>
+  <td>3/26/2000</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Technician</td>
+  <td>$10.58</td>
+  <td>Night</td>
+  <td>325-555-0137</td>
+  <td>sootha0@adventure-works.com</td>
+  <td>4155 Working Drive</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>134</td>
+  <td>Benjamin</td>
+  <td>Martin</td>
+  <td>2/28/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>533-555-0111</td>
+  <td>benjamin0@adventure-works.com</td>
+  <td>4231 Spar Court</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>172</td>
+  <td>Baris</td>
+  <td>Cetinok</td>
+  <td>3/19/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>164-555-0114</td>
+  <td>baris0@adventure-works.com</td>
+  <td>426 San Rafael</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>236</td>
+  <td>Sandeep</td>
+  <td>Kaliyath</td>
+  <td>2/18/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>166-555-0156</td>
+  <td>sandeep0@adventure-works.com</td>
+  <td>4310 Kenston Dr.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>30</td>
+  <td>Paula</td>
+  <td>Barreto de Mattos</td>
+  <td>1/7/1999</td>
+  <td>Human Resources</td>
+  <td>Human Resources Manager</td>
+  <td>$27.14</td>
+  <td>Day</td>
+  <td>523-555-0175</td>
+  <td>paula0@adventure-works.com</td>
+  <td>4311 Clay Rd</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>121</td>
+  <td>Matthias</td>
+  <td>Berndt</td>
+  <td>2/21/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Shipping and Receiving Clerk</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>139-555-0120</td>
+  <td>matthias0@adventure-works.com</td>
+  <td>4312 Cambridge Drive</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>109</td>
+  <td>Ken</td>
+  <td>Sánchez</td>
+  <td>2/15/1999</td>
+  <td>Executive</td>
+  <td>Chief Executive Officer</td>
+  <td>$125.50</td>
+  <td>Day</td>
+  <td>697-555-0142</td>
+  <td>ken0@adventure-works.com</td>
+  <td>4350 Minute Dr.</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>211</td>
+  <td>Andrew</td>
+  <td>Cencini</td>
+  <td>4/7/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Day</td>
+  <td>207-555-0192</td>
+  <td>andrew1@adventure-works.com</td>
+  <td>4444 Pepper Way</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>71</td>
+  <td>Wendy</td>
+  <td>Kahn</td>
+  <td>1/26/1999</td>
+  <td>Finance</td>
+  <td>Finance Manager</td>
+  <td>$43.27</td>
+  <td>Day</td>
+  <td>248-555-0134</td>
+  <td>wendy0@adventure-works.com</td>
+  <td>4525 Benedict Ct.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>112</td>
+  <td>Janeth</td>
+  <td>Esteves</td>
+  <td>2/16/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Evening</td>
+  <td>540-555-0191</td>
+  <td>janeth0@adventure-works.com</td>
+  <td>4566 La Jolla</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>247</td>
+  <td>Ed</td>
+  <td>Dudenhoefer</td>
+  <td>3/8/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>919-555-0140</td>
+  <td>ed0@adventure-works.com</td>
+  <td>4598 Manila Avenue</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>135</td>
+  <td>Cynthia</td>
+  <td>Randall</td>
+  <td>2/28/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC30</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>352-555-0138</td>
+  <td>cynthia0@adventure-works.com</td>
+  <td>463 H Stagecoach Rd.</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>76</td>
+  <td>James</td>
+  <td>Kramer</td>
+  <td>1/28/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>119-555-0117</td>
+  <td>james0@adventure-works.com</td>
+  <td>4734 Sycamore Court</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>79</td>
+  <td>Diane</td>
+  <td>Margheim</td>
+  <td>1/30/1999</td>
+  <td>Research and Development</td>
+  <td>Research and Development Engineer</td>
+  <td>$40.87</td>
+  <td>Day</td>
+  <td>815-555-0138</td>
+  <td>diane1@adventure-works.com</td>
+  <td>475 Santa Maria</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>142</td>
+  <td>Andy</td>
+  <td>Ruth</td>
+  <td>3/4/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>118-555-0110</td>
+  <td>andy0@adventure-works.com</td>
+  <td>4777 Rockne Drive</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>230</td>
+  <td>Bonnie</td>
+  <td>Kearney</td>
+  <td>2/2/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>264-555-0150</td>
+  <td>bonnie0@adventure-works.com</td>
+  <td>4852 Chaparral Court</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>48</td>
+  <td>Jun</td>
+  <td>Cao</td>
+  <td>1/15/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>299-555-0113</td>
+  <td>jun0@adventure-works.com</td>
+  <td>4909 Poco Lane</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>182</td>
+  <td>Katie</td>
+  <td>McAskill-White</td>
+  <td>3/24/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC20</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>809-555-0133</td>
+  <td>katie0@adventure-works.com</td>
+  <td>4948 West 4th St</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>284</td>
+  <td>Amy</td>
+  <td>Alberts</td>
+  <td>5/18/2002</td>
+  <td>Sales</td>
+  <td>European Sales Manager</td>
+  <td>$48.10</td>
+  <td>Day</td>
+  <td>775-555-0164</td>
+  <td>amy0@adventure-works.com</td>
+  <td>5009 Orange Street</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>143</td>
+  <td>Yuhong</td>
+  <td>Li</td>
+  <td>3/5/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC20</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>965-555-0155</td>
+  <td>yuhong0@adventure-works.com</td>
+  <td>502 Alexander Pl.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>86</td>
+  <td>David</td>
+  <td>Yalovsky</td>
+  <td>2/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>373-555-0142</td>
+  <td>david3@adventure-works.com</td>
+  <td>5025 Holiday Hills</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>168</td>
+  <td>Rob</td>
+  <td>Caron</td>
+  <td>3/17/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>238-555-0116</td>
+  <td>rob1@adventure-works.com</td>
+  <td>5030 Blue Ridge Dr.</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>Taylor</td>
+  <td>Maxwell</td>
+  <td>3/11/1998</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC50</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>508-555-0165</td>
+  <td>taylor0@adventure-works.com</td>
+  <td>504 O St.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>200</td>
+  <td>Hazem</td>
+  <td>Abolrous</td>
+  <td>4/1/1999</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Manager</td>
+  <td>$28.85</td>
+  <td>Day</td>
+  <td>869-555-0125</td>
+  <td>hazem0@adventure-works.com</td>
+  <td>5050 Mt. Wilson Way</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>240</td>
+  <td>Eric</td>
+  <td>Brown</td>
+  <td>2/25/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>680-555-0118</td>
+  <td>eric1@adventure-works.com</td>
+  <td>5086 Nottingham Place</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>162</td>
+  <td>Jose</td>
+  <td>Lugo</td>
+  <td>3/14/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>587-555-0115</td>
+  <td>jose0@adventure-works.com</td>
+  <td>5125 Cotton Ct.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>252</td>
+  <td>Danielle</td>
+  <td>Tiedt</td>
+  <td>3/23/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Night</td>
+  <td>500-555-0172</td>
+  <td>danielle0@adventure-works.com</td>
+  <td>5203 Virginia Lane</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>262</td>
+  <td>Tom</td>
+  <td>Vande Velde</td>
+  <td>4/10/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Night</td>
+  <td>295-555-0161</td>
+  <td>tom0@adventure-works.com</td>
+  <td>5242 Marvelle Ln.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>176</td>
+  <td>Karen</td>
+  <td>Berg</td>
+  <td>3/20/1999</td>
+  <td>Information Services</td>
+  <td>Application Specialist</td>
+  <td>$27.40</td>
+  <td>Day</td>
+  <td>654-555-0177</td>
+  <td>karen1@adventure-works.com</td>
+  <td>5256 Chickpea Ct.</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>219</td>
+  <td>Charles</td>
+  <td>Fitzgerald</td>
+  <td>1/4/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>931-555-0118</td>
+  <td>charles0@adventure-works.com</td>
+  <td>5263 Etcheverry Dr</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>274</td>
+  <td>Sheela</td>
+  <td>Word</td>
+  <td>3/28/2001</td>
+  <td>Marketing</td>
+  <td>Purchasing Manager</td>
+  <td>$30.00</td>
+  <td>Day</td>
+  <td>210-555-0193</td>
+  <td>sheela0@adventure-works.com</td>
+  <td>535 Greendell Pl</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>274</td>
+  <td>Sheela</td>
+  <td>Word</td>
+  <td>3/28/2001</td>
+  <td>Quality Assurance</td>
+  <td>Purchasing Manager</td>
+  <td>$30.00</td>
+  <td>Day</td>
+  <td>210-555-0193</td>
+  <td>sheela0@adventure-works.com</td>
+  <td>535 Greendell Pl</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>274</td>
+  <td>Sheela</td>
+  <td>Word</td>
+  <td>3/28/2001</td>
+  <td>Purchasing</td>
+  <td>Purchasing Manager</td>
+  <td>$30.00</td>
+  <td>Day</td>
+  <td>210-555-0193</td>
+  <td>sheela0@adventure-works.com</td>
+  <td>535 Greendell Pl</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>101</td>
+  <td>Pete</td>
+  <td>Male</td>
+  <td>2/12/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>768-555-0123</td>
+  <td>pete0@adventure-works.com</td>
+  <td>5375 Clearland Circle</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>207</td>
+  <td>Kitti</td>
+  <td>Lertpiriyasuwat</td>
+  <td>4/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>785-555-0132</td>
+  <td>kitti0@adventure-works.com</td>
+  <td>5376 Catanzaro Way</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>165</td>
+  <td>Sameer</td>
+  <td>Tejani</td>
+  <td>3/15/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>990-555-0172</td>
+  <td>sameer0@adventure-works.com</td>
+  <td>5379 Treasure Island Way</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>85</td>
+  <td>Pilar</td>
+  <td>Ackerman</td>
+  <td>2/3/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Shipping and Receiving Supervisor</td>
+  <td>$19.23</td>
+  <td>Day</td>
+  <td>577-555-0185</td>
+  <td>pilar0@adventure-works.com</td>
+  <td>5407 Cougar Way</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>81</td>
+  <td>Rajesh</td>
+  <td>Patel</td>
+  <td>2/1/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>373-555-0137</td>
+  <td>rajesh0@adventure-works.com</td>
+  <td>5423 Champion Rd.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>47</td>
+  <td>Willis</td>
+  <td>Johnson</td>
+  <td>1/14/1999</td>
+  <td>Human Resources</td>
+  <td>Recruiter</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>778-555-0141</td>
+  <td>willis0@adventure-works.com</td>
+  <td>5452 Corte Gilberto</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>263</td>
+  <td>Ovidiu</td>
+  <td>Cracium</td>
+  <td>1/5/2001</td>
+  <td>Tool Design</td>
+  <td>Senior Tool Designer</td>
+  <td>$28.85</td>
+  <td>Day</td>
+  <td>719-555-0181</td>
+  <td>ovidiu0@adventure-works.com</td>
+  <td>5458 Gladstone Drive</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>Doris</td>
+  <td>Hartwig</td>
+  <td>4/11/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>328-555-0150</td>
+  <td>doris0@adventure-works.com</td>
+  <td>5553 Cash Avenue</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>205</td>
+  <td>Merav</td>
+  <td>Netz</td>
+  <td>4/4/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>224-555-0187</td>
+  <td>merav0@adventure-works.com</td>
+  <td>5666 Hazelnut Lane</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>153</td>
+  <td>Denise</td>
+  <td>Smith</td>
+  <td>3/9/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>869-555-0119</td>
+  <td>denise0@adventure-works.com</td>
+  <td>5669 Ironwood Way</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>Jossef</td>
+  <td>Goldberg</td>
+  <td>2/24/1998</td>
+  <td>Engineering</td>
+  <td>Design Engineer</td>
+  <td>$32.69</td>
+  <td>Day</td>
+  <td>122-555-0189</td>
+  <td>jossef0@adventure-works.com</td>
+  <td>5670 Bel Air Dr.</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>224</td>
+  <td>Betsy</td>
+  <td>Stadick</td>
+  <td>1/19/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Night</td>
+  <td>405-555-0171</td>
+  <td>betsy0@adventure-works.com</td>
+  <td>5672 Hale Dr.</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>175</td>
+  <td>Suchitra</td>
+  <td>Mohan</td>
+  <td>3/20/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>753-555-0129</td>
+  <td>suchitra0@adventure-works.com</td>
+  <td>5678 Clear Court</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>4</td>
+  <td>Rob</td>
+  <td>Walters</td>
+  <td>1/5/1998</td>
+  <td>Engineering</td>
+  <td>Senior Tool Designer</td>
+  <td>$29.85</td>
+  <td>Day</td>
+  <td>612-555-0100</td>
+  <td>rob0@adventure-works.com</td>
+  <td>5678 Lakeview Blvd.</td>
+  <td>Minneapolis</td>
+  <td>Minnesota</td>
+  <td>55402</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>4</td>
+  <td>Rob</td>
+  <td>Walters</td>
+  <td>1/5/1998</td>
+  <td>Tool Design</td>
+  <td>Senior Tool Designer</td>
+  <td>$29.85</td>
+  <td>Day</td>
+  <td>612-555-0100</td>
+  <td>rob0@adventure-works.com</td>
+  <td>5678 Lakeview Blvd.</td>
+  <td>Minneapolis</td>
+  <td>Minnesota</td>
+  <td>55402</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>246</td>
+  <td>Frank</td>
+  <td>Martinez</td>
+  <td>3/8/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>203-555-0196</td>
+  <td>frank3@adventure-works.com</td>
+  <td>5724 Victory Lane</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>281</td>
+  <td>Shu</td>
+  <td>Ito</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>330-555-0120</td>
+  <td>shu0@adventure-works.com</td>
+  <td>5725 Glaze Drive</td>
+  <td>San Francisco</td>
+  <td>California</td>
+  <td>94109</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>15</td>
+  <td>Jeffrey</td>
+  <td>Ford</td>
+  <td>3/23/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>984-555-0185</td>
+  <td>jeffrey0@adventure-works.com</td>
+  <td>5734 Ashford Court</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>179</td>
+  <td>Chad</td>
+  <td>Niswonger</td>
+  <td>3/22/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>559-555-0175</td>
+  <td>chad0@adventure-works.com</td>
+  <td>5747 Shirley Drive</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>97</td>
+  <td>Bjorn</td>
+  <td>Rettig</td>
+  <td>2/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>199-555-0117</td>
+  <td>bjorn0@adventure-works.com</td>
+  <td>5802 Ampersand Drive</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>128</td>
+  <td>Dan</td>
+  <td>Wilson</td>
+  <td>2/23/1999</td>
+  <td>Information Services</td>
+  <td>Database Administrator</td>
+  <td>$38.46</td>
+  <td>Day</td>
+  <td>653-555-0144</td>
+  <td>dan1@adventure-works.com</td>
+  <td>5863 Sierra</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>187</td>
+  <td>Frank</td>
+  <td>Miller</td>
+  <td>3/27/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>167-555-0139</td>
+  <td>frank1@adventure-works.com</td>
+  <td>591 Merriewood Drive</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>66</td>
+  <td>Janaina</td>
+  <td>Bueno</td>
+  <td>1/24/1999</td>
+  <td>Information Services</td>
+  <td>Application Specialist</td>
+  <td>$27.40</td>
+  <td>Day</td>
+  <td>623-555-0155</td>
+  <td>janaina0@adventure-works.com</td>
+  <td>5979 El Pueblo</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>238</td>
+  <td>Frank</td>
+  <td>Pellow</td>
+  <td>2/24/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>163-555-0147</td>
+  <td>frank2@adventure-works.com</td>
+  <td>5980 Icicle Circle</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>63</td>
+  <td>Gary</td>
+  <td>Yukish</td>
+  <td>1/23/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>901-555-0125</td>
+  <td>gary0@adventure-works.com</td>
+  <td>6057 Hill Street</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>228</td>
+  <td>Kevin</td>
+  <td>Homer</td>
+  <td>1/26/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Evening</td>
+  <td>555-555-0113</td>
+  <td>kevin2@adventure-works.com</td>
+  <td>6058 Hill Street</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>223</td>
+  <td>Linda</td>
+  <td>Meisner</td>
+  <td>1/18/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>916-555-0165</td>
+  <td>linda2@adventure-works.com</td>
+  <td>6118 Grasswood Circle</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>266</td>
+  <td>Reinout</td>
+  <td>Hillmann</td>
+  <td>1/25/2001</td>
+  <td>Purchasing</td>
+  <td>Purchasing Assistant</td>
+  <td>$12.75</td>
+  <td>Day</td>
+  <td>370-555-0163</td>
+  <td>reinout0@adventure-works.com</td>
+  <td>620 Woodside Ct.</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>272</td>
+  <td>Mary</td>
+  <td>Dempsey</td>
+  <td>3/17/2001</td>
+  <td>Marketing</td>
+  <td>Marketing Assistant</td>
+  <td>$13.46</td>
+  <td>Day</td>
+  <td>124-555-0114</td>
+  <td>mary2@adventure-works.com</td>
+  <td>6307 Greenbelt Way</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>280</td>
+  <td>Pamela</td>
+  <td>Ansman-Wolfe</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>340-555-0193</td>
+  <td>pamela0@adventure-works.com</td>
+  <td>636 Vine Hill Way</td>
+  <td>Portland</td>
+  <td>Oregon</td>
+  <td>97205</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>264</td>
+  <td>Annette</td>
+  <td>Hill</td>
+  <td>1/6/2001</td>
+  <td>Purchasing</td>
+  <td>Purchasing Assistant</td>
+  <td>$12.75</td>
+  <td>Day</td>
+  <td>125-555-0196</td>
+  <td>annette0@adventure-works.com</td>
+  <td>6369 Ellis Street</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>67</td>
+  <td>Bob</td>
+  <td>Hohman</td>
+  <td>1/25/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>611-555-0116</td>
+  <td>bob0@adventure-works.com</td>
+  <td>6387 Scenic Avenue</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>22</td>
+  <td>Stuart</td>
+  <td>Munson</td>
+  <td>1/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Night</td>
+  <td>413-555-0136</td>
+  <td>stuart0@adventure-works.com</td>
+  <td>6448 Castle Court</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>173</td>
+  <td>Michael</td>
+  <td>Ray</td>
+  <td>3/19/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC30</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>156-555-0199</td>
+  <td>michael3@adventure-works.com</td>
+  <td>6498 Mining Rd.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>267</td>
+  <td>Michael</td>
+  <td>Sullivan</td>
+  <td>1/30/2001</td>
+  <td>Engineering</td>
+  <td>Senior Design Engineer</td>
+  <td>$36.06</td>
+  <td>Day</td>
+  <td>465-555-0156</td>
+  <td>michael8@adventure-works.com</td>
+  <td>6510 Hacienda Drive</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>25</td>
+  <td>Zheng</td>
+  <td>Mu</td>
+  <td>1/4/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC10</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>113-555-0173</td>
+  <td>zheng0@adventure-works.com</td>
+  <td>6578 Woodhaven Ln.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>28</td>
+  <td>Ashvini</td>
+  <td>Sharma</td>
+  <td>1/5/1999</td>
+  <td>Information Services</td>
+  <td>Network Administrator</td>
+  <td>$32.45</td>
+  <td>Evening</td>
+  <td>656-555-0119</td>
+  <td>ashvini0@adventure-works.com</td>
+  <td>6580 Poor Ridge Court</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>185</td>
+  <td>Andrew</td>
+  <td>Hill</td>
+  <td>3/26/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC10</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>908-555-0159</td>
+  <td>andrew0@adventure-works.com</td>
+  <td>6629 Polson Circle</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>126</td>
+  <td>Chris</td>
+  <td>Preston</td>
+  <td>2/23/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Day</td>
+  <td>200-555-0112</td>
+  <td>chris0@adventure-works.com</td>
+  <td>6657 Sand Pointe Lane</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>24</td>
+  <td>David</td>
+  <td>Johnson</td>
+  <td>1/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>166-555-0162</td>
+  <td>david1@adventure-works.com</td>
+  <td>6697 Ridge Park Drive</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>96</td>
+  <td>William</td>
+  <td>Vong</td>
+  <td>2/8/1999</td>
+  <td>Production</td>
+  <td>Scheduling Assistant</td>
+  <td>$16.00</td>
+  <td>Day</td>
+  <td>148-555-0145</td>
+  <td>william0@adventure-works.com</td>
+  <td>6774 Bonanza</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>96</td>
+  <td>William</td>
+  <td>Vong</td>
+  <td>2/8/1999</td>
+  <td>Production Control</td>
+  <td>Scheduling Assistant</td>
+  <td>$16.00</td>
+  <td>Day</td>
+  <td>148-555-0145</td>
+  <td>william0@adventure-works.com</td>
+  <td>6774 Bonanza</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>144</td>
+  <td>Robert</td>
+  <td>Rounthwaite</td>
+  <td>3/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Evening</td>
+  <td>589-555-0147</td>
+  <td>robert0@adventure-works.com</td>
+  <td>6843 San Simeon Dr.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>250</td>
+  <td>Krishna</td>
+  <td>Sunkammurali</td>
+  <td>3/16/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>491-555-0183</td>
+  <td>krishna0@adventure-works.com</td>
+  <td>6870 D Bel Air Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>201</td>
+  <td>Janet</td>
+  <td>Sheperdigian</td>
+  <td>4/2/1999</td>
+  <td>Finance</td>
+  <td>Accounts Payable Specialist</td>
+  <td>$19.00</td>
+  <td>Day</td>
+  <td>393-555-0186</td>
+  <td>janet0@adventure-works.com</td>
+  <td>6871 Thornwood Dr.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>167</td>
+  <td>Carol</td>
+  <td>Philips</td>
+  <td>3/16/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>609-555-0153</td>
+  <td>carol0@adventure-works.com</td>
+  <td>6872 Thornwood Dr.</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>189</td>
+  <td>Anibal</td>
+  <td>Sousa</td>
+  <td>3/27/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>106-555-0120</td>
+  <td>anibal0@adventure-works.com</td>
+  <td>6891 Ham Drive</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>140</td>
+  <td>Laura</td>
+  <td>Norman</td>
+  <td>3/4/1999</td>
+  <td>Finance</td>
+  <td>Chief Financial Officer</td>
+  <td>$60.10</td>
+  <td>Day</td>
+  <td>615-555-0110</td>
+  <td>laura1@adventure-works.com</td>
+  <td>6937 E. 42nd Street</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>140</td>
+  <td>Laura</td>
+  <td>Norman</td>
+  <td>3/4/1999</td>
+  <td>Executive</td>
+  <td>Chief Financial Officer</td>
+  <td>$60.10</td>
+  <td>Day</td>
+  <td>615-555-0110</td>
+  <td>laura1@adventure-works.com</td>
+  <td>6937 E. 42nd Street</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>269</td>
+  <td>Wanida</td>
+  <td>Benshoof</td>
+  <td>2/7/2001</td>
+  <td>Marketing</td>
+  <td>Marketing Assistant</td>
+  <td>$13.46</td>
+  <td>Day</td>
+  <td>708-555-0141</td>
+  <td>wanida0@adventure-works.com</td>
+  <td>6951 Harmony Way</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>177</td>
+  <td>Terrence</td>
+  <td>Earls</td>
+  <td>3/20/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>110-555-0115</td>
+  <td>terrence0@adventure-works.com</td>
+  <td>6968 Wren Ave.</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>158</td>
+  <td>Dylan</td>
+  <td>Miller</td>
+  <td>3/12/1999</td>
+  <td>Research and Development</td>
+  <td>Research and Development Manager</td>
+  <td>$50.48</td>
+  <td>Day</td>
+  <td>181-555-0156</td>
+  <td>dylan0@adventure-works.com</td>
+  <td>7048 Laurel</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>232</td>
+  <td>Hung-Fu</td>
+  <td>Ting</td>
+  <td>2/7/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>497-555-0181</td>
+  <td>hung-fu0@adventure-works.com</td>
+  <td>7086 O St.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>7</td>
+  <td>JoLynn</td>
+  <td>Dobney</td>
+  <td>1/26/1998</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC60</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>903-555-0145</td>
+  <td>jolynn0@adventure-works.com</td>
+  <td>7126 Ending Ct.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>31</td>
+  <td>Alejandro</td>
+  <td>McGuel</td>
+  <td>1/7/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>668-555-0130</td>
+  <td>alejandro0@adventure-works.com</td>
+  <td>7127 Los Gatos Court</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>125</td>
+  <td>Barbara</td>
+  <td>Decker</td>
+  <td>2/23/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Night</td>
+  <td>119-555-0192</td>
+  <td>barbara0@adventure-works.com</td>
+  <td>7145 Matchstick Drive</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>270</td>
+  <td>Sharon</td>
+  <td>Salavaria</td>
+  <td>2/18/2001</td>
+  <td>Engineering</td>
+  <td>Design Engineer</td>
+  <td>$32.69</td>
+  <td>Day</td>
+  <td>970-555-0138</td>
+  <td>sharon0@adventure-works.com</td>
+  <td>7165 Brock Lane</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>64</td>
+  <td>Cristian</td>
+  <td>Petculescu</td>
+  <td>1/23/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC10</td>
+  <td>$25.00</td>
+  <td>Night</td>
+  <td>434-555-0133</td>
+  <td>cristian0@adventure-works.com</td>
+  <td>7166 Brock Lane</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>258</td>
+  <td>Olinda</td>
+  <td>Turner</td>
+  <td>4/4/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>306-555-0186</td>
+  <td>olinda0@adventure-works.com</td>
+  <td>7221 Peachwillow Street</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>138</td>
+  <td>Brian</td>
+  <td>Lloyd</td>
+  <td>3/2/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>110-555-0182</td>
+  <td>brian0@adventure-works.com</td>
+  <td>7230 Vine Maple Street</td>
+  <td>Snohomish</td>
+  <td>Washington</td>
+  <td>98296</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>27</td>
+  <td>Paul</td>
+  <td>Komosinski</td>
+  <td>1/5/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Night</td>
+  <td>147-555-0160</td>
+  <td>paul0@adventure-works.com</td>
+  <td>7270 Pepper Way</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>55</td>
+  <td>Hanying</td>
+  <td>Feng</td>
+  <td>1/17/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>319-555-0139</td>
+  <td>hanying0@adventure-works.com</td>
+  <td>7297 RisingView</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>194</td>
+  <td>Thomas</td>
+  <td>Michaels</td>
+  <td>3/30/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>278-555-0118</td>
+  <td>thomas0@adventure-works.com</td>
+  <td>7338 Green St.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>239</td>
+  <td>Min</td>
+  <td>Su</td>
+  <td>2/25/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>590-555-0152</td>
+  <td>min0@adventure-works.com</td>
+  <td>7396 Stratton Circle</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>98</td>
+  <td>Scott</td>
+  <td>Gode</td>
+  <td>2/9/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Night</td>
+  <td>391-555-0138</td>
+  <td>scott0@adventure-works.com</td>
+  <td>7403 N. Broadway</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>150</td>
+  <td>Stephanie</td>
+  <td>Conroy</td>
+  <td>3/8/1999</td>
+  <td>Information Services</td>
+  <td>Network Manager</td>
+  <td>$39.66</td>
+  <td>Day</td>
+  <td>594-555-0110</td>
+  <td>stephanie0@adventure-works.com</td>
+  <td>7435 Ricardo</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>29</td>
+  <td>Kendall</td>
+  <td>Keil</td>
+  <td>1/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>138-555-0128</td>
+  <td>kendall0@adventure-works.com</td>
+  <td>7439 Laguna Niguel</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>288</td>
+  <td>Syed</td>
+  <td>Abbas</td>
+  <td>4/15/2003</td>
+  <td>Sales</td>
+  <td>Pacific Sales Manager</td>
+  <td>$48.10</td>
+  <td>Day</td>
+  <td>926-555-0182</td>
+  <td>syed0@adventure-works.com</td>
+  <td>7484 Roundtree Drive</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>254</td>
+  <td>Michael</td>
+  <td>Zwilling</td>
+  <td>3/26/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>582-555-0148</td>
+  <td>michael7@adventure-works.com</td>
+  <td>7511 Cooper Dr.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>Terri</td>
+  <td>Duffy</td>
+  <td>3/3/1998</td>
+  <td>Engineering</td>
+  <td>Vice President of Engineering</td>
+  <td>$63.46</td>
+  <td>Day</td>
+  <td>819-555-0175</td>
+  <td>terri0@adventure-works.com</td>
+  <td>7559 Worth Ct.</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>56</td>
+  <td>Kevin</td>
+  <td>Liu</td>
+  <td>1/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>714-555-0138</td>
+  <td>kevin1@adventure-works.com</td>
+  <td>7594 Alexander Pl.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>43</td>
+  <td>Russell</td>
+  <td>Hunter</td>
+  <td>1/13/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>786-555-0144</td>
+  <td>russell0@adventure-works.com</td>
+  <td>7616 Honey Court</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>59</td>
+  <td>Deborah</td>
+  <td>Poe</td>
+  <td>1/19/1999</td>
+  <td>Finance</td>
+  <td>Accounts Receivable Specialist</td>
+  <td>$19.00</td>
+  <td>Day</td>
+  <td>602-555-0194</td>
+  <td>deborah0@adventure-works.com</td>
+  <td>7640 First Ave.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>154</td>
+  <td>Hao</td>
+  <td>Chen</td>
+  <td>3/10/1999</td>
+  <td>Human Resources</td>
+  <td>Human Resources Administrative Assistant</td>
+  <td>$13.94</td>
+  <td>Day</td>
+  <td>806-555-0136</td>
+  <td>hao0@adventure-works.com</td>
+  <td>7691 Benedict Ct.</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>147</td>
+  <td>Linda</td>
+  <td>Randall</td>
+  <td>3/7/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>696-555-0157</td>
+  <td>linda1@adventure-works.com</td>
+  <td>77 Birchwood</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>Guy</td>
+  <td>Gilbert</td>
+  <td>7/31/1996</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>320-555-0195</td>
+  <td>guy1@adventure-works.com</td>
+  <td>7726 Driftwood Drive</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>193</td>
+  <td>Lionel</td>
+  <td>Penuchot</td>
+  <td>3/30/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Evening</td>
+  <td>450-555-0152</td>
+  <td>lionel0@adventure-works.com</td>
+  <td>7765 Sunsine Drive</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>273</td>
+  <td>Brian</td>
+  <td>Welcker</td>
+  <td>3/18/2001</td>
+  <td>Sales</td>
+  <td>Vice President of Sales</td>
+  <td>$72.12</td>
+  <td>Day</td>
+  <td>716-555-0127</td>
+  <td>brian3@adventure-works.com</td>
+  <td>7772 Golden Meadow</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>114</td>
+  <td>Gigi</td>
+  <td>Matthew</td>
+  <td>2/17/1999</td>
+  <td>Research and Development</td>
+  <td>Research and Development Engineer</td>
+  <td>$40.87</td>
+  <td>Day</td>
+  <td>185-555-0186</td>
+  <td>gigi0@adventure-works.com</td>
+  <td>7808 Brown St.</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>84</td>
+  <td>Nancy</td>
+  <td>Anderson</td>
+  <td>2/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>970-555-0118</td>
+  <td>nancy0@adventure-works.com</td>
+  <td>7820 Bird Drive</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>57</td>
+  <td>Annik</td>
+  <td>Stahl</td>
+  <td>1/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>499-555-0125</td>
+  <td>annik0@adventure-works.com</td>
+  <td>7842 Ygnacio Valley Road</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>Kevin</td>
+  <td>Brown</td>
+  <td>2/26/1997</td>
+  <td>Marketing</td>
+  <td>Marketing Assistant</td>
+  <td>$13.46</td>
+  <td>Day</td>
+  <td>150-555-0189</td>
+  <td>kevin0@adventure-works.com</td>
+  <td>7883 Missing Canyon Court</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>221</td>
+  <td>Sylvester</td>
+  <td>Valdez</td>
+  <td>1/12/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>492-555-0174</td>
+  <td>sylvester0@adventure-works.com</td>
+  <td>7902 Grammercy Lane</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>124</td>
+  <td>Eugene</td>
+  <td>Zabokritski</td>
+  <td>2/22/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>241-555-0191</td>
+  <td>eugene0@adventure-works.com</td>
+  <td>7939 Bayview Court</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>77</td>
+  <td>Sean</td>
+  <td>Alexander</td>
+  <td>1/29/1999</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Technician</td>
+  <td>$10.58</td>
+  <td>Day</td>
+  <td>420-555-0173</td>
+  <td>sean0@adventure-works.com</td>
+  <td>7985 Center Street</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>277</td>
+  <td>Jillian</td>
+  <td>Carson</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>517-555-0117</td>
+  <td>jillian0@adventure-works.com</td>
+  <td>80 Sunview Terrace</td>
+  <td>Duluth</td>
+  <td>Minnesota</td>
+  <td>55802</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>157</td>
+  <td>Brandon</td>
+  <td>Heidepriem</td>
+  <td>3/12/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>429-555-0137</td>
+  <td>brandon0@adventure-works.com</td>
+  <td>8000 Crane Court</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>49</td>
+  <td>Christian</td>
+  <td>Kleinerman</td>
+  <td>1/15/1999</td>
+  <td>Facilities and Maintenance</td>
+  <td>Maintenance Supervisor</td>
+  <td>$20.43</td>
+  <td>Day</td>
+  <td>846-555-0157</td>
+  <td>christian0@adventure-works.com</td>
+  <td>8036 Summit View Dr.</td>
+  <td>Gold Bar</td>
+  <td>Washington</td>
+  <td>98251</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>132</td>
+  <td>Sairaj</td>
+  <td>Uddin</td>
+  <td>2/27/1999</td>
+  <td>Production Control</td>
+  <td>Scheduling Assistant</td>
+  <td>$16.00</td>
+  <td>Day</td>
+  <td>500-555-0159</td>
+  <td>sairaj0@adventure-works.com</td>
+  <td>8040 Hill Ct</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>104</td>
+  <td>Lolan</td>
+  <td>Song</td>
+  <td>2/13/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>582-555-0178</td>
+  <td>lolan0@adventure-works.com</td>
+  <td>8152 Claudia Dr.</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>275</td>
+  <td>Michael</td>
+  <td>Blythe</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>257-555-0154</td>
+  <td>michael9@adventure-works.com</td>
+  <td>8154 Via Mexico</td>
+  <td>Detroit</td>
+  <td>Michigan</td>
+  <td>48226</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>222</td>
+  <td>Brian</td>
+  <td>Goldstein</td>
+  <td>1/12/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>730-555-0117</td>
+  <td>brian2@adventure-works.com</td>
+  <td>8157 W. Book</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>118</td>
+  <td>Diane</td>
+  <td>Tibbott</td>
+  <td>2/19/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Night</td>
+  <td>361-555-0180</td>
+  <td>diane2@adventure-works.com</td>
+  <td>8192 Seagull Court</td>
+  <td>Kenmore</td>
+  <td>Washington</td>
+  <td>98028</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>256</td>
+  <td>John</td>
+  <td>Kane</td>
+  <td>3/30/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Evening</td>
+  <td>254-555-0114</td>
+  <td>john4@adventure-works.com</td>
+  <td>8209 Green View Court</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>116</td>
+  <td>Frank</td>
+  <td>Lee</td>
+  <td>2/18/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>158-555-0191</td>
+  <td>frank0@adventure-works.com</td>
+  <td>8290 Margaret Ct.</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>279</td>
+  <td>Tsvi</td>
+  <td>Reiter</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>664-555-0112</td>
+  <td>tsvi0@adventure-works.com</td>
+  <td>8291 Crossbow Way</td>
+  <td>Memphis</td>
+  <td>Tennessee</td>
+  <td>38103</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>33</td>
+  <td>Jian Shuo</td>
+  <td>Wang</td>
+  <td>1/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>952-555-0178</td>
+  <td>jianshuo0@adventure-works.com</td>
+  <td>8310 Ridge Circle</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>220</td>
+  <td>Ebru</td>
+  <td>Ersan</td>
+  <td>1/7/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Evening</td>
+  <td>202-555-0187</td>
+  <td>ebru0@adventure-works.com</td>
+  <td>8316 La Salle St.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>61</td>
+  <td>Carole</td>
+  <td>Poland</td>
+  <td>1/20/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Night</td>
+  <td>688-555-0192</td>
+  <td>carole0@adventure-works.com</td>
+  <td>8411 Mt. Orange Place</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>199</td>
+  <td>Stefen</td>
+  <td>Hesse</td>
+  <td>4/1/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Night</td>
+  <td>165-555-0113</td>
+  <td>stefen0@adventure-works.com</td>
+  <td>8463 Vista Avenue</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>213</td>
+  <td>Chris</td>
+  <td>Okelberry</td>
+  <td>4/8/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>315-555-0144</td>
+  <td>chris2@adventure-works.com</td>
+  <td>8467 Clifford Court</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>111</td>
+  <td>Mark</td>
+  <td>Harrington</td>
+  <td>2/16/1999</td>
+  <td>Quality Assurance</td>
+  <td>Quality Assurance Technician</td>
+  <td>$10.58</td>
+  <td>Day</td>
+  <td>147-555-0179</td>
+  <td>mark0@adventure-works.com</td>
+  <td>8585 Los Gatos Ct.</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>209</td>
+  <td>Jan</td>
+  <td>Miksovsky</td>
+  <td>4/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>139-555-0131</td>
+  <td>jan0@adventure-works.com</td>
+  <td>8624 Pepper Way</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>234</td>
+  <td>Kimberly</td>
+  <td>Zimmerman</td>
+  <td>2/13/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Night</td>
+  <td>123-555-0167</td>
+  <td>kimberly0@adventure-works.com</td>
+  <td>8656 Lakespring Place</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>203</td>
+  <td>Terry</td>
+  <td>Eminhizer</td>
+  <td>4/3/1999</td>
+  <td>Marketing</td>
+  <td>Marketing Specialist</td>
+  <td>$14.42</td>
+  <td>Day</td>
+  <td>138-555-0118</td>
+  <td>terry0@adventure-works.com</td>
+  <td>8668 Via Neruda</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>23</td>
+  <td>Greg</td>
+  <td>Alderson</td>
+  <td>1/3/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Night</td>
+  <td>332-555-0150</td>
+  <td>greg0@adventure-works.com</td>
+  <td>8684 Military East</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>257</td>
+  <td>Jack</td>
+  <td>Creasey</td>
+  <td>4/3/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>521-555-0113</td>
+  <td>jack1@adventure-works.com</td>
+  <td>874 Olivera Road</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>231</td>
+  <td>Fukiko</td>
+  <td>Ogisu</td>
+  <td>2/5/2000</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>520-555-0177</td>
+  <td>fukiko0@adventure-works.com</td>
+  <td>8751 Norse Drive</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>208</td>
+  <td>Jay</td>
+  <td>Adams</td>
+  <td>4/6/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>407-555-0165</td>
+  <td>jay0@adventure-works.com</td>
+  <td>896 Southdale</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>103</td>
+  <td>David</td>
+  <td>Barber</td>
+  <td>2/13/1999</td>
+  <td>Finance</td>
+  <td>Assistant to the Chief Financial Officer</td>
+  <td>$13.46</td>
+  <td>Day</td>
+  <td>477-555-0132</td>
+  <td>david5@adventure-works.com</td>
+  <td>8967 Hamilton Ave.</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>19</td>
+  <td>Diane</td>
+  <td>Glimp</td>
+  <td>4/29/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>202-555-0151</td>
+  <td>diane0@adventure-works.com</td>
+  <td>9006 Woodside Way</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>282</td>
+  <td>José</td>
+  <td>Saraiva</td>
+  <td>7/1/2001</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>185-555-0169</td>
+  <td>josé1@adventure-works.com</td>
+  <td>9100 Sheppard Avenue North</td>
+  <td>Ottawa</td>
+  <td>Ontario</td>
+  <td>K4B 1T7</td>
+  <td>Canada</td>
+ </tr>
+ <tr>
+  <td>50</td>
+  <td>Susan</td>
+  <td>Metters</td>
+  <td>1/15/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Day</td>
+  <td>639-555-0164</td>
+  <td>susan1@adventure-works.com</td>
+  <td>9104 Mt. Sequoia Ct.</td>
+  <td>Sammamish</td>
+  <td>Washington</td>
+  <td>98074</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>136</td>
+  <td>Kathie</td>
+  <td>Flood</td>
+  <td>2/28/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC45</td>
+  <td>$10.00</td>
+  <td>Night</td>
+  <td>446-555-0118</td>
+  <td>kathie0@adventure-works.com</td>
+  <td>9241 St George Dr.</td>
+  <td>Everett</td>
+  <td>Washington</td>
+  <td>98201</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>13</td>
+  <td>Sidney</td>
+  <td>Higa</td>
+  <td>3/5/1998</td>
+  <td>Production</td>
+  <td>Production Technician - WC10</td>
+  <td>$13.45</td>
+  <td>Day</td>
+  <td>424-555-0189</td>
+  <td>sidney0@adventure-works.com</td>
+  <td>9277 Country View Lane</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>44</td>
+  <td>A. Scott</td>
+  <td>Wright</td>
+  <td>1/13/1999</td>
+  <td>Production Control</td>
+  <td>Master Scheduler</td>
+  <td>$23.56</td>
+  <td>Day</td>
+  <td>992-555-0194</td>
+  <td>ascott0@adventure-works.com</td>
+  <td>9297 Kenston Dr.</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>53</td>
+  <td>David</td>
+  <td>Ortiz</td>
+  <td>1/16/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Evening</td>
+  <td>712-555-0119</td>
+  <td>david2@adventure-works.com</td>
+  <td>931 Corte De Luna</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>127</td>
+  <td>Sean</td>
+  <td>Chai</td>
+  <td>2/23/1999</td>
+  <td>Document Control</td>
+  <td>Document Control Assistant</td>
+  <td>$10.25</td>
+  <td>Day</td>
+  <td>205-555-0132</td>
+  <td>sean1@adventure-works.com</td>
+  <td>9314 Icicle Way</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>110</td>
+  <td>Jason</td>
+  <td>Watters</td>
+  <td>2/15/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC30</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>571-555-0179</td>
+  <td>jason0@adventure-works.com</td>
+  <td>9320 Teakwood Dr.</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>237</td>
+  <td>Prasanna</td>
+  <td>Samarawickrama</td>
+  <td>2/23/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Day</td>
+  <td>129-555-0199</td>
+  <td>prasanna0@adventure-works.com</td>
+  <td>9322 Driving Drive</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>286</td>
+  <td>Ranjit</td>
+  <td>Varkey Chudukatil</td>
+  <td>7/1/2002</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>1 (11) 500 555-0117</td>
+  <td>ranjit0@adventure-works.com</td>
+  <td>94, rue Descartes</td>
+  <td>Bordeaux</td>
+  <td>Gironde</td>
+  <td>33000</td>
+  <td>France</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>Gail</td>
+  <td>Erickson</td>
+  <td>2/6/1998</td>
+  <td>Engineering</td>
+  <td>Design Engineer</td>
+  <td>$32.69</td>
+  <td>Day</td>
+  <td>849-555-0139</td>
+  <td>gail0@adventure-works.com</td>
+  <td>9435 Breck Court</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>198</td>
+  <td>Arvind</td>
+  <td>Rao</td>
+  <td>4/1/1999</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>848-555-0163</td>
+  <td>arvind0@adventure-works.com</td>
+  <td>9495 Limewood Place</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>188</td>
+  <td>Peter</td>
+  <td>Connelly</td>
+  <td>3/27/1999</td>
+  <td>Information Services</td>
+  <td>Network Administrator</td>
+  <td>$32.45</td>
+  <td>Day</td>
+  <td>310-555-0133</td>
+  <td>peter1@adventure-works.com</td>
+  <td>9530 Vine Lane</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>225</td>
+  <td>Magnus</td>
+  <td>Hedlund</td>
+  <td>1/22/2000</td>
+  <td>Facilities and Maintenance</td>
+  <td>Facilities Administrative Assistant</td>
+  <td>$9.75</td>
+  <td>Day</td>
+  <td>583-555-0182</td>
+  <td>magnus0@adventure-works.com</td>
+  <td>9533 Working Drive</td>
+  <td>Renton</td>
+  <td>Washington</td>
+  <td>98055</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>249</td>
+  <td>Patrick</td>
+  <td>Cook</td>
+  <td>3/15/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Evening</td>
+  <td>425-555-0117</td>
+  <td>patrick1@adventure-works.com</td>
+  <td>9537 Ridgewood Drive</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>164</td>
+  <td>Mikael</td>
+  <td>Sandberg</td>
+  <td>3/14/1999</td>
+  <td>Purchasing</td>
+  <td>Buyer</td>
+  <td>$18.27</td>
+  <td>Day</td>
+  <td>309-555-0170</td>
+  <td>mikael0@adventure-works.com</td>
+  <td>9539 Glenside Dr</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>139</td>
+  <td>David</td>
+  <td>Liu</td>
+  <td>3/3/1999</td>
+  <td>Finance</td>
+  <td>Accounts Manager</td>
+  <td>$34.74</td>
+  <td>Day</td>
+  <td>646-555-0185</td>
+  <td>david6@adventure-works.com</td>
+  <td>9605 Pheasant Circle</td>
+  <td>Gold Bar</td>
+  <td>Washington</td>
+  <td>98251</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>148</td>
+  <td>James</td>
+  <td>Hamilton</td>
+  <td>3/7/1999</td>
+  <td>Production</td>
+  <td>Vice President of Production</td>
+  <td>$84.13</td>
+  <td>Day</td>
+  <td>870-555-0122</td>
+  <td>james1@adventure-works.com</td>
+  <td>9652 Los Angeles</td>
+  <td>Monroe</td>
+  <td>Washington</td>
+  <td>98272</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>38</td>
+  <td>Jinghao</td>
+  <td>Liu</td>
+  <td>1/9/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC50</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>794-555-0159</td>
+  <td>jinghao0@adventure-works.com</td>
+  <td>9666 Northridge Ct.</td>
+  <td>Carnation</td>
+  <td>Washington</td>
+  <td>98014</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>70</td>
+  <td>Mindy</td>
+  <td>Martin</td>
+  <td>1/26/1999</td>
+  <td>Human Resources</td>
+  <td>Benefits Specialist</td>
+  <td>$16.59</td>
+  <td>Day</td>
+  <td>522-555-0147</td>
+  <td>mindy0@adventure-works.com</td>
+  <td>9687 Shakespeare Drive</td>
+  <td>Newport Hills</td>
+  <td>Washington</td>
+  <td>98006</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>16</td>
+  <td>Jo</td>
+  <td>Brown</td>
+  <td>3/30/1998</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC60</td>
+  <td>$25.00</td>
+  <td>Day</td>
+  <td>632-555-0129</td>
+  <td>jo0@adventure-works.com</td>
+  <td>9693 Mellowood Street</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>159</td>
+  <td>Shane</td>
+  <td>Kim</td>
+  <td>3/12/1999</td>
+  <td>Production</td>
+  <td>Production Supervisor - WC45</td>
+  <td>$25.00</td>
+  <td>Evening</td>
+  <td>810-555-0178</td>
+  <td>shane0@adventure-works.com</td>
+  <td>9745 Bonita Ct.</td>
+  <td>Bellevue</td>
+  <td>Washington</td>
+  <td>98004</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>235</td>
+  <td>Kim</td>
+  <td>Abercrombie</td>
+  <td>2/17/2000</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>208-555-0114</td>
+  <td>kim1@adventure-works.com</td>
+  <td>9752 Jeanne Circle</td>
+  <td>Carnation</td>
+  <td>Washington</td>
+  <td>98014</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>65</td>
+  <td>Raymond</td>
+  <td>Sam</td>
+  <td>1/24/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC20</td>
+  <td>$14.00</td>
+  <td>Evening</td>
+  <td>226-555-0197</td>
+  <td>raymond0@adventure-works.com</td>
+  <td>9784 Mt Etna Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>107</td>
+  <td>Mindaugas</td>
+  <td>Krapauskas</td>
+  <td>2/14/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Day</td>
+  <td>637-555-0120</td>
+  <td>mindaugas0@adventure-works.com</td>
+  <td>9825 Coralie Drive</td>
+  <td>Edmonds</td>
+  <td>Washington</td>
+  <td>98020</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>35</td>
+  <td>Vamsi</td>
+  <td>Kuppa</td>
+  <td>1/8/1999</td>
+  <td>Shipping and Receiving</td>
+  <td>Shipping and Receiving Clerk</td>
+  <td>$9.50</td>
+  <td>Evening</td>
+  <td>937-555-0137</td>
+  <td>vamsi0@adventure-works.com</td>
+  <td>9833 Mt. Dias Blv.</td>
+  <td>Bothell</td>
+  <td>Washington</td>
+  <td>98011</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>129</td>
+  <td>Mark</td>
+  <td>McArthur</td>
+  <td>2/24/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Day</td>
+  <td>417-555-0154</td>
+  <td>mark1@adventure-works.com</td>
+  <td>9863 Ridge Place</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>131</td>
+  <td>Houman</td>
+  <td>Pournasseh</td>
+  <td>2/26/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC50</td>
+  <td>$11.00</td>
+  <td>Evening</td>
+  <td>180-555-0136</td>
+  <td>houman0@adventure-works.com</td>
+  <td>9882 Clay Rde</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>212</td>
+  <td>Chris</td>
+  <td>Norred</td>
+  <td>4/7/1999</td>
+  <td>Document Control</td>
+  <td>Control Specialist</td>
+  <td>$16.83</td>
+  <td>Evening</td>
+  <td>575-555-0126</td>
+  <td>chris1@adventure-works.com</td>
+  <td>989 Crown Ct</td>
+  <td>Issaquah</td>
+  <td>Washington</td>
+  <td>98027</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>271</td>
+  <td>John</td>
+  <td>Wood</td>
+  <td>3/10/2001</td>
+  <td>Marketing</td>
+  <td>Marketing Specialist</td>
+  <td>$14.42</td>
+  <td>Day</td>
+  <td>486-555-0150</td>
+  <td>john5@adventure-works.com</td>
+  <td>9906 Oak Grove Road</td>
+  <td>Redmond</td>
+  <td>Washington</td>
+  <td>98052</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>156</td>
+  <td>Eugene</td>
+  <td>Kogan</td>
+  <td>3/12/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC60</td>
+  <td>$12.45</td>
+  <td>Night</td>
+  <td>173-555-0179</td>
+  <td>eugene1@adventure-works.com</td>
+  <td>991 Vista Verde</td>
+  <td>Duvall</td>
+  <td>Washington</td>
+  <td>98019</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>152</td>
+  <td>Tawana</td>
+  <td>Nusbaum</td>
+  <td>3/9/1999</td>
+  <td>Production</td>
+  <td>Production Technician - WC40</td>
+  <td>$15.00</td>
+  <td>Day</td>
+  <td>368-555-0113</td>
+  <td>tawana0@adventure-works.com</td>
+  <td>9964 North Ridge Drive</td>
+  <td>Seattle</td>
+  <td>Washington</td>
+  <td>98104</td>
+  <td>United States</td>
+ </tr>
+ <tr>
+  <td>285</td>
+  <td>Jae</td>
+  <td>Pak</td>
+  <td>7/1/2002</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>1 (11) 500 555-0145</td>
+  <td>jae0@adventure-works.com</td>
+  <td>Downshire Way</td>
+  <td>Cambridge</td>
+  <td>England</td>
+  <td>BA5 3HX</td>
+  <td>United Kingdom</td>
+ </tr>
+ <tr>
+  <td>289</td>
+  <td>Rachel</td>
+  <td>Valdez</td>
+  <td>7/1/2003</td>
+  <td>Sales</td>
+  <td>Sales Representative</td>
+  <td>$23.08</td>
+  <td>Day</td>
+  <td>1 (11) 500 555-0140</td>
+  <td>rachel0@adventure-works.com</td>
+  <td>Pascalstr 951</td>
+  <td>Berlin</td>
+  <td>Hamburg</td>
+  <td>14111</td>
+  <td>Germany</td>
+ </tr>
+</table>
+
+</body>
+
+</html>

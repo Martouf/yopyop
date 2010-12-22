@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<!--
+This page was created to test the proper way to add and remove a WMV <object>
+element from the DOM. IE6 keeps crashing! ARRRGGGGHHHH!
+-->
+
+<head>
+
+<title>Object Test</title>
+
+<script type="text/javascript">
+
+function removeObject(){
+    var obj = document.getElementById('shadowbox_content');
+
+    // stop the movie
+    if(window.ActiveXObject){
+        shadowbox_content.controls.stop();
+        shadowbox_content.URL = 'non-existent.wmv'; // set URL to non-existent movie
+        window.shadowbox_content = function(){};
+        //window.shadowbox_content = {};
+    }
+
+    obj.parentNode.removeChild(obj);
+};
+
+function addObject(){
+
+    var url = '../gallery/cat.wmv';
+    var height = 240;
+    var width = 320;
+    var autostart = true;
+    var showcontrols = true;
+
+    if(window.ActiveXObject){
+        // showcontrols must be a string in IE
+        if(showcontrols){
+            showcontrols = 'full';
+            height += 70; // height of WMP controller in IE
+        }else{
+            showcontrols = 'none';
+        }
+        var autostart = autostart ? 1 : 0;
+        var html = '<object id="shadowbox_content" name="shadowbox_content"'
+            + 'height="' + height + '" width="' + width + '" '
+            // + 'type="application/x-oleobject" '
+            + 'classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6">'
+                + '<param name="url" value="' + url + '" />'
+                + '<param name="autostart" value="' + autostart + '" />'
+                + '<param name="uimode" value="' + showcontrols + '" />'
+            + '</object>';
+    }else{
+        // showcontrols and autostart must be an integer in browsers other than IE
+        if(showcontrols){
+            showcontrols = 1;
+            height += 45; // height of WMP controller in non-IE
+        }else{
+            showcontrols = 0;
+        }
+        var autostart = autostart ? 1 : 0;
+        var html = '<object id="shadowbox_content" name="shadowbox_content" '
+            + 'height="' + height + '" width="' + width + '" '
+            + 'type="video/x-ms-wmv" '
+            + 'data="' + url + '">'
+                + '<param name="autostart" value="' + autostart + '" />'
+                + '<param name="showcontrols" value="' + showcontrols + '" />'
+            + '</object>';
+    }
+
+    document.getElementById('test').innerHTML = html;
+
+};
+
+</script>
+
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<button onclick="addObject();">Add Object</button>
+<button onclick="removeObject();">Remove Object</button>
+
+</body>
+
+</html>

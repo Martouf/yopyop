@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<title>Shadowbox Form Example</title>
+
+<style type="text/css">
+body {
+  background-color: #eee;
+  text-align: center;
+  margin-top: 40px;
+}
+input#q {
+  color: #aaa;
+}
+</style>
+
+<script type="text/javascript">
+
+function submitForm(){
+    var s = window.parent.Shadowbox;
+    var q = document.getElementById('q');
+    var t = q.value == 'Search' ? 'You didn\'t enter anything!' : 'You entered: ' + q.value;
+
+    s.open({
+        player:     'html',
+        title:      'Search Query',
+        content:    '<div style="padding-top:40px;text-align:center">' + t + '</div>',
+        width:      300,
+        height:     100
+    });
+};
+
+function blurQ(){
+    var q = document.getElementById('q');
+    if(q.value == ''){
+        q.style.color = '#aaa';
+        q.value = 'Search';
+    }
+};
+
+function focusQ(){
+    var q = document.getElementById('q');
+    q.style.color = '#000';
+    if(q.value == 'Search') q.value = '';
+};
+
+</script>
+
+</head>
+
+<body>
+
+<form id="shadowbox-form" name="shadowbox-form" action="#" onsubmit="submitForm();">
+
+    <input id="q" type="text" value="Search" onfocus="focusQ();" onblur="blurQ();">
+    <input id="submit" type="submit" value="Go">
+
+</form>
+
+</body>
+
+</html>

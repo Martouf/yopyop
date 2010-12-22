@@ -1,0 +1,91 @@
+/* tout ce qui concerne l'album photo*/
+
+/**** Galerie de photo ****/
+#titre_album{
+	text-align: center;
+    background-color: rgb(100, 135, 220);
+    color: white;
+}
+
+.ombre {
+  float:left;
+  clear: left;
+  background: url("/utile/img/ombre_transparente.png") no-repeat bottom right;
+  margin: 10px 0 0px 10px;
+  padding: 0;
+}
+.ombre img {
+  position:relative;
+  bottom: 3px;
+  right: 3px;
+}
+.cadre_vignette{
+	display: block;
+	width: 250px;
+	height: 200px;  /*dépend de la hauteur du commentaire. Ici 2 lignes= 160*/
+	float: left;
+	margin: 1%;
+}
+.vignette_verticale{
+	width: 100px;
+	margin: auto;
+}
+.legende_photo{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.moyenne_horizontale{
+	width: 650px;
+	margin: auto;
+}
+.moyenne_verticale{
+	width: 377px;  /*bonne moyenne pour faire un centrage correct*/
+	margin: auto;
+}
+#bloc_commentaires{
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	color: aliceblue;
+	font-weight: bold;
+}
+#bloc_commentaires a{
+	color: aliceblue;
+	font-weight: bold;
+}
+
+.commentaire{
+	margin: 10px;
+}
+.commentaire_texte{
+	background: #ffd26b;
+	padding: 3px;
+	margin-bottom: 0px;
+	text-align: justify;
+	color: black;
+	font-weight: normal;
+	-moz-border-radius: 5px;
+}
+.commentaire_infos{
+	text-align: left;
+	color: white;
+	font-weight: bold;
+}
+#bloc_ajouter_commentaires{
+	text-align: left;
+}
+#pseudo{
+	width: 75%;
+	text-align: left;
+}
+#commentaire{
+	width: 100%;
+	text-align: justify;
+}
+.lienIndividuel{
+	display: none;
+}
+#blocPseudo, #deconnexion{
+	display: none;
+}

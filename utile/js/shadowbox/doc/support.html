@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer &raquo; Support</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1>Shadowbox.js</h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a href="../index.html">Home</a> //
+            <a class="selected">Support</a> //
+            <a href="usage.html">Usage</a> //
+            <a href="api.html">API</a> //
+            <a href="download.html">Download</a> //
+            <a href="faq.html">FAQ</a>
+        </div>
+
+        <h2><a name="browsers">Browsers</a></h2>
+
+        <p>Shadowbox supports the following browsers:</p>
+
+        <ul>
+            <li><a href="http://www.mozilla.com/firefox/">Firefox</a> 1.5+</li>
+            <li><a href="http://www.apple.com/safari/">Safari</a> 2+</li>
+            <li><a href="http://www.opera.com/">Opera</a> 9+</li>
+            <li><a href="http://www.microsoft.com/windows/products/winfamily/ie/default.mspx">Internet Explorer</a> 6+</li>
+        </ul>
+
+        <p><a href="http://en.wikipedia.org/wiki/Quirks_mode">Quirks mode</a> is not supported in any browser, but that doesn't necessarily mean that it won't work. This means that you need to use either a strict or transitional DOCTYPE in order to use Shadowbox. For example, placing the following snippet at the very top of your HTML page will tell browsers that you want it displayed using a strict set of standards:</p>
+
+<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+</code></pre>
+
+        <p>For more information on using DOCTYPEs and why you should always use them, read <a href="http://www.alistapart.com/articles/doctype/">this article</a>.</p>
+
+        <h2><a name="adapters">Adapters</a></h2>
+
+        <p>Although Shadowbox can be used in standalone mode, it's just as easy to use Shadowbox with your JavaScript library of choice for a given project. This is accomplished using adapters. An adapter is a small file that tells Shadowbox which methods to call on the underlying framework to achieve some common purpose such as querying the DOM or handling events. Shadowbox comes bundled with adapters for the following JavaScript frameworks:</p>
+
+        <ul>
+            <li><a href="http://developer.yahoo.com/yui/">Yahoo! User Interface Library</a> (requires yahoo-dom-event.js)</li>
+            <li><a href="http://extjs.com">Ext</a> (requires ext-core.js)</li>
+            <li><a href="http://prototypejs.org/">Prototype</a></li>
+            <li><a href="http://jquery.com/">jQuery</a></li>
+            <li><a href="http://mootools.net/">MooTools</a> (requires 1.2 Core)</li>
+            <li><a href="http://dojotoolkit.org/">Dojo Toolkit</a></li>
+        </ul>
+
+        <p>If you haven't already done so, you'll want to read the <a href="usage.html#setup">usage</a> page to find out how to properly use the adapter of your choice with Shadowbox.</p>
+
+        <h2><a name="media">Media</a></h2>
+
+        <p>Shadowbox supports many different media formats via the <a href="http://www.adobe.com/products/flashplayer/">Flash</a>, <a href="http://www.apple.com/quicktime/">QuickTime</a>, and <a href="http://www.microsoft.com/windows/windowsmedia/">Windows Media Player</a> browser plugins. Windows media files are supported on the Mac via the <a href="http://www.flip4mac.com/wmv_download.htm">Flip4Mac</a> QuickTime plugin.</p>
+
+        <p><a href="http://en.wikipedia.org/wiki/Flash_Video">Flash video</a> is supported via <a href="http://www.jeroenwijering.com/">Jeroen Wijering's</a> <a href="http://www.jeroenwijering.com/?item=JW_FLV_Player">JW FLV Player</a>. Although Shadowbox supports many types of video, it is recommended that all video be displayed in this (FLV) format because it will have the most uniform result across different platforms. QuickTime and Windows Media Player each have their bugs and quirks that are difficult to iron out.</p>
+
+        <p>Shadowbox uses a smart plugin detection mechanism that automatically detects whether or not the client is capable of displaying linked content. For movies that can be played using either QuickTime or Windows Media Player, Shadowbox will automatically detect which one is installed and use it. In the case of a missing plugin, Shadowbox can either display a useful error message with a link to the appropriate plugin download page (the default behavior), or it can ignore the gallery piece altogether. See the <a href="#handleunsupported" onclick="toggleWrapper('options', 'open');">handleUnsupported</a> option in the options section below for more details on how to configure this behavior.</p>
+
+        <h2><a name="forum">Forum</a></h2>
+
+        <p>A <a href="http://www.nabble.com/Shadowbox-f31623.html">support forum</a> for Shadowbox is hosted on <a href="http://www.nabble.com/">Nabble</a>. If you have questions about using Shadowbox or feature requests, please post them in that venue.</p>
+
+        <h2><a name="bugs">Bugs</a></h2>
+
+        <p>If you think you've found a bug in the script, please let me know about it via the <a href="http://code.google.com/p/michaeljackson/issues/list">issue tracking</a> system on Google Code (where this project is hosted). You'll have a much better chance of actually getting the bug fixed if it's well documented and an example is provided.</p>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

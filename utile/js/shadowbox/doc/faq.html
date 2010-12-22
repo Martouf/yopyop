@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Shadowbox.js Media Viewer &raquo; FAQ</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="content">
+
+        <div id="header">
+            <div id="version"></div>
+            <h1>Shadowbox.js</h1>
+            <span>by <a href="http://www.mjijackson.com">Michael J. I. Jackson</a></span>
+        </div>
+
+        <div id="nav">
+            <a href="../index.html">Home</a> //
+            <a href="support.html">Support</a> //
+            <a href="usage.html">Usage</a> //
+            <a href="api.html">API</a> //
+            <a href="download.html">Download</a> //
+            <a class="selected">FAQ</a>
+        </div>
+
+        <h2><a name="faq">Frequently Asked Questions</a></h2>
+
+        <div class="question">
+            <p><span>Question:</span> How can I open Shadowbox from inside a Flash movie?</p>
+        </div>
+        <div class="answer">
+            <p><span>Answer:</span> Use ActionScript's <a href="http://www.adobe.com/support/flash/action_scripts/actionscript_dictionary/actionscript_dictionary377.html">getURL</a> function to call some Shadowbox code. There are several ways you can do this. The easiest is to define a JavaScript callback function similar to the one below.</p>
+
+<pre><code>&lt;script type="text/javascript">
+
+var openShadowbox = function(content, player, title){
+    Shadowbox.open({
+        content:    content,
+        player:     player,
+        title:      title
+    });
+};
+
+&lt;/script>
+</code></pre>
+
+            <p>You can place this function in between <code>&lt;head></code> tags in your HTML document, or include it via <code>&lt;script></code> tags. Then, in your Flash movie you need to use <code>getURL</code> to call your custom callback function, like so:</p>
+
+<pre><code>getURL("javascript:openShadowbox('movie.swf', 'swf', 'Title');");
+</code></pre>
+        </div>
+
+        <div class="question">
+            <p><span>Question:</span> How can I open Shadowbox from inside an iframe?</p>
+        </div>
+        <div class="answer">
+            <p><span>Answer:</span> The basic concept here is that you have two windows: the normal window and the iframe. When an iframe is placed inside another window, that window becomes the parent window of that iframe. In order to run JavaScript in the parent window from inside an iframe, you must figure out how to make calls to objects that reside in the parent window.</p>
+            <p>Luckily for us, each window (including iframe windows) contains an object called <code>parent</code> that refers to the parent of that window. Thus, you can use the following code inside your iframe document to access the <code>Shadowbox</code> object that resides in the parent window:</p>
+
+<pre><code>var Shadowbox = window.parent.Shadowbox;
+// do whatever you want with Shadowbox here
+</code></pre>
+
+            <p>Once you have access to the <code>Shadowbox</code> object, you can use it as you normally would. Just remember that since the Shadowbox object still resides in the parent window, all actions will take place in the parent window. To use Shadowbox inside an iframe, you must of course include the Shadowbox code as usual at the top of the document inside the iframe.</p>
+            <p class="note"><span>Note:</span> For a good example of using Shadowbox from inside an iframe, check out the source code for the <a href="form.html">form demo</a>.</p>
+        </div>
+
+        <div class="question">
+            <p><span>Question:</span> Why does the Shadowbox window open up halfway down the page in Internet Explorer?</p>
+        </div>
+        <div class="answer">
+            <p><span>Answer:</span> The answer to this problem may be that you are not using a strict or transitional DOCTYPE as explained on the <a href="support.html">support page</a>. In short, placing either of the following code snippets at the top of your HTML page should help:</p>
+        </div>
+
+<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+</code></pre>
+
+        <div id="footer">Copyright &copy; 2007-2008 <a href="http://www.mjijackson.com">Michael J. I. Jackson</a>, all rights reserved.</div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

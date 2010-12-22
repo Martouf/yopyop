@@ -1,0 +1,1 @@
+<p class="erreur" style="font-weight:bold;text-align: center!important">Page inexistante</p>

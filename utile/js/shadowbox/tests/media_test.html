@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<!--
+This page was created to test the configurations of object tags for various
+media in various browsers.
+-->
+
+<head>
+
+<title>Media Test Suite</title>
+
+<style type="text/css">
+body {
+  font-family: 'Lucida Grande', Tahoma, sans-serif;
+}
+div.test {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+pre {
+  white-space: normal;
+}
+</style>
+
+<script type="text/javascript" src="../src/adapter/shadowbox-base.js"></script>
+<script type="text/javascript" src="../src/lang/shadowbox-en.js"></script>
+<script type="text/javascript" src="../src/shadowbox.js"></script>
+<script type="text/javascript" src="../src/player/shadowbox-qt.js"></script>
+<script type="text/javascript" src="../src/player/shadowbox-wmp.js"></script>
+<script type="text/javascript" src="../src/player/shadowbox-swf.js"></script>
+<script type="text/javascript" src="../src/player/shadowbox-flv.js"></script>
+<script type="text/javascript">
+
+var hasClass = function(el, cls){
+    return el.className && el.className == cls;
+};
+
+var escapeHTML = function(html){
+    return html.replace(/</g, '&lt;');
+};
+
+window.onload = function(){
+    var SB = Shadowbox;
+    SB.init({
+        skinURL:            '../src/skin/',
+        flvPlayer:          '../flvplayer.swf',
+        autoplayMovies:     false // don't automatically play movies
+    });
+
+    // show which plugins are detected
+    var ul = document.getElementById('plugins');
+    var plugins = SB.getPlugins();
+    for(var p in plugins){
+        var li = document.createElement('li');
+        var name;
+        if(p == 'fla'){
+            name = 'Flash'
+        }else if(p == 'qt'){
+            name = 'QuickTime';
+        }else if(p == 'wmp'){
+            name = 'Windows Media';
+        }else if(p == 'f4m'){
+            name = 'Flip4Mac';
+        }
+        li.innerHTML = name + ': ' + (plugins[p] ? 'Yes' : 'No');
+        ul.appendChild(li);
+    }
+
+    // run tests
+    var a = document.getElementsByTagName('a'); // live node list
+    var links = [];
+    for(var i = 0, len = a.length; i < len; ++i){
+        if(hasClass(a[i], 'test')){
+            links[links.length] = a[i];
+        }
+    }
+    var obj, player, dims, html;
+    for(var i = 0, len = links.length; i < len; ++i){
+        var link = links[i];
+        SB.revertOptions();
+        obj = SB.buildCacheObj(link);
+        if(obj.options) SB.applyOptions(obj.options);
+        player = new SB[obj.type]('shadowbox_content', obj);
+        dims = {
+            height: player.height,
+            width: player.width,
+            resize_h: player.height,
+            resize_w: player.width
+        };
+        html = SB.lib.createHTML(player.markup(dims));
+        link.parentNode.innerHTML = html + '<br /><pre>'
+            + escapeHTML(html) + '</pre>';
+    }
+};
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Shadowbox Media Test Suite</h1>
+
+<p>Plugins detected:</p>
+
+<ul id="plugins"></ul>
+
+<div class="test">
+    <h4>SWF</h4>
+    <div>
+        <a rel="shadowbox;width=300;height=225" class="test" href="../gallery/skip.swf">SWF</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>MOV</h4>
+    <div>
+        <a rel="shadowbox;width=292;height=218" class="test" href="../gallery/kayak.mov">MOV</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>MOV (no controls)</h4>
+    <div>
+        <a rel="shadowbox;width=292;height=218;options={showMovieControls:false}" class="test" href="../gallery/kayak.mov">MOV</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>MPEG-4</h4>
+    <div>
+        <a rel="shadowbox;width=292;height=218" class="test" href="../gallery/kayak.mp4">MPEG-4</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>MPEG-4 (no controls)</h4>
+    <div>
+        <a rel="shadowbox;width=292;height=218;options={showMovieControls:false}" class="test" href="../gallery/kayak.mp4">MPEG-4</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>FLV</h4>
+    <div>
+        <a rel="shadowbox;width=300;height=225;options={showMovieControls:true}" class="test" href="../gallery/alien.flv">FLV</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>WMV</h4>
+    <div>
+        <a rel="shadowbox;width=264;height=200" class="test" href="../gallery/cat.wmv">WMV</a>
+    </div>
+</div>
+
+<div class="test">
+    <h4>WMV (no controls)</h4>
+    <div>
+        <a rel="shadowbox;width=264;height=200;options={showMovieControls:false}" class="test" href="../gallery/cat.wmv">WMV</a>
+    </div>
+</div>
+
+</body>
+
+</html>

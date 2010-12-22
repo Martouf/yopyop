@@ -1,0 +1,1388 @@
+/* Styles généraux */
+body{
+	background-color: #d3caaa;
+	margin: 0px; 
+	padding: 0px;
+	font-family: Helvetica,Verdana,Arial,sans-serif;
+	font-size: 13px;
+	color: #333;
+}
+body.mceContentBody{
+	background-color: #fff;
+	background-image: none;
+	padding: 3px;
+}
+h6{
+	font-size: 11px;
+}
+h5{
+	font-size: 12px;
+}
+h4{
+	font-size: 13px;
+}
+h3{
+	font-size: 14px;
+}
+h2{
+	font-size: 15px;
+}
+h1{
+	font-size: 19px;
+}
+p{
+	text-align: justify;
+}
+pre{
+	font-size: 1.2em;
+}
+blockquote{
+	border-left: solid 1px #22f;
+	padding-left: 0.3em;
+}
+img {
+	border: none;
+}
+img.right{
+	margin: 2px 0px 2px 6px;
+	float: right;
+}
+img.left{
+	margin: 2px 6px 2px 0px;
+}
+hr {clear:both;visibility:hidden;}
+
+/* style liens */
+a:link{text-decoration:none;color:#134A81;}
+a:active{text-decoration:none;color:#666;}
+a:visited{text-decoration:none;color:#666;}
+
+
+/** Pour faire une bordure qui n'apparait pas dans firefox sur macosx **/
+input, textarea {
+	border-right: solid 1px #aaa;
+	border-bottom: solid 1px #aaa;
+	font-family: Helvetica,Verdana,Arial,sans-serif;
+	font-size: 11px;
+}
+.erreur{
+	color: red;
+}
+.ok{
+	color: green;
+}
+
+/* Coloration des lignes des tableau de manière alternative */
+.odd {background-color: #e3e3e3;}
+.even {background-color: #f5f5f5;}
+
+/****** Formulaire d'ajout *******/
+label{ 
+	margin: 0 9px 0 0;
+	font-weight: bold;
+}
+label:after{
+	content: ":";
+}
+fieldset {
+	border: solid 1px #777;
+	float: left;
+	text-align: left;
+	margin: 1%;
+	padding: 1%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.boutons{
+	clear: both;
+	text-align: center;
+	margin: 10px;
+}
+
+/* Quelques styles qui sont pratique */
+div.postit{
+	background-color: #ff8;
+	width: 40%;
+	float: right;
+	padding: 5px;
+	border: solid 1px #888;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+div.gauche{
+	float: left;
+}
+div.droite{
+	float: right;
+}
+/* Le texte qui est dans un bloc est mis dans un paragraphe qui lui est par défaut justifié donc on le change à centré */
+div.centre p{
+	text-align: center !important;
+}
+div.centre{
+	text-align: center !important;
+}
+div.cadre{
+	border: solid 1px #888;
+	padding: 5px;
+	margin: 3px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+/* conu pour faire un article sur 3 colonne */
+div.colonne{
+	float: left;
+	width: 30%;
+	margin: 10px;
+}
+div.moitie{
+	float: left;
+	width: 45%;
+	margin: 10px;
+}
+div.fondjaune{
+	background-color: #ff8;
+}
+div.fondbleu{
+	background-color: #6487dc;  /*aliceblue F0F8FF*/
+	color: white;
+}
+div.fondvert{
+	background-color: #bfb;
+}
+div.fondrouge{
+	background-color: #fbb;
+}
+/* à placer absolument après les autres classes utilisées pour la mise en page , ceci afin surcharger les marges qu'aurait fait une autre classe*/
+div.bloccentre{
+	width: 50%;
+	margin: auto;
+}
+div.blocnews{
+	width: 90%;
+	border: solid 1px #ffe;
+	margin-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+.blocnews p{
+	padding: 5px;
+}
+.blocnews h3, .blocnews h1, .blocnews h2{
+	margin: 0px;
+	padding: 1px;
+	color: #888 !important;
+	background-color: #ff8;
+	background-image: url('fond-titre-news.png');
+	-moz-border-radius-topright: 6px;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-radius-top: 6px;
+}
+
+/*********  Placement des boites   **********/
+
+#entete{
+	margin: 0px;
+	padding: 0;
+	background-image: url('/utile/images/theme_koudou/entete.png');
+	height: 27px;
+}
+#corps{
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+}
+#top{
+	margin: 0px;
+	padding: 0;
+	position: relative;
+	background-color: #d3caaa;
+	height: 70px;
+}
+
+#texte-koudou{
+	margin-top: 20px;
+}
+#scouts{
+	margin-left: 20px;
+}
+
+/********* auto-complétion  **********/
+
+/*.ac_results {
+	padding: 0px;
+	border: solid 1px #888;
+	background-color: white;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background : Window url('/utile/img/loading.gif') right center no-repeat;
+}
+
+.ac_over {
+	background-color: lightblue;
+	color: white;
+}
+*/
+#dragHelper{
+	z-index: 50;
+}
+
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('/utile/img/loading.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
+/************* tables ************
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url('/utile/img/bg.gif');
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url('/utile/img/asc.gif');
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url('/utile/img/desc.gif');
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #8dbdd8;
+}
+*/
+
+table.tablesorter{
+	width: 100%;
+	text-align: left;
+	border: solid 1px black;
+	margin: 0;
+	padding: 0;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	padding: 4px;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url('/utile/img/bg.gif');
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.tablesorter tbody td {
+	padding: 2px;
+	vertical-align: top;
+	border-top: solid 1px black;
+}
+
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url('/utile/img/asc.gif');
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url('/utile/img/desc.gif');
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #8dbdd8;
+}
+
+
+
+/*********** calendrier **********/
+
+#fenetreCalendrier{
+	clear: both;
+/*	height: 600px;*/
+	height: 768px;
+	width: 767px;
+	padding:0;
+	margin:0;
+/*	overflow: auto;*/
+}
+
+
+/* IL FAUT définir une hauteur de base avec des unités non relative pour pouvoir faire du relatif dans le enfants. Donc, ici hauteur en pixel */
+#calendrier{
+	position: relative;
+	width:767px;
+	height: 768px;  /*0.5h=>15px 1h=>30px 24h=>720px + les bordures 24x2 = 768px */
+	clear: both;
+	border-left: solid 1px transparent;
+}
+#calendrierMois{
+	position: relative;
+	width:707px;
+	height: 505px;
+	clear: both;
+	border: solid 1px #ccc;
+	border-width: 0 1px 1px 0;
+}
+
+#graduation{
+	position: relative;
+	float: left;
+	width: 50px;
+
+	padding:0;
+	margin:0;
+	border-top: solid 1px #888;
+	border-left: solid 1px #888;
+}
+div.legendeHeure{
+	padding:0px;
+	margin:0px;
+	width: 51px;
+	float: left;
+	border-right: solid 1px white;
+}
+
+div.jour{
+	position: relative;
+	width: 100px;
+	float: left;
+	border: solid 1px #888;
+	padding:0px;
+	margin:0px;
+}
+#jourEntier{
+	padding:0px;
+	margin:0px;
+	clear: both;
+}
+div.jourEntier{
+	padding:0px;
+	margin:0px;
+	width: 100px;
+	height: 32px;
+	float: left;
+	border: solid 1px #888;
+}
+div.dateDuJour{
+	padding:0px;
+	margin:0px;
+	width: 102px;
+	float: left;
+	text-align: center;
+}
+div.heure{
+	padding:0px;
+	margin:0px;
+	border-bottom: solid 1px #888;
+}
+p.demiHeure{
+	padding:0px;
+	margin:0px;
+	height: 15px;
+}
+p.ligneMillieu{
+	border-top: dashed 1px #bbb;
+	padding:0px;
+	margin:0px;
+}
+
+#calendrier .evenement{
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	opacity: 0.85;
+	position: absolute;
+	width: 90px;
+	margin:0;
+}
+#calendrier .evenement p{
+	text-align: left;
+}
+div.evenement h3{
+	margin: 0px;
+	padding:0px;
+	font-size: 11px;
+	height: 11px;
+	cursor: move;
+}
+/* pour que le overflow hidden soit applicable, il faut donner une taille au bloc */
+.nomEvenement{
+	margin: 0px;
+	overflow: hidden;
+	cursor: move;
+}
+.resizeHandle{
+	margin: 0px;
+	padding:0px;
+	height: 2px;
+	cursor: s-resize;
+}
+.resizeHandle:hover{
+	background-image: url('/utile/img/poignee.png');
+	background-repeat: repeat-x;
+}
+div.repas{
+	background-color: #9df;
+	border: solid 1px #07f;
+}
+div.sport{
+	background-color: #ffb;
+	border: solid 1px #0cc;
+}
+div.activite{
+	background-color: #faa;
+	border: solid 1px #f00;
+}
+div.divers{
+	background-color: #6f7;
+	border: solid 1px #0a0;
+}
+div.evenement{
+	border: solid 1px transparent;
+}
+div.moisEvenement{
+	border: solid 1px;
+}
+#loading{
+	display: none;
+}
+#masque{
+	display: none;
+	background-color: #000;
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1200px;
+}
+#boiteDialogue{
+	display: none;
+	position: fixed;
+	top: 2%;
+	left: 15%;
+	width: 75%;
+	margin: auto;
+	border: solid 1px black;
+	opacity:1 !important;
+	background-color: #eee;
+	padding: 1%;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	font-size: 15px;
+}
+
+/***** Calendrier vue mensuelle *********/
+
+.noDuJour{
+	margin: 5px;
+}
+.blocJour{
+	border: solid 1px #ccc;
+	border-width: 1px 0 0 1px;
+	float: left;
+	width: 100px;
+	height: 100px;
+	text-align: right;
+}
+.aujourdhui{
+	background-color: #ebf3fb;
+}
+.moisEvenement{
+	padding: 0px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	opacity: 0.85;
+	margin:0;
+	height: 15px;
+	text-align: left;
+	overflow: hidden;
+}
+.moisEvenement .nomEvenement{
+	padding-left: 4px;
+}
+
+
+/** nom des calendriers **/
+#listeCalendrier {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+#listeCalendrier li{
+	display: block;
+	width: 24%;
+	float: left;
+}
+
+#listeCalendrier li span{
+	margin:0;
+	padding-right: 10px; /* permet de donner la largeur */
+	margin-right: 3px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+}
+#listeCalendrier li {
+	margin: 3px;
+}
+
+/* pour stopper le float des calendriers */
+/*#dateSemaine{
+	clear: both;
+	margin-top: 5%;
+}*/
+
+/**** formulaire modification ******/
+#nomDetail{
+	width: 80%;
+}
+#tags{
+	width: 70%;
+}
+#lieuDetail{
+	width: 50%;
+}
+
+div.blocDateHeure{
+	height: 28px;
+}
+
+#jourDebutDetail, #jourFinDetail{
+	width: 25%;
+}
+
+/**** formulaire modification ******/
+#nomDetail{
+	width: 80%;
+}
+#tags{
+	width: 70%;
+}
+#lieuDetail{
+	width: 50%;
+}
+
+/************* Personne *************/
+
+#colonneGroupe{
+	width: 25%;
+}
+#colonneContenuGroupe{
+	width: 25%;
+}
+#colonneElement{
+	width: 40%;
+	padding: 3px;
+}
+
+#colonneGroupe, #colonneContenuGroupe, #colonneElement{
+	margin: 0;
+	padding: 0;
+	float: left;
+	border: solid 1px #999;
+	height: 500px;
+	overflow: auto;
+}
+#nomGroupe{
+	width: 60%;
+	margin: 5px;
+}
+#listeElementsGroupe,#listeGroupes {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#listeElementsGroupe li{
+	display: block;
+	width: 95%;
+	margin: none;
+	padding: 3px;
+}
+#listeGroupes li{
+	display: block;
+	width: 95%;
+	margin: none;
+	padding: 3px;
+}
+#listeElementsGroupe li:hover{
+	background-color: #eef;
+}
+#listeGroupes li:hover{
+	background-color: #eef;
+}
+
+#divTag{
+	margin-top: 50px;
+}
+
+input#motscles{
+	width: 95%;
+}
+#nuageDeMots{
+	text-align: justify;
+	margin: 3px;	
+}
+.nuage:hover{
+	background-color: #f33;
+	color: #fff;
+}
+a.nuage:link{text-decoration:none;color:#134A81;}
+a.nuage:active{text-decoration:none;color:#134A81;}
+a.nuage:visited{text-decoration:none;color:#134A81;}
+
+/********* auto-complétion  **********/
+
+.ac_results {
+	padding: 0px;
+	border: solid 1px #eee;
+	background-color: white;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background : Window url('../utile/img/loading.gif') right center no-repeat;
+}
+
+.ac_over {
+	background-color: lightblue;
+	color: white;
+}
+
+/****************  yop yop ***********************/
+#blocPseudo, #deconnexion{
+	position: absolute;
+	top: 0pt;
+	background-color: #000;
+	color: #fff;
+	opacity: 0.3;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	z-index: 10;
+}
+#blocPseudo{
+	right: 160px;
+}
+#deconnexion{
+	right: 3px;
+}
+#deconnexion a{
+	color: #fff;
+}
+#blocOutils{
+	position: absolute;
+	top: 0pt;
+	right: 400px;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+}
+
+#pied>#blocPseudo, #pied>#deconnexion{
+	position: fixed;
+}
+
+#blocLogin{
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	width: 10%;
+}
+input#tags{
+	width:40%;
+}
+
+/****** Design spécifique au thème yop *******/
+
+#liensPermanents{
+	width: 70%;
+	margin: auto;
+}
+#pied{
+	clear: both;
+	margin: 0;
+	padding: 20px;
+	height: 100px;
+	background-image: url('/utile/images/theme_koudou/pied.png');
+	background-repeat: repeat-x;
+	position: relative;
+}
+#pied a{ color: #833;}
+
+#feuille{
+	width: 900px;
+	background-color: white;
+	background-image: url('/utile/images/theme_koudou/fond-page.png');
+	background-repeat: repeat-y;
+	margin: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding:0;
+	min-height: 650px;
+}
+.blocMetaDonnees{
+	margin:0;
+}
+#document{
+	margin: 0;
+	padding: 0;
+}
+#document input#nom{
+	width: 60%;
+}
+#document textarea#description{
+	width: 100%;
+}
+#blocContenu textarea#contenu{
+	width: 100%;
+}
+input#infoModif{
+	width: 50%;
+}
+#menu{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: #805840;
+	background-image: url('/utile/images/theme_koudou/fond-menu.png');
+	height: 40px;
+	width: 400px;
+}
+#menu p{
+	margin: 0;
+	padding: 10px 10px 10px 20px;
+}
+
+#dock{
+display: none;
+}
+#menu a:link{text-decoration:none;color:#d3caaa;}
+#menu a:active{text-decoration:none;color:#f63a73;}
+#menu a:visited{text-decoration:none;color:#d3caaa;}
+#menu a:hover{text-decoration:none;color:#f63a73;}
+
+#menu ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#menu ul li{
+	padding: 3px;
+}
+.blocNom{
+	background-color: #6487dc;
+	color: #fff;
+	font-size: 15px;
+	padding: 1px 1px 1px 5px;
+	clear: both;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+/******* Page d'accueil *********/
+
+.ficheNews{
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-khtml-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-khtml-border-bottom-right-radius: 6px;
+	margin-bottom: 10px;
+	border: dotted 1px #ccc;
+	break-inside: avoid;
+}
+.ficheNews p{
+	margin: 0;
+	padding: 5px;
+	padding-bottom: 0;
+}
+.ficheNews h3{
+	margin: 0px;
+	padding: 5px 0 0 5px;
+}
+.liensNews{
+	clear: both;
+	display: block;
+	margin: 2px 0 0 0;
+	margin-left: 5px;
+}
+#blocNuage{
+	clear: both;
+}
+.rose{
+	color: #fff;
+	background-color: #fc575e;
+	padding: 5px;
+}
+.vert{
+	color: #fff;
+	background-color: #66cc9a;
+	padding: 5px;
+}
+.bleu{
+	color: #fff;
+	background-color: #4ebaff;
+	padding: 5px;
+}
+.jaune{
+	color: #fff;
+	background-color: #fbca54;
+	padding: 5px;
+}
+.violet{
+	color: #fff;
+	background-color: #ba4df0;
+	padding: 5px;
+}
+#colonnes{
+	padding: 8px;
+	text-align: justify;
+	-moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-khtml-column-count: 3;
+	-khtml-column-gap: 20px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+}
+
+#colonnes h2{
+	text-shadow: 0 -1px 1px #999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+	break-inside: avoid;
+}
+
+#colonnes h2 a:link{text-decoration:none;color:#fff;}
+#colonnes h2 a:active{text-decoration:none;color:#f63a73;}
+#colonnes h2 a:visited{text-decoration:none;color:#fff;}
+#colonnes h2 a:hover{text-decoration:none;color:#f63a73;}
+
+#colonnes h3 a:link{text-decoration:none;color:#333;}
+#colonnes h3 a:active{text-decoration:none;color:#f63a73;}
+#colonnes h3 a:visited{text-decoration:none;color:#333;}
+#colonnes h3 a:hover{text-decoration:none;color:#f63a73;}
+
+/********** Blog *****************/
+.dateBlog{
+	height: 50px;
+	width: 47px;
+	background-color: transparent;
+	background-image: url('/utile/img/calendar.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	font-size: 10px;
+	color: #666666;
+	text-align: center;
+	padding-top: 0px;
+	padding-right: 2px;
+	padding-bottom: 0;
+	padding-left: 0;
+	float: left;
+	margin-bottom:0;
+}
+.blocNomBlog h1{
+	background-color: #6487dc;
+	color: #fff;
+	font-size: 18px;
+	width: 90%;
+	float: left;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-top: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.blocContenuBlog{
+	clear: both;
+}
+.moisCreation{
+	margin-top: 8px;
+	margin-bottom: 0;
+	color: #fff;
+	text-align: center;
+}
+.jourCreation{
+	margin: 0;
+	margin-top: 4px;
+	padding: 0;
+	text-align: center;
+}
+.blocMetaDonneesBlog{
+	clear: both;
+}
+
+/***** statut *******/
+.dateStatut{
+	margin:0;
+	color: #999;
+}
+.corpsStatut{
+	margin: 1px;
+	margin-top:5px;
+	font-size: 14px;
+}
+p.corpsStatut strong{
+	font-size: 25px;
+}
+
+/******* Commentaires *******/
+#bloc_commentaires{
+	width: 60%;
+	margin: auto;
+}
+
+.commentaire{
+	margin: 10px;
+}
+.commentaire_texte{
+	background: #ffd26b;
+	padding: 3px;
+	margin-bottom: 0px;
+	text-align: justify;
+	color: black;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+.commentaire_infos{
+	text-align: left;
+}
+#bloc_ajouter_commentaires{
+	text-align: left;
+}
+#blocCarte #inputAdresse{
+	width: 30%;
+}
+#blocCarte #inputAltitude{
+	width: 30px;
+}
+
+/******* carnet d'adresse *********/
+#colonneGroupes, #colonneListeUtilisateurs, #colonneDetailUtilisateur{
+	float: left;
+}
+#colonneDetailUtilisateur{
+	padding-left: 10px;
+}
+#colonneGroupes select{
+	width: 100px;
+}
+#colonneListeUtilisateurs select{
+	width: 150px;
+}
+#colonneDetailUtilisateur label{
+	display: block;
+	width: 80px;
+	text-align: right;
+	float: left;
+	clear: both;
+}
+
+.doc2col {
+	padding: 8px;
+	text-align: justify;
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-moz-column-rule: 1px dotted #BBB;
+	-khtml-column-count: 2;
+	-khtml-column-gap: 20px;
+	-khtml-column-rule: 1px dotted #BBB;
+}
+
+.doc3col {
+	padding: 8px;
+	text-align: justify;
+	-moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-moz-column-rule: 1px dotted #BBB;
+	-khtml-column-count: 3;
+	-khtml-column-gap: 20px;
+	-khtml-column-rule: 1px dotted #BBB;
+}
+/******* modification d'un événement *******/
+
+#blocColonneGauche, #blocColonneDroite{
+	width: 49%;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+#blocColonneGauche{
+	margin-right: 2%;
+}
+#blocEtat{
+	width: 20%;
+	float: right;
+}
+#blocNavigationFleche{
+	text-align: right;
+	width: 15%;
+	float: right;
+}
+#blocSave{
+	width: 60%;
+	float: left;
+}
+#blocEvenement label{
+	font-weight: normal;
+	padding: 0;
+}
+#blocEvenement textarea{
+	margin: 0;
+	padding: 2px;
+	width: 99%;
+}
+#blocEvenement p{
+	margin-bottom: 1px;
+}
+#blocJourComplet{
+	clear: both;
+	margin: 0;
+}
+fieldset{
+	width: 96%;
+	background-color: #fff;
+}
+#blocApercu{
+	height: 200px;
+	border: solid 1px #ddd;
+	overflow: auto;
+	padding: 2px;
+}
+#blocApercu .apercu{
+	margin: 0;
+	padding: 1px;
+}
+#nbOccurrence{
+	width: 20px;
+}
+#createurEvenementMultiple{
+	display: none;
+}
+#comboLieu{
+	float: left;
+}
+#blocAjoutLieu{
+	clear: both;
+}
+
+/****************** Barre de navigation ********************/
+#barreNavigation{
+	background-color: #eee;
+	background-image: url('/utile/img/fond-barre-grise.gif');
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 7px;
+}
+
+#blocAddEvenement{
+	margin-right: 100px;
+}
+#blocChoixVue{
+	
+}
+#navigationJour{
+	margin-left: 100px;
+}
+#blocLienPreferences{
+	margin-left: 30px;
+}
+#blocLienLieux{
+	margin-left: 20px;
+}
+#blocCalendrier{
+	padding: 0;
+	padding-left: 10px;
+}
+
+/****************** Barre de filtre ********************/
+#barreFiltre fieldset{
+	border-color: #ccc;
+	margin: 5px;
+	padding-left: 0;
+}
+#barreFiltre label{
+	font-weight: normal;
+	margin: 0 3px 0 5px;
+}
+#filtreTags{
+}
+
+#blocCentre{
+	width: 95%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#filtreLieu{
+}
+
+/*********************** Bloc édition *************************/
+#blocEdition label{
+	display: block;
+	width: 80px;
+	text-align: right;
+	float: left;
+	clear: both;
+}
+#lieu input{
+	width: 65%;
+}
+#blocCarte #map{
+	float: left;
+}
+#blocCarte #blocEdition{
+	float: left;
+	width: 45%;
+	margin-left: 20px;
+}
+#blocMetadonnees{
+	font-size: 11px;
+}
+#miseEnPage{
+	margin: 20px;
+}
+
+/*********** galerie ****************/
+.lienGaleriePicasa{
+	float: left;
+	width: 220px;
+}
+.lienGalerieFacebook{
+	float: left;
+	width: 200px;
+}
+#galeriePhotos{
+	width: 850px;
+	overflow: auto;
+}
+#contenuGaleriePhotos{
+	width: 1500px;
+}
+.barreNoire{
+	color: #fff;
+	background-color: #000;
+	background-image: url("http://koudou.ch/utile/img/fond-barre-grise.gif");
+	padding: 5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	text-shadow: 0 -1px 1px #999;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+}
+
+/********** itinéraire **************/
+span.altitude{
+	background-color: #789;
+	padding: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+span.coord{
+	background-color: #ff5;
+	padding: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+span.distance{
+	background-color: #a55;
+	padding: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/********** pola **************/
+
+#imageProfile{
+	width: 60px;
+	margin-right: 20px;
+	position: relative;
+	bottom: -15px;
+	-webkit-transform: rotate(15deg);
+	-moz-transform: rotate(15deg);
+	-moz-box-shadow: 5px 5px 10px #555;
+	-webkit-box-shadow: 5px 5px 10px #555;
+}
+#imageProfile:hover{
+	-webkit-transform: rotate(0deg) scale(3);
+	-moz-transform: rotate(0deg) scale(3);
+}
+/*vignette de wikipedia pratique pour faire des copier coller*/
+div.tright{
+	float: right;
+	clear: right;
+	margin-left: 5px;
+	border: 1px solid #999999;
+	padding: 1px;	
+}
+
+/***** Calendrier vue annuelle *********/
+
+#blocLegendeMois{
+	clear: both;
+	height: 20px;
+}
+.legendeMois{
+	width: 66px;    /* todo à transformer en variable */
+	float: left;  
+	text-align: center;
+}
+#blocCalendrierAnnee{
+	clear: both;
+	position: relative;
+}
+.colonneMois{
+	width: 66px;   /* todo à transformer en variable */
+	float: left;
+	border-left: solid 1px #000;
+}
+.caseJourAnnee{
+	height: 20px; /* todo à transformer en variable */
+	border-top: solid 1px #ddd;
+}
+.noJourAnnee{
+	padding: 3px;
+}
+.jourDimancheAnnee{
+	background-color: #ddbbff;
+}
+.evenementAnnee{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	opacity: 0.85;
+	position: absolute;
+	width: px;
+	margin: 0;
+	padding: 0;
+}
+img.gravatar{
+	width: 16px;
+}
+img.gravatar:hover{
+	-webkit-transform: scale(5);
+	-moz-transform: scale(5);
+	-moz-box-shadow: 5px 5px 10px #555;
+	-webkit-box-shadow: 5px 5px 10px #555;
+}

@@ -14,7 +14,7 @@
 					<p><label>localité</label> <input type="text" name="commune" value="<!--{$lieu.commune}-->" id="inputCommune"></input></p>
 					<p><label>npa</label> <input type="text" name="npa" value="<!--{$lieu.npa}-->" id="inputNpa"></input></p>
 					<p><label>rue</label> <input type="text" name="rue" value="<!--{$lieu.rue}-->" id="inputRue"></input></p>
-					<p><label>carte</label> <a href="#" id="getAdresse"><img src="/utile/img/flag_red.png" alt="flag" title="Placer un marker sur la carte..."/> montrer le lieu</a></p>
+					<p><label>carte</label> <a href="#" id="getAdresse"><img src="http://<!--{$server_name}-->/utile/img/flag_red.png" alt="flag" title="Placer un marker sur la carte..."/> montrer le lieu</a></p>
 				</fieldset>
 				<fieldset id="précisions">
 					<legend>Infos supplémentaires</legend>
@@ -39,9 +39,9 @@
 
 			
 			<p>
-				<a href="#" id="saveLieu"><img src="/utile/img/save.png" alt="save" title="enregistrer le lieu"/> enregistrer</a>  |  
-				<a href="/lieu/" id="cancelLieu" ><img src="/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/lieu/?new" id="newLieu" ><img src="/utile/img/add.png" alt="ajouter" /> ajouter un lieu...</a> 
+				<a href="#" id="saveLieu"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" title="enregistrer le lieu"/> enregistrer</a>  |  
+				<a href="/lieu/" id="cancelLieu" ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/lieu/?new" id="newLieu" ><img src="http://<!--{$server_name}-->/utile/img/add.png" alt="ajouter" /> ajouter un lieu...</a> 
 			</p>
 		</div>
 	</div>

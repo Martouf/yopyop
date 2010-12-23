@@ -82,4 +82,4 @@
 			<label title="séparés par des ,">tags</label><input type="text" name="tags" id="tags" value="" />
 		</p>
 	</div>
-	<p><a href="#" id="createEvenement"><img src="/utile/img/save.png" alt="save" /> enregistrer l'évenement</a></p>
+	<p><a href="#" id="createEvenement"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer l'évenement</a></p>

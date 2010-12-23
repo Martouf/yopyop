@@ -68,12 +68,12 @@
 	</div>
 	
 	<p>
-		<a href="#" onclick="app.saveObjet(); return false;"><img src="/utile/img/save.png" alt="save" /> enregistrer les données de l'objet</a> &nbsp;|&nbsp; 
+		<a href="#" onclick="app.saveObjet(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de l'objet</a> &nbsp;|&nbsp; 
 		<a href="/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html" id="cancelObjet" >annuler</a>
 	</p>
 
 <div id="loading">
-	<img src="/utile/img/loading.gif" alt="loading"/> loading
+	<img src="http://<!--{$server_name}-->/utile/img/loading.gif" alt="loading"/> loading
 </div>
 <div id="logAction">
 </div>

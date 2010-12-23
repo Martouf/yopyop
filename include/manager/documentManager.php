@@ -56,9 +56,11 @@ class documentManager {
 		// va chercher le contenu du document. C'est la dernière version disponible dans la langue voulue.
 		// on met le contenu du document dans le tableaux associatif
 		$version = $this->versionManager->getLastVersion($id_document,'fr'); // pour l'instant on ne gère que le français
+		
 		$document['contenu'] = $version['contenu'];
 		$document['auteur'] = $version['auteur'];  // BUG => PHP Notice:  Undefined index: auteur in documentManager.php on line 60 => idem pour contenu et auteur de la ligne 61
 		$document['pseudoAuteur'] = $this->personneManager->getPseudo($version['auteur']); // va chercher le pseudo en fonction de l'id !
+		
 		return $document;
 	}
 	

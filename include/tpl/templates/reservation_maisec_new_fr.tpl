@@ -73,6 +73,6 @@
 		</p>
 		
 	</div>
-	<p><a href="#" id="createReservation"><img src="/utile/img/save.png" alt="save" /> enregistrer l'évenement</a></p>
+	<p><a href="#" id="createReservation"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer l'évenement</a></p>
 	
-	<img src="/utile/ajax/ticket.php" width="1" height="1" alt="transparent" />
+	<img src="http://<!--{$server_name}-->/utile/ajax/ticket.php" width="1" height="1" alt="transparent" />

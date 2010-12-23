@@ -94,8 +94,8 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/commentaire.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/commentaire.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// certains formats ne sont jamais inclu dans un thème
@@ -186,9 +186,9 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/commentaire.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/commentaire.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		if ($outputFormat=='xml'|$outputFormat=='php') {
@@ -399,9 +399,9 @@ if ($action=='get') {
 	
 	// quelques scripts utiles
 	$additionalHeader = "
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/commentaire.js\"></script>";	
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/commentaire.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
 	
@@ -429,9 +429,9 @@ if ($action=='get') {
 	
 	// quelques scripts utiles
 	$additionalHeader = "
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/commentaire.js\"></script>";	
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/commentaire.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
 	// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.

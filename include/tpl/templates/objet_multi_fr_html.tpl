@@ -16,11 +16,11 @@
 			<td>
 				<p>
 					<!--{if $aObjet.etat==0}-->
-						<img src="/utile/img/bullet_blue.png" alt="en création" title="en cours de création" />
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_blue.png" alt="en création" title="en cours de création" />
 					<!--{elseif $aObjet.etat==1}-->
-						<img src="/utile/img/bullet_green.png" alt="disponible" title="disponible" />
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_green.png" alt="disponible" title="disponible" />
 					<!--{else}-->
-						<img src="/utile/img/bullet_red.png" alt="privé" title="privé" />
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_red.png" alt="privé" title="privé" />
 					<!--{/if}-->
 				</p>
 			</td>

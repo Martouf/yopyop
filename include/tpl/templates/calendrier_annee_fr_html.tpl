@@ -141,7 +141,7 @@
 
 
 	<hr />
-	<p title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></p>
+	<p title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="http://<!--{$server_name}-->/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></p>
 	
 	<ul id="listeCalendrier">
 		<!--{foreach from=$calendriers key=key item=aCalendrier}-->	
@@ -150,7 +150,7 @@
 				&nbsp;&nbsp;
 			</span>
 			<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
-			<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
+			<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="http://<!--{$server_name}-->/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
 		</li>
 		<!--{/foreach}-->
 	</ul>

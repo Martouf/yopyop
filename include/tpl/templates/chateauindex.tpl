@@ -38,12 +38,12 @@
 					</div>
 					<div id="bas" style="clear:both;">&nbsp;</div>
 					<div id="easterEggs">
-						<img id="nain" src="/utile/images/theme_chateau/nain-prisonnier.jpg" alt="nain de jardin prisonnier" />
-						<img id="fourmi1" class="drag fourmi" src="/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
-						<img id="fourmi2" class="drag fourmi" src="/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
-						<img id="fourmi3" class="drag fourmi" src="/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
-						<img id="fourmi4" class="drag fourmi" src="/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
-						<img id="fourmi5" class="drag fourmi" src="/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
+						<img id="nain" src="http://<!--{$server_name}-->/utile/images/theme_chateau/nain-prisonnier.jpg" alt="nain de jardin prisonnier" />
+						<img id="fourmi1" class="drag fourmi" src="http://<!--{$server_name}-->/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
+						<img id="fourmi2" class="drag fourmi" src="http://<!--{$server_name}-->/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
+						<img id="fourmi3" class="drag fourmi" src="http://<!--{$server_name}-->/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
+						<img id="fourmi4" class="drag fourmi" src="http://<!--{$server_name}-->/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
+						<img id="fourmi5" class="drag fourmi" src="http://<!--{$server_name}-->/utile/images/theme_chateau/fourmi.png" alt="fourmi" />
 					</div>
 				</div><!--corps-->
 			</div><!--feuille_papier-->
@@ -52,8 +52,8 @@
 			<div id="liensPermanents">
 				<a href="http://martouf.ch/blog/news/flux.xml">flux Atom du blog</a> | <a href="http://twitter.com/martouf_vert" title="Martouf sur twitter...">twitter</a> | <a href="http://www.wikio.fr/subscribe?url=http%3A%2F%2Fmartouf.ch%2Fblog%2Fnews%2Fflux.xml"><img src="http://www.wikio.fr/shared/images/add-rss.gif" style="border: none;" alt="http://www.wikio.fr"/></a> | <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ch/deed.fr"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/ch/80x15.png" /></a> | <a href="http://martouf.ch/document/document.html" title="résumé de tous les documents" >tous les documents</a> | <a href="http://ou-est-la-girafe.ch" title="où estla girafe?">Où est la girafe?</a> | <a href="http://koudou.ch" title="koudou, un aperçu des scouts neucâtelois">koudou.ch</a>
 			</div>
-			<img id="champignon1" src="/utile/images/theme_chateau/champignon.png" alt="champignon" />
-			<img id="champignon2" src="/utile/images/theme_chateau/champignon.png" alt="champignon" />
+			<img id="champignon1" src="http://<!--{$server_name}-->/utile/images/theme_chateau/champignon.png" alt="champignon" />
+			<img id="champignon2" src="http://<!--{$server_name}-->/utile/images/theme_chateau/champignon.png" alt="champignon" />
 		</div><!--pied-->
 		
 		<!--{if $sessionIdPersonne=='1'}-->

@@ -97,13 +97,13 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 			<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lieu.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lieu.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// certains formats ne sont jamais inclu dans un thème
@@ -172,11 +172,11 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.uitablefilter.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.tablesorter.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lieu_edit_list.js\"></script>";	 // le même fichier avec un e à la fin de liste ne marche pas !! typo3 met un message d'erreur: Reason: Segment "ecoical" was not a keyword for a postVarSet as expected! => est ce qu'il y a un filtre anti français ?
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.uitablefilter.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.tablesorter.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lieu_edit_list.js\"></script>";	 // le même fichier avec un e à la fin de liste ne marche pas !! typo3 met un message d'erreur: Reason: Segment "ecoical" was not a keyword for a postVarSet as expected! => est ce qu'il y a un filtre anti français ?
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		if ($outputFormat=="kml") {
@@ -365,13 +365,13 @@ if ($action=='get') {
 	
 	// quelques scripts utiles
 	$additionalHeader = "
-		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 		<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lieu.js\"></script>";	
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lieu.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
 	// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -398,13 +398,13 @@ if ($action=='get') {
 	
 	// quelques scripts utiles
 	$additionalHeader = "
-		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 		<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lieu.js\"></script>";	
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lieu.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
 	// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.

@@ -8,7 +8,7 @@
 		
 		<div id="blocHeader">
 				<div id="blocSave">
-					<a href="/event/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer"  ><img src="/utile/img/action_stop.gif" alt="save" /> fermer</a>  
+					<a href="/event/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer"  ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="save" /> fermer</a>  
 				</div>
 		</div>
 		

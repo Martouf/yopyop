@@ -1848,42 +1848,40 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/sexy-combo.css\" media=\"screen\" />
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/js/skins/sexy/sexy.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.magicpreview.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.sexy-combo-2.0.6.min.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/sexy-combo.css\" media=\"screen\" />
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/js/skins/sexy/sexy.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.magicpreview.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.sexy-combo-2.0.6.min.js\"></script>
 		";	
 		
-		// scripts devenus inutiles en changeant de version de jquery
-		//<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
 		
 		// scripts utilisés pour trier la liste
 		if ($typeDeVue=='liste') {
 			// tableSorter
 			 $additionalHeader .= "
-					<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.uitablefilter.js\"></script>
-					<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.tablesorter.pack.js\"></script>";
+					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.uitablefilter.js\"></script>
+					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.tablesorter.pack.js\"></script>";
 			
 			// // filterSorter
 			// $additionalHeader .= "
-			// 	<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/includes/tableFilter.css\" media=\"all\" />
-			// 	<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/includes/tableFilter.aggregator.css\" media=\"all\" />
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/jquery.cookies-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/prototypes-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/json-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/jquery.truemouseout-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/daemachTools-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/jquery.tableFilter-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/jquery.tableFilter.aggregator-packed.js\"></script>
-			// 	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tableFilter/_dist/jquery.tableFilter.columnStyle-packed.js\"></script>
+			// 	<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/js/tableFilter/includes/tableFilter.css\" media=\"all\" />
+			// 	<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/js/tableFilter/includes/tableFilter.aggregator.css\" media=\"all\" />
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/jquery.cookies-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/prototypes-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/json-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/jquery.truemouseout-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/daemachTools-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/jquery.tableFilter-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/jquery.tableFilter.aggregator-packed.js\"></script>
+			// 	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tableFilter/_dist/jquery.tableFilter.columnStyle-packed.js\"></script>
 			// 	";	
 		}
 		
@@ -1891,14 +1889,14 @@ if ($action=='get') {
 			// pour charger une machinerie cartographique
 		 	$additionalHeader .= "
 				<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>";
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>";
 		}
 		
 		// si le calendrier est éditable, ajoute les script nécessaire à son édition
 		if ($editable) {
-			$additionalHeader .= "<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/calendrier_edit_".$typeDeVue.".js\"></script>";
+			$additionalHeader .= "<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/calendrier_edit_".$typeDeVue.".js\"></script>";
 		}else{
-			$additionalHeader .= "<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/calendrier_lecture_".$typeDeVue.".js\"></script>";	
+			$additionalHeader .= "<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/calendrier_lecture_".$typeDeVue.".js\"></script>";	
 		}
 		
 		

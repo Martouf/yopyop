@@ -2,7 +2,7 @@
 <input type="hidden" name="idAuteurCommentaire" id="idAuteurCommentaire" value="<!--{$idAuteurCommentaire}-->" />
 
 <p class="center">
-	<img src="/utile/img/edit.gif" alt="edit" /><a id="masque_ajouter_commentaire" href="#">Ajouter un commentaire</a>
+	<img src="http://<!--{$server_name}-->/utile/img/edit.gif" alt="edit" /><a id="masque_ajouter_commentaire" href="#">Ajouter un commentaire</a>
 </p>	
 	
 	<div id="bloc_ajouter_commentaire">
@@ -27,6 +27,6 @@
 			
 			<p class="center"><a href="#" id="ajouterCommentaire">envoyer le commentaire</a></p>
 			
-			<img src="/utile/ajax/ticket.php" width="1" height="1" alt="transparent" />
+			<img src="http://<!--{$server_name}-->/utile/ajax/ticket.php" width="1" height="1" alt="transparent" />
 	</div>
 

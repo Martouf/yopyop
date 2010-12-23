@@ -5,7 +5,7 @@
 	</div>
 	
 	<p>
-		<a href="#" id="createStatut"><img src="/utile/img/save.png" alt="save" /> enregistrer le statut</a>  |  
+		<a href="#" id="createStatut"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer le statut</a>  |  
 	</p>
 
 

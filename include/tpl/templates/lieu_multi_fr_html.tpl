@@ -3,7 +3,7 @@
 <div id="blocCentre">
 	<div>
 		<form id="filter-form"><label>&nbsp;&nbsp;&nbsp;Rechercher</label> <input name="filter" id="filter" value="" maxlength="30" size="30" type="text">
-		&nbsp;&nbsp;&nbsp;<a href="/lieu/?new" id="boutonNewLieu"><img src="/utile/img/add.png" alt="add" /> ajouter un lieu</a>
+		&nbsp;&nbsp;&nbsp;<a href="/lieu/?new" id="boutonNewLieu"><img src="http://<!--{$server_name}-->/utile/img/add.png" alt="add" /> ajouter un lieu</a>
 		</form>
 	</div>
 	<br />

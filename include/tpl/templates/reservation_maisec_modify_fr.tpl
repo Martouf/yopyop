@@ -100,13 +100,13 @@
 	</div>
 	
 	<p>
-		<a href="#" onclick="app.saveReservation(); return false;"><img src="/utile/img/save.png" alt="save" /> enregistrer les données de la réservation</a> &nbsp;|&nbsp; 
+		<a href="#" onclick="app.saveReservation(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de la réservation</a> &nbsp;|&nbsp; 
 		<a href="/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html" id="cancelReservation" >annuler</a>
 	</p>
 	
 	
 	<div id="loading">
-		<img src="/utile/img/loading.gif" alt="loading"/> loading
+		<img src="http://<!--{$server_name}-->/utile/img/loading.gif" alt="loading"/> loading
 	</div>
 	<div id="logAction">
 	</div>

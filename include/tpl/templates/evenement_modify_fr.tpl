@@ -8,15 +8,15 @@
 		
 		<div id="blocHeader">
 				<div id="blocSave">
-					<a href="#" id="saveEvenement"><img src="/utile/img/save.png" alt="save" title="enregistrer l'événement courant" /> enregistrer</a>  |  
-					<a href="/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer sans enregistrer"  ><img src="/utile/img/close_gray.gif" alt="close" /> fermer</a>  |  
-					<a href="#" id="suprrimeEvenement" ><img src="/utile/img/delete.gif" alt="supprimer" title="supprimer l'événement" /> supprimer</a>
+					<a href="#" id="saveEvenement"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" title="enregistrer l'événement courant" /> enregistrer</a>  |  
+					<a href="/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer sans enregistrer"  ><img src="http://<!--{$server_name}-->/utile/img/close_gray.gif" alt="close" /> fermer</a>  |  
+					<a href="#" id="suprrimeEvenement" ><img src="http://<!--{$server_name}-->/utile/img/delete.gif" alt="supprimer" title="supprimer l'événement" /> supprimer</a>
 				</div>
 
 				<span id="blocNavigationFleche">
-					<a href="#" id="FlecheEvenementPrecedent" ><img src="/utile/img/arrow_left.png" class="" alt="previous" title="événement précédent"/></a>
-					<a href="#" id="boutonSauverFleche" ><img src="/utile/img/save.png" alt="sauver" title="enregistrer l'événement courant" /></a>
-					<a href="#" id="FlecheEvenementSuivant" ><img src="/utile/img/arrow_right.png" class=""  alt="next" title="événement suivant"/></a>
+					<a href="#" id="FlecheEvenementPrecedent" ><img src="http://<!--{$server_name}-->/utile/img/arrow_left.png" class="" alt="previous" title="événement précédent"/></a>
+					<a href="#" id="boutonSauverFleche" ><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="sauver" title="enregistrer l'événement courant" /></a>
+					<a href="#" id="FlecheEvenementSuivant" ><img src="http://<!--{$server_name}-->/utile/img/arrow_right.png" class=""  alt="next" title="événement suivant"/></a>
 				</span>
 		</div>
 		
@@ -151,7 +151,7 @@
 			<textarea id="remarqueEvenement" name="remarqueEvenement" rows="3" cols="40"><!--{$evenement.remarque}--></textarea>
 			
 			<p>
-				voir le lieu sur la carte: <span><a href="/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu dans une nouvelle fenêtre..."><img src="/utile/img/flag_red.png" alt="flag" /></a></span>
+				voir le lieu sur la carte: <span><a href="/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu dans une nouvelle fenêtre..."><img src="http://<!--{$server_name}-->/utile/img/flag_red.png" alt="flag" /></a></span>
 			</p>
 			
 			<div id="blocMetadonnees">

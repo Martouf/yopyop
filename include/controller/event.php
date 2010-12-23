@@ -150,16 +150,16 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/evenement.js\"></script>";	
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/evenement.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// certains formats ne sont jamais inclu dans un thème
@@ -241,17 +241,17 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.tablesorter.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/evenement.js\"></script>";	
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.tablesorter.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/evenement.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		if ($outputFormat=="ics") {

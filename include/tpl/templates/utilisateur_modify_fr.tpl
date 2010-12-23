@@ -1,6 +1,6 @@
 <div id="utilisateur">
 	<div id="barreOutil">
-		<a href="/utilisateur/?new" title="ajouter une personne"><img src="/utile/img/vcard_add.png" alt="ajouter"/>&nbsp;ajouter</a>
+		<a href="/utilisateur/?new" title="ajouter une personne"><img src="http://<!--{$server_name}-->/utile/img/vcard_add.png" alt="ajouter"/>&nbsp;ajouter</a>
 	</div>
 	<div id="colonneGroupes">
 		<select name="groupeUtilisateur" id="groupeUtilisateur" onchange="" size="30">
@@ -38,7 +38,7 @@
 		</div>
 		
 		<p>
-			<a href="#" id="savePersonne"><img src="/utile/img/save.png" alt="save" /> enregistrer</a>  |  
+			<a href="#" id="savePersonne"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer</a>  |  
 			<a href="/utilisateur/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html" id="cancelPersonne" >annuler</a>
 		</p>
 	</div>

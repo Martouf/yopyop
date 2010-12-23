@@ -48,4 +48,4 @@
 		</div>
 	</div>
 
-	<p><a href="#" id="createDocument"><img src="/utile/img/save.png" alt="save" /> enregistrer le document</a></p>
+	<p><a href="#" id="createDocument"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer le document</a></p>

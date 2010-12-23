@@ -174,16 +174,14 @@ if ($action=='get') {
 				$smarty->assign('utilisateurConnu',false);
 			}
 
-			// quelques scripts utiles
-			//<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
 			
 			$additionalHeader = "
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>";	
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 			
 			
@@ -349,12 +347,12 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// fourni à smarty le niveau de détail à afficher
@@ -548,13 +546,13 @@ if ($action=='get') {
 	
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tiny_mce/tiny_mce.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tiny_mce/tiny_mce.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\">startRichEditor();</script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 		
@@ -616,13 +614,13 @@ if ($action=='get') {
 	
 			// quelques scripts utiles
 			$additionalHeader = "
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tiny_mce/tiny_mce.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tiny_mce/tiny_mce.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 				<script type=\"text/javascript\">startRichEditor();</script>";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 	

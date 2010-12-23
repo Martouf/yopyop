@@ -8,7 +8,7 @@
 			</p>
 		</div>
 		<div class="commentaire_infos">
-			<!--{$commentaire.nom}--> le <!--{$commentaire.dateCreation}--><img src="/utile/img/bulle.gif" alt="bulle" />
+			<!--{$commentaire.nom}--> le <!--{$commentaire.dateCreation}--><img src="http://<!--{$server_name}-->/utile/img/bulle.gif" alt="bulle" />
 		</div>
 	</div>
 </div>

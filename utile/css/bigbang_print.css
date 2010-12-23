@@ -239,7 +239,7 @@ div.blocnews{
 }
 
 .ac_loading {
-	background : Window url('/utile/img/loading.gif') right center no-repeat;
+	background : Window url('../img/loading.gif') right center no-repeat;
 }
 
 .ac_over {
@@ -262,7 +262,7 @@ table.tablesorter tr th, table.tablesorter tr th {
 }
 
 table.tablesorter tr .header {
-	background-image: url('/utile/img/bg.gif');
+	background-image: url('../img/bg.gif');
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
@@ -392,7 +392,7 @@ div.evenement h3{
 	cursor: s-resize;
 }
 .resizeHandle:hover{
-	background-image: url('/utile/img/poignee.png');
+	background-image: url('../img/poignee.png');
 	background-repeat: repeat-x;
 }
 div.repas{
@@ -491,7 +491,7 @@ div.divers{
 	height: 50px;
 	width: 47px;
 	background-color: transparent;
-	background-image: url('/utile/img/calendar.jpg');
+	background-image: url('../img/calendar.jpg');
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	font-size: 10px;

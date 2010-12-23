@@ -54,7 +54,7 @@
 	$smarty->assign('menu',stripcslashes($document['contenu']));
 	
 	// fourni le nom du serveur pour pouvoir contourner la réécriture d'url
-	$serveur = $_SERVER['SERVER_NAME'];
+	$serveur = str_replace($_SERVER['DOCUMENT_ROOT'], $_SERVER['SERVER_NAME'], dirname(__FILE__));
 	$smarty->assign('server_name',$serveur);
 	$smarty->assign('request_uri',$_SERVER['REQUEST_URI']); // fourni aussi l'uri complète demandée (avec les paramètres). La concaténation de server_name et request_uri fourni l'adress qui est affichée dans le navigateur web
 	

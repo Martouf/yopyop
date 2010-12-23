@@ -47,7 +47,7 @@ $smarty->assign('contenuPresentation',stripcslashes($document['contenu']));
 
 /////////////////////////
 // Bloc galerie de photos. Ce document est édité automatiquement. A chaque ajout de galerie une vignette est ajoutée automatiquement.
-$document = $documentManager->getDocument('91');
+$document = $documentManager->getDocument('1');
 $smarty->assign('contenuGalerie',stripcslashes($document['contenu']));
 
 /////////////////////////////////
@@ -237,7 +237,7 @@ $listeGroupeUtilisateur = $groupeManager->getGroupeUtilisateur($_SESSION['id_per
 
 $restrictionsCourantes = array();
 
-$contenuHistorique = "<h2 class=\"violet\">Dernières modifications &nbsp;<a href=\"http://yopyop.ch/document/koudou-dernieres-modifications.xml\" title=\"flux des dernières modifications sur koudou.ch\"><img src=\"/utile/img/bullet_feed.png\" alt=\"feed\" /></a></h2>";
+$contenuHistorique = "<h2 class=\"violet\">Dernières modifications &nbsp;<a href=\"http://yopyop.ch/document/koudou-dernieres-modifications.xml\" title=\"flux des dernières modifications sur koudou.ch\"><img src=\"http://" . $serveur . "/utile/img/bullet_feed.png\" alt=\"feed\" /></a></h2>";
 $contenuHistorique .= "<ul id=\"listeModifs\">";
 
 foreach ($derniersDocuments as $key => $document) {
@@ -305,13 +305,13 @@ $urlFlux = "http://".$serveur."/blog/news/flux.xml";
 
 // quelques scripts utiles
 $additionalHeader = "
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
 	<link rel=\"alternate\" type=\"application/atom+xml\" title=\"flux atom du blog\" href=\"".$urlFlux."\" />";	
 	
 $smarty->assign('additionalHeader',$additionalHeader);

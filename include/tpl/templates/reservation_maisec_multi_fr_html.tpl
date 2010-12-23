@@ -47,11 +47,11 @@
 				<p>
 					<a href="/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html?modify" title="éditer la réservation...">
 					<!--{if $aReservation.etat==0}-->
-						<img src="/utile/img/bullet_orange.png" alt="en attente" title="en attente de validation" /> à valider
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_orange.png" alt="en attente" title="en attente de validation" /> à valider
 					<!--{elseif $aReservation.etat==1}-->
-						<img src="/utile/img/bullet_green.png" alt="acceptée" title="acceptée" />acceptée
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_green.png" alt="acceptée" title="acceptée" />acceptée
 					<!--{else}-->
-						<img src="/utile/img/bullet_red.png" alt="refusée" title="refusée" />refusée
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_red.png" alt="refusée" title="refusée" />refusée
 					<!--{/if}-->
 					</a>
 				</p>

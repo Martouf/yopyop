@@ -12,7 +12,7 @@
 					<p><label>Localité</label> <input type="text" name="commune" value="<!--{$lieu.commune}-->" id="inputCommune"></input></p>
 					<p><label>npa</label> <input type="text" name="npa" value="<!--{$lieu.npa}-->" id="inputNpa"></input></p>
 					<p><label>rue</label> <input type="text" name="rue" value="<!--{$lieu.rue}-->" id="inputRue"></input></p>
-					<p><label>carte</label> <a href="#" id="getAdresse"><img src="/utile/img/flag_red.png" alt="flag" title="Placer un marker sur la carte..."/> montrer le lieu</a></p>
+					<p><label>carte</label> <a href="#" id="getAdresse"><img src="http://<!--{$server_name}-->/utile/img/flag_red.png" alt="flag" title="Placer un marker sur la carte..."/> montrer le lieu</a></p>
 				</fieldset>
 			<fieldset id="précisions">
 				<legend>Infos supplémentaires</legend>
@@ -44,8 +44,8 @@
 			</div>
 			
 			<p>
-				<a href="#" id="createLieu"><img src="/utile/img/save.png" alt="save" /> enregistrer</a>  |  
-				<a href="#" onclick="history.back();" id="cancelLieu" ><img src="/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
+				<a href="#" id="createLieu"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer</a>  |  
+				<a href="#" onclick="history.back();" id="cancelLieu" ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
 			</p>
 		</div>
 	</div>

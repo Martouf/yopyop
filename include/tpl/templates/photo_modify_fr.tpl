@@ -47,12 +47,12 @@
 	</div>
 	
 	<p>
-		<a href="#" onclick="app.savePhoto(); return false;"><img src="/utile/img/save.png" alt="save" /> enregistrer les données de la photo</a> &nbsp;|&nbsp; 
+		<a href="#" onclick="app.savePhoto(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de la photo</a> &nbsp;|&nbsp; 
 		<a href="/photo/<!--{$photo.id_photo}-->-<!--{$photo.nomSimplifie}-->.html" id="cancelPhoto" >annuler</a>
 	</p>
 
 <div id="loading">
-	<img src="/utile/img/loading.gif" alt="loading"/> loading
+	<img src="http://<!--{$server_name}-->/utile/img/loading.gif" alt="loading"/> loading
 </div>
 <div id="logAction">
 </div>

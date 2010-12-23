@@ -12,12 +12,12 @@
 
 // quelques scripts utiles
 $additionalHeader = "
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 	<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/itineraire.js\"></script>";	
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/itineraire.js\"></script>";	
 $smarty->assign('additionalHeader',$additionalHeader);
 
 // permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.

@@ -115,13 +115,13 @@ if ($action=='get') {
 
 			// quelques scripts utiles
 			$additionalHeader = "
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
 				<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des commentaires de ce billets\" href=\"".$urlFluxCommentairesDuBillet."\" />";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 
@@ -304,13 +304,13 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des billets\" href=\"".$urlFlux."\" />
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des commentaires\" href=\"".$urlFluxCommentaires."\" />";
 				

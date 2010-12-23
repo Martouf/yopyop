@@ -20,7 +20,7 @@ header('Content-Type: text/html; charset=UTF-8');
 date_default_timezone_set('Europe/Zurich');
 
 class Init{
-	private static $connection;
+	private $connection;
 
 	function __construct(){
 		// langue préférée du navigateur. Si celle-ci est fournie.
@@ -52,7 +52,7 @@ class Init{
 		}	
 		
 		require('config.php'); // de la base de donnée
-		$path = $_SERVER['DOCUMENT_ROOT']."/include/";
+		$path = dirname(dirname(__FILE__)) . "/";
 
 		// inclu le fichier de langue
 		require($path.'l10n/lang_'.LANG.'.php');

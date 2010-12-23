@@ -105,8 +105,8 @@ if ($action=='get') {
 			// quelques scripts utiles
 			
 			$additionalHeader = "
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/version.js\"></script>";	
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/version.js\"></script>";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 			
 
@@ -181,9 +181,9 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/version.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/version.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// fourni à smarty le niveau de détail à afficher

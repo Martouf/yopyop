@@ -1,7 +1,7 @@
 /* Styles généraux */
 body{
 	background-color: #76894e;
-	background-image: url('/utile/images/theme_girafe/savane.jpg');
+	background-image: url('../images/theme_girafe/savane.jpg');
 	background-repeat: repeat-x;
 	background-attachment: scroll;
 	background-position: 0% 0%;
@@ -190,7 +190,7 @@ div.blocnews{
 #entete{
 	margin: 0px;
 	padding: 0;
-	background-image: url('/utile/images/theme_girafe/entete.png');
+	background-image: url('../images/theme_girafe/entete.png');
 	height: 12px;
 }
 #corps{
@@ -230,7 +230,7 @@ div.blocnews{
 }
 
 .ac_loading {
-	background : Window url('/utile/img/loading.gif') right center no-repeat;
+	background : Window url('../img/loading.gif') right center no-repeat;
 }
 
 .ac_over {
@@ -257,7 +257,7 @@ table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	padding: 4px;
 }
 table.tablesorter thead tr .header {
-	background-image: url('/utile/img/bg.gif');
+	background-image: url('../img/bg.gif');
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
@@ -272,10 +272,10 @@ table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;
 }
 table.tablesorter thead tr .headerSortUp {
-	background-image: url('/utile/img/asc.gif');
+	background-image: url('../img/asc.gif');
 }
 table.tablesorter thead tr .headerSortDown {
-	background-image: url('/utile/img/desc.gif');
+	background-image: url('../img/desc.gif');
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 	background-color: #8dbdd8;
@@ -296,7 +296,7 @@ table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 }
 
 table.tablesorter thead tr .header {
-	background-image: url('/utile/img/bg.gif');
+	background-image: url('../img/bg.gif');
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
@@ -312,10 +312,10 @@ table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;
 }
 table.tablesorter thead tr .headerSortUp {
-	background-image: url('/utile/img/asc.gif');
+	background-image: url('../img/asc.gif');
 }
 table.tablesorter thead tr .headerSortDown {
-	background-image: url('/utile/img/desc.gif');
+	background-image: url('../img/desc.gif');
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 	background-color: #8dbdd8;
@@ -441,7 +441,7 @@ div.evenement h3{
 	cursor: s-resize;
 }
 .resizeHandle:hover{
-	background-image: url('/utile/img/poignee.png');
+	background-image: url('../img/poignee.png');
 	background-repeat: repeat-x;
 }
 div.repas{
@@ -713,7 +713,7 @@ input#tags{
 	margin: 0;
 	padding: 20px;
 	height: 100px;
-	background-image: url('/utile/images/theme_girafe/pied.png');
+	background-image: url('../images/theme_girafe/pied.png');
 	background-repeat: repeat-x;
 	position: relative;
 }
@@ -722,7 +722,7 @@ input#tags{
 #feuille{
 	width: 900px;
 	background-color: white;
-	background-image: url('/utile/images/theme_girafe/fond-page.png');
+	background-image: url('../images/theme_girafe/fond-page.png');
 	background-repeat: repeat-y;
 	margin: auto;
 	margin-top: 0;
@@ -823,7 +823,7 @@ input#infoModif{
 	padding: 1px;
 	color: black !important;
 	background-color: #ff8;
-	background-image: url('/utile/images/theme_yop/fond-titre-news.png');
+	background-image: url('../images/theme_yop/fond-titre-news.png');
 }
 .liensNews{
 	margin: 0;
@@ -838,7 +838,7 @@ input#infoModif{
 	height: 50px;
 	width: 47px;
 	background-color: transparent;
-	background-image: url('/utile/img/calendar.jpg');
+	background-image: url('../img/calendar.jpg');
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	font-size: 10px;

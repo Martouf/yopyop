@@ -170,16 +170,16 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\">
-			Shadowbox.loadSkin('classic', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/src/skin');
-			Shadowbox.loadLanguage('fr', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/lang');
-			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/player');
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
@@ -340,24 +340,23 @@ if ($action=='get') {
 		// url du flux atom pour suivre les reservations de cette catégorie
 		$urlFlux = "http://".$serveur."/reservation/".trim($ressourceTags,"/")."/flux.xml";
 
-		// <link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/lightbox.css\" media=\"screen\" />
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/prototype.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/scriptaculous.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lightbox.js\"></script>
+		// <link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/lightbox.css\" media=\"screen\" />
+		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/prototype.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/scriptaculous.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lightbox.js\"></script>
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\">
-			Shadowbox.loadSkin('classic', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/src/skin');
-			Shadowbox.loadLanguage('fr', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/lang');
-			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/player');
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom\" href=\"".$urlFlux."\" />";
@@ -818,23 +817,22 @@ if ($action=='get') {
 		}
 		
 		// quelques scripts utiles
-		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/reservation".$avecPersonne.".js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/reservation".$avecPersonne.".js\"></script>
 			<script type=\"text/javascript\">
-			Shadowbox.loadSkin('classic', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/src/skin');
-			Shadowbox.loadLanguage('fr', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/lang');
-			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/player');
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
@@ -967,21 +965,21 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/reservation.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/reservation.js\"></script>
 			<script type=\"text/javascript\">
-			Shadowbox.loadSkin('classic', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/src/skin');
-			Shadowbox.loadLanguage('fr', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/lang');
-			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/player');
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);

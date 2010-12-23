@@ -32,13 +32,13 @@
 			<td>
 				&nbsp;
 				<!--{if $aEvenement.state=='3'}-->
-					<img src="/utile/img/bullet_green.png" alt="ok" title="Etat ok"/>
+					<img src="http://<!--{$server_name}-->/utile/img/bullet_green.png" alt="ok" title="Etat ok"/>
 				<!--{elseif $aEvenement.state=='2'}-->
-					<img src="/utile/img/bullet_blue.png" alt="vérifier" title="Etat contenu à vérifier"/>
+					<img src="http://<!--{$server_name}-->/utile/img/bullet_blue.png" alt="vérifier" title="Etat contenu à vérifier"/>
 				<!--{elseif $aEvenement.state=='4'}-->
-					<img src="/utile/img/export.png" alt="exported" title="Evénement déjà exporté en xml"/>
+					<img src="http://<!--{$server_name}-->/utile/img/export.png" alt="exported" title="Evénement déjà exporté en xml"/>
 				<!--{else}-->
-					<img src="/utile/img/bullet_red.png" alt="pas ok" title="Etat pas ok"/>
+					<img src="http://<!--{$server_name}-->/utile/img/bullet_red.png" alt="pas ok" title="Etat pas ok"/>
 				<!--{/if}-->
 			</td>
 			<td>
@@ -61,7 +61,7 @@
 					<!--{$aEvenement.dateFin}--> <!--{$aEvenement.heureFin}-->
 				<!--{/if}-->
 			</td>
-			<td><a id="boutonDupliquer" href="#" onclick="app.dupliquerEvenement(<!--{$aEvenement.id_evenement}-->); return false;"><img src="/utile/img/copy2.png" alt="duplicate" title="Dupliquer l'événement..." /></a></td>
+			<td><a id="boutonDupliquer" href="#" onclick="app.dupliquerEvenement(<!--{$aEvenement.id_evenement}-->); return false;"><img src="http://<!--{$server_name}-->/utile/img/copy2.png" alt="duplicate" title="Dupliquer l'événement..." /></a></td>
 		</tr>
 		<!--{/foreach}-->
 		</tbody>
@@ -77,7 +77,7 @@
 		</select>
 	</span>
 	
-	<span title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></span>
+	<span title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="http://<!--{$server_name}-->/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></span>
 	
 </p>
 
@@ -88,7 +88,7 @@
 			&nbsp;&nbsp;
 		</span>
 		<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
-		<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
+		<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="http://<!--{$server_name}-->/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
 	</li>
 	<!--{/foreach}-->
 </ul>

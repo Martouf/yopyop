@@ -225,13 +225,13 @@ $urlFlux = "http://".$serveur."/blog/news/flux.xml";
 
 // quelques scripts utiles
 $additionalHeader = "
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
-	<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/document.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+	<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
 	<link rel=\"alternate\" type=\"application/atom+xml\" title=\"flux atom du blog\" href=\"".$urlFlux."\" />";	
 	
 $smarty->assign('additionalHeader',$additionalHeader);

@@ -56,10 +56,10 @@
 	<div class="blocMetaDonneesBlog">
 		<em title="Dernière modification"><!--{$document.dateModification}--></em>
 	</div>
-	<p><a href="#" onclick="app.saveDocument(); return false;"><img src="/utile/img/save.png" alt="save" /> enregistrer le document</a></p>
+	<p><a href="#" onclick="app.saveDocument(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer le document</a></p>
 
 <div id="loading">
-	<img src="/utile/img/loading.gif" alt="loading"/> loading
+	<img src="http://<!--{$server_name}-->/utile/img/loading.gif" alt="loading"/> loading
 </div>
 <div id="logAction">
 </div>

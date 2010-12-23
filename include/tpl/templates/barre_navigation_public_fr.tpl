@@ -7,7 +7,7 @@
 	<input type="hidden" name="dateSemainePassee" value="<!--{$dateSemainePassee}-->" id="dateSemainePassee" />
 	<input type="hidden" name="dateSemaineProchaine" value="<!--{$dateSemaineProchaine}-->" id="dateSemaineProchaine" />
 		
-	<a href="#" id="boutonPasse"><img src="/utile/img/date_previous.png" alt="précédent" title="précédent" /></a>
+	<a href="#" id="boutonPasse"><img src="http://<!--{$server_name}-->/utile/img/date_previous.png" alt="précédent" title="précédent" /></a>
 	<span id="blocChoixVue">
 		<select name="choixVue" id="choixVue">
 			<option <!--{if $choixVue=='mois'}-->selected="selected"<!--{/if}--> value="mois">mois</option>
@@ -16,7 +16,7 @@
 			<option <!--{if $choixVue=='annee'}-->selected="selected"<!--{/if}--> value="annee">annee</option>			
 		</select>
 	</span>
-	<a href="<!--{$urlMoisProchain}-->"  id="boutonSuivant"><img src="/utile/img/date_next.png" alt="suivant" title="suivant" /></a>
+	<a href="<!--{$urlMoisProchain}-->"  id="boutonSuivant"><img src="http://<!--{$server_name}-->/utile/img/date_next.png" alt="suivant" title="suivant" /></a>
 	
 	
 	<span id="navigationJour">
@@ -78,14 +78,14 @@
 		</select>
 	</span>
 	
-	<span title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></span>
+	<span title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="http://<!--{$server_name}-->/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></span>
 	
 </div>
 <div id="barreFiltre">
 	<fieldset>
 		<legend>Créer une sélection d'événements</legend>
 
-		<label title="séparés par des ,">Tags</label><input type="text" name="filtreTags" id="filtreTags" value="<!--{$choixTags}-->" /> <a id="sendTags" href="#"><img src="/utile/img/action_forward.gif" alt="appliquer le filtre" /></a>
+		<label title="séparés par des ,">Tags</label><input type="text" name="filtreTags" id="filtreTags" value="<!--{$choixTags}-->" /> <a id="sendTags" href="#"><img src="http://<!--{$server_name}-->/utile/img/action_forward.gif" alt="appliquer le filtre" /></a>
 				
 		<label>Lieu</label>
 		<select name="filtreLieu" id="filtreLieu" >

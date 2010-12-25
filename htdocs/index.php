@@ -1,4 +1,5 @@
 <?php
+//var_dump($_REQUEST);die();
 	/*******************************************************************************************
 	 * Nom du fichier		: index.php
 	 * Date					: 7 mars 2007 - novembre 2008
@@ -10,9 +11,9 @@
 	 *
 	 */	
 
-	require('include/init/init.php');
+	require('../include/init/init.php');
 	new Init(); //initialise l'application en créant les objets utiles
-	include('include/init/identity.php'); // détecte l'identité de l'utilisteur
+	include('../include/init/identity.php'); // détecte l'identité de l'utilisteur
 	
 	// les infos utiles sur la ressource son accessible de partout
 	global $ressourceType, $ressourceTags, $ressourceId, $ressourceOutput, $theme;
@@ -79,7 +80,7 @@
 
 			 header('Content-Type: application/pdf');
 			 header('Content-Disposition: inline; filename="'.$ressourceName.'.pdf"');
-			 include("include/lib/prince.php");
+			 include("../include/lib/prince.php");
 
 			// va cherche le même contenu mais en html
 			$urlSource = "http://".$serveur.$requete;
@@ -130,9 +131,9 @@
 			
 		if (empty($ressourceType)) {$ressourceType = 'accueil';}  // page par défaut
 	
-		if (file_exists('include/controller/'.$ressourceType.'.php')) {
+		if (file_exists('../include/controller/'.$ressourceType.'.php')) {
 			// inclut une page PHP dynamique si elle existe (elle se charge de l'affichage via Smarty)
-			include('include/controller/'.$ressourceType.'.php');
+			include('../include/controller/'.$ressourceType.'.php');
 		} else {
 			// affiche un message d'erreur "page introuvable"
 			$smarty->assign('contenu',"pageinconnue.tpl");

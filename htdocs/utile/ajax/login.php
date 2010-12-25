@@ -11,7 +11,7 @@
  *
  */
 	
-	require_once('../../include/init/init.php');
+	require_once('../../../include/init/init.php');
 	new Init(); //initialise l'application en créant les objets utiles
 	
 	if (isset($_POST['pseudo']) && isset($_POST['password'])) {

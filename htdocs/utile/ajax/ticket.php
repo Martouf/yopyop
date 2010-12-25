@@ -14,7 +14,7 @@
 	 *
 	 */
 	
-	require_once('../../include/init/init.php');
+	require_once('../../../include/init/init.php');
 	new Init(); //initialise l'application en créant les objets utiles
 	
 	// nom du cookie d'authentification

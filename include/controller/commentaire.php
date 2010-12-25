@@ -88,6 +88,7 @@ if ($action=='get') {
 		
 		// supprime les \
 		stripslashes_deep($commentaire);
+		$commentaire['description'] = nl2br($commentaire['description']);  // mise en forme basique des commentaire avec des retours chariots
 				
 		// affichage de la ressource
 		$smarty->assign('commentaire',$commentaire);	
@@ -152,6 +153,7 @@ if ($action=='get') {
 			$commentaires = array();
 			foreach ($tousCommentaires as $key => $aCommentaire) {
 				$commentaires[$key] = $aCommentaire;
+				$commentaires[$key]['description'] = nl2br($aCommentaire['description']);  // mise en forme basique des commentaire avec des retours chariots
 				$commentaires[$key]['dateCreation'] = dateTime2Humain($aCommentaire['date_creation']);
 				$commentaires[$key]['auteur'] = $personneManager->getPseudo($aCommentaire['id_auteur']); // pseudo de l'auteur plutôt que id
 				$infoElementCommente = $commentaireManager->getElementCommentaire($aCommentaire['id_commentaire']);

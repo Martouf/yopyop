@@ -27,7 +27,7 @@
 	$domain = '.'.$domain; // notation ".mondomaine.ch" pour couvrir tous les sous-domaines
 	
 	// Domain cannot be ".localhost" because it must contains at least two dots, see http://www.faqs.org/rfcs/rfc2109.html
-	if ($domain == '.localhost')
+	if (substr_count($domain, '.') < 2)
 		$domain = null;
 	
 	// validité en secondes du cookie d'authentification

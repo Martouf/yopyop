@@ -1,0 +1,12 @@
+h1. Yopyop
+
+h2. About
+
+Yopyop is a CMS written in php+mysql. It focus on "semantic web" (tags, nice url) and includes a calendar.
+
+h2. Installation
+
+# create a database with help of sql/yopyop.sql
+# copy include/init/config-sample.php to include/init/config.php and edit it
+# give write access to include/tpl/templates_c/ (eg: chmod o+w include/tpl/templates_c/ )
+# default login and password is "admin" and "soleil"

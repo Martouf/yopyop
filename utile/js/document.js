@@ -10,7 +10,7 @@
  */
 
 var app;  // variable globale qui représente mon application
-var chemin = "/";
+
 
 jQuery.noConflict();
 (function($) { 
@@ -225,7 +225,7 @@ jQuery.noConflict();
 			// url , param, fonction de callback
 			$.post(url,{'nom':nomCommentaire,'description':descriptionCommentaire,'id_auteur':idAuteurCommentaire,'mail':mailCommentaire,'url':urlCommentaire,'id_element':idDocument,'table_element':'document'});
 		
-			commentaire = '<div class="commentaire"><div class="commentaire_texte"><p>'+descriptionCommentaire+'</p></div><div class="commentaire_infos">'+nomCommentaire+' <img src="/utile/img/bulle.gif" alt="bulle" /></div></div>';
+			commentaire = '<div class="commentaire"><div class="commentaire_texte"><p>'+descriptionCommentaire+'</p></div><div class="commentaire_infos">'+nomCommentaire+' <img src="//' + chemin + '/utile/img/bulle.gif" alt="bulle" /></div></div>';
 			$('#bloc_commentaires').append(commentaire);
 			
 			$('#bloc_ajouter_commentaire').toggle(200);

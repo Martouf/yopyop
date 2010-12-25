@@ -35,15 +35,15 @@
 		<!--{/section}-->
 	</div>
 	<hr />
-	<p title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="http://<!--{$server_name}-->/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="/agenda/calendrier.pdf">pdf</a></p>
+	<p title="exporter la page au format pdf..." id="blocLienPdf">&nbsp;&nbsp;&nbsp;<img src="http://<!--{$server_name}-->/utile/img/page_white_acrobat.png" alt="export pdf" /> <a id="lienExportPdf" href="//<!--{$server_name}-->/agenda/calendrier.pdf">pdf</a></p>
 	<ul id="listeCalendrier">
 		<!--{foreach from=$calendriers key=key item=aCalendrier}-->	
 		<li>
 			<span style="background-color:#<!--{$aCalendrier.couleur}-->">
 				&nbsp;&nbsp;
 			</span>
-			<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
-			<a href="/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="http://<!--{$server_name}-->/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
+			<a href="//<!--{$server_name}-->/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
+			<a href="//<!--{$server_name}-->/calendrier/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html?modify"><img src="http://<!--{$server_name}-->/utile/img/edit.gif" alt="edit" title="modifier les propriétés du calendrier..." /></a>
 		</li>
 		<!--{/foreach}-->
 	</ul>

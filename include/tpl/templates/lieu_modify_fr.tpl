@@ -40,8 +40,8 @@
 			
 			<p>
 				<a href="#" id="saveLieu"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" title="enregistrer le lieu"/> enregistrer</a>  |  
-				<a href="/lieu/" id="cancelLieu" ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/lieu/?new" id="newLieu" ><img src="http://<!--{$server_name}-->/utile/img/add.png" alt="ajouter" /> ajouter un lieu...</a> 
+				<a href="//<!--{$server_name}-->/lieu/" id="cancelLieu" ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="annuler" /> annuler</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="//<!--{$server_name}-->/lieu/?new" id="newLieu" ><img src="http://<!--{$server_name}-->/utile/img/add.png" alt="ajouter" /> ajouter un lieu...</a> 
 			</p>
 		</div>
 	</div>

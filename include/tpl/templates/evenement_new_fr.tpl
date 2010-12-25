@@ -16,7 +16,7 @@
 				<!--{/foreach}-->
 			</select>
 
-			<a href="/lieu/?new" id="lienAddLieu" target="blank">ajouter un lieu</a>
+			<a href="//<!--{$server_name}-->/lieu/?new" id="lienAddLieu" target="blank">ajouter un lieu</a>
 		</p>
 		<p>
 			<label>Dates</label>

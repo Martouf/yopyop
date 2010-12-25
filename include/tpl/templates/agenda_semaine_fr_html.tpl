@@ -77,7 +77,7 @@
 			<span style="background-color:#<!--{$aCalendrier.couleur}-->">
 				&nbsp;&nbsp;
 			</span>
-			<a href="/agenda/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
+			<a href="//<!--{$server_name}-->/agenda/<!--{$aCalendrier.id_calendrier}-->-<!--{$aCalendrier.nomSimplifie}-->.html"><!--{$aCalendrier.nom}--></a>
 		</li>
 		<!--{/foreach}-->
 	</ul>

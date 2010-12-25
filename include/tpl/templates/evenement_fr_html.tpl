@@ -20,4 +20,4 @@
 <label>Description</label>
 <p><!--{$evenement.description}--></p>
 
-<a href="/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html?modify" id="modifyEvenement">modifier</a>
+<a href="//<!--{$server_name}-->/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html?modify" id="modifyEvenement">modifier</a>

@@ -17,7 +17,7 @@
 				<!--{$aReservation.date_modification}-->
 			</td>
 			<td>
-				<a href="/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html" title="détails..."><!--{$aReservation.objet.nom}--></a>
+				<a href="//<!--{$server_name}-->/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html" title="détails..."><!--{$aReservation.objet.nom}--></a>
 			</td>
 			<td>
 				<!--{$aReservation.locataire.prenom}--> <!--{$aReservation.locataire.nom}-->
@@ -45,7 +45,7 @@
 			</td>
 			<td>
 				<p>
-					<a href="/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html?modify" title="éditer la réservation...">
+					<a href="//<!--{$server_name}-->/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html?modify" title="éditer la réservation...">
 					<!--{if $aReservation.etat==0}-->
 						<img src="http://<!--{$server_name}-->/utile/img/bullet_orange.png" alt="en attente" title="en attente de validation" /> à valider
 					<!--{elseif $aReservation.etat==1}-->

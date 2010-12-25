@@ -1,6 +1,6 @@
 	<div id="utilisateur">
 		<div id="barreOutil">
-			<a href="/utilisateur/?new" title="ajouter une personne"><img src="http://<!--{$server_name}-->/utile/img/vcard_add.png" alt="ajouter"/>&nbsp;ajouter</a>
+			<a href="//<!--{$server_name}-->/utilisateur/?new" title="ajouter une personne"><img src="http://<!--{$server_name}-->/utile/img/vcard_add.png" alt="ajouter"/>&nbsp;ajouter</a>
 		</div>
 		<div id="colonneGroupes">
 			<select name="groupeUtilisateur" id="groupeUtilisateur" onchange="" size="30">
@@ -30,7 +30,7 @@
 			<p><label>Remarque</label> <!--{$personne.description}--></p>
 			
 			<div id="barreEtatPersonne">
-				<!--{if $utilisateurConnu}--><a href="/utilisateur/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données de la personne"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
+				<!--{if $utilisateurConnu}--><a href="//<!--{$server_name}-->/utilisateur/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données de la personne"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
 			</div>
 		</div>
 		<hr />

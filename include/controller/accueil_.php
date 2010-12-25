@@ -80,7 +80,7 @@ if (!empty($taggedElements)) {
 		$contenuNews .= "<div class=\"ficheNews\">";
 		$contenuNews .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuNews .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuNews .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+		$contenuNews .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
 		$contenuNews .= "</div>";
 	}
 
@@ -122,7 +122,7 @@ if (!empty($taggedElements)) {
 		$contenuTheme .= "<div class=\"ficheNews\">";
 		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
 		$contenuTheme .= "</div>";
 	}
 
@@ -142,7 +142,7 @@ foreach ($derniersDocuments as $key => $document) {
 	$contenuHistorique .= "<div class=\"ficheNews\">";
 	$contenuHistorique .= "<h3>".stripcslashes($document['nom'])."</h3>";
 	$contenuHistorique .= '<p>'.stripcslashes($document['description']).'</p>';
-	$contenuHistorique .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">En savoir plus...</a>";
+	$contenuHistorique .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">En savoir plus...</a>";
 	$contenuHistorique .= "</div>";
 }
 $smarty->assign('contenuHistorique', $contenuHistorique);
@@ -153,7 +153,7 @@ $motCleDocument = $groupeManager->getMotCle('document');
 
 $contenuNuage = "";
 foreach ($motCleDocument as $tag => $occurrence) {
-	$contenuNuage .= "<a href=\"/document/".$tag."/?summary\" class=\"nuage\" style=\"font-size:".(100*($occurrence/2)+50)."%;\" >".$tag."</a> ";
+	$contenuNuage .= "<a href=\"//" . $serveur . "/document/".$tag."/?summary\" class=\"nuage\" style=\"font-size:".(100*($occurrence/2)+50)."%;\" >".$tag."</a> ";
 }
 
 

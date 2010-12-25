@@ -11,6 +11,11 @@
 		<link rel="icon" type="image/png" href="http://martouf.ch/utile/img/oeil-favicon.png" />
 		
 		<!--{$additionalHeader}-->
+		<script type="text/javascript">
+		//<![CDATA[
+		var chemin = "//<!--{$server_name}-->/";
+		//]]>
+		</script>
 	
 		<title>Où est la girafe ? :: <!--{$file_name}--></title>
 	</head>
@@ -48,7 +53,7 @@
 				<!--{$sessionPseudo}-->
 			</div>
 			<div id="deconnexion">
-				<a href="/utile/ajax/login.php?logout">deconnexion</a>
+				<a href="//<!--{$server_name}-->/utile/ajax/login.php?logout">deconnexion</a>
 			</div>
 		<!--{/if}-->
 		

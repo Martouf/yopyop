@@ -1,4 +1,4 @@
-<a href="/photo/<!--{$photo.id_photo}-->-<!--{$photo.nomSimplifie}-->.html">retour à la photo</a>
+<a href="//<!--{$server_name}-->/photo/<!--{$photo.id_photo}-->-<!--{$photo.nomSimplifie}-->.html">retour à la photo</a>
 	
 <input type="hidden" name="idPhoto" value="<!--{$photo.id_photo}-->" id="idPhoto" />
 <input type="hidden" name="latitude" value="<!--{$photo.latitude}-->" id="photoLatitude"></input>
@@ -48,7 +48,7 @@
 	
 	<p>
 		<a href="#" onclick="app.savePhoto(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de la photo</a> &nbsp;|&nbsp; 
-		<a href="/photo/<!--{$photo.id_photo}-->-<!--{$photo.nomSimplifie}-->.html" id="cancelPhoto" >annuler</a>
+		<a href="//<!--{$server_name}-->/photo/<!--{$photo.id_photo}-->-<!--{$photo.nomSimplifie}-->.html" id="cancelPhoto" >annuler</a>
 	</p>
 
 <div id="loading">

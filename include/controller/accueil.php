@@ -82,8 +82,8 @@ if (!empty($taggedElements)) {
 		$contenuNews .= "<div class=\"ficheNews\">";
 		$contenuNews .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuNews .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuNews .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
-	//	$contenuNews .= "<a class=\"liensNews\" href=\"/blog/news/\">En savoir plus...</a>";
+		$contenuNews .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+	//	$contenuNews .= "<a class=\"liensNews\" href=\"//" . $serveur . "/blog/news/\">En savoir plus...</a>";
 		$contenuNews .= "</div>";
 	}
 
@@ -126,7 +126,7 @@ if (!empty($taggedElements)) {
 		$contenuTheme .= "<div class=\"ficheNews\">";
 		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
 		$contenuTheme .= "</div>";
 	}
 }
@@ -163,7 +163,7 @@ if (!empty($taggedElements)) {
 		$contenuTheme .= "<div class=\"ficheNews\">";
 		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
 		$contenuTheme .= "</div>";
 	}
 
@@ -201,7 +201,7 @@ if (!empty($taggedElements)) {
 		$contenuTheme .= "<div class=\"ficheNews\">";
 		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
 		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
+		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
 		$contenuTheme .= "</div>";
 	}
 
@@ -268,7 +268,7 @@ foreach ($derniersDocuments as $key => $document) {
 		
 	if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !	
 	
-		$contenuHistorique .= "<li title=\"".stripcslashes(strip_tags($document['description']))."\"><a href=\"/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">".stripcslashes($document['nom'])."</a></li>";
+		$contenuHistorique .= "<li title=\"".stripcslashes(strip_tags($document['description']))."\"><a href=\"//" . $serveur . "//" . $serveur . "/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">".stripcslashes($document['nom'])."</a></li>";
 	}
 }
 
@@ -282,7 +282,7 @@ $motCleDocument = $groupeManager->getMotCle('document');
 
 $contenuNuage = "";
 foreach ($motCleDocument as $tag => $occurrence) {
-	$contenuNuage .= "<a href=\"/document/".$tag."/?summary\" class=\"nuage\" rel=\"tag\" style=\"font-size:".(100+floor(100*log($occurrence)))."%;\" >".$tag."</a> ";
+	$contenuNuage .= "<a href=\"//" . $serveur . "/document/".$tag."/?summary\" class=\"nuage\" rel=\"tag\" style=\"font-size:".(100+floor(100*log($occurrence)))."%;\" >".$tag."</a> ";
 }
 
 

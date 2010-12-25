@@ -1,4 +1,4 @@
-<a href="/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html">Retour à la fiche de l'objet</a>
+<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html">Retour à la fiche de l'objet</a>
 	
 <input type="hidden" name="idObjet" value="<!--{$objet.id_objet}-->" id="idObjet" />
 <input type="hidden" name="idImage" value="<!--{$objet.id_image}-->" id="inputIdImage" />
@@ -43,7 +43,7 @@
 			<input type="text" name="caution" value="<!--{$objet.caution}-->" id="inputCaution" />
 		</p>
 		<div id="blocCalendrier">
-			<a title="voir le calendrier des réservatios dans une nouvelle fenêtre..." target="blank" href="/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations de l'objet...</a>
+			<a title="voir le calendrier des réservatios dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations de l'objet...</a>
 		</div>
 		
 		<div id="blocCarte">
@@ -69,7 +69,7 @@
 	
 	<p>
 		<a href="#" onclick="app.saveObjet(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de l'objet</a> &nbsp;|&nbsp; 
-		<a href="/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html" id="cancelObjet" >annuler</a>
+		<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html" id="cancelObjet" >annuler</a>
 	</p>
 
 <div id="loading">

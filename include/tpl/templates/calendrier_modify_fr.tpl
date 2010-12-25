@@ -37,7 +37,7 @@
 
 	<p>
 		<a href="#" id="saveCalendrier"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer le calendrier</a>  |  
-		<a href="/calendrier/<!--{$calendrier.id_calendrier}-->-<!--{$calendrier.nomSimplifie}-->.html" >retour au calendrier</a>
+		<a href="//<!--{$server_name}-->/calendrier/<!--{$calendrier.id_calendrier}-->-<!--{$calendrier.nomSimplifie}-->.html" >retour au calendrier</a>
 	</p>
 
 	<div id="logAction">

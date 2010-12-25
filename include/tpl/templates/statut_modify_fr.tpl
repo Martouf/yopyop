@@ -6,7 +6,7 @@
 	
 	<p>
 		<a href="#" id="saveStatut"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer le statut</a>
-		<a href="/statut/<!--{$statut.id_statut}-->-<!--{$statut.nomSimplifie}-->.html" >retour au statut</a>
+		<a href="//<!--{$server_name}-->/statut/<!--{$statut.id_statut}-->-<!--{$statut.nomSimplifie}-->.html" >retour au statut</a>
 	</p>
 	
 	<input type="hidden" name="idStatut" value="<!--{$statut.id_statut}-->" id="idStatut" />

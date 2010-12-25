@@ -1,4 +1,4 @@
-<a href="/document/<!--{$document.id_document}-->-<!--{$document.nomSimplifie}-->.html">retour au document</a>
+<a href="//<!--{$server_name}-->/document/<!--{$document.id_document}-->-<!--{$document.nomSimplifie}-->.html">retour au document</a>
 	
 <input type="hidden" name="idDocument" value="<!--{$document.id_document}-->" id="idDocument" />
 

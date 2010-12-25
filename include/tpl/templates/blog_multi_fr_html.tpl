@@ -18,7 +18,7 @@
 				<div class="blocMetaDonneesBlog">
 					<em><!--{$aDocument.pseudoAuteur}-->: <!--{$aDocument.dateModifHumaine}--></em>
 				</div>
-				<p><a href="/blog/<!--{$aDocument.id_document}-->-<!--{$aDocument.nomSimplifie}-->.html" title="voir ou ajouter un commentaire"><!--{$aDocument.nbCommentaire}--> commentaires</a></p>
+				<p><a href="//<!--{$server_name}-->/blog/<!--{$aDocument.id_document}-->-<!--{$aDocument.nomSimplifie}-->.html" title="voir ou ajouter un commentaire"><!--{$aDocument.nbCommentaire}--> commentaires</a></p>
 			</div>
 	<!--{/foreach}-->
 	

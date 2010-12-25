@@ -9,6 +9,11 @@
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/basic.css" media="screen" />
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/basic_print.css" media="print" />
 		<!--{$additionalHeader}-->
+		<script type="text/javascript">
+		//<![CDATA[
+		var chemin = "//<!--{$server_name}-->/";
+		//]]>
+		</script>
 	
 		<title><!--{$file_name}--></title>
 	</head>

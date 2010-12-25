@@ -1027,7 +1027,7 @@ END;
 			}
 			
 			echo "<p class=\"ok\">Indexation réussie de la galerie picasa !</p>";
-			echo "<p><a href=\"/photo/".$albumTag."/\">Voir la galerie...</a></p>";
+			echo "<p><a href=\"//" . $serveur . "/photo/".$albumTag."/\">Voir la galerie...</a></p>";
 			
 			///////////////////////
 			// Ajout d'un lien et vignette sur la galerie de photo sur la page prévue pour qui est visible sur la page d'accueil

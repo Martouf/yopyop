@@ -1,4 +1,4 @@
-<a href="/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html">Retour à la fiche de la reservation</a>
+<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html">Retour à la fiche de la reservation</a>
 
 <input type="hidden" name="idReservation" value="<!--{$reservation.id_reservation}-->" id="idReservation" />
 <input type="hidden" name="objetIdCalendrier" value="<!--{$objetReserve.id_calendrier}-->" id="objetIdCalendrier" />
@@ -101,7 +101,7 @@
 	
 	<p>
 		<a href="#" onclick="app.saveReservation(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de la réservation</a> &nbsp;|&nbsp; 
-		<a href="/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html" id="cancelReservation" >annuler</a>
+		<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html" id="cancelReservation" >annuler</a>
 	</p>
 	
 	

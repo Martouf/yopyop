@@ -13,7 +13,7 @@
 	<!--{foreach from=$reservations key=key item=aReservation}-->	
 		<tr>
 			<td>
-				<a href="/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html" title="détails..."><!--{$aReservation.objet.nom}--></a>
+				<a href="//<!--{$server_name}-->/reservation/<!--{$aReservation.id_reservation}-->-<!--{$aReservation.nomSimplifie}-->.html" title="détails..."><!--{$aReservation.objet.nom}--></a>
 			</td>
 			<td>
 				<!--{$aReservation.locataire.surnom}-->

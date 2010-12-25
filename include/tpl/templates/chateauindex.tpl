@@ -17,6 +17,11 @@
 		<meta name="dc.publisher" content="Mathieu Despont" />
 		<meta name="dc.rights" content="Cet article est sous licence Creative Commons Attribution-ShareAlike." />		
 		<!--{$additionalHeader}-->
+		<script type="text/javascript">
+		//<![CDATA[
+		var chemin = "//<!--{$server_name}-->/";
+		//]]>
+		</script>
 	
 		<title><!--{$file_name}--></title>
 	</head>
@@ -65,7 +70,7 @@
 				<!--{$sessionPseudo}-->
 			</div>
 			<div id="deconnexion">
-				<a href="/utile/ajax/login.php?logout">deconnexion</a>
+				<a href="//<!--{$server_name}-->/utile/ajax/login.php?logout">deconnexion</a>
 			</div>
 		<!--{/if}-->
 		

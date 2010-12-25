@@ -9,7 +9,7 @@
 		<div id="blocHeader">
 				<div id="blocSave">
 					<a href="#" id="saveEvenement"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" title="enregistrer l'événement courant" /> enregistrer</a>  |  
-					<a href="/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer sans enregistrer"  ><img src="http://<!--{$server_name}-->/utile/img/close_gray.gif" alt="close" /> fermer</a>  |  
+					<a href="//<!--{$server_name}-->/evenement/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer sans enregistrer"  ><img src="http://<!--{$server_name}-->/utile/img/close_gray.gif" alt="close" /> fermer</a>  |  
 					<a href="#" id="suprrimeEvenement" ><img src="http://<!--{$server_name}-->/utile/img/delete.gif" alt="supprimer" title="supprimer l'événement" /> supprimer</a>
 				</div>
 
@@ -151,7 +151,7 @@
 			<textarea id="remarqueEvenement" name="remarqueEvenement" rows="3" cols="40"><!--{$evenement.remarque}--></textarea>
 			
 			<p>
-				voir le lieu sur la carte: <span><a href="/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu dans une nouvelle fenêtre..."><img src="http://<!--{$server_name}-->/utile/img/flag_red.png" alt="flag" /></a></span>
+				voir le lieu sur la carte: <span><a href="//<!--{$server_name}-->/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu dans une nouvelle fenêtre..."><img src="http://<!--{$server_name}-->/utile/img/flag_red.png" alt="flag" /></a></span>
 			</p>
 			
 			<div id="blocMetadonnees">

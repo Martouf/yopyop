@@ -80,7 +80,7 @@
 		</select>
 	</span>
 	
-	<span id="blocLienLieux"><a href="/lieu/"><img src="http://<!--{$server_name}-->/utile/img/address.png" alt="gérer les lieux" /> lieux</a></span> 
+	<span id="blocLienLieux"><a href="//<!--{$server_name}-->/lieu/"><img src="http://<!--{$server_name}-->/utile/img/address.png" alt="gérer les lieux" /> lieux</a></span> 
 	
 </div>
 <div id="barreFiltre">

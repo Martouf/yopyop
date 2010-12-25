@@ -42,7 +42,7 @@
 </div>
 
 <div id="blocCalendrier">
-	<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations de l'objet...</a>
+	<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations de l'objet...</a>
 </div>
 <p>
 	<label for="lieu">Lieu où se trouve l'objet</label>
@@ -56,5 +56,5 @@
 <!--{/if}-->
 
 <p>
-	<a href="/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet</a>
+	<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet</a>
 </p>

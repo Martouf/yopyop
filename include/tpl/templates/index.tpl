@@ -9,6 +9,11 @@
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/koudou.css" media="screen" />
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/koudou_print.css" media="print" />
 		<!--{$additionalHeader}-->
+		<script type="text/javascript">
+		//<![CDATA[
+		var chemin = "//<!--{$server_name}-->/";
+		//]]>
+		</script>
 	
 		<title><!--{$file_name}--></title>
 	</head>
@@ -50,7 +55,7 @@
 					<!--{$sessionPseudo}-->
 				</div>
 				<div id="deconnexion">
-					<a href="/utile/ajax/login.php?logout">déconnexion</a>
+					<a href="//<!--{$server_name}-->/utile/ajax/login.php?logout">déconnexion</a>
 				</div>
 			<!--{/if}-->
 		</div><!--pied-->

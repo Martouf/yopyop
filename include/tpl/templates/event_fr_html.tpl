@@ -8,7 +8,7 @@
 		
 		<div id="blocHeader">
 				<div id="blocSave">
-					<a href="/event/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer"  ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="save" /> fermer</a>  
+					<a href="//<!--{$server_name}-->/event/<!--{$evenement.id_evenement}-->-<!--{$evenement.nomSimplifie}-->.html" id="cancelEvenement" title="fermer"  ><img src="http://<!--{$server_name}-->/utile/img/action_stop.gif" alt="save" /> fermer</a>  
 				</div>
 		</div>
 		
@@ -41,7 +41,7 @@
 				<p>
 				<label>Lieu</label>
 					<!--{if !empty($evenement.lieu)}-->
-						<a href="/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu sur la carte..."><!--{$evenement.lieu.nom}-->,  <!--{$evenement.lieu.commune}--></a>
+						<a href="//<!--{$server_name}-->/lieu/<!--{$evenement.lieu.id_lieu}-->-lieu.html" target="blank" title="voir le lieu sur la carte..."><!--{$evenement.lieu.nom}-->,  <!--{$evenement.lieu.commune}--></a>
 					<!--{/if}-->
 				</p>
 				

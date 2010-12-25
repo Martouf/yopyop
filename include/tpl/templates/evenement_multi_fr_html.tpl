@@ -17,7 +17,7 @@
 			 	<!--{$aEvenement.dateFin}-->
 			</td>
 			<td>
-				<a href="/evenement/<!--{$aEvenement.id_evenement}-->-<!--{$aEvenement.nomSimplifie}-->.html" title="détails..."><!--{$aEvenement.nom}--></a>
+				<a href="//<!--{$server_name}-->/evenement/<!--{$aEvenement.id_evenement}-->-<!--{$aEvenement.nomSimplifie}-->.html" title="détails..."><!--{$aEvenement.nom}--></a>
 			</td>
 			<td><!--{$aEvenement.lieu}--></td>
 			<td>

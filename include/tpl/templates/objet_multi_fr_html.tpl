@@ -30,7 +30,7 @@
 				</a>
 			</td>
 			<td>
-				<a href="/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="détails..."><!--{$aObjet.nom}--></a>
+				<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="détails..."><!--{$aObjet.nom}--></a>
 			</td>
 			<td>
 				<!--{$aObjet.prix}-->
@@ -42,7 +42,7 @@
 				<!--{$aObjet.proprietaire.surnom}-->
 			</td>
 			<td>
-				<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="/calendrier/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier</a>
+				<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier</a>
 			</td>		
 
 		</tr>

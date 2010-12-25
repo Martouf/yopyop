@@ -516,7 +516,7 @@ if ($action=='get') {
 		$lastGuids = $statutManager->getGuids($dateLimite);
 		//print_r($lastGuids); /// debug
 		
-		echo "<p class=\"ok\"><a href=\"/statut/\">retour à la liste</a></p>";
+		echo "<p class=\"ok\"><a href=\"//" . $serveur . "/statut/\">retour à la liste</a></p>";
 		
 		foreach ($xml->channel->item as $statut) {
 			$datePublication = date('Y-m-d H:i:s',strtotime($statut->pubDate));
@@ -532,7 +532,7 @@ if ($action=='get') {
 				echo "<br />ok!";
 			}
 		}
-		echo "<p class=\"ok\"><a href=\"/statut/\">retour à la liste</a></p>";
+		echo "<p class=\"ok\"><a href=\"//" . $serveur . "/statut/\">retour à la liste</a></p>";
 	}else{
 		echo "<p class=\"erreur\">veuillez fournir une url de flux facebook</p>";
 	}

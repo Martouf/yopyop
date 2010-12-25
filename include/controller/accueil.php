@@ -268,7 +268,7 @@ foreach ($derniersDocuments as $key => $document) {
 		
 	if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !	
 	
-		$contenuHistorique .= "<li title=\"".stripcslashes(strip_tags($document['description']))."\"><a href=\"//" . $serveur . "//" . $serveur . "/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">".stripcslashes($document['nom'])."</a></li>";
+		$contenuHistorique .= "<li title=\"".stripcslashes(strip_tags($document['description']))."\"><a href=\"//" . $serveur . "/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">".stripcslashes($document['nom'])."</a></li>";
 	}
 }
 

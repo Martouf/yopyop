@@ -732,7 +732,7 @@ if ($action=='get') {
 				<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 					<head>
 						<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-						<script src="/utile/js/tiny_mce/tiny_mce_popup.js" type="text/javascript" charset="utf-8" ></script>
+						<script src="//$serveur/utile/js/tiny_mce/tiny_mce_popup.js" type="text/javascript" charset="utf-8" ></script>
 
 END;
 			echo $htmlDebut;

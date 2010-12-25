@@ -1,4 +1,4 @@
-<form action="/utile/ajax/login.php" method="post" accept-charset="utf-8" id="login_form">
+<form action="//<!--{$server_name}-->/utile/ajax/login.php" method="post" accept-charset="utf-8" id="login_form">
 	<div id="bloc_identification">
 		<a class="toggle" id="toggleCoccinelle" href="#">
 			se connecter

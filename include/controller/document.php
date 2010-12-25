@@ -206,7 +206,7 @@ if ($action=='get') {
 			
 				// info sur l'utilisateur qui va poster un commentaire
 				$smarty->assign('idAuteurCommentaire',$_SESSION['id_personne']);
-				$smarty->assign('pseudoUtilisateur',$_SESSION['pseudo']);
+				$smarty->assign('pseudoUtilisateur',@$_SESSION['pseudo']);
 			
 				// on autorise le template à afficher les commentaires
 				$smarty->assign('commentaireAutorise',true);

@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# If file/directory exists, serve it
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+# Otherwise, try to rewrite including id, or without id
+RewriteRule ^([a-zA-Z]+)/(.*/)?([0-9]+)-.*\.([a-z]+)$ index.php?page=$1&keywords=$2&id=$3&output=$4 [L] 
+RewriteRule ^([a-zA-Z]+)/(.*/)?(.*\.([a-z]+))?$       index.php?page=$1&keywords=$2&output=$4 [L] 
+

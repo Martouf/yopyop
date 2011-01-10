@@ -15,7 +15,7 @@
 	include('../include/init/identity.php'); // détecte l'identité de l'utilisteur
 	
 	// les infos utiles sur la ressource son accessible de partout
-	global $ressourceType, $ressourceTags, $ressourceId, $ressourceOutput, $theme;
+	global $ressourceType, $ressourceTags, $ressourceId, $ressourceOutput;
 	
 	$ressourceType = '';
 	if (isset($_GET['page']) && preg_match("/[a-zA-Z0-9]+/",$_GET['page'])) {
@@ -40,10 +40,12 @@
 	
 	// choix du thème que l'utilisateur veut appliquer.
 	// Le thème permet de modifier la structure html de la page. (plus que le css) Le thème "index" inclu le contenu dans le template index.tpl.
-	// Le thème "no" permet d'afficher uniquement le contenu. Il est utilisé inclure du contenu par ajax sans être parasité par le doctype ou des entête et pieds de page.
+	// Le thème "no" permet d'afficher uniquement le contenu. Il est utilisé inclure du contenu par ajax sans être parasité par le doctype ou des entêtes et pieds de page.
 	// Ensuite, on peut imaginer faire d'autre thème. Par ex: iPhone, iLiad etc..
-	// Quand on change de thème, en fait on remplace le cadre autour, donc le fichier index.tpl dans lequel on place le contenu. Le contnu lui même n'est donc pas modifié
-	$theme = ''; // le nom du thème par défaut. Ici il est vide donc on va prendre le template index.tpl. Si l'on voulait le thème basic, on aurait le fichier basicindex.tpl
+	// Quand on change de thème, en fait on remplace le cadre autour, donc le fichier index.tpl dans lequel on place le contenu. Le contenu lui même n'est donc pas modifié
+	// le nom du thème par défaut est définit dans le fichier de config.
+	// Si l'on voulait le thème basic, on aurait le fichier basicindex.tpl
+	
 	if (isset($parametreUrl['theme'])) {  // $parametreUrl => tableau global qui contient les paramètres get
 		$theme = $parametreUrl['theme'];
 	}

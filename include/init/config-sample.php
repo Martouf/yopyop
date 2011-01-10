@@ -19,5 +19,12 @@ $googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRSgySnZCpt_ZDIBPsG-wFu5a0oU6BSi8T
 //$googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRToDFy_CfwiqU-h2cB1nNY3fiLA3xRdox0xI5V4o-w9oEv54-aaGr5nyg"; // ou-est-la-girafe.ch
 //$googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRRy64MGyowFDpaFJTB3c2JhdnHFKhTPMrcJQk0SIeJg2wEqC6jxUpspeQ"; // koudou.ch
 
+//**********************************************************
+// Default theme
+//**********************************************************
+// Si la chaine est vide: '' va inclure le fichier index.tpl
+global $theme;
+
+$theme = ''; // koudou, yop, girafe, menhir, chateau, basic, no
 
 ?>

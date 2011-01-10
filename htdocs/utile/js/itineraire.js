@@ -9,7 +9,6 @@
  */
 
 var app;  // variable globale qui représente mon application
-var chemin="/";
 
 // pour Gmap
 var clickHandler;

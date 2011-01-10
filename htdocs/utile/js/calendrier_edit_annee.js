@@ -11,7 +11,6 @@
  */
 
 var app;  // variable globale qui représente mon application
-var chemin="/" ;
 
 // jQuery.noConflict();
 // (function($) { 

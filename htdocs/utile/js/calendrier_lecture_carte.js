@@ -39,7 +39,6 @@ jQuery.noConflict();
 		// crée une carte de base
 		app.addGMapNeuchatel();
 		
-		var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
 		var mois = $('#choixMois').val();
 		var annee = $('#choixAnnee').val();
 		var jour = $('#choixJour').val();
@@ -55,7 +54,7 @@ jQuery.noConflict();
 		// obtient les coordonnées depuis l'adresse via google
 		$('#toto').click(function() {
 			//console.log("toto");
-			var url = baseUrl+ "/agenda/cal.json"+"?datecourante="+annee+"-"+mois+"-"+jour;
+			var url = chemin+ "/agenda/cal.json"+"?datecourante="+annee+"-"+mois+"-"+jour;
 			
 			app.fetchJsonSource(url);
 			return false;

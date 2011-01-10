@@ -932,7 +932,7 @@ var chemin = "/" ;
 		 */
 		this.refreshFilter = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			
 			var vue = $('#choixVue').val();
 			var mois = $('#choixMois').val();
@@ -990,9 +990,9 @@ var chemin = "/" ;
 				filtre = filtre+'&filtreEtat='+idEtat;
 			};
 			
-			//console.log(baseUrl+url+filtre);
+			//console.log(url+filtre);
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -1000,7 +1000,7 @@ var chemin = "/" ;
 		 */
 		this.refreshFilterPdf = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			
 			var vue = $('#choixVue').val();
 			var mois = $('#choixMois').val();
@@ -1061,9 +1061,9 @@ var chemin = "/" ;
 				filtre = filtre+'&filtreLieu='+idLieu;
 			};
 			
-			//console.log(baseUrl+url+filtre);
+			//console.log(url+filtre);
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -1071,7 +1071,7 @@ var chemin = "/" ;
 		 */
 		this.semaineSuivante = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			var vue = $('#choixVue').val();
 			var dateSemaineProchaine = $('#dateSemaineProchaine').val();
 			
@@ -1119,7 +1119,7 @@ var chemin = "/" ;
 			};
 			
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -1127,7 +1127,7 @@ var chemin = "/" ;
 		 */
 		this.semainePrecedente = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			var vue = $('#choixVue').val();
 			var dateSemainePassee = $('#dateSemainePassee').val();
 			
@@ -1175,7 +1175,7 @@ var chemin = "/" ;
 			};
 			
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 				
 		

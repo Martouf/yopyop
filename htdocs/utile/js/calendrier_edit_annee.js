@@ -562,7 +562,7 @@ var app;  // variable globale qui représente mon application
 		 */
 		this.refreshFilter = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			
 			var vue = $('#choixVue').val();
 			var mois = $('#choixMois').val();
@@ -623,9 +623,9 @@ var app;  // variable globale qui représente mon application
 				filtre = filtre+'&filtreEtat='+idEtat;
 			};
 			
-			//console.log(baseUrl+url+filtre);
+			//console.log(url+filtre);
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -633,7 +633,7 @@ var app;  // variable globale qui représente mon application
 		 */
 		this.refreshFilterPdf = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			
 			var vue = $('#choixVue').val();
 			var mois = $('#choixMois').val();
@@ -696,9 +696,9 @@ var app;  // variable globale qui représente mon application
 				filtre = filtre+'&filtreLieu='+idLieu;
 			};
 			
-			//console.log(baseUrl+url+filtre);
+			//console.log(url+filtre);
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -736,7 +736,7 @@ var app;  // variable globale qui représente mon application
 		 */
 		this.moisSuivant = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
+			
 			var vue = $('#choixVue').val();
 			var dateMoisSuivant = $('#dateMoisProchain').val();
 			
@@ -789,7 +789,7 @@ var app;  // variable globale qui représente mon application
 			};
 			
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		/*
@@ -797,7 +797,6 @@ var app;  // variable globale qui représente mon application
 		 */
 		this.moisPrecedent = function(){
 			
-			var baseUrl = $('#baseUrl').val(); // http://erenweb.ecodev.ch
 			var vue = $('#choixVue').val();
 			var dateMoisPasse = $('#dateMoisPasse').val();
 			
@@ -848,7 +847,7 @@ var app;  // variable globale qui représente mon application
 			};
 			
 			// recharge la page avec les bons filtres.
-			window.location.href = baseUrl+url+filtre;
+			window.location.href = url+filtre;
 		}
 		
 		

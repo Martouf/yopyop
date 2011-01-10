@@ -1660,7 +1660,7 @@ if ($action=='get') {
 						$moisDebutTimestamp = strtotime($moisDebut);
 						$moisFinTimestamp = strtotime($moisFin);
 
-						$datePremierJourAnneeCouranteTimestamp = strtotime(datePremierJourAnneeCourante); // nouvel an en timestamp
+						$datePremierJourAnneeCouranteTimestamp = strtotime($datePremierJourAnneeCourante); // nouvel an en timestamp
 
 						// détermine si l'événement commence avant la fenêtre visible. Donc avant le début de l'année.
 						// Dans ce cas fait comme si l'événement commencait le 1er janvier à 1s

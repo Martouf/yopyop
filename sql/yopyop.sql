@@ -42,8 +42,11 @@ CREATE TABLE `yop_calendrier` (
   `date_creation` datetime NOT NULL,
   `date_modification` datetime NOT NULL,
   PRIMARY KEY (`id_calendrier`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+INSERT INTO `yop_calendrier` (`id_calendrier`,`nom`,`description`,`couleur`,`distant`,`url`,`tags`,`date_last_importation`,`login`,`paswd`,`evaluation`,`groupe_autorise_lecture`,`groupe_autorise_ecriture`,`groupe_autorise_commentaire`,`date_creation`,`date_modification`)
+VALUES
+	(1,'Perso','mon calendrier perso','218560',0,NULL,NULL,'0000-00-00 00:00:00',NULL,NULL,0,'0','0','0','2010-05-04 11:18:42','2010-05-04 11:18:42');
 
 
 # Dump of table yop_commentaire

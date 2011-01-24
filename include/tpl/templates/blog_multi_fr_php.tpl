@@ -12,6 +12,9 @@
 		<id>tag:<!--{$server_name}-->,<!--{$aDocument.date_creation|date_format:'%Y-%m-%d'}-->:document-<!--{$aDocument.id_document}--></id>
 		<published><!--{$aDocument.date_publication|date_format:'%Y-%m-%dT%H:%M:%S'}-->.000+01:00</published>
 		<updated><!--{$aDocument.date_modification|date_format:'%Y-%m-%dT%H:%M:%S'}-->.000+01:00</updated>
+		<!--{foreach from=$aDocument.tags key=tag item=occurence}-->
+		<category term="<!--{$tag}-->" scheme="http://<!--{$server_name}-->/document/<!--{$tag}-->/" />
+		<!--{/foreach}-->
 		<title type="text"><!--{$aDocument.nom}--></title>
 		<link rel="alternate" type="text/html" href="http://<!--{$server_name}-->/blog/<!--{$aDocument[key].id_document}-->-<!--{$aDocument.nomSimplifie}-->.html" title="<!--{$aDocument.nom}-->"/>
 		<content type="xhtml">

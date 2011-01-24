@@ -20,7 +20,7 @@
 				<p class="relatedTags">
 					tags: 
 					<!--{foreach from=$aDocument.tags key=tag item=occurence}-->
-						<span class="tagLink"><a href="http://<!--{$server_name}-->/document/<!--{$tag}-->/?summary"><!--{$tag}--></a></span> 
+						<span class="tagLink"><a href="http://<!--{$server_name}-->/document/<!--{$tag}-->/?summary"><!--{$tag}--></a>,</span> 
 					<!--{/foreach}-->
 				</p>
 				<p><a href="//<!--{$server_name}-->/blog/<!--{$aDocument.id_document}-->-<!--{$aDocument.nomSimplifie}-->.html" title="voir ou ajouter un commentaire"><!--{$aDocument.nbCommentaire}--> commentaires</a></p>

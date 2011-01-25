@@ -104,6 +104,7 @@ if ($action=='get') {
 			$document['moisCreation'] = __(date('M',strtotime($document['date_publication'])));
 			$document['jourCreation'] = __(date('j',strtotime($document['date_publication'])));
 			$document['dateModifHumaine'] = dateTime2Humain($document['date_modification']);
+			$document['tags'] = $groupeManager->getMotCleElement($idDocument,'document');
 		
 			// supprime les \
 			stripslashes_deep($document);

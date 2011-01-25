@@ -15,6 +15,12 @@
 			<em><!--{$document.pseudoAuteur}-->: <!--{$document.dateModification}--></em>
 			<!--{/if}-->
 		</p>
+		<p class="relatedTags">
+			tags: 
+			<!--{foreach from=$document.tags key=tag item=occurence}-->
+				<span class="tagLink"><a href="http://<!--{$server_name}-->/document/<!--{$tag}-->/?summary"><!--{$tag}--></a>,</span> 
+			<!--{/foreach}-->
+		</p>
 	</div>
 	<!--{/if}-->
 	

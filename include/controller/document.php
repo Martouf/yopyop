@@ -160,6 +160,7 @@ if ($action=='get') {
 			$document['dateModification'] = dateTime2Humain($document['date_modification']);
 			$document['dateCreation'] = dateTime2Humain($document['date_creation']);
 			$document['pseudoCreateur'] = $personneManager->getPseudo($document['createur']);
+			$document['tags'] = $groupeManager->getMotCleElement($idDocument,'document');
 			
 			// supprime les \
 			stripslashes_deep($document);
@@ -282,6 +283,7 @@ if ($action=='get') {
 				if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !
 					$document['nomSimplifie'] = simplifieNom($aDocument['nom']);
 					$document['dateModification'] = dateTime2Humain($aDocument['date_modification']);
+					$document['tags'] = $groupeManager->getMotCleElement($idDocument,'document');
 					$documents[$aDocument['id_document']] = $document;
 				}
 			}

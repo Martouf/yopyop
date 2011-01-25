@@ -16,6 +16,12 @@
 		<p>
 			<em><!--{$document.pseudoAuteur}-->: <!--{$document.dateModifHumaine}--></em>
 		</p>
+		<p class="relatedTags">
+			tags: 
+			<!--{foreach from=$document.tags key=tag item=occurence}-->
+				<span class="tagLink"><a href="http://<!--{$server_name}-->/document/<!--{$tag}-->/?summary"><!--{$tag}--></a>,</span> 
+			<!--{/foreach}-->
+		</p>
 	</div>
 	<input type="hidden" name="idDocument" value="<!--{$document.id_document}-->" id="idDocument" />
 </div>

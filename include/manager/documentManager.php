@@ -252,8 +252,7 @@ class documentManager {
 	}
 	
 	/**
-	 * Retourne retourne un tableau contenant les notes de similarités
-	 * pour chaque document par rapport à celui dont l'id est fourni.
+	 *  Retourne retourne un tableau contenant les id des 5 documents les plus similaires
 	 * 
 	 * La similarité est calculée par rapport au titre du document 
 	 *
@@ -293,8 +292,7 @@ class documentManager {
 	}
 	
 	/**
-	 * Retourne retourne un tableau contenant les notes de similarités
-	 * pour chaque document par rapport à celui dont l'id est fourni.
+	 * Retourne retourne un tableau contenant les id des 5 documents les plus similaires
 	 * 
 	 * La similarité est calculée par rapport aux tags liés au document
 	 *
@@ -336,6 +334,57 @@ class documentManager {
 		}
 		return $similaritiesTruncate;
 	}
+	
+	// /**
+	//  * Retourne retourne un tableau contenant les notes de similarités
+	//  * pour chaque document par rapport à celui dont l'id est fourni.
+	//  * 
+	//  * La similarité est calculée par rapport aux tags liés au document
+	//  *
+	//  * @return array array liste des id triés des groupes similaire
+	//  */
+	// function getSimilarDocuments(){
+	// 	$method = 'title';
+	// 	$allDocSimilarities = array();
+	// 	
+	// 	$allDocs = $this->getDocuments();
+	// 	
+	// 	foreach ($allDocs as $key => $aDoc) {
+	// 		
+	// 		$allDocs2 = $allDocs;
+	// 		
+	// 		if ($method = 'title') {
+	// 			
+	// 			// va chercher le titre du document demandé
+	// 			$currentDoc = $this->getDocument($aDoc['id_document']);
+	// 			$currentDocTitle = $currentDoc['nom'];
+	// 
+	// 			// tableau stockant les similarités pour chaque id de doc
+	// 			$similarities = array();
+	// 
+	// 			foreach ($allDocs2 as $key => $aDoc) {
+	// 				$docTitle = $aDoc['nom'];
+	// 				$similarite = similar_text($currentDocTitle, $docTitle, $pourCent);
+	// 				if ($aDoc['nom']!=$currentDocTitle) { // on exclu le document lui même !
+	// 					$similarities[$aDoc['id_document']] = $pourCent;
+	// 				}
+	// 			}
+	// 
+	// 			asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
+	// 			$similarDocumentsId = array_keys($similarities);
+	// 
+	// 			$similaritiesTruncate = array();
+	// 
+	// 			for ($i=0; $i < $limit; $i++) { 
+	// 				$similaritiesTruncate[] = array_pop($similarDocumentsId);
+	// 			}
+	// 			$allDocSimilarities[$aDoc['id_document']] = $similaritiesTruncate;
+	// 			
+	// 		} // title
+	// 	} // foreach
+	// 	
+	// 	return $allDocSimilarities;
+	// }
 	
 } // documentManager
 ?>

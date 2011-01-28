@@ -21,12 +21,13 @@ class documentManager {
 	protected $tablePrefix;
 	protected $versionManager;
 	protected $personneManager;
+	protected $groupeManager;
 	
 
 	/*******************************************************************
 	 * CONSTRUCTOR
 	 *******************************************************************/
-	function __construct($connection,$versionManager,$personneManager){
+	function __construct($connection,$versionManager,$personneManager,$groupeManager){
 		//connexion à la base de donnée
 		$this->connection=$connection;
 		$this->tablePrefix="yop_";  // prefix que l'on met devant le nom de chaque table. Permet de faire cohabiter plusieurs fois l'application dans la même base sql.
@@ -34,6 +35,7 @@ class documentManager {
 		// transmet les managers des autres classes utilisées
 		$this->versionManager = $versionManager;
 		$this->personneManager = $personneManager;
+		$this->groupeManager = $groupeManager;
 		
 	}
 	
@@ -247,6 +249,82 @@ class documentManager {
 		}else{
 			return array();
 		}
+	}
+	
+	/**
+	 * Retourne retourne un tableau contenant les notes de similarités
+	 * pour chaque document par rapport à celui dont l'id est fourni.
+	 * 
+	 * La similarité est calculée par rapport au titre du document 
+	 *
+	 * @return array liste des id triés des groupes similaire
+	 * @param int $id_document l'id du document pour lequel on veut avoir la liste des articles similaire
+	 * @param int $limit, le nombre maximum de document similaire que l'on veut recevoir.
+	 */
+	function getSimilarDocumentsByTitle($id_document, $limit='5'){
+		
+		echo "<br />yop";
+		
+		// va chercher le titre du document demandé
+		$currentDoc = $this->getDocument($id_document);
+		$currentDocTitle = $currentDoc['nom'];
+		
+		echo "<br />pour ",$currentDocTitle;
+		
+		// va chercher tous les documents.
+		$allDocs = $this->getDocuments();
+		
+		// tableau stockant les similarités pour chaque id de doc
+		$similarities = array();
+		
+		foreach ($allDocs as $key => $aDoc) {
+			$docTitle = $aDoc['nom'];
+			$similarite = similar_text($currentDocTitle, $docTitle, $pourCent);
+			$similarities[$aDoc['nom']] = $pourCent;
+		}
+		
+		arsort($similarities);
+		print_r($similarities);
+	}
+	
+	/**
+	 * Retourne retourne un tableau contenant les notes de similarités
+	 * pour chaque document par rapport à celui dont l'id est fourni.
+	 * 
+	 * La similarité est calculée par rapport aux tags liés au document
+	 *
+	 * @return array liste des id triés des groupes similaire
+	 * @param int $id_document l'id du document pour lequel on veut avoir la liste des articles similaire
+	 * @param int $limit, le nombre maximum de document similaire que l'on veut recevoir.
+	 */
+	function getSimilarDocumentsByTags($id_document, $limit='5'){
+		
+		echo "<br />yop2";
+		
+		// va chercher le titre du document demandé
+		$currentDoc = $this->getDocument($id_document);
+		$currentDocTitle = $currentDoc['nom'];
+		echo "<br />pour ",$currentDocTitle;
+		
+		$currentDocumentTags = array_keys($this->groupeManager->getMotCleElement($id_document,'document'));
+		$currentDocumentTagsString = implode($currentDocumentTags);
+			
+			// va chercher tous les documents.
+			// todo... c'est overkill... on a besoin que des id... à faire une fonction dédiée.
+			$allDocs = $this->getDocuments();
+			
+			// tableau stockant les similarités pour chaque id de doc
+			$similarities = array();
+			
+			foreach ($allDocs as $key => $aDoc) {
+				$docTitle = $aDoc['nom'];
+				$docTags = array_keys($this->groupeManager->getMotCleElement($aDoc['id_document'],'document'));
+				$docTagsString = implode($docTags);
+				$similarite = similar_text($docTagsString, $currentDocumentTagsString, $pourCent);
+				$similarities[$aDoc['nom']] = $pourCent;
+			}
+			arsort($similarities);
+			print_r($similarities);
 	}
 	
 } // documentManager

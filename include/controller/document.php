@@ -58,6 +58,10 @@ if (!empty($idDocument)) {
 	}
 }
 
+// // test de documents similaires
+// $documentManager->getSimilarDocumentsByTitle('8');
+// $documentManager->getSimilarDocumentsByTags('8');
+
 //print_r($listeRestrictionsCourantes);
 
 // détermine la verbosité de l'affichage. Il est ainsi possible d'affiche le contenu complet, le résumé ou juste le nom des documents. C'est le template qui s'occupe de l'affichage

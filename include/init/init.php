@@ -149,7 +149,7 @@ class Init{
 		$reservationManager = new reservationManager($this->connection);
 		$transactionManager = new transactionManager($this->connection);
 		$metaManager = new metaManager($this->connection);
-		$documentManager = new documentManager($this->connection,$versionManager,$personneManager); // transmet les manager pour que le documentManager puisse les utiliser
+		$documentManager = new documentManager($this->connection,$versionManager,$personneManager,$groupeManager); // transmet les manager pour que le documentManager puisse les utiliser
 		
 		//instantiate and configure smarty
 		$smarty = new Smarty;

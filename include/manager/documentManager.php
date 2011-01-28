@@ -262,14 +262,10 @@ class documentManager {
 	 * @param int $limit, le nombre maximum de document similaire que l'on veut recevoir.
 	 */
 	function getSimilarDocumentsByTitle($id_document, $limit='5'){
-		
-		echo "<br />yop";
-		
+
 		// va chercher le titre du document demandé
 		$currentDoc = $this->getDocument($id_document);
 		$currentDocTitle = $currentDoc['nom'];
-		
-		echo "<br />pour ",$currentDocTitle;
 		
 		// va chercher tous les documents.
 		$allDocs = $this->getDocuments();
@@ -280,11 +276,20 @@ class documentManager {
 		foreach ($allDocs as $key => $aDoc) {
 			$docTitle = $aDoc['nom'];
 			$similarite = similar_text($currentDocTitle, $docTitle, $pourCent);
-			$similarities[$aDoc['nom']] = $pourCent;
+			if ($aDoc['nom']!=$currentDocTitle) { // on exclu le document lui même !
+				$similarities[$aDoc['id_document']] = $pourCent;
+			}
 		}
 		
-		arsort($similarities);
-		print_r($similarities);
+		asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
+		$similarDocumentsId = array_keys($similarities);
+		
+		$similaritiesTruncate = array();
+		
+		for ($i=0; $i < $limit; $i++) { 
+			$similaritiesTruncate[] = array_pop($similarDocumentsId);
+		}
+		return $similaritiesTruncate;
 	}
 	
 	/**
@@ -299,32 +304,37 @@ class documentManager {
 	 */
 	function getSimilarDocumentsByTags($id_document, $limit='5'){
 		
-		echo "<br />yop2";
-		
 		// va chercher le titre du document demandé
 		$currentDoc = $this->getDocument($id_document);
-		$currentDocTitle = $currentDoc['nom'];
-		echo "<br />pour ",$currentDocTitle;
 		
 		$currentDocumentTags = array_keys($this->groupeManager->getMotCleElement($id_document,'document'));
 		$currentDocumentTagsString = implode($currentDocumentTags);
 			
-			// va chercher tous les documents.
-			// todo... c'est overkill... on a besoin que des id... à faire une fonction dédiée.
-			$allDocs = $this->getDocuments();
-			
-			// tableau stockant les similarités pour chaque id de doc
-			$similarities = array();
-			
-			foreach ($allDocs as $key => $aDoc) {
-				$docTitle = $aDoc['nom'];
-				$docTags = array_keys($this->groupeManager->getMotCleElement($aDoc['id_document'],'document'));
-				$docTagsString = implode($docTags);
-				$similarite = similar_text($docTagsString, $currentDocumentTagsString, $pourCent);
-				$similarities[$aDoc['nom']] = $pourCent;
+		// va chercher tous les documents.
+		// todo... c'est overkill... on a besoin que des id... à faire une fonction dédiée.
+		$allDocs = $this->getDocuments();
+		
+		// tableau stockant les similarités pour chaque id de doc
+		$similarities = array();
+		
+		foreach ($allDocs as $key => $aDoc) {
+			$docTags = array_keys($this->groupeManager->getMotCleElement($aDoc['id_document'],'document'));
+			$docTagsString = implode($docTags);
+			$similarite = similar_text($docTagsString, $currentDocumentTagsString, $pourCent);
+			if ($aDoc['id_document']!=$id_document) {
+				$similarities[$aDoc['id_document']] = $pourCent;
 			}
-			arsort($similarities);
-			print_r($similarities);
+		}
+		
+		asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
+		$similarDocumentsId = array_keys($similarities);
+		
+		$similaritiesTruncate = array();
+		
+		for ($i=0; $i < $limit; $i++) { 
+			$similaritiesTruncate[] = array_pop($similarDocumentsId);
+		}
+		return $similaritiesTruncate;
 	}
 	
 } // documentManager

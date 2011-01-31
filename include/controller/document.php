@@ -59,8 +59,7 @@ if (!empty($idDocument)) {
 }
 
 // // test de documents similaires
-// $documentManager->getSimilarDocumentsByTitle('8');
-// $documentManager->getSimilarDocumentsByTags('8');
+// echo $documentManager->getStatsSimilarites(5,'tags');
 
 //print_r($listeRestrictionsCourantes);
 

@@ -303,7 +303,7 @@ class documentManager {
 	function getSimilarDocumentsByTags($id_document, $limit='5'){
 		
 		// va chercher le titre du document demandé
-		$currentDoc = $this->getDocument($id_document);
+	//	$currentDoc = $this->getDocument($id_document);
 		
 		$currentDocumentTags = array_keys($this->groupeManager->getMotCleElement($id_document,'document'));
 		$currentDocumentTagsString = implode($currentDocumentTags);
@@ -335,56 +335,114 @@ class documentManager {
 		return $similaritiesTruncate;
 	}
 	
-	// /**
-	//  * Retourne retourne un tableau contenant les notes de similarités
-	//  * pour chaque document par rapport à celui dont l'id est fourni.
-	//  * 
-	//  * La similarité est calculée par rapport aux tags liés au document
-	//  *
-	//  * @return array array liste des id triés des groupes similaire
-	//  */
-	// function getSimilarDocuments(){
-	// 	$method = 'title';
-	// 	$allDocSimilarities = array();
-	// 	
-	// 	$allDocs = $this->getDocuments();
-	// 	
-	// 	foreach ($allDocs as $key => $aDoc) {
-	// 		
-	// 		$allDocs2 = $allDocs;
-	// 		
-	// 		if ($method = 'title') {
-	// 			
-	// 			// va chercher le titre du document demandé
-	// 			$currentDoc = $this->getDocument($aDoc['id_document']);
-	// 			$currentDocTitle = $currentDoc['nom'];
-	// 
-	// 			// tableau stockant les similarités pour chaque id de doc
-	// 			$similarities = array();
-	// 
-	// 			foreach ($allDocs2 as $key => $aDoc) {
-	// 				$docTitle = $aDoc['nom'];
-	// 				$similarite = similar_text($currentDocTitle, $docTitle, $pourCent);
-	// 				if ($aDoc['nom']!=$currentDocTitle) { // on exclu le document lui même !
-	// 					$similarities[$aDoc['id_document']] = $pourCent;
-	// 				}
-	// 			}
-	// 
-	// 			asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
-	// 			$similarDocumentsId = array_keys($similarities);
-	// 
-	// 			$similaritiesTruncate = array();
-	// 
-	// 			for ($i=0; $i < $limit; $i++) { 
-	// 				$similaritiesTruncate[] = array_pop($similarDocumentsId);
-	// 			}
-	// 			$allDocSimilarities[$aDoc['id_document']] = $similaritiesTruncate;
-	// 			
-	// 		} // title
-	// 	} // foreach
-	// 	
-	// 	return $allDocSimilarities;
-	// }
+	/**
+	 * Retourne un tableau de tableau des articles les plus similaires
+	 *
+	 * @return array array liste des id triés des groupes similaire
+	 * @param int $limit, le nombre maximum de documents similaires que l'on veut recevoir.
+	 * @param string $method, la méthode de calcul a utiliser. Comparaison du titre "title" ou des tags "tags".
+	 */
+	function getSimilarDocuments($limit='5',$method = 'title'){
+		
+		$allDocSimilarities = array();
+		
+		$allDocs = $this->getDocuments();
+		
+		foreach ($allDocs as $key => $aDoc) {
+			$allDocs2 = $allDocs;
+						
+			if ($method == 'title') {
+				
+				// va chercher le titre du document demandé
+				$currentDoc = $this->getDocument($aDoc['id_document']);
+				$currentDocTitle = $currentDoc['nom'];
+	
+				// tableau stockant les similarités pour chaque id de doc
+				$similarities = array();
+	
+				foreach ($allDocs2 as $key => $aDoc2) {
+					$docTitle = $aDoc2['nom'];
+					$similarite = similar_text($currentDocTitle, $docTitle, $pourCent);
+				//	echo "<br />comparaison de : <b>",$aDoc2['nom'],"</b> avec <b>",$currentDocTitle, "</b> => ",$pourCent;
+					if ($aDoc2['nom']!=$currentDocTitle) { // on exclu le document lui même !
+						$similarities[$aDoc2['id_document']] = $pourCent;
+					}
+				}
+					
+				asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
+				$similarDocumentsId = array_keys($similarities);
+				$similaritiesTruncate = array();
+	
+				for ($i=0; $i < $limit; $i++) { 
+					$similaritiesTruncate[] = array_pop($similarDocumentsId);
+				}
+				$allDocSimilarities[$aDoc['id_document']] = $similaritiesTruncate;
+			}else{  // if method = tags
+				
+				$currentDocumentTags = array_keys($this->groupeManager->getMotCleElement($aDoc['id_document'],'document'));
+				asort($currentDocumentTags); // trie les tags pour comparer sur la même base
+				$currentDocumentTagsString = implode($currentDocumentTags);
+
+				// tableau stockant les similarités pour chaque id de doc
+				$similarities = array();
+
+				foreach ($allDocs2 as $key => $aDoc2) {
+					$docTags = array_keys($this->groupeManager->getMotCleElement($aDoc2['id_document'],'document'));
+					asort($docTags);
+					$docTagsString = implode($docTags);
+					$similarite = similar_text($docTagsString, $currentDocumentTagsString, $pourCent);
+				//	echo "<br />comparaison de : <b>",$docTagsString,"</b> avec <b>",$currentDocumentTagsString, "</b> => ",$pourCent;
+					if ($aDoc2['id_document']!=$aDoc['id_document']) {
+						$similarities[$aDoc2['id_document']] = $pourCent;
+					}
+				}
+
+				asort($similarities); // trie le tableau: id_document => pourcent avec les 100 pourcent en bas
+				$similarDocumentsId = array_keys($similarities);
+
+				$similaritiesTruncate = array();
+
+				for ($i=0; $i < $limit; $i++) { 
+					$similaritiesTruncate[] = array_pop($similarDocumentsId);
+				}
+				$allDocSimilarities[$aDoc['id_document']] = $similaritiesTruncate;
+				
+			} // title or tags
+		} // foreach
+		
+		return $allDocSimilarities;
+	}
+	
+	/**
+	 * Retourne un string contenant de l'html qui affiche les articles similaires.
+	 *
+	 * @return array array liste des id triés des groupes similaire
+	 * @param int $limit, le nombre maximum de documents similaires que l'on veut recevoir.
+	 * @param string $method, la méthode de calcul a utiliser. Comparaison du titre "title" ou des tags "tags".
+	 */
+	function getStatsSimilarites($limit='5',$method = 'title'){
+		
+		$similarites = $this->getSimilarDocuments($limit, $method);
+
+		$toutDocs = $this->getDocuments();
+		$allDocs = array();
+		foreach ($toutDocs as $key => $document) {
+			$allDocs[$document['id_document']] = $document;
+		}
+		
+		$html = '';
+
+		foreach ($similarites as $key => $doc) {
+			$html .= "<h2>".$allDocs[$key]['nom']."</h2>";
+			$html .= "<ul>";
+			foreach ($doc as $cle => $value) {
+			//	$html .= "<li>".$allDocs[$value]['nom']."</li>";
+				$html .= "<li>".$allDocs[$value]['nom']." - ".$allDocs[$value]['id_document']."</li>";
+			}
+			$html .= "</ul>";
+		}
+		return $html;
+	}
 	
 } // documentManager
 ?>

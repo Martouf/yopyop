@@ -485,24 +485,58 @@ class documentManager {
 			// va chercher le document
 			$currentDoc = $this->getDocument($id_document);
 			$currentDoc['nomSimplifie'] = simplifieNom($currentDoc['nom']);
-
 			stripslashes_deep($currentDoc); // supprime les \ d'échappement
+			
 			if ($mode == 'resume') {
-				$html .= '<div class="recommandedDoc">';
-				$html .= '<h3 class="recommandedDocTitle">';
-				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
-				$html .= $currentDoc['nom'];
-				$html .= '</a>';
-				$html .= '</h3>';
-				$html .= '<p>';
-				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description'].'</a>'; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
-				$html .= '</p>';
-				$html .= '</div>';
+				// exclusivité=1 => public=2
+				// si l'accès est réservé en exclusivité à un groupe => n'affiche que si l'utilisateur est connu.
+				if ($currentDoc['access']=='1') {
+					echo "rouge",$access,"<<";
+					
+					// si l'utilisateur est connu, affiche
+					if (($_SESSION['id_personne'] != '1')) {
+						$html .= '<div class="recommandedDoc">';
+						$html .= '<h3 class="recommandedDocTitle">';
+						$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+						$html .= $currentDoc['nom'];
+						$html .= '</a>';
+						$html .= '</h3>';
+						$html .= '<p>';
+						$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description'].'</a>'; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+						$html .= '</p>';
+						$html .= '</div>';
+					}
+				}else{
+					$html .= '<div class="recommandedDoc">';
+					$html .= '<h3 class="recommandedDocTitle">';
+					$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+					$html .= $currentDoc['nom'];
+					$html .= '</a>';
+					$html .= '</h3>';
+					$html .= '<p>';
+					$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description'].'</a>'; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+					$html .= '</p>';
+					$html .= '</div>';
+				}
 			}else{
-				$html .= "<li>";
-				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html" title="'.$currentDoc['description'].'">'.$currentDoc['nom']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
-				$html .= '</a>';
-				$html .= "</li>";
+				// exclusivité=1 => public=2
+				// si l'accès est réservé en exclusivité à un groupe => n'affiche que si l'utilisateur est connu.
+				if ($currentDoc['access']=='1') {
+					echo "rouge",$access,"<<";
+					
+					// si l'utilisateur est connu, affiche
+					if (($_SESSION['id_personne'] != '1')) {
+						$html .= "<li>";
+						$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html" title="'.$currentDoc['description'].'">'.$currentDoc['nom']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+						$html .= '</a>';
+						$html .= "</li>";
+					}
+				}else{
+					$html .= "<li>";
+					$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/document/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html" title="'.$currentDoc['description'].'">'.$currentDoc['nom']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+					$html .= '</a>';
+					$html .= "</li>";
+				}
 			}
 		}
 		$html .= "</ul>";

@@ -444,5 +444,67 @@ class documentManager {
 		return $html;
 	}
 	
+	/**
+	 * Va mettre à jour le champ similarité de la table document
+	 * Attention cette opération peut prendre beaucoup de temps ~ 3min !
+	 * Ne pas abuser.
+	 *
+	 * @return array array liste des id triés des groupes similaire
+	 * @param int $limit, le nombre maximum de documents similaires que l'on veut recevoir.
+	 * @param string $method, la méthode de calcul a utiliser. Comparaison du titre "title" ou des tags "tags".
+	 */
+	function updateSimilarite($limit='5',$method = 'title'){
+		
+		$similarites = $this->getSimilarDocuments($limit, $method);
+	
+		foreach ($similarites as $idCurrentDoc => $similarDocsTab) {
+			$similarDocsString = implode(',',$similarDocsTab);
+			
+			// update tables
+			$champs['similarite'] = $similarDocsString;
+			$conditions['id_document'] = $idCurrentDoc;
+			// $this->connection->update($this->tablePrefix.'document',$champs,$conditions);
+			echo "<br />update table doc...",$idCurrentDoc," avec la chaine....",$similarDocsString;
+		}
+	}
+	
+	/**
+	 * Retourne un string contenant de l'html qui affiche les articles similaires.
+	 *
+	 * @param string $documentsList la liste des id des documents similaires à afficher séparé par des , (Le contenu du champs "similarite" de la table document)
+	 * @param string mode. Quelle genre de chose afficher. Liste ou resume
+	 * @return string le code html pour affiche les documents similaires
+	 */
+	function getSimilarsDocsFromTable($documentsList,$mode='liste'){
+		$idsTab = explode(',',$documentsList);
+		
+		$html = '';
+		$html .= "<ul>";
+		foreach ($idsTab as $key => $id_document) {
+			// va chercher le document
+			$currentDoc = $this->getDocument($id_document);
+			stripslashes_deep($currentDoc); // supprime les \ d'échappement
+			if ($mode == 'resume') {
+				$html .= '<div class="recommandedDoc">';
+				$html .= '<h3 class="recommandedDocTitle">';
+				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+				$html .= $currentDoc['nom'];
+				$html .= '</a>';
+				$html .= '</h3>';
+				$html .= '<p>';
+				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html">'.$currentDoc['description'].'</a>'; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+				$html .= '</p>';
+				$html .= '</div>';
+			}else{
+				$html .= "<li>";
+				$html .= '<a href="//'.$_SERVER['SERVER_NAME'].'/blog/'.$currentDoc['id_document'].'-'.$currentDoc['nomSimplifie'].'.html" title="'.$currentDoc['description'].'">'.$currentDoc['nom']; // todo: trouver pourquoi la variable $serveur n'est pas visible ici ?
+				$html .= '</a>';
+				$html .= "</li>";
+			}
+		}
+		$html .= "</ul>";
+		return $html;
+	}
+	
 } // documentManager
 ?>

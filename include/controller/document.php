@@ -60,6 +60,9 @@ if (!empty($idDocument)) {
 
 // // test de documents similaires
 // echo $documentManager->getStatsSimilarites(5,'tags');
+//print_r($documentManager->getSimilarDocuments(5,'tags'));
+// $documentManager->updateSimilarite(5,'tags');
+// echo $documentManager->getSimilarsDocsFromTable('12,11,14,1,2');
 
 //print_r($listeRestrictionsCourantes);
 

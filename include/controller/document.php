@@ -58,12 +58,6 @@ if (!empty($idDocument)) {
 	}
 }
 
-// // test de documents similaires
-// echo $documentManager->getStatsSimilarites(5,'tags');
-//print_r($documentManager->getSimilarDocuments(5,'tags'));
-// $documentManager->updateSimilarite(5,'tags');
-// echo $documentManager->getSimilarsDocsFromTable('12,11,14,1,2');
-
 //print_r($listeRestrictionsCourantes);
 
 // détermine la verbosité de l'affichage. Il est ainsi possible d'affiche le contenu complet, le résumé ou juste le nom des documents. C'est le template qui s'occupe de l'affichage
@@ -94,6 +88,15 @@ if (isset($parametreUrl['summary'])) {  // affiche uniquement le nom et le résu
 if (isset($parametreUrl['name'])) { // affiche uniquement le nom du document
 	$action = 'get';
 	$verbosity = "nom";
+}
+if (isset($parametreUrl['update-similarites'])) { // met à jour la table de similarité. Attention peut durer longtemps ! ~ 3min !
+	// si l'utilisateur est connu et de rang admin
+	if ($_SESSION['id_personne'] != '1') {
+		if ($_SESSION['rang']=='1') {
+			$documentManager->updateSimilarite(5,'tags');
+			echo "<br /><span class=\"ok\">Update des articles similaires effectuée</span>";
+		}
+	}
 }
 
 // obtient une infos d'affichage pour savoir si l'on veux afficher ou non les méta données (nom de l'auteur et date de modif)
@@ -181,7 +184,6 @@ if ($action=='get') {
 				$smarty->assign('utilisateurConnu',false);
 			}
 
-			
 			$additionalHeader = "
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
@@ -190,7 +192,10 @@ if ($action=='get') {
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>";	
 			$smarty->assign('additionalHeader',$additionalHeader);
-			
+
+			// Va chercher le code pour afficher des documents similaires			
+			$documentsSimilaires = $documentManager->getSimilarsDocsFromTable($document['similaire']);
+			$smarty->assign('documentsSimilaires',$documentsSimilaires);
 			
 			// si aucune restriction sur les commentaires n'existe..
 			// affiche les commentaires courants et propose une interface pour en ajouter
@@ -335,6 +340,7 @@ if ($action=='get') {
 					$document = $documentManager->getDocument($idDocument);
 					$document['nomSimplifie'] = simplifieNom($document['nom']);
 					$document['dateModification'] = dateTime2Humain($document['date_modification']);
+					$document['tags'] = $groupeManager->getMotCleElement($idDocument,'document');
 					$documents[$idDocument] = $document;
 				}
 			}

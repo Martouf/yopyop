@@ -21,6 +21,11 @@
 				<span class="tagLink"><a href="http://<!--{$server_name}-->/document/<!--{$tag}-->/?summary"><!--{$tag}--></a>,</span> 
 			<!--{/foreach}-->
 		</p>
+		<div id="proposedDocuments">
+			<h2>D'autres articles intéressants à lire...</h2>
+			<!--{$documentsSimilaires}-->
+		</div>
+		
 	</div>
 	<!--{/if}-->
 	

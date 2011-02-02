@@ -461,11 +461,12 @@ class documentManager {
 			$similarDocsString = implode(',',$similarDocsTab);
 			
 			// update tables
-			$champs['similarite'] = $similarDocsString;
+			$champs['similaire'] = $similarDocsString;
 			$conditions['id_document'] = $idCurrentDoc;
-			// $this->connection->update($this->tablePrefix.'document',$champs,$conditions);
-			echo "<br />update table doc...",$idCurrentDoc," avec la chaine....",$similarDocsString;
+			$this->connection->update($this->tablePrefix.'document',$champs,$conditions);
+			//echo "<br />update table doc...",$idCurrentDoc," avec la chaine....",$similarDocsString;
 		}
+		return true;
 	}
 	
 	/**
@@ -483,6 +484,8 @@ class documentManager {
 		foreach ($idsTab as $key => $id_document) {
 			// va chercher le document
 			$currentDoc = $this->getDocument($id_document);
+			$currentDoc['nomSimplifie'] = simplifieNom($currentDoc['nom']);
+
 			stripslashes_deep($currentDoc); // supprime les \ d'échappement
 			if ($mode == 'resume') {
 				$html .= '<div class="recommandedDoc">';

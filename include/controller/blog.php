@@ -110,7 +110,11 @@ if ($action=='get') {
 			stripslashes_deep($document);
 			
 			// affichage de la ressource
-			$smarty->assign('document',$document);	
+			$smarty->assign('document',$document);
+			
+			// Va chercher le code pour afficher des documents similaires			
+			$documentsSimilaires = $documentManager->getSimilarsDocsFromTable($document['similaire']);
+			$smarty->assign('documentsSimilaires',$documentsSimilaires);
 			
 			$urlFluxCommentairesDuBillet = "http://".$serveur."/commentaire/flux.php?id_element=".$idDocument;
 

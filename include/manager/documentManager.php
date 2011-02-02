@@ -491,7 +491,6 @@ class documentManager {
 				// exclusivité=1 => public=2
 				// si l'accès est réservé en exclusivité à un groupe => n'affiche que si l'utilisateur est connu.
 				if ($currentDoc['access']=='1') {
-					echo "rouge",$access,"<<";
 					
 					// si l'utilisateur est connu, affiche
 					if (($_SESSION['id_personne'] != '1')) {
@@ -522,7 +521,6 @@ class documentManager {
 				// exclusivité=1 => public=2
 				// si l'accès est réservé en exclusivité à un groupe => n'affiche que si l'utilisateur est connu.
 				if ($currentDoc['access']=='1') {
-					echo "rouge",$access,"<<";
 					
 					// si l'utilisateur est connu, affiche
 					if (($_SESSION['id_personne'] != '1')) {

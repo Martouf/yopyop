@@ -1814,12 +1814,22 @@ if ($action=='get') {
 				$evenements[$idEvenement]['dateTimeCreationVcal'] = date('Ymd\THis', strtotime($evenements[$idEvenement]['date_creation']));
 				$evenements[$idEvenement]['dateTimeModificationVcal'] = date('Ymd\THis', strtotime($evenements[$idEvenement]['date_modification']));
 				
+				// le format vcalendar a besoin d'échapper les ; ainsi que les retours chariot. Le plus simple est d'encoder le tout en quoted printable.
+				$descriptionVcalendar = str_replace("\r", "=0D=0A=", $evenements[$idEvenement]['description']);
+				$descriptionVcalendar = str_replace("\n", "=0D=0A=", $descriptionVcalendar);
+				$descriptionVcalendar = str_replace(";", "\;", $descriptionVcalendar);
+				$evenements[$idEvenement]['descriptionVcalendar'] = $descriptionVcalendar;
+				
+				$evenements[$idEvenement]['tags'] = implode(',',array_keys($groupeManager->getMotCleElement($idEvenement, 'evenement'))); // tags associés à l'événement séparé par des ,
+				
 				// date utilisée pour l'exportation VP
 				// Mercredi 20 mai, 15h
 				$evenements[$idEvenement]['dateDebutJourSemaineDateMoisHeureHumaine'] = dateTime2JourSemaineDateMoisHeureHumaine($evenements[$idEvenement]['date_debut']);
 				
-				// reprise des données de la personne de contact en fonction de son id
-				$evenements[$idEvenement]['infoContact'] = $personneManager->getPersonne($evenements[$idEvenement]['info']);
+				if (isset($evenements[$idEvenement]['info'])) {
+					// reprise des données de la personne de contact en fonction de son id
+					$evenements[$idEvenement]['infoContact'] = $personneManager->getContact($evenements[$idEvenement]['info']);
+				}
 				
 				// reprise des données d'un lieu en fonction de son id
 				$evenements[$idEvenement]['lieuEvenement'] = $lieuManager->getLieu($evenements[$idEvenement]['lieu']);

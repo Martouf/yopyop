@@ -32,6 +32,10 @@ CREATED:<!--{$aEvenement.dateTimeCreationVcal}-->z
 LAST-MODIFIED:<!--{$aEvenement.dateTimeModificationVcal}-->z
 DTSTAMP:<!--{$aEvenement.dateTimeCreationVcal}-->z
 LOCATION:<!--{$aEvenement.lieuEvenement.nom}-->, <!--{$aEvenement.lieuEvenement.commune}-->
-END:VEVENT
+DESCRIPTION;ENCODING=QUOTED-PRINTABLE:<!--{$aEvenement.descriptionVcalendar}-->\n<!--{$aEvenement.infoContact.first_name}--> <!--{$aEvenement.infoContact.last_name}--> <!--{$aEvenement.infoContact.number_1}--> <!--{$aEvenement.infoContact.email}-->
+CATEGORIES:<!--{$aEvenement.tags}-->
+<!--{if !empty($aEvenement.infoContact.first_name)}-->
+CONTACT:<!--{$aEvenement.infoContact.first_name}--> <!--{$aEvenement.infoContact.last_name}--> <!--{$aEvenement.infoContact.number_1}--> <!--{$aEvenement.infoContact.email}-->
+<!--{/if}-->END:VEVENT
 <!--{/foreach}-->
 END:VCALENDAR

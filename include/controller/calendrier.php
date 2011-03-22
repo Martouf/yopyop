@@ -1930,19 +1930,44 @@ if ($action=='get') {
 				$evenements[$idEvenement]['dateTimeCreationVcal'] = date('Ymd\THis', strtotime($evenements[$idEvenement]['date_creation']));
 				$evenements[$idEvenement]['dateTimeModificationVcal'] = date('Ymd\THis', strtotime($evenements[$idEvenement]['date_modification']));
 				
+				// le format vcalendar a besoin d'échapper les ; ainsi que les retours chariot. Le plus simple est d'encoder le tout en quoted printable.
+				$descriptionVcalendar = str_replace("\r", "=0D=0A=", $evenements[$idEvenement]['description']);
+				$descriptionVcalendar = str_replace("\n", "=0D=0A=", $descriptionVcalendar);
+				$descriptionVcalendar = str_replace(";", "\;", $descriptionVcalendar);
+				$evenements[$idEvenement]['descriptionVcalendar'] = $descriptionVcalendar;
+				
+				$evenements[$idEvenement]['tags'] = implode(',',array_keys($groupeManager->getMotCleElement($idEvenement, 'evenement'))); // tags associés à l'événement séparé par des ,
+				
 				// date utilisée pour l'exportation VP
 				// Mercredi 20 mai, 15h
 				$evenements[$idEvenement]['dateDebutJourSemaineDateMoisHeureHumaine'] = dateTime2JourSemaineDateMoisHeureHumaine($evenements[$idEvenement]['date_debut']);
 				
 				// reprise des données de la personne de contact en fonction de son id
-				$evenements[$idEvenement]['infoContact'] = $personneManager->getPersonne($evenements[$idEvenement]['info']);  // getPersonnes sur yop et getContact sur ecoical
-				
+				if (isset($evenements[$idEvenement]['info'])) {
+					$evenements[$idEvenement]['infoContact'] = $personneManager->getContact($evenements[$idEvenement]['info']);
+				}
 				// reprise des données d'un lieu en fonction de son id
 				$evenements[$idEvenement]['lieuEvenement'] = $lieuManager->getLieu($evenements[$idEvenement]['lieu']);
+				
+				// encode les caractères qui posent problème en XML (quotes, amps, etc..)
+				$evenements[$idEvenement]['description'] = htmlspecialchars($evenements[$idEvenement]['description'],ENT_COMPAT,'UTF-8');
+
+				// reprise des données du calendrier en fonction de son id
+				$evenements[$idEvenement]['calendrierEvenement'] = $calendrierManager->getCalendrier($evenements[$idEvenement]['id_calendrier']);
 			}
 			
 			// supprime les \
 			stripslashes_deep($evenements);
+			
+			// trie les événements par date de début
+			function sortEvenements($a, $b) {
+				$date_a = strtotime($a['date_debut']);
+				$date_b = strtotime($b['date_debut']);
+				return $date_a > $date_b ? 1 : -1;
+			}
+
+			// trie les evenements par ordre chronologique
+			uasort($evenements, 'sortEvenements');
 
 			// transmets les ressources à smarty
 			$smarty->assign('evenements',$evenements);

@@ -110,6 +110,7 @@ class Init{
 		require ($path.'manager/reservationManager.php');
 		require ($path.'manager/transactionManager.php');
 		require ($path.'manager/metaManager.php');
+		require ($path.'manager/mesureManager.php');
 	}
 
 	function includeAllObjects($path) {
@@ -130,6 +131,7 @@ class Init{
 		global $reservationManager;
 		global $transactionManager;
 		global $metaManager;
+		global $mesureManager;
 		global $smarty;
 		
 		//instancie les objets
@@ -149,6 +151,7 @@ class Init{
 		$reservationManager = new reservationManager($this->connection);
 		$transactionManager = new transactionManager($this->connection);
 		$metaManager = new metaManager($this->connection);
+		$mesureManager = new mesureManager($this->connection);
 		$documentManager = new documentManager($this->connection,$versionManager,$personneManager,$groupeManager); // transmet les manager pour que le documentManager puisse les utiliser
 		
 		//instantiate and configure smarty

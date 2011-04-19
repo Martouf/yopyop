@@ -264,6 +264,27 @@ CREATE TABLE `yop_lieu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+# Dump of table yop_mesure
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `yop_mesure`;
+
+CREATE TABLE `yop_mesure` (
+  `id_mesure` int(32) unsigned NOT NULL AUTO_INCREMENT,
+  `nom` text,
+  `type` int(32) unsigned NOT NULL DEFAULT '1',
+  `valeur` varchar(255) DEFAULT NULL,
+  `description` text,
+  `id_lieu` int(32) unsigned DEFAULT '0',
+  `nom_lieu` char(255) DEFAULT NULL,
+  `url` char(255) DEFAULT NULL,
+  `evaluation` tinyint(4) DEFAULT '0',
+  `modificateur` int(32) DEFAULT NULL,
+  `date_mesure` datetime DEFAULT NULL,
+  `date_creation` datetime NOT NULL,
+  `date_modification` datetime NOT NULL,
+  PRIMARY KEY (`id_mesure`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dump of table yop_meta
 # ------------------------------------------------------------

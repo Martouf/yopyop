@@ -73,9 +73,7 @@
 	// on demande une sortie pdf !!
 	if ($ressourceOutput=='pdf') {
 		
-		$pdfEngine = 'wkhtmltopdf'; // détermine le moteur pdf utilisé: prince ou wkhtmltopdf
-	//	$pdfEngine = 'prince';
-		
+ 		// détermine le moteur pdf utilisé: prince ou wkhtmltopdf
 		if ($pdfEngine=='prince') {
 			$requete = $_SERVER['REQUEST_URI'];
 
@@ -102,12 +100,7 @@
 			$html = curl_get_file_contents($newUrl);
 
 			// path to prince
-		//	$prince = new Prince('/usr/local/prince-6.0r6-macosx/lib/prince/bin/prince');
-		//	$prince = new Prince('/usr/local/bin/prince');
-		//	$prince = new Prince('/usr/local/prince-7.0-macosx/lib/prince/bin/prince'); // sur le serveur en prod
-			$prince = new Prince('/usr/local/prince-7.1-macosx/lib/prince/bin/prince'); // en local
-		//	$prince = new Prince('/usr/local/prince-7.1-macosx/prince');  // utilisable en ligne de commande (prince --no-author-style -s http://www.princexml.com/howcome/2008/wikipedia/wiki2.css     http://fr.scoutwiki.org/Sarrasine_santiano -o ~/Desktop/sarrasine.pdf)
-
+			$prince = new Prince($princeXmlPath); // en local
 
 			// convert html2pdf
 			$prince->convert_string_to_passthru($html);
@@ -121,8 +114,8 @@
 			$newUrl = str_replace("pdf","html",$urlSource);
 
 			// On utilise la feuille de style print et on sort le résultat dans la sortie standard qui est relayé dans le navigateur web via passthru
-			$cmd = '/usr/local/bin/wkhtmltopdf "'.$newUrl.'" --print-media-type'.' -';   // ex: wkhtmltopdf "http://martouf.ch/document/234-la-decroissance.html" --print-media-type  -
-		//	$cmd = '/usr/local/bin/wkhtmltopdf "'.$newUrl.'"'.' -';   // ex: wkhtmltopdf "http://martouf.ch/document/234-la-decroissance.html" -
+			$cmd = $wkhtmltopdfPath.' "'.$newUrl.'" --print-media-type'.' -';   // ex: wkhtmltopdf "http://martouf.ch/document/234-la-decroissance.html" --print-media-type  -
+		//	$cmd = $wkhtmltopdfPath.' "'.$newUrl.'"'.' -';   // ex: wkhtmltopdf "http://martouf.ch/document/234-la-decroissance.html" -
 		
 			passthru($cmd);
 		}
@@ -130,11 +123,11 @@
 		// pour les autres format (souvent html)
 	}else{
 			
-		if (empty($ressourceType)) {$ressourceType = 'accueil';}  // page par défaut
-	
-		if (file_exists('../include/controller/'.$ressourceType.'.php')) {
+		if (empty($ressourceType)) {$ressourceType = $defaultController;}  // page par défaut => defaultController peut être choisi dans le fichier de config.
+		
+		if (file_exists('../include/controller/'.$ressourcesSwitch[$ressourceType].'.php')) {
 			// inclut une page PHP dynamique si elle existe (elle se charge de l'affichage via Smarty)
-			include('../include/controller/'.$ressourceType.'.php');
+			include('../include/controller/'.$ressourcesSwitch[$ressourceType].'.php');
 		} else {
 			// affiche un message d'erreur "page introuvable"
 			$smarty->assign('contenu',"pageinconnue.tpl");

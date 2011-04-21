@@ -1,9 +1,9 @@
 <?php
 /*******************************************************************************************
  * Nom du fichier		: mesure.php
- * Date					: 1 janvier 2009
+ * Date					: 20 avril 2011
  * Auteur				: Mathieu Despont
- * Adresse E-mail		: mathieu@marfaux.ch
+ * Adresse E-mail		: mathieu@ecodev.ch
  * But de ce fichier	: Permet de gérer des mesures. Pour aller chercher, stocke et afficher des mesures.
  *******************************************************************************************
  * Pour différentier les status des gens
@@ -409,16 +409,10 @@ if ($action=='get') {
 ///////////////
 }elseif ($action=='import-cvn') {
 
-	$url = "http://www.cvn.ch/cms/meteoris/affichage/donneesXML.php";
+	$url = $urlCvn; // disponible dans la config
 
 	if (!empty($url)) {
-	    // * obtenir le fichier xml (régulièrement en fonction des visites)
-		
-		// cas avec curl en exec		
-		// $cmd = 'exec "'.$url.'" > toto.xml';
-		// curl "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=dfeaeb4901&format=rss20&flid=0" --user-agent Mozilla/4.0 > toto.xml
-		// exec($cmd);
-		
+	    // * obtenir le fichier xml (régulièrement en fonction des visites)	
 		// cas avec curl dans php
 		function curl_get_file_contents($URL){
 			$userAgent = 'Mozilla/4.0';

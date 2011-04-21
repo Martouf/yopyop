@@ -158,7 +158,7 @@ if (!empty($taggedElements)) {
 		$documentsChoisis[] = array_pop($documents);
 	}
 	// variable qui va contenir le code html qui sera affiché dans la page.
-	$contenuTheme .= '<h2 class="jaune"><a href="http://yopyop.ch/blog/réflexion/koudou-bon-a-savoir.html" title="blog de bon à savoir sur koudou.ch">Bon à savoir</a></h2>';
+	$contenuTheme = '<h2 class="jaune"><a href="http://yopyop.ch/blog/réflexion/koudou-bon-a-savoir.html" title="blog de bon à savoir sur koudou.ch">Bon à savoir</a></h2>';
 	foreach ($documentsChoisis as $key => $document) {
 		$contenuTheme .= "<div class=\"ficheNews\">";
 		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";

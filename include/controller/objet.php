@@ -186,7 +186,8 @@ if ($action=='get') {
 		// si aucun tag est passé en paramètre, on affiche la liste complète de toutes les ressources.
 		//http://yopyop.ch/objet/    => va afficher la liste de toutes les objets.
 		if (empty($tags)) {
-			$tousObjets = $objetManager->getObjets();
+			$tousObjets = $objetManager->getObjets(); // tous
+		//	$tousObjets = $objetManager->getObjets(array(),'nom desc limit 1'); // seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
 			
 			$objets = array(); // tableau contenant des tableaux représentant la ressource
 			// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getObjets()... et array_intersect

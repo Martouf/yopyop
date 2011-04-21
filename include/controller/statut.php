@@ -453,8 +453,9 @@ if ($action=='get') {
 ///////////////
 }elseif ($action=='import-facebook-status') {
 
-	$url = "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=dfeaeb4901&format=rss20&flid=0";
-//	$url = "http://martouf.ch/statut/feed.xml";
+	$url = $urlFacebookFriendFeed; // disponible dans le fichier de config
+	
+	//	$url = "http://martouf.ch/statut/feed.xml";
 
 	if (!empty($url)) {
 	    // * obtenir le fichier rss (régulièrement en fonction des visites)
@@ -473,7 +474,7 @@ if ($action=='get') {
 		
 		// cas avec curl en exec		
 		// $cmd = 'exec "'.$url.'" > toto.xml';
-		// curl "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=dfeaeb4901&format=rss20&flid=0" --user-agent Mozilla/4.0 > toto.xml
+		// curl "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=xxxxxxxxxx&format=rss20&flid=0" --user-agent Mozilla/4.0 > toto.xml
 		// exec($cmd);
 		
 		// cas avec curl dans php

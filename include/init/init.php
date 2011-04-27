@@ -111,6 +111,7 @@ class Init{
 		require ($path.'manager/transactionManager.php');
 		require ($path.'manager/metaManager.php');
 		require ($path.'manager/mesureManager.php');
+		require ($path.'manager/notificationManager.php');
 	}
 
 	function includeAllObjects($path) {
@@ -132,6 +133,7 @@ class Init{
 		global $transactionManager;
 		global $metaManager;
 		global $mesureManager;
+		global $notificationManager;
 		global $smarty;
 		
 		//instancie les objets
@@ -152,6 +154,7 @@ class Init{
 		$transactionManager = new transactionManager($this->connection);
 		$metaManager = new metaManager($this->connection);
 		$mesureManager = new mesureManager($this->connection);
+		$notificationManager = new notificationManager($this->connection);
 		$documentManager = new documentManager($this->connection,$versionManager,$personneManager,$groupeManager); // transmet les manager pour que le documentManager puisse les utiliser
 		
 		//instantiate and configure smarty

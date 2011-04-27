@@ -94,6 +94,7 @@ $ressourcesSwitch = array();
 	$ressourcesSwitch['transaction'] = 'transaction';
 	$ressourcesSwitch['meta'] = 'meta';
 	$ressourcesSwitch['mesure'] = 'mesure';
+	$ressourcesSwitch['notification'] = 'notification';
 
 // controleur partageants des managers
 	$ressourcesSwitch['accueil'] = 'accueil';
@@ -127,6 +128,7 @@ $ressourcesSwitch = array();
 	$ressourcesSwitch['agendas'] = 'agenda';
 	$ressourcesSwitch['events'] = 'event';
 	$ressourcesSwitch['utilisateurs'] = 'utilisateur';
+	$ressourcesSwitch['notifications'] = 'notification';
 	
 //**********************************************************
 // Related documents
@@ -141,7 +143,7 @@ $relatedDocumentsSystemOn = true; // on affiche des documents
 //**********************************************************
 // l'url comporte une clé sensée rester secrète !
 global $urlFacebookFriendFeed;
-$urlFacebookFriendFeed = "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=dfeaeb4901&format=rss20&flid=0";
+$urlFacebookFriendFeed = "http://www.facebook.com/feeds/friends_status.php?id=684590465&key=xxxxxxxxxx&format=rss20&flid=0";
 
 // sur la page: http://www.facebook.com/feeds/friends_status.php
 // on a le joli message suivant:

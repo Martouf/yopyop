@@ -86,7 +86,6 @@ CREATE TABLE `yop_commentaire-element` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 # Dump of table yop_document
 # ------------------------------------------------------------
 
@@ -120,6 +119,24 @@ INSERT INTO `yop_document` (`id_document`, `nom`, `description`, `evaluation`, `
 (1, 'Menu', 'c\\''est la page qui sert de menu', NULL, '2008-12-08 11:31:13', '2008-12-21 22:49:39'),
 (2, 'Page d\\''accueil', 'Ce document est intégré dans la page d\\''accueil afin de décrire l\\''identité du site web.', NULL, '2008-12-08 11:31:56', '2008-12-19 20:19:22');
 
+# Dump of table yop_evaluation
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `yop_evaluation`;
+
+CREATE TABLE `yop_evaluation` (
+  `id_evaluation` int(32) unsigned NOT NULL AUTO_INCREMENT,
+  `id_element` int(32) unsigned NOT NULL DEFAULT '0',
+  `table_element` tinyint(8) unsigned NOT NULL DEFAULT '0',
+  `nom` char(255) DEFAULT '',
+  `description` text,
+  `note` tinyint(4) unsigned DEFAULT '0',
+  `createur` int(32) DEFAULT NULL,
+  `modificateur` int(32) DEFAULT NULL,
+  `date_creation` datetime NOT NULL,
+  `date_modification` datetime NOT NULL,
+  PRIMARY KEY (`id_evaluation`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 # Dump of table yop_evenement
@@ -308,7 +325,24 @@ CREATE TABLE `yop_meta` (
   PRIMARY KEY (`id_meta`)
 ) ENGINE=InnoDB CHARSET=utf8;
 
+# Dump of table yop_notification
+# ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `yop_notification`;
+
+CREATE TABLE `yop_notification` (
+  `id_notification` int(32) NOT NULL AUTO_INCREMENT,
+  `nom` char(255) DEFAULT NULL,
+  `description` text,
+  `type` char(255) DEFAULT NULL,
+  `etat` int(32) DEFAULT NULL,
+  `evaluation` tinyint(4) DEFAULT '0',
+  `createur` int(32) DEFAULT NULL,
+  `modificateur` int(32) DEFAULT NULL,
+  `date_creation` datetime DEFAULT NULL,
+  `date_modification` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_notification`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dump of table yop_objet
 # ------------------------------------------------------------

@@ -12,13 +12,13 @@
 			<p>
 				<label for="tags" title="séparés par des ,">tags</label><input type="text" name="tags" id="tags" value="<!--{$tags}-->" />
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<label for"access" title="choisir un type d'accès: par restriction ou par exclusivité (dans ce cas indiquer le groupe qui a accès au document)">Accès par</label>
+				<label for"access" title="choisir un type d'accès: par restriction ou par exclusivité (dans ce cas indiquer le groupe qui a accès au document)">Accès</label>
 				<select id="access" name="access">
-					<option value="2">restriction</option>
-					<option value="1">exclusivité</option>
+					<option value="2">public</option>
+					<option value="1">réservé aux membres du </option>
 				</select>
 				
-				<label for"groupe_autorise" title="Groupe ayant l'accès exclusif">Groupe</label>
+				<label for"groupe_autorise" title="Groupe ayant l'accès exclusif">groupe</label>
 				<select id="groupe_autorise" name="groupe_autorise">
 					<option selected="selected" value=""></option>
 					<!--{foreach from=$listeGroupeUtilisateur key=id_groupe item=groupe}-->	

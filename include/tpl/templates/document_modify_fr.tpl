@@ -20,10 +20,10 @@
 			<p>
 				<label for="tags" title="séparés par des ,">tags</label><input type="text" name="tags" id="tags" value="<!--{$tags}-->" /> <a id="enregistreTag" href="#">enregistrer</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<label for"access" title="choisir un type d'accès: par restriction ou par exclusivité (dans ce cas indiquer le groupe qui a accès au document)">Accès par</label>
+				<label for"access" title="choisir un type d'accès: par restriction ou par exclusivité (dans ce cas indiquer le groupe qui a accès au document)">Accès</label>
 				<select id="access" name="access">
-					<option <!--{if $document.access=='2'}-->selected="selected"<!--{/if}--> value="2">restriction</option>
-					<option <!--{if $document.access=='1'}-->selected="selected"<!--{/if}--> value="1">exclusivité</option>
+					<option <!--{if $document.access=='2'}-->selected="selected"<!--{/if}--> value="2">public</option>
+					<option <!--{if $document.access=='1'}-->selected="selected"<!--{/if}--> value="1">réservé aux membres du</option>
 				</select>
 				
 				<label for"groupe_autorise" title="Groupe ayant l'accès exclusif">Groupe</label>

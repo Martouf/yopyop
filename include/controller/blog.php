@@ -122,11 +122,17 @@ if ($action=='get') {
 			$additionalHeader = "
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+				<script type=\"text/javascript\">
+				Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+				Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+				Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
+				window.onload = Shadowbox.init;
+				</script>
 				<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des commentaires de ce billets\" href=\"".$urlFluxCommentairesDuBillet."\" />";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 
@@ -311,11 +317,17 @@ if ($action=='get') {
 		$additionalHeader = "
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-		
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+			<script type=\"text/javascript\">
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
+			window.onload = Shadowbox.init;
+			</script>
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des billets\" href=\"".$urlFlux."\" />
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Flux Atom des commentaires\" href=\"".$urlFluxCommentaires."\" />";
 				

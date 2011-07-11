@@ -774,14 +774,26 @@ if ($action=='get') {
 			
 			$lienVignette = $photoManager->getLienPerso($imagePath);
 			
-			if ($position=='d') {
-				$htmlImage = "'<a href=\"http://".$_SERVER["SERVER_NAME"]."/".$imagePath."\"><img src=\"http://".$_SERVER["SERVER_NAME"]."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"float:right; margin: 0 0 1em 1em;\" /></a>'";
-			}elseif ($position=='g') {
-				$htmlImage = "'<a href=\"http://".$_SERVER["SERVER_NAME"]."/".$imagePath."\"><img src=\"http://".$_SERVER["SERVER_NAME"]."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"float:left; margin: 0 1em 1em 0;\" /></a>'";
-			}elseif ($position=='c') {
-				$htmlImage = "'<a href=\"http://".$_SERVER["SERVER_NAME"]."/".$imagePath."\"><img src=\"http://".$_SERVER["SERVER_NAME"]."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"display:block; margin:0 auto;\" /></a>'";
+			// Active ou non l'utilisation de shadowbox pour toutes les images ajoutées dans la page via le popup, selon les règlages du fichier de config.
+			// si l'option existe l'utilise, sinon applique la valeur par défaut: shadowbox actif
+			if (isset($customOption['shadowBox'])) {
+				if ($customOption['shadowBox']) {
+					$shadowBox = "rel=\"shadowbox[album];options={animate:false,continuous:true}\"";
+				}else{
+					$shadowBox = '';
+				}
 			}else{
-				$htmlImage = "'<a href=\"http://".$_SERVER["SERVER_NAME"]."/".$imagePath."\"><img src=\"http://".$_SERVER["SERVER_NAME"]."/".$lienVignette."\" alt=\"".$nomOriginal."\"/></a>'";
+				$shadowBox = "rel=\"shadowbox[album];options={animate:false,continuous:true}\"";
+			}
+			
+			if ($position=='d') {
+				$htmlImage = "'<a ".$shadowBox." href=\"http://".$serveur."/".$imagePath."\"><img class=\"imageViaPopUp\" src=\"http://".$serveur."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"float:right; margin: 0 0 1em 1em;\" /></a>'";
+			}elseif ($position=='g') {
+				$htmlImage = "'<a ".$shadowBox." href=\"http://".$serveur."/".$imagePath."\"><img class=\"imageViaPopUp\" src=\"http://".$serveur."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"float:left; margin: 0 1em 1em 0;\" /></a>'";
+			}elseif ($position=='c') {
+				$htmlImage = "'<a ".$shadowBox." href=\"http://".$serveur."/".$imagePath."\"><img class=\"imageViaPopUp\" src=\"http://".$serveur."/".$lienVignette."\" alt=\"".$nomOriginal."\" style=\"display:block; margin:0 auto;\" /></a>'";
+			}else{
+				$htmlImage = "'<a ".$shadowBox." href=\"http://".$serveur."/".$imagePath."\"><img class=\"imageViaPopUp\" src=\"http://".$serveur."/".$lienVignette."\" alt=\"".$nomOriginal."\"/></a>'";
 			}
 			
 			

@@ -189,8 +189,16 @@ if ($action=='get') {
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
 				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
-				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>";	
+				<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+				<script type=\"text/javascript\">
+				Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+				Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+				Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
+				window.onload = Shadowbox.init;
+				</script>
+				";	
 			$smarty->assign('additionalHeader',$additionalHeader);
 
 			// Va chercher le code pour afficher des documents similaires			
@@ -365,8 +373,16 @@ if ($action=='get') {
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/document.js\"></script>
+			<script type=\"text/javascript\">
+			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
+			window.onload = Shadowbox.init;
+			</script>
+			";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// fourni à smarty le niveau de détail à afficher

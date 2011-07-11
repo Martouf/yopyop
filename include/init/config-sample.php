@@ -157,4 +157,12 @@ $urlFacebookFriendFeed = "http://www.facebook.com/feeds/friends_status.php?id=68
 global $urlCvn;
 $urlCvn = "http://www.cvn.ch/cms/meteoris/affichage/donneesXML.php";
 
+//**********************************************************
+// Personnalisation de divers comportements
+//**********************************************************
+global $customOption;
+$customOption = array();
+
+// Choix de l'utilisation de shadowbox ou non pour l'affichage des images intégrées dans les pages via le popup
+$customOption['shadowBox'] = true; // true, false
 ?>

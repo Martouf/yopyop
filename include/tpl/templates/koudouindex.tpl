@@ -52,7 +52,7 @@
 				</div>
 			<!--{else}-->
 				<div id="blocPseudo">
-					<!--{$sessionPseudo}-->
+					<a href="//<!--{$server_name}-->/profile/<!--{$sessionIdPersonne}-->-<!--{$sessionPseudo}-->.html" title="Aller à ma page de profile..."><!--{$sessionPseudo}--></a>
 				</div>
 				<div id="deconnexion">
 					<a href="//<!--{$server_name}-->/utile/ajax/login.php?logout">déconnexion</a>

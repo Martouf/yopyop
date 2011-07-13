@@ -104,6 +104,8 @@ $ressourcesSwitch = array();
 	$ressourcesSwitch['event'] = 'event';
 	$ressourcesSwitch['itineraire'] = 'itineraire';
 	$ressourcesSwitch['utilisateur'] = 'utilisateur';
+	$ressourcesSwitch['profile'] = 'profile';
+	$ressourcesSwitch['profil'] = 'profile'; // en français !
 	
 // pluriels de quelques ressources
 	$ressourcesSwitch['groupes'] = 'groupe';
@@ -156,6 +158,19 @@ $urlFacebookFriendFeed = "http://www.facebook.com/feeds/friends_status.php?id=68
 // l'url est dédiée à la mesure à neuchâtel
 global $urlCvn;
 $urlCvn = "http://www.cvn.ch/cms/meteoris/affichage/donneesXML.php";
+
+//**********************************************************
+// Initialisation du générateur de mot de passes aléatoires prononcables.
+//**********************************************************
+// ces mots sont utilisée pour générer des mots de passe prononcables. Ils doivent donc correspondres à la langue locale. Par défaut le français
+
+global $motsPrononcables;
+$motsPrononcables = array("bleu","blanc","rouge","jaune","vert","violet","affichera",
+"chaine","genre","retourne","fonction","commentaire","lapin","renard","image",
+"mathematique","aleatoire","hasard","source","chat","souris","chapeau","langue",
+"arbre","generer","livre","supposon","tout","vecteur","construction","violon",
+"flute","fuite","zebre","zoro","xylophone","deux","trois","quatre","cinq","sept"
+,"huit","neuf","douze","treize","magnifique","magistral","malin","marrant","mature","merveilleux","minutieux","mignon","modeste","moral");
 
 //**********************************************************
 // Personnalisation de divers comportements

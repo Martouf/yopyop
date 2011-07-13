@@ -421,8 +421,11 @@ if ($action=='get') {
 		}
 		if(isset($_POST['mot_de_passe'])){
 			$mot_de_passe = $_POST['mot_de_passe'];
+			if (empty($mot_de_passe)) {
+				$mot_de_passe = $personneManager->generatePassword($motsPrononcables);
+			}
 		}else{
-			$mot_de_passe ='';
+			$mot_de_passe = $personneManager->generatePassword($motsPrononcables);
 		}
 		if(isset($_POST['photo'])){
 			$photo = $_POST['photo'];

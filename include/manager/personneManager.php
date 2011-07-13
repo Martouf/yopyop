@@ -492,6 +492,85 @@ class personneManager {
 		return $this->connection->update($this->tablePrefix.'personne',$champs,$conditions);
 	}
 	
+	/******************************************************************************/
+	/*                                                                            */
+	/*                       __        ____                                       */
+	/*                 ___  / /  ___  / __/__  __ _____________ ___               */
+	/*                / _ \/ _ \/ _ \_\ \/ _ \/ // / __/ __/ -_|_-<               */
+	/*               / .__/_//_/ .__/___/\___/\_,_/_/  \__/\__/___/               */
+	/*              /_/       /_/                                                 */
+	/*                                                                            */
+	/*                                                                            */
+	/******************************************************************************/
+	/*                                                                            */
+	/* Titre          : Génération de mot de passe prononçable facile à retenir...*/
+	/*                                                                            */
+	/* URL            : http://www.phpsources.org/scripts555-PHP.htm              */
+	/* Auteur         : mercier133                                                */
+	/* Date édition   : 16 Jan 2010                                               */
+	/* Website auteur : http://www.servicesgratis.net                             */
+	/*                                                                            */
+	/******************************************************************************/
+	// adaptation martouf le 13 juillet 2011 pour ajouter un peu de hasard au tableau de sons de base:
+	// - ajout d'un nombre aléatoire à la fin du mot
+	// - ajout du nom du serveur local
+	// va chercher la base de mot-clés dans le fichier de config si elle existe
+	
+	/* 
+	 * @return: string le mot de passe
+	 */
+	static function generatePassword($listeMots){
+		
+		// utilise la liste du fichier de config si elle est présente.
+		if (empty($listeMots)) {
+			//Liste de mots, pensez à choisir des mots avec des sons qui se pronnoncent facilement !
+			$mots = array("bleu","blanc","rouge","jaune","vert","violet","affichera",
+				"chaine","genre","retourne","fonction","commentaire","lapin","renard","image",
+				"mathematique","aleatoire","hasard","source","chat","souris","chapeau","langue",
+				"arbre","generer","livre","supposon","tout","vecteur","construction","violon",
+				"flute","fuite","zebre","zoro","xylophone","deux","trois","quatre","cinq","sept"
+				,"huit","neuf","douze","treize","magnifique","magistral","malin","marrant","mature","merveilleux","minutieux","mignon","modeste","moral");
+		}else{
+			$mots = $listeMots;
+		}
+		
+	$mots[] = $_SERVER['SERVER_NAME'];
+
+	    //Prononcabilité : 
+	    $p = 1; 
+	// c'est le nombre de lettre commune qu'il prendra en compte pour assembler 2
+	// mots. 1 est conseillé, 2 risque de donner de temps en temps le même mot (sauf
+	// si la liste de $mots est longue et variée). 3,4... est à éviter !
+
+
+	    $m1 = $mots[rand(0,count($mots)-1)];
+	    $result=substr($m1,0,rand(2,strlen($m1)-1));
+
+	    for($i=0;$i<rand(3,4);$i++){ //boucle d'initialisation
+	        $pasOk=true;
+	        $x =0;    
+	        while($pasOk && $x<100){
+
+	            $m = $mots[rand(0,count($mots)-1)];
+	            while($m==$m1){
+	                $m = $mots[rand(0,count($mots)-1)];
+	            }
+
+	            if(eregi(substr($result,-$p),$m)){
+	                $pasOk=false;
+	                $m2 = split(substr($result,-1),$m);
+	                $result .= substr($m2[1],0,rand(2,strlen($m2[1])-1));
+	            }
+	            $x++;
+	        } if($x==100){ return personneManager::generatePassword(array());} // utilise la liste par défaut
+	//si on n'y arrive pas on réessaye depuis le début ;)
+	    }
+	    if(strlen($result)<6) return personneManager::generatePassword(array()); // utilise la liste par défaut
+		if(strlen($result)>10) return personneManager::generatePassword(array()); // utilise la liste par défaut
+
+		$nbAlea = rand(0,99); // génère un nombre aléatoire entre 0 et 99
+	    return $result.$nbAlea;
+	}
 	
 } // personneManager
 ?>

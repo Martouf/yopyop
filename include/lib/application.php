@@ -557,7 +557,24 @@ function getCouleurBordure($couleur, $luminosite=0.2){
 
 	// on change le mode de représentation des couleurs. On passe de hsl à rgb en notation hexadédimale.
 	return COLOR_rgb2hex(COLOR_hsl2rgb($couleurHsl));
-}	
-	
-	
+}
+
+/**
+ * retourne le contenu d'une page web dont l'url est passée en paramètre
+ *
+ * @return string html, le contenu de la page
+ * @param string $url l'adresse de la page
+ */
+function curlGetFileContent($url){
+        $userAgent = 'Mozilla/4.0';
+        $c = curl_init();
+		curl_setopt($c, CURLOPT_USERAGENT, $userAgent);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($c, CURLOPT_URL, $url);
+        $contents = curl_exec($c);
+        curl_close($c);
+        		
+        if ($contents) return $contents;
+            else return FALSE;
+}
 ?>

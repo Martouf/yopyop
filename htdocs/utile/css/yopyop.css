@@ -796,7 +796,7 @@ input#infoModif{
 #menu{
 	position: absolute;
 	top: 125px;
-	right: 280px;
+	left: 520px;
 }
 #menu p{
 	margin: 0;

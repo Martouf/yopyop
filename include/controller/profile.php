@@ -41,6 +41,14 @@ if (empty($ressourceTags)) {
 	$tags = explode("/", trim($ressourceTags,"/")); // transforme la chaine séparée par des / en tableau. Au passage supprime les / surnuméraires en début et fin de chaine
 }
 
+// si aucune indication de profile est indiquée, c'est son propre profile qui est affiché.
+// Ceci permet de faire des url simple pour aller directe sur ça page: http://yopyop.ch/profile
+// vu qu'il n'y a pas l'id dans l'url (http://yopyop.ch/profile/2-martouf.html) ... on va la chercher dans la session
+if (empty($idProfile)) {
+	$idProfile = $_SESSION['id_personne'];
+}
+
+
 // va chercher les tags qui sont liés au profile courant ! (un utilisateur dans un groupe ou un autre.)
 $motsClesElement = $groupeManager->getMotCleElement($idProfile,'personne'); // il y a certainement moyen d'optimiser tout ça... on a pas besoin d'avoir le nombre d'oocurence de l'utilisation du mot clé !! Peut être mettre une autre fonction !!
 
@@ -70,16 +78,11 @@ $smarty->assign('utilisateurConnu',$utilisateurConnu);
 ////  GET
 ///////////////
 
+// todo: faire un cas spéciale si le profile demandé est celui de l'utilisateur inconnu !
+
 if ($action=='get') {
 	
-	// si aucune indication de profile est indiquée, c'est son propre profile qui est affiché.
-	// Ceci permet de faire des url simple pour aller directe sur ça page: http://yopyop.ch/profile
-	if (!empty($idProfile)) {
-		$idPersonne = $idProfile;
-	}else{
-		$idPersonne = $_SESSION['id_personne'];
-	}
-	
+	$idPersonne = $idProfile;
 	
 	// va chercher les infos sur la personne
 	$personne = $personneManager->getPersonne($idPersonne);

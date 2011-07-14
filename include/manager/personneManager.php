@@ -328,6 +328,7 @@ class personneManager {
 				$id_historique = $this->connection->insert($this->tablePrefix.'historique',$champs);
 			}
 		}
+		return $_SESSION['id_personne'];
 	}
 	
 	/* Fonction retournant le pseudo d'une personne en fonction de son id

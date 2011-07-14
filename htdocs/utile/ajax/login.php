@@ -14,6 +14,8 @@
 	require_once('../../../include/init/init.php');
 	new Init(); //initialise l'application en créant les objets utiles
 	
+	$idVisiteur = 1;
+	
 	if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 		
 		$pseudo = $_POST['pseudo'];
@@ -23,7 +25,7 @@
 		// retourne '1' si le login échoue. (1 est l'id correspondant à un inconnu)
 		// Place dans la session: id_personne, pseudo et rang. (et le mot de passe, pour regénérer un accès avec des droit identique pour générer les pdf)
 		// créer un cookie de longue durée pour se réauthentifier.
-		$personneManager->getIdUserFromLogin($pseudo,$motDePasse);
+		$idVisiteur = $personneManager->getIdUserFromLogin($pseudo,$motDePasse);
 	}
 	
 	// déconnection  // juste après un logout... le paramètre logout est toujours là !!
@@ -46,7 +48,7 @@
 				<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 					<head>
 						<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-						<link type="text/css" rel="stylesheet" href="http://koudou.ch/utile/css/koudou.css" media="screen" />
+						<link type="text/css" rel="stylesheet" href="http://yopyop.ch/utile/css/yopyop.css" media="screen" />
 						
 
 END;
@@ -59,7 +61,12 @@ END;
 			if (isset($_REQUEST['logout'])) {
 				echo "<h3 class=\"ok\">Au revoir et à bientôt !</h3>";
 			}else{
-				echo "<h3 class=\"ok\">Identification effectuée avec succès!</h3>";
+				if ($idVisiteur!=1) {
+					echo "<h3 class=\"ok\">Identification effectuée avec succès!</h3>";
+					echo "<h3 class=\"ok\">Bienvenue ".$_SESSION['pseudo']." !</h3>";
+				}else{
+					echo "<h3 class=\"erreur\">L'identification a échouée !</h3>";
+				}
 			}
 			echo "<a href=\"javascript:history.back()\">retour à la page</>";
 			echo "</div>";

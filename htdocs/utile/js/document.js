@@ -257,32 +257,6 @@ jQuery.noConflict();
   });
 })(jQuery);
 
-// va chercher l'info d'orientation
-window.addEventListener("MozOrientation", onMozOrientation, true);
-
-function onMozOrientation(event) {
-    var x = event.x;
-	var y = event.y;
-	var fourmi1 = document.querySelector("#fourmi1");
-	var fourmi2 = document.querySelector("#fourmi2");
-	var fourmi3 = document.querySelector("#fourmi3");
-	var fourmi4 = document.querySelector("#fourmi4");
-	var fourmi5 = document.querySelector("#fourmi5");
-	
-	angle =  Math.floor(x * 90);
-	if (x < -0.05 || x > 0.05){
-		// var rotate = 'rotate(' + ( -event.y * 30) + 'deg)';
-		// 		var scale = 'scale(' + (event.x + 1) + "," + (event.x + 1)  + ')';
-		// 		fourmi.style.MozTransform = rotate + " " + scale;
-		fourmi1.style.left = (angle*10)+'px';
-		fourmi2.style.left = (angle*5)+'px';
-		fourmi3.style.left = (angle*4)+'px';
-		fourmi4.style.left = (angle*5)+'px';
-		fourmi5.style.left = (angle*5)+'px';
-	}
- }
-
-
 function startRichEditor(){
 	tinyMCE.init({
 		mode : "exact",

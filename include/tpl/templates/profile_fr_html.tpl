@@ -1,16 +1,28 @@
 <div id="infosPersonne">
-	<!--{if $droitModification}--><a href="//<!--{$server_name}-->/personne/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données du profile"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
+	<!--{if $droitModification}-->
+	<div id="modificationProfile">
+		<a href="//<!--{$server_name}-->/personne/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données du profile"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
+	</div>
 	<div id="blocAvatar">
 		<!--{if !empty($personne.email)}-->
 			<img alt="gravatar <!--{$personne.nomSimplifie}-->" class="avatarProfile" src="http://www.gravatar.com/avatar/<!--{$personne.gravatar}-->.jpg?default=identicon" />
 		<!--{/if}-->
 	</div>
-	<h2 id="blocpseudoPersonne"><!--{$personne.surnom}--></h2>
+	<h1 id="blocpseudoPersonne"><!--{$personne.surnom}--></h1>
+	<div id="blocFinance">
+		<!--{if $droitModification}-->
+			<p><label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong</p>
+		<!--{else}-->	
+			<p>
+				<a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a>
+			</p>
+		<!--{/if}-->
+	</div>
 	<!--{if $utilisateurConnu}-->
 		<div id="blocPedigre">
 			<p>
 				<!--{$personne.dateNaissance}-->, <!--{$personne.lieu}-->
-				<!--{if !empty($personne.url)}--><br /><!--{$personne.url}--><!--{/if}-->
+				<!--{if !empty($personne.url)}--><p><a href="<!--{$personne.url}-->"><!--{$personne.url}--></a></p><!--{/if}-->
 			</p>
 		</div>
 		<div id="blocGroupe">
@@ -20,19 +32,10 @@
 			</p>
 			<!--{/if}-->
 		</div>
-		<div id="blocFinance">
-			<!--{if $droitModification}-->
-				<p>fortune: <!--{$personne.fortune}--> kong</p>
-			<!--{else}-->	
-				<p>
-					<a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a>
-				</p>
-			<!--{/if}-->
-		</div>
 	<!--{/if}-->
 </div>
 
-<div id="flxActu">
+<div id="fluxActu">
 	<h2>Actualité</h2>
 	<p>albert à réservé une table de jardin...</p>
 </div>

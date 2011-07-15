@@ -46,10 +46,10 @@ class objetManager {
 	}
 	
 	/**
-	 * Retourne les infos sur TOUS les objets avec possibilité de filtrer ceux-cis
+	 * Retourne les infos sur TOUS les objets avec possibilité de filtrer ceux-ci
 	 *
 	 * @return array(array()) le tableau contenant le résultat de la requête ou false si échec
-	 * @param array() un tableau contenant les éventuels filtre à faire
+	 * @param array() un tableau contenant les éventuels filtres à faire
 	 * @param string le nom du champ orderby
 	 */
 	function getObjets($filtre = array(),$orderBy = ''){

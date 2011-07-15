@@ -121,6 +121,60 @@ if ($action=='get') {
 		</script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
+	
+	////////////////// Mes Objets ///////////////
+	// todo: pagination
+	
+	$filtreMesObjets = array('id_proprietaire'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
+	
+	$tousObjets = $objetManager->getObjets($filtreMesObjets,'nom'); // avec 'nom desc limit 1' => seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
+		
+	$objets = array(); // tableau contenant des tableaux représentant la ressource
+	// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getObjets()... et array_intersect
+	foreach ($tousObjets as $key => $aObjet) {
+		$objet = $aObjet;
+			
+		// obtients un tableau avec la liste des mots-clés attribué à l'objet
+		$motCles = $groupeManager->getMotCleElement($aObjet['id_objet'],'objet');
+
+		$listeMotCle= '';
+		$premier = true;
+		foreach ($motCles as $motCle => $occurence){
+			if (!$premier) {
+				$listeMotCle .=', ';
+			}
+		//	$listeMotCle .= $motCle; // juste la liste
+			$listeMotCle .= '<em><a href="//'.$serveur.'/objets/'.$motCle.'/" title="voir les objets de la même catégorie...">'.$motCle.'</a></em>'; // liste avec lien html sur les objets liés par les tags
+			$premier = false;
+		}
+		
+		$objet['nomSimplifie'] = simplifieNom($aObjet['nom']);
+		
+		// fourni les infos sur l'image de présentation.
+		$image = $photoManager->getPhoto($aObjet['id_image']);
+		$image['lienVignette'] = $photoManager->getLienVignette($image['lien']);
+		$image['lienMoyenne'] = $photoManager->getLienMoyenne($image['lien']);
+		$objet['image'] = $image;
+		
+		// infos à propos du propriétaire
+		$proprietaire = $personneManager->getPersonne($aObjet['createur']);
+		$objet['proprietaire'] = $proprietaire;
+		
+		// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
+		$objet['listeTags'] = $listeMotCle;
+		$objets[$aObjet['id_objet']] = $objet;		
+	}
+
+
+	// supprime les \
+	stripslashes_deep($objets);
+	
+	// transmets les ressources à smarty
+	$smarty->assign('objets',$objets);
+	
+	
+	/////////// Format de sortie ////////////
+	
 	// certains formats ne sont jamais inclu dans un thème
 	if ($outputFormat=='xml') {			
 		// calcule le nom de la même ressource, mais en page html

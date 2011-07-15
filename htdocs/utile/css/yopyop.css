@@ -4,7 +4,7 @@ body{
 	margin: 0px; 
 	padding: 0px;
 	font-family: Helvetica,Verdana,Arial,sans-serif;
-	font-size: 13px;
+	font-size: 17px;
 	color: #333;
 }
 body.mceContentBody{
@@ -13,22 +13,22 @@ body.mceContentBody{
 	padding: 3px;
 }
 h6{
-	font-size: 11px;
-}
-h5{
-	font-size: 12px;
-}
-h4{
-	font-size: 13px;
-}
-h3{
-	font-size: 14px;
-}
-h2{
 	font-size: 15px;
 }
+h5{
+	font-size: 16px;
+}
+h4{
+	font-size: 17px;
+}
+h3{
+	font-size: 18px;
+}
+h2{
+	font-size: 20px;
+}
 h1{
-	font-size: 19px;
+	font-size: 23px;
 }
 p{
 	text-align: justify;
@@ -57,6 +57,31 @@ a:link{text-decoration:none;color:#134A81;}
 a:active{text-decoration:none;color:#666;}
 a:visited{text-decoration:none;color:#666;}
 
+.rose{
+    color: #fff;
+    background-color: #fc575e;
+    padding: 5px;
+}
+.vert{
+    color: #fff;
+    background-color: #66cc9a;
+    padding: 5px;
+}
+.bleu{
+    color: #fff;
+    background-color: #4ebaff;
+    padding: 5px;
+}
+.jaune{
+    color: #fff;
+    background-color: #fbca54;
+    padding: 5px;
+}
+.violet{
+    color: #fff;
+    background-color: #ba4df0;
+    padding: 5px;
+}
 
 /** Pour faire une bordure qui n'apparait pas dans firefox sur macosx **/
 input, textarea {
@@ -1367,6 +1392,21 @@ img.gravatar:hover{
 	background-position: 0px 0px;
 	background-repeat: no-repeat;
 }
+/******** page présentation objet  *******/
+
+#blocImagePresentation{
+	width: 260px;
+	float: right;
+}
+#outilsModif{
+	display: block;
+	float: right;
+	width: 20px;
+}
+#nomObjet{
+	margin-top: 0;
+}
+
 /******** page profile  *******/
 #modificationProfile{
 	text-align: right;
@@ -1383,4 +1423,31 @@ img.gravatar:hover{
 #blocFinance{
 	width: 200px;
 	float: right;
+}
+.barre{
+    text-shadow: 0 -1px 1px #999;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-box-shadow: 0 1px 3px #999;
+    -webkit-box-shadow: 0 1px 3px #999;
+    break-inside: avoid;
+}
+
+/*liste objets profile*/
+.objetCarrousel{
+	width: 280px;
+	float: left;
+}
+.ombre{
+	box-shadow: 5px 5px 10px #555;
+	-moz-box-shadow: 5px 5px 10px #555;
+	-webkit-box-shadow: 5px 5px 10px #555;
+}
+.blocTags{
+	font-family: georgia, serif;
+}
+
+/* reservation */
+#blocDateDebutReservation #jourDebutDetail, #blocDateFinReservation #jourFinDetail{
+	width: 100px;
 }

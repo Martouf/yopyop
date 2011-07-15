@@ -5,7 +5,7 @@
 		<input type="hidden" name="idObjet" value="<!--{$objetAReserver.id_objet}-->" id="idObjet" />
 		<input type="hidden" name="tags" id="tags" value="" />
 			
-		<h2>Formulaire de demande de réservation</h2>
+		<h2 class="vert barre">Demande de réservation pour l'objet: <!--{$objetAReserver.nom}--></h2>
 		
 		<div id="blocImagePresentation">
 			<a href="http://<!--{$server_name}-->/<!--{$imagePresentation.lienMoyenne}-->" title ="<!--{$imagePresentation.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">
@@ -13,7 +13,7 @@
 			</a>
 		</div>
 		<p>
-			Demande de réservation pour <!--{$futurLocataire.prenom}--> <!--{$futurLocataire.nom}--> pour l'objet: 
+			Demande de réservation pour <!--{$futurLocataire.prenom}--> <!--{$futurLocataire.nom}--> de l'objet: 
 			<!--{$objetAReserver.nom}-->
 		</p>
 		
@@ -21,7 +21,7 @@
 			<label>Dates de début et de fin de réservation</label>
 		</p>
 		
-		<div>
+		<div id="blocDateDebutReservation">
 			<input type="text" name="jourDebutDetail" value="" id="jourDebutDetail" class="date-pick" />
 
 				<label class="interfaceHeure" for="heureDebutDetail">heure</label>
@@ -37,7 +37,7 @@
 					<!--{/foreach}-->
 				</select>
 		</div>
-		<div>
+		<div id="blocDateFinReservation">
 			<input type="text" name="jourFinDetail" value="" id="jourFinDetail" class="date-pick" />
 
 

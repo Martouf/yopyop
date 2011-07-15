@@ -25,7 +25,7 @@
 				<!--{if !empty($personne.url)}--><p><a href="<!--{$personne.url}-->"><!--{$personne.url}--></a></p><!--{/if}-->
 			</p>
 		</div>
-		<div id="blocGroupe">
+		<div id="blocTags">
 			<!--{if !empty($tags)}-->
 			<p>
 				<label>Groupes</label> <!--{$tags}-->
@@ -36,24 +36,41 @@
 </div>
 
 <div id="fluxActu">
-	<h2>Actualité</h2>
+	<h2 class="barre jaune">Actualité</h2>
 	<p>albert à réservé une table de jardin...</p>
 </div>
 
 <div id="mesObjets">
-	<h2>Actualité</h2>
+	<!--{if $droitModification}-->
+		<h2 class="rose barre">Mes objets</h2>
+	<!--{else}-->
+		<h2 class="rose barre">Les objets de <!--{$personne.surnom}--></h2>
+	<!--{/if}-->
 	<div id="listeObjet">
-		<div id="objet1">
-			vélo..
-		</div>
-		<div id="objet2">
-			drapeau
-		</div>
-		<div id="objet3">
-			four..
-		</div>
-		<div id="objet4">
-			machine à pain
-		</div>
+		
+		<!--{foreach from=$objets key=key item=aObjet}-->	
+			<div class="objetCarrousel">
+				<h2>
+					<!--{if $aObjet.etat==0}-->
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_blue.png" alt="en création" title="en cours de création" />
+					<!--{elseif $aObjet.etat==1}-->
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_green.png" alt="disponible" title="disponible" />
+					<!--{else}-->
+						<img src="http://<!--{$server_name}-->/utile/img/bullet_red.png" alt="privé" title="privé" />
+					<!--{/if}-->
+					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
+				</h2>
+				
+				<a href="http://<!--{$server_name}-->/<!--{$aObjet.image.lienMoyenne}-->" title ="<!--{$aObjet.image.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">
+					<img class="ombre" src="http://<!--{$server_name}-->/<!--{$aObjet.image.lienVignette}-->" alt="<!--{$aObjet.image.nom}-->" title="Cliquez pour agrandir" />
+				</a>
+				<p>
+					<!--{$aObjet.prix}--> Kong/jour <br />
+					<span class="blocTags"><!--{$aObjet.listeTags}--></span>
+				</p>
+			</div>
+		
+		<!--{/foreach}-->
+		
 	</div>
 </div>

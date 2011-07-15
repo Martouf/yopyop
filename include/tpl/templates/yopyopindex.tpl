@@ -8,6 +8,7 @@
 		<meta name="keywords" content="échange, partage, consommation, collaborative, location, kong"/>
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/yopyop.css" media="screen" />
 		<link type="text/css" rel="stylesheet" href="http://<!--{$server_name}-->/utile/css/yopyop_print.css" media="print" />
+		<link rel="icon" type="image/png" href="http://<!--{$server_name}-->/utile/images/theme_yopyop/singe.png" />
 		<!--{$additionalHeader}-->
 		<script type="text/javascript">
 		//<![CDATA[

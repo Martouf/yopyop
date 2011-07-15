@@ -5,7 +5,7 @@
 		<input type="hidden" name="idObjet" value="<!--{$objetAReserver.id_objet}-->" id="idObjet" />
 		<input type="hidden" name="tags" id="tags" value="" />
 			
-		<h2>Formulaire de demande de réservation</h2>
+		<h2 class="orange barre">Demande de réservation</h2>
 		
 		<div id="blocImagePresentation">
 			<a href="http://<!--{$server_name}-->/<!--{$imagePresentation.lienMoyenne}-->" title ="<!--{$imagePresentation.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">

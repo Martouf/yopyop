@@ -109,20 +109,39 @@ if ($action=='get') {
 		// supprime les \
 		stripslashes_deep($objet);
 		
+		// // obtients un tableau avec la liste des mots-clés attribué à l'objet
+		// 		$motCles = $groupeManager->getMotCleElement($idObjet,'objet');
+		// 		
+		// 		$listeMotCle= '';
+		// 		foreach ($motCles as $motCle => $occurence){
+		// 			// si le mot clé est un "prénom nom", le découpe et ne prend que le prénom pour des raisons d'anonymat sur google
+		// 			$motCleEnpartie = explode(" ", $motCle);
+		// 			$prenom = $motCleEnpartie[0];
+		// 			$listeMotCle = $listeMotCle.$prenom.' ';
+		// 		}
+		// 		
+		// 		// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
+		// 		$objet['listeTags'] = $listeMotCle;
+		
 		// obtients un tableau avec la liste des mots-clés attribué à l'objet
 		$motCles = $groupeManager->getMotCleElement($idObjet,'objet');
-		
+
 		$listeMotCle= '';
+		$premier = true;
 		foreach ($motCles as $motCle => $occurence){
-			// si le mot clé est un "prénom nom", le découpe et ne prend que le prénom pour des raisons d'anonymat sur google
-			$motCleEnpartie = explode(" ", $motCle);
-			$prenom = $motCleEnpartie[0];
-			$listeMotCle = $listeMotCle.$prenom.' ';
+			if (!$premier) {
+				$listeMotCle .=', ';
+			}
+		//	$listeMotCle .= $motCle; // juste la liste
+			$listeMotCle .= '<em><a href="//'.$serveur.'/objets/'.$motCle.'/" title="voir les objets de la même catégorie...">'.$motCle.'</a></em>'; // liste avec lien html sur les objets liés par les tags
+			$premier = false;
 		}
-		
-		// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
 		$objet['listeTags'] = $listeMotCle;
 		
+		// infos à propos du propriétaire
+		$proprietaire = $personneManager->getPersonne($objet['id_proprietaire']);
+		$objet['proprietaire'] = $proprietaire;
+				
 		// affichage de la ressource
 		$smarty->assign('objet',$objet);
 		

@@ -486,6 +486,7 @@ if ($action=='get') {
 		/*
 			TODO : éventuellement notification par e-mail (ou atom) de la création d'un nouveau compte. A l'admin pour contrôle et au nouvel inscrit pour qu'il garde se paramètres. (mot de passe arbitraire)
 		*/
+		$notificationManager->insertNotification('Bienvenue','Un nouveau compte utilisateur pour: <em>'.$surnom.'</em> avec le mot de passe: <em>'.$mot_de_passe.'</em> a été créé.','1','0',$idPersonne);
 		
 		$idLocataire = $idPersonne;  // la location est attribuée à cette nouvelle personne
 	}else{
@@ -568,6 +569,20 @@ if ($action=='get') {
 	
 	// ajoute la réservation dans la base. Le tout lié avec les éléments événement et personne créé au besoin pour l'occasion.
 	$idNewReservation = $reservationManager->insertReservation($nom,$description,$idLocataire,$id_objet,$idEvenement,$type,'0'); //  0 => état en attente de validation
+	
+	// obtient des infos sur le propriétaire, l'objet (et le locataire on a déjà plus haut)
+	$objet = $objetManager->getObjet($id_objet);
+	$proprietaire = $personneManager->getPersonne($objet['id_proprietaire']);
+	
+	// envoie des notifications
+	$messageNotificationFuturLocataire = "Vous avez fait une <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+	$messageNotificationProprietaire = $futurLocataire['surnom']." a fait une demande de réservation pour l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>. Veuillez accepter ou non cette <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a>.";
+	
+	// notifie le locataire
+	$notificationManager->insertNotification('Demande de réservation',$messageNotificationFuturLocataire,'2','0',$idLocataire);
+	
+	// notifie le propriétaire
+	$notificationManager->insertNotification('Demande de réservation',$messageNotificationProprietaire,'3','0',$proprietaire['id_personne']);
 	
 	echo $idNewReservation; // au cas où
 

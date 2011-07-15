@@ -9,11 +9,11 @@
 	
 	<div id="reservation" >
 			
-		<h2>Réservation de <!--{$objetReserve.nom}--></h2>
+		<h1 class="barre vert">Réservation de <!--{$objetReserve.nom}--></h1>
 		
 		<div id="blocImagePresentation">
 			<a href="http://<!--{$server_name}-->/<!--{$imagePresentation.lienMoyenne}-->" title ="<!--{$imagePresentation.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">
-				<img src="http://<!--{$server_name}-->/<!--{$imagePresentation.lienVignette}-->" alt="<!--{$imagePresentation.nom}-->" title="Cliquez pour agrandir" />
+				<img class="ombre" src="http://<!--{$server_name}-->/<!--{$imagePresentation.lienVignette}-->" alt="<!--{$imagePresentation.nom}-->" title="Cliquez pour agrandir" />
 			</a>
 		</div>
 				
@@ -21,7 +21,7 @@
 			<label>Dates de début et de fin de réservation</label>
 		</p>
 		
-		<div>
+		<div id="blocDateDebutReservation">
 			<input type="text" name="jourDebutDetail" value="<!--{$evenementReserve.jourDebutEurope}-->" id="jourDebutDetail" class="date-pick" />
 
 				<label class="interfaceHeure" for="heureDebutDetail">heure</label>
@@ -37,7 +37,7 @@
 					<!--{/foreach}-->
 				</select>
 		</div>
-		<div>
+		<div id="blocDateFinReservation">
 			<input type="text" name="jourFinDetail" value="<!--{$evenementReserve.jourFinEurope}-->" id="jourFinDetail" class="date-pick" />
 
 
@@ -60,10 +60,11 @@
 			<input type="checkbox" name="jourComplet" id="jourComplet" <!--{if $evenementReserve.jour_entier=="true"}-->checked="checked"<!--{/if}-->  />
 		</p>
 		
-		
-		
-		<p>Voir le <a href="http://<!--{$server_name}-->/agenda/<!--{$objetReserve.id_calendrier}-->-reservation-pour-<!--{$objetReserve.nom}-->.html" title="voir le calendrier des réservations pour l'objet <!--{$objetReserve.nom}-->...">calendrier de réservation pour l'objet <!--{$objetReserve.nom}--></a></p>
-
+		<p>
+			<label for="caution">Disponibilités</label>
+			<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objetReserve.id_calendrier}-->-reservations-<!--{$objetReserve.nom}-->.html">Voir le calendrier des réservations...</a>
+			</span><br />
+		<p>
 		<p>
 			<label>Remarque</label>
 		</p>

@@ -121,6 +121,27 @@ if ($action=='get') {
 		</script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 	
+	////////////////// Activité récente //////////
+	
+	$filtreMesObjets = array('createur'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
+	
+	$tousNotifications = $notificationManager->getNotifications($filtreMesObjets,'date_creation desc');
+	$notifications = array(); // tableau contenant des tableaux représentant la ressource
+	// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getNotifications()... et array_intersect
+	foreach ($tousNotifications as $key => $aNotification) {
+		$notification = $aNotification;
+		
+		$notification['nomSimplifie'] = simplifieNom($aNotification['nom']);
+		$notification['dateCreation'] = dateTime2Humain($aNotification['date_creation']);			
+		$notifications[$aNotification['id_notification']] = $notification;		
+	}
+	
+	// supprime les \
+	stripslashes_deep($objets);
+	
+	// transmets les ressources à smarty
+	$smarty->assign('notifications',$notifications);
+	
 	
 	////////////////// Mes Objets ///////////////
 	// todo: pagination

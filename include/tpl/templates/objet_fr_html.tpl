@@ -35,7 +35,7 @@
 	</span><br />
 </p>
 <span class="jaune barre">
-	<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet</a>
+	<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet...</a>
 </span>
 <p id="descriptionObjet">
 	<!--{$objet.description}-->

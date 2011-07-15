@@ -49,7 +49,7 @@ class notificationManager {
 	 * Retourne les infos sur TOUTEs les notifications avec possibilité de filtrer celles-ci
 	 *
 	 * @return array(array()) le tableau contenant le résultat de la requête ou false si échec
-	 * @param array() un tableau contenant les éventuels filtre à faire
+	 * @param array() un tableau contenant les éventuels filtres à faire
 	 * @param string le nom du champ orderby
 	 */
 	function getNotifications($filtre = array(),$orderBy = ''){

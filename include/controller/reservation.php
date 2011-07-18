@@ -576,7 +576,7 @@ if ($action=='get') {
 	
 	// envoie des notifications
 	$messageNotificationFuturLocataire = "Vous avez fait une <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
-	$messageNotificationProprietaire = $futurLocataire['surnom']." a fait une demande de réservation pour l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>. Veuillez accepter ou non cette <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a>.";
+	$messageNotificationProprietaire = "<a href=\"//".$serveur."/profile/".$futurLocataire['id_personne']."-".$futurLocataire['surnom'].".html\">".$futurLocataire['surnom']."</a> a fait une demande de réservation pour l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>. Veuillez accepter ou non cette <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a>.";
 	
 	// notifie le locataire
 	$notificationManager->insertNotification('Demande de réservation',$messageNotificationFuturLocataire,'2','0',$idLocataire);
@@ -760,9 +760,60 @@ if ($action=='get') {
 			}
 		}
 
+		// va chercher les infos sur la réservation avant modification.
+		$reservationAvantModif = $reservationManager->getReservation($idReservation);
+		$reservationAvantModif['nomSimplifie'] = simplifieNom($reservationAvantModif['nom']);
+		
+		// supprime les \
+		stripslashes_deep($reservationAvantModif);
+		
+		// est ce que la réservation a été validée ?
+		// Etat: 0 = attente, 1=acceptée, 2=refusée
+		$etatAvant = $reservationAvantModif['etat'];
+
 	//	echo "id:",$idReservation," nom:",$nom," descr:",$description," loc:",$id_locataire," id obj:",$id_objet," id evenement:",$id_evenement," type:",$type," etat:",$etat," eval:",$evaluation;
 		// fait la mise à jour
 		$reservationManager->updateReservation($idReservation,$nom,$description,$id_locataire,$id_objet,$id_evenement,$type,$etat,$evaluation);
+		
+		// obtient des infos sur le propriétaire, l'objet (et le locataire on a déjà plus haut)
+		$objet = $objetManager->getObjet($reservationAvantModif['id_objet']);
+		$proprietaire = $personneManager->getPersonne($objet['id_proprietaire']);
+		$locataire = $personneManager->getPersonne($reservationAvantModif['id_locataire']);
+
+		// envoie des notifications
+		$lienProfileMofificateur = "<a href=\"//".$serveur."/profile/".$_SESSION['id_personne']."-".$_SESSION['pseudo'].".html\">".$_SESSION['pseudo']."</a> a ";		
+		
+		
+		// si l'état a changé
+		if ($etatAvant != $etat) {
+			if ($etat == 1) {  // si l'etat a été validé (forcément par le propriétaire)
+				$messageNotificationProprietaire = "Vous avez <strong>accepté</strong> la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"//".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";				
+				$messageNotificationLocataire = $lienProfileMofificateur." <strong>accepté</strong> votre demande de <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+			}else{
+				$messageNotificationProprietaire = "Vous avez <strong>refusé</strong> la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"//".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";
+				$messageNotificationLocataire = $lienProfileMofificateur." <strong>refusé</strong> votre demande de <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+			}
+		}else{  // c'est une autre modification que l'etat
+			
+			// si c'est le locataire qui modifie
+			if ($_SESSION['id_personne']==$id_locataire) {
+				$messageNotificationLocataire = "Vous avez modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = $lienProfileMofificateur." modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+
+			}else{ // si c'est le propriétaire
+				$messageNotificationLocataire = $lienProfileMofificateur." modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = "Vous avez modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+			}
+		}
+		
+
+		// notifie le locataire
+		$notificationManager->insertNotification('Mise à jour',$messageNotificationLocataire,'4','0',$idLocataire);
+
+		// notifie le propriétaire
+		$notificationManager->insertNotification('Mise à jour',$messageNotificationProprietaire,'5','0',$proprietaire['id_personne']);
+		
+		
 		echo "ok";		
 	}else{
 		echo "vous n'avez pas les droits nécessaires pour modifier cet réservation.";

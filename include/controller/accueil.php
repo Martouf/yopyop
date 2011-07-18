@@ -1,14 +1,14 @@
 <?php
 /*******************************************************************************************
  * Nom du fichier		: accueil.php
- * Date					: 19 décembre 2008 - 22 juillet 2009
+ * Date					: 18 juillet 2011
  * Auteur				: Mathieu Despont
  * Adresse E-mail		: mathieu@marfaux.ch
  * But de ce fichier	: Ce script gère la page d'accueil du site
  *******************************************************************************************
  * On appelle la page d'accueil... http://yopyop.ch/accueil/accueil.html ou tout simplement: http://yopyop.ch/accueil/
  *
- * La page d'accueil est composé de plusieurs boites qui peuvent avoir des contenu différents.
+ * La page d'accueil est composé de plusieurs boites qui peuvent avoir des contenus différents.
  * Cette classe propose les méthodes pour obtenir les contenus de ces boites.
  *
  * Ex de contenu:
@@ -35,254 +35,74 @@ if (empty($ressourceTags)) {
 
 // la page d'accueil est composée de plusieurs type de contenus différents. Il y a:
 // - le bloc destiné à indiquer l'identité du site.
-// - le bloc contenant le résumé des 3 derniers documents modifiés
-// - le bloc contenant le résumé de quelques documents associés à des tags pré-déterminé. (ains on peut faire un bloc de news)
-// - Le bloc contenant un nuage de tags qui permet de lancer des piste pour les visiteurs
-//  .. et plus si afinité..
+// - le nuage de mots-clé pour retrouver les objets
+
 
 /////////////////////////////////
 // le bloc d'identité du site est un bloc qui reprend le contenu d'un document. (le 2)
 $document = $documentManager->getDocument('2');
 $smarty->assign('contenuPresentation',stripcslashes($document['contenu']));
 
-/////////////////////////
-// Bloc galerie de photos. Ce document est édité automatiquement. A chaque ajout de galerie une vignette est ajoutée automatiquement.
-$document = $documentManager->getDocument('1');
-$smarty->assign('contenuGalerie',stripcslashes($document['contenu']));
 
-/////////////////////////////////
-// va chercher le contenu de 3 documents qui correspondent au tags news
- // va chercher les id des documents qui correspondent au tag voulu
-$taggedElements = $groupeManager->getElementByTags(array('news'),'document');
+////////////////// Objets récents ///////////////
 
-if (!empty($taggedElements)) {
-	$documents = array(); // tableau contenant des tableaux représentant la ressource
-	// le tri est effectué par id. Donc par ordre chronologique.
-	foreach ($taggedElements as $key => $idDocument) {
-		// va cherche le contenu de chaque document du groupe pour autant que le visiteur ait le droit de le voir
-		//$listeRestrictionsCourantes = $restrictionManager->getRestrictionsList($idDocument,'document', $_SESSION['id_personne']);
-		$listeRestrictionsCourantes = array(); // todo: supprimer le management des droits par restriction
-		// on crée un tableau avec les restrictions placées comme clés. Le tri sur des clés avec isset est 50x plus rapide que d'utiliser la focntion in_array
-		$restrictionsCourantes = array_fill_keys($listeRestrictionsCourantes, ''); //Ne pas remplir de null car isset() retournerai FALSE même si la clé existe
-		if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !
-			$document = $documentManager->getDocument($idDocument);
-			$document['nomSimplifie'] = simplifieNom($document['nom']);
-			$documents[$idDocument] = $document;
-		}
-	}
-	// maintenant on a à disposition tous les documents taggué news. On va en extraire juste le nombre que l'on veut.
-	$documentsChoisis = array();
+// on ne publie au public que les objets qui sont disponibles (etat=1) donc pas les objets encore en cours de création ou les objets privés
+$filtreObjets = array('etat'=>'1'); // on ne veut que les objets de la personne dont on affiche le profile qui sont publié (etat=1)
 
-	for ($i=0; $i < 5; $i++) { 
-		$documentsChoisis[] = array_pop($documents);
-	}
-	// variable qui va contenir le code html qui sera affiché dans la page.
-	$contenuNews = '<h2 class="rose"><a href="http://yopyop.ch/blog/news/koudou-infos-officielles.html" title="blog des evenements sur koudou.ch">Evenements</a></h2>';
-	foreach ($documentsChoisis as $key => $document) {
-		$contenuNews .= "<div class=\"ficheNews\">";
-		$contenuNews .= "<h3>".stripcslashes($document['nom'])."</h3>";
-		$contenuNews .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuNews .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
-	//	$contenuNews .= "<a class=\"liensNews\" href=\"//" . $serveur . "/blog/news/\">En savoir plus...</a>";
-		$contenuNews .= "</div>";
-	}
 
-	// assigner le contenu
-	$smarty->assign('contenuNews', $contenuNews);
+$tousObjets = $objetManager->getObjets($filtreObjets,'date_creation desc limit 6'); // avec 'nom desc limit 1' => seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
 	
-}else{
-	$smarty->assign('contenuNews', "Pas de news");
-}
-
-// /////////////////////////////////
-// va chercher le contenu de 3 documents qui correspondent au tags voulu
- // va chercher les id des documents qui correspondent au tag voulu
-$taggedElements = $groupeManager->getElementByTags(array('kitang'),'document');
-
-if (!empty($taggedElements)) {
-	$documents = array(); // tableau contenant des tableaux représentant la ressource
-	// le tri est effectué par id. Donc par ordre chronologique.
-	foreach ($taggedElements as $key => $idDocument) {
-		// va cherche le contenu de chaque document du groupe pour autant que le visiteur ait le droit de le voir
-		//$listeRestrictionsCourantes = $restrictionManager->getRestrictionsList($idDocument,'document', $_SESSION['id_personne']);
-		$listeRestrictionsCourantes = array(); // todo: supprimer le management des droits par restriction
-		// on crée un tableau avec les restrictions placées comme clés. Le tri sur des clés avec isset est 50x plus rapide que d'utiliser la focntion in_array
-		$restrictionsCourantes = array_fill_keys($listeRestrictionsCourantes, ''); //Ne pas remplir de null car isset() retournerai FALSE même si la clé existe
-		if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !
-			$document = $documentManager->getDocument($idDocument);
-			$document['nomSimplifie'] = simplifieNom($document['nom']);
-			$documents[$idDocument] = $document;
-		}
-	}
-	// maintenant on a à disposition tous les documents taggué news. On va en extraire juste le nombre que l'on veut.
-	$documentsChoisis = array();
-
-	for ($i=0; $i < 5; $i++) { 
-		$documentsChoisis[] = array_pop($documents);
-	}
-	// variable qui va contenir le code html qui sera affiché dans la page.
-	$contenuTheme = '<h2 class="vert"><a href="http://yopyop.ch/blog/kitang/koudou-groupes.html" title="flux blog des infos des groupes sur koudou.ch">Groupes</a></h2>';
-	foreach ($documentsChoisis as $key => $document) {
-		$contenuTheme .= "<div class=\"ficheNews\">";
-		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
-		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
-		$contenuTheme .= "</div>";
-	}
-}
-
-// /////////////////////////////////
-// va chercher le contenu de 3 documents qui correspondent au tags voulu
- // va chercher les id des documents qui correspondent au tag voulu
-$taggedElements = $groupeManager->getElementByTags(array('réflexion'),'document');
-
-if (!empty($taggedElements)) {
-	$documents = array(); // tableau contenant des tableaux représentant la ressource
-	// le tri est effectué par id. Donc par ordre chronologique.
-	foreach ($taggedElements as $key => $idDocument) {
-		// va cherche le contenu de chaque document du groupe pour autant que le visiteur ait le droit de le voir
-		//$listeRestrictionsCourantes = $restrictionManager->getRestrictionsList($idDocument,'document', $_SESSION['id_personne']);
-		$listeRestrictionsCourantes = array(); // todo: supprimer le management des droits par restriction
-		// on crée un tableau avec les restrictions placées comme clés. Le tri sur des clés avec isset est 50x plus rapide que d'utiliser la focntion in_array
-		$restrictionsCourantes = array_fill_keys($listeRestrictionsCourantes, ''); //Ne pas remplir de null car isset() retournerai FALSE même si la clé existe
-		if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !
-			$document = $documentManager->getDocument($idDocument);
-			$document['nomSimplifie'] = simplifieNom($document['nom']);
-			$documents[$idDocument] = $document;
-		}
-	}
-	// maintenant on a à disposition tous les documents taggué news. On va en extraire juste le nombre que l'on veut.
-	$documentsChoisis = array();
-
-	for ($i=0; $i < 5; $i++) { 
-		$documentsChoisis[] = array_pop($documents);
-	}
-	// variable qui va contenir le code html qui sera affiché dans la page.
-	$contenuTheme = '<h2 class="jaune"><a href="http://yopyop.ch/blog/réflexion/koudou-bon-a-savoir.html" title="blog de bon à savoir sur koudou.ch">Bon à savoir</a></h2>';
-	foreach ($documentsChoisis as $key => $document) {
-		$contenuTheme .= "<div class=\"ficheNews\">";
-		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
-		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
-		$contenuTheme .= "</div>";
-	}
-
-}
-
-// /////////////////////////////////
-// va chercher le contenu de 3 documents qui correspondent au tags voulu
- // va chercher les id des documents qui correspondent au tag voulu
-$taggedElements = $groupeManager->getElementByTags(array('festineuch'),'document');
-
-if (!empty($taggedElements)) {
-	$documents = array(); // tableau contenant des tableaux représentant la ressource
-	// le tri est effectué par id. Donc par ordre chronologique.
-	foreach ($taggedElements as $key => $idDocument) {
-		// va cherche le contenu de chaque document du groupe pour autant que le visiteur ait le droit de le voir
-		//$listeRestrictionsCourantes = $restrictionManager->getRestrictionsList($idDocument,'document', $_SESSION['id_personne']);
-		$listeRestrictionsCourantes = array(); // todo: supprimer le management des droits par restriction
-		// on crée un tableau avec les restrictions placées comme clés. Le tri sur des clés avec isset est 50x plus rapide que d'utiliser la focntion in_array
-		$restrictionsCourantes = array_fill_keys($listeRestrictionsCourantes, ''); //Ne pas remplir de null car isset() retournerai FALSE même si la clé existe
-		if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !
-			$document = $documentManager->getDocument($idDocument);
-			$document['nomSimplifie'] = simplifieNom($document['nom']);
-			$documents[$idDocument] = $document;
-		}
-	}
-	// maintenant on a à disposition tous les documents taggué news. On va en extraire juste le nombre que l'on veut.
-	$documentsChoisis = array();
-
-	for ($i=0; $i < 5; $i++) { 
-		$documentsChoisis[] = array_pop($documents);
-	}
-	// variable qui va contenir le code html qui sera affiché dans la page.
-	$contenuTheme .= '<h2 class="bleu"><a href="http://yopyop.ch/blog/festineuch/koudou-infos-officielles.html" title="blog des infos officielles sur koudou.ch">Infos officielles</a></h2>';
-	foreach ($documentsChoisis as $key => $document) {
-		$contenuTheme .= "<div class=\"ficheNews\">";
-		$contenuTheme .= "<h3>".stripcslashes($document['nom'])."</h3>";
-		$contenuTheme .= '<p>'.stripcslashes($document['description']).'</p>';
-		$contenuTheme .= "<a class=\"liensNews\" href=\"//" . $serveur . "/document/".$document['id_document']."-".$document['nomSimplifie'].".html\">En savoir plus...</a>";
-		$contenuTheme .= "</div>";
-	}
-
-	// assigner le contenu
-	$smarty->assign('ContenuTheme', $contenuTheme);
-	
-}else{
-	$smarty->assign('ContenuTheme', "Pas de contenu");
-}
-
-////////////////////////////////
-// // Va chercher le derniers statut ajouté
-// $dernierStatut = $statutManager->getStatuts(array(),"date_modification desc limit 1"); //va chercher le dernier
-// 
-// $contenuStatuts = "<span class=\"infoStatut\">";
-// foreach ($dernierStatut as $key => $statut) {
-// 	$contenuStatuts .= stripcslashes($statut['nom']);
-// 	$contenuStatuts .= "</span>";
-// 	$contenuStatuts .= "<span class=\"dateStatut\"> - <a href=\"http://martouf.ch/statut/\" title=\"voir les anciens statuts\">";
-// 	$contenuStatuts .= dateTime2Humain($statut['date_modification']);
-// 	$contenuStatuts .= "</a></span>";
-// }
-// $smarty->assign('contenuStatuts', $contenuStatuts);
-// 
-
-
-/////////////////////////////////
-// Va chercher le contenu des 3 derniers documents moodifié
-$derniersDocuments = $documentManager->getDocuments(array(),"date_modification desc limit 3"); //va chercher les 3 derniers
-
-// obtient la liste des groupes dans lesquels se trouve l'utilisateur. (vu que l'utilisateur ne change pas, on le sort du foreach.. c'est tout ça de moins de requêtes)
-$listeGroupeUtilisateur = $groupeManager->getGroupeUtilisateur($_SESSION['id_personne']);
-
-$restrictionsCourantes = array();
-
-$contenuHistorique = "<h2 class=\"violet\">Dernières modifications &nbsp;<a href=\"http://yopyop.ch/document/koudou-dernieres-modifications.xml\" title=\"flux des dernières modifications sur koudou.ch\"><img src=\"http://" . $serveur . "/utile/img/bullet_feed.png\" alt=\"feed\" /></a></h2>";
-$contenuHistorique .= "<ul id=\"listeModifs\">";
-
-foreach ($derniersDocuments as $key => $document) {
-	
-	// obtient le type de gestion des droits d'accès. (restriction ou exclusivité) (0 ou 1)
-	$typeAcces = $document['access'];
-
-	// si l'accès est géré avec des exclusivités détermine les droits d'accès du visiteur
-	if ($typeAcces=='1') {
-		// obtient les groupes pour lesquels l'accès est autorisés pour ce document
-		$listeGroupeAutorise = explode(",", trim($document['groupe_autorise'],",")); // transforme la chaine séparée par des , en tableau. Au passage supprime les , surnuméraires en début et fin de chaine
-				
-		// si l'intersection entre les 2 listes est nul c'est que l'utilisateur n'as pas d'autorisation. On lui place des restrictions sur tout !
-		// si l'intersection donne un résultat. C'est que l'utilisateur a une exclusivité et donc accès à tout. On ne place pas de restriction !
-		$toto = array_intersect($listeGroupeAutorise,$listeGroupeUtilisateur);
-
-		if (count($toto)==0) {
-			$restrictionsCourantes = array_fill_keys(array('1','2','3','4','5','6'), ''); // crée un tableau ave les clés 1,2,3,4,5,6 et une valeur nulle
-		}
-	}else{
+$objets = array(); // tableau contenant des tableaux représentant la ressource
+// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getObjets()... et array_intersect
+foreach ($tousObjets as $key => $aObjet) {
+	$objet = $aObjet;
 		
-		// va cherche le contenu de chaque document du groupe pour autant que le visiteur ait le droit de le voir
-		//$listeRestrictionsCourantes = $restrictionManager->getRestrictionsList($document['id_document'],'document', $_SESSION['id_personne']);
-		$listeRestrictionsCourantes = array(); // todo: supprimer le management des droits par restriction
-		// on crée un tableau avec les restrictions placées comme clés. Le tri sur des clés avec isset est 50x plus rapide que d'utiliser la focntion in_array
-		$restrictionsCourantes = array_fill_keys($listeRestrictionsCourantes, ''); //Ne pas remplir de null car isset() retournerai FALSE même si la clé existe
+	// obtients un tableau avec la liste des mots-clés attribué à l'objet
+	$motCles = $groupeManager->getMotCleElement($aObjet['id_objet'],'objet');
+
+	$listeMotCle= '';
+	$premier = true;
+	foreach ($motCles as $motCle => $occurence){
+		if (!$premier) {
+			$listeMotCle .=', ';
+		}
+	//	$listeMotCle .= $motCle; // juste la liste
+		$listeMotCle .= '<em><a href="//'.$serveur.'/objets/'.$motCle.'/" title="voir les objets de la même catégorie...">'.$motCle.'</a></em>'; // liste avec lien html sur les objets liés par les tags
+		$premier = false;
 	}
-		
-	if (!isset($restrictionsCourantes['1'])) {  // équivalent à !in_array('1',$restrictionsCourantes) mais 50x plus rapide !	
 	
-		$contenuHistorique .= "<li title=\"".stripcslashes(strip_tags($document['description']))."\"><a href=\"//" . $serveur . "/document/".$document['id_document']."-".simplifieNom($document['nom']).".html\">".stripcslashes($document['nom'])."</a></li>";
-	}
+	$objet['nomSimplifie'] = simplifieNom($aObjet['nom']);
+	
+	// fourni les infos sur l'image de présentation.
+	$image = $photoManager->getPhoto($aObjet['id_image']);
+	$image['lienVignette'] = $photoManager->getLienVignette($image['lien']);
+	$image['lienMoyenne'] = $photoManager->getLienMoyenne($image['lien']);
+	$objet['image'] = $image;
+	
+	// infos à propos du propriétaire
+	$proprietaire = $personneManager->getPersonne($aObjet['createur']);
+	$objet['proprietaire'] = $proprietaire;
+	
+	// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
+	$objet['listeTags'] = $listeMotCle;
+	$objets[$aObjet['id_objet']] = $objet;		
 }
 
-$contenuHistorique .= "</ul>";
 
-$smarty->assign('contenuHistorique', $contenuHistorique);
+// supprime les \
+stripslashes_deep($objets);
+
+// transmets les ressources à smarty
+$smarty->assign('objets',$objets);
+
 
 ///////////////////////////////////
 // montre les mots-clé
-$motCleDocument = $groupeManager->getMotCle('document');
+$motCleDocument = $groupeManager->getMotCle('objet');
 
 $contenuNuage = "";
 foreach ($motCleDocument as $tag => $occurrence) {
-	$contenuNuage .= "<a href=\"//" . $serveur . "/document/".$tag."/?summary\" class=\"nuage\" rel=\"tag\" style=\"font-size:".(100+floor(100*log($occurrence)))."%;\" >".$tag."</a> ";
+	$contenuNuage .= "<a href=\"//" . $serveur . "/objets/".$tag."/?summary\" class=\"nuage\" rel=\"tag\" style=\"font-size:".(100+floor(100*log($occurrence)))."%;\" >".$tag."</a> ";
 }
 
 

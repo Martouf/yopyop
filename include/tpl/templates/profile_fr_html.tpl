@@ -81,7 +81,7 @@
 					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
 				</h2>
 				
-				<a href="http://<!--{$server_name}-->/<!--{$aObjet.image.lienMoyenne}-->" title ="<!--{$aObjet.image.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">
+				<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails...">
 					<img class="ombre" src="http://<!--{$server_name}-->/<!--{$aObjet.image.lienVignette}-->" alt="<!--{$aObjet.image.nom}-->" title="Cliquez pour agrandir" />
 				</a>
 				<p>

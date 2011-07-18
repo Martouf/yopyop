@@ -186,7 +186,7 @@ if ($action=='get') {
 		$proprietaire = $personneManager->getPersonne($aObjet['createur']);
 		$objet['proprietaire'] = $proprietaire;
 		
-		// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
+		// fourni pour smarty une chaine de caractère avec la liste des tags
 		$objet['listeTags'] = $listeMotCle;
 		$objets[$aObjet['id_objet']] = $objet;		
 	}

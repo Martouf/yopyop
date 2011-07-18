@@ -74,7 +74,6 @@ $smarty->assign('tags',$tagsVirgules);
 // Pour l'action get, il y a plusieurs formats de sortie possibles. Le template est choisi en conséqunce. Pour le format pdf, le choix est fait en amont par index.php qui va fournir à princeXML le fichier html correspondant.
 
 $droitModification = false;
-
 if (!empty($idObjet)) {
 	// pour modifier une objet, il faut être le créateur de celui-ci ou un admin.
 	$objetAModifier = $objetManager->getObjet($idObjet);
@@ -89,7 +88,6 @@ if (!empty($idObjet)) {
 		$droitModification = true;
 	}
 }
-
 
 ////////////////
 ////  GET
@@ -205,7 +203,15 @@ if ($action=='get') {
 		// si aucun tag est passé en paramètre, on affiche la liste complète de toutes les ressources.
 		//http://yopyop.ch/objet/    => va afficher la liste de toutes les objets.
 		if (empty($tags)) {
-			$tousObjets = $objetManager->getObjets(); // tous
+			
+			// on ne publie au public que les objets qui sont disponibles (etat=1) donc pas les objets encore en cours de création ou les objets privés
+			if ($_SESSION['rang']=='1') {
+				$filtreObjets = array(); // on ne veut que les objets de la personne dont on affiche le profile
+			}else{
+				$filtreObjets = array('etat'=>'1'); // on ne veut que les objets de la personne dont on affiche le profile qui sont publié (etat=1)
+			}
+				
+			$tousObjets = $objetManager->getObjets($filtreObjets,'nom'); // tous
 		//	$tousObjets = $objetManager->getObjets(array(),'nom desc limit 1'); // seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
 			
 			$objets = array(); // tableau contenant des tableaux représentant la ressource
@@ -222,7 +228,8 @@ if ($action=='get') {
 					if (!$premier) {
 						$listeMotCle .=', ';
 					}
-					$listeMotCle .= $motCle;
+				//	$listeMotCle .= $motCle;
+					$listeMotCle .= '<em><a href="//'.$serveur.'/objets/'.$motCle.'/" title="voir les objets de la même catégorie...">'.$motCle.'</a></em>'; // liste avec lien html sur les objets liés par les tags
 					$premier = false;
 				}
 				
@@ -251,32 +258,41 @@ if ($action=='get') {
 			$objets = array(); // tableau contenant des tableaux représentant la ressource
 			// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getObjets()... et array_intersect
 			foreach ($taggedElements as $key => $idObjet) {
-				$objets[$idObjet] = $objetManager->getObjet($idObjet);
-				$objets[$idObjet]['nomSimplifie'] = simplifieNom($objets[$idObjet]['nom']);
+				$newObjet = $objetManager->getObjet($idObjet);
+				// on affiche que les objets qui sont publiés
+				if ($newObjet['etat']==1) {
+					$objets[$idObjet] = $newObjet;
+					$objets[$idObjet]['nomSimplifie'] = simplifieNom($objets[$idObjet]['nom']);
 
-				// obtients un tableau avec la liste des mots-clés attribué à l'image
-				$motCles = $groupeManager->getMotCleElement($idObjet,'objet');
+					// obtients un tableau avec la liste des mots-clés attribué à l'image
+					$motCles = $groupeManager->getMotCleElement($idObjet,'objet');
 
-				$listeMotCle= '';
-				foreach ($motCles as $motCle => $occurence){
-					// si le mot clé est un "prénom nom", le découpe et ne prend que le prénom pour des raisons d'anonymat sur google
-					$motCleEnpartie = explode(" ", $motCle);
-					$prenom = $motCleEnpartie[0];
-					$listeMotCle = $listeMotCle.$prenom.' ';
-				}
-				
-				// fourni les infos sur l'image de présentation.
-				$image = $photoManager->getPhoto($objets[$idObjet]['id_image']);
-				$image['lienVignette'] = $photoManager->getLienVignette($image['lien']);
-				$image['lienMoyenne'] = $photoManager->getLienMoyenne($image['lien']);
-				$objets[$idObjet]['image'] = $image;
-				
-				// infos à propos du propriétaire
-				$proprietaire = $personneManager->getPersonne($objets[$idObjet]['createur']);
-				$objets[$idObjet]['proprietaire'] = $proprietaire;
+					$listeMotCle= '';
+					$premier = true;
+					foreach ($motCles as $motCle => $occurence){
+						if (!$premier) {
+							$listeMotCle .=', ';
+						}
+					//	$listeMotCle .= $motCle; // juste la liste
+						$listeMotCle .= '<em><a href="//'.$serveur.'/objets/'.$motCle.'/" title="voir les objets de la même catégorie...">'.$motCle.'</a></em>'; // liste avec lien html sur les objets liés par les tags
+						$premier = false;
+					}
 
-				// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
-				$objets[$idObjet]['listeTags'] = $listeMotCle;
+					$objet['nomSimplifie'] = simplifieNom($aObjet['nom']);
+
+					// fourni les infos sur l'image de présentation.
+					$image = $photoManager->getPhoto($objets[$idObjet]['id_image']);
+					$image['lienVignette'] = $photoManager->getLienVignette($image['lien']);
+					$image['lienMoyenne'] = $photoManager->getLienMoyenne($image['lien']);
+					$objets[$idObjet]['image'] = $image;
+
+					// infos à propos du propriétaire
+					$proprietaire = $personneManager->getPersonne($objets[$idObjet]['createur']);
+					$objets[$idObjet]['proprietaire'] = $proprietaire;
+
+					// fourni pour smarty une chaine de caractère avec la liste des tags
+					$objets[$idObjet]['listeTags'] = $listeMotCle;
+				} // si etat=1
 			}
 		} // if $tags
 		

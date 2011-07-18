@@ -1,17 +1,36 @@
 
-<p class="corpsStatut">
-	<a href="http://martouf.ch/document/32-mathieu-despont.html" title="Qui est Martouf ?"><img id="imageProfile" src="http://<!--{$server_name}-->/utile/images/theme_chateau/Mathieu-Despont-pola.jpg" alt="Mathieu Despont" /></a><strong>Martouf</strong> ... les fous ouvrent les voies que les sages empruntent par la suite...
-</p>
+<h1 class="rose barre">... Moins de biens, plus de liens ! Partageons nos ressources...</h1>
 
 <hr />
 
 <div id="blocPresentation">
 	<!--{$contenuPresentation}-->
 </div>
-<div id="colonnes">
-		<!--{$contenuNews}-->
-		<!--{$contenuHistorique}-->
+<h2 class="vert barre" title="Les objets les plus récemment ajoutés">Objets récemment ajoutés</h2>
+<div id="blocObjetsRecents">
+	<div id="listeObjet">
+		
+		<!--{foreach from=$objets key=key item=aObjet}-->	
+			<div class="objetCarrousel">
+				<h2>
+					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
+				</h2>
+				
+				<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails...">
+					<img class="ombre" src="http://<!--{$server_name}-->/<!--{$aObjet.image.lienVignette}-->" alt="<!--{$aObjet.image.nom}-->" title="Cliquez pour agrandir" />
+				</a>
+				<p>
+					<span class="blocTags"><!--{$aObjet.listeTags}--></span><br />
+					Appartient à <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a>
+				</p>
+			</div>
+		
+		<!--{/foreach}-->
+		<hr />
+	</div>
 </div>
 <div id="blocNuage">
+	<h2 class="violet barre" title="Le nuage de mot-clés ci-dessous, représente les objets à disposition sur ce site...">Pioche dans le nuages pour trouver l'objet de tes rêves...</h2>
+	
 	<!--{$contenuNuage}-->	
 </div>

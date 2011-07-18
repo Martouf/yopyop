@@ -123,9 +123,9 @@ if ($action=='get') {
 	
 	////////////////// Activité récente //////////
 	
-	$filtreMesObjets = array('createur'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
+	$filtreMesNotifications = array('evaluation'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
 	
-	$tousNotifications = $notificationManager->getNotifications($filtreMesObjets,'date_creation desc');
+	$tousNotifications = $notificationManager->getNotifications($filtreMesNotifications,'date_creation desc limit 50');
 	$notifications = array(); // tableau contenant des tableaux représentant la ressource
 	// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getNotifications()... et array_intersect
 	foreach ($tousNotifications as $key => $aNotification) {
@@ -146,7 +146,12 @@ if ($action=='get') {
 	////////////////// Mes Objets ///////////////
 	// todo: pagination
 	
-	$filtreMesObjets = array('id_proprietaire'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
+	// on ne publie au public que les objets qui sont disponibles (etat=1) donc pas les objets encore en cours de création ou les objets privés
+	if ($droitModification) {
+		$filtreMesObjets = array('id_proprietaire'=>$idPersonne); // on ne veut que les objets de la personne dont on affiche le profile
+	}else{
+		$filtreMesObjets = array('id_proprietaire'=>$idPersonne, 'etat'=>'1'); // on ne veut que les objets de la personne dont on affiche le profile qui sont publié (etat=1)
+	}
 	
 	$tousObjets = $objetManager->getObjets($filtreMesObjets,'nom'); // avec 'nom desc limit 1' => seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
 		

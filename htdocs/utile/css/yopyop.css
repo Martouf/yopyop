@@ -105,6 +105,7 @@ input, textarea {
 label{ 
 	margin: 0 9px 0 0;
 	font-weight: bold;
+	font-size: 16px;
 }
 label:after{
 	content: ":";
@@ -1450,4 +1451,35 @@ img.gravatar:hover{
 /* reservation */
 #blocDateDebutReservation #jourDebutDetail, #blocDateFinReservation #jourFinDetail{
 	width: 100px;
+}
+h2, h1 {
+	font-family: georgia, serif;
+	font-style: italic;
+}
+#fenetreNotifications{
+	height: 400px;
+	overflow: auto;
+}
+#listeNotifications{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#listeNotifications li{
+	border-bottom: solid 1px #ccc;
+	padding: 0px;
+	margin: 0;
+}
+#listeNotifications li p{
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#voirPlusNotification{
+	text-align: right;
+}
+.dateNotification{
+	font-size: 13px;
+	color: #aaa;
 }

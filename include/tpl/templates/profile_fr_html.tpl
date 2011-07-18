@@ -34,41 +34,37 @@
 		</div>
 	<!--{/if}-->
 </div>
+	<hr />
 
+<!--{if $droitModification}-->
 <div id="fluxActu">
-	<h2 class="barre jaune">Actualité</h2>
-	<p>albert à réservé une table de jardin...</p>
-	
-	<table id="listeNotifications" class="tablesorter" cellpadding="0" cellspacing="0" >
-		<thead>
-			<tr>
-				<th>Nom</th>
-				<th>description</th>
-				<th>type</th>
-				<th>etat</th>
-				<th>date</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!--{foreach from=$notifications key=key item=aNotification}-->	
-			<tr>
-				<td><!--{$aNotification.nom}--></td>
-				<td><!--{$aNotification.description}--></td>
-				<td><!--{$aNotification.type}--></td>
-				<td><!--{$aNotification.etat}--></td>
-				<td><!--{$aNotification.dateCreation}--></td>					
-			</tr>
+	<h2 class="barre jaune" title="Les 50 dernières actualités...">Actualité</h2>
+
+	<div id="fenetreNotifications">
+		<ul id="listeNotifications">
+			<!--{foreach from=$notifications key=key item=aNotification}-->
+			<li>
+				<p>
+				<!--{if $aNotification.type==3}-->
+				<img src="//<!--{$server_name}-->/utile/img/flag_pink.png" alt="demande de réservation" title="Demande de réservation" />
+				<!--{/if}-->
+					<!--{$aNotification.description}--> <span class="dateNotification"><em><!--{$aNotification.dateCreation}--></em><span>
+				</p>
+			</li>
 			<!--{/foreach}-->
-		</tbody>
-	</table>
-	
+		</ul>
+		<p id="voirPlusNotification">
+			<a href="//<!--{$server_name}-->/notification/?userid=<!--{$personne.id_personne}-->">Voir toutes les notifications...</a>
+		</p>
+	</div>
 </div>
+<!--{/if}-->
 
 <div id="mesObjets">
 	<!--{if $droitModification}-->
-		<h2 class="rose barre">Mes objets</h2>
+		<h2 class="rose barre" title="les 50 premiers objets dont je suis propriétaire">Mes objets</h2>
 	<!--{else}-->
-		<h2 class="rose barre">Les objets de <!--{$personne.surnom}--></h2>
+		<h2 class="rose barre" title="les 50 premiers objets appartenant à <!--{$personne.surnom}-->">Les objets de <!--{$personne.surnom}--></h2>
 	<!--{/if}-->
 	<div id="listeObjet">
 		
@@ -95,6 +91,6 @@
 			</div>
 		
 		<!--{/foreach}-->
-		
+		<hr />
 	</div>
 </div>

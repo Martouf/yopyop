@@ -36,7 +36,19 @@ if (empty($ressourceOutput)) {
 	$outputFormat = $ressourceOutput;
 }
 
+// si l'on veut filtrer les notifications par utilisateur
+$userID = '';
+if (isset($parametreUrl['userid'])) {
+	$userID = $parametreUrl['userid'];
+}
 
+// seuls les utilisateurs peuvent voir leur propre page, et les admin peuvent voir la liste complète des notifications
+if ($_SESSION['rang']!='1') {
+	if ($_SESSION['id_personne']!=$userID) {
+		echo "<h2>Vous n'avez pas le droit de voir cette page !</h2>";
+		exit(0);
+	}
+}
 
 // on défini ensuite les différentes actions possible.
 // Pour l'action get, il y a plusieurs formats de sortie possibles. Le template est choisi en conséqunce. Pour le format pdf, le choix est fait en amont par index.php qui va fournir à princeXML le fichier html correspondant.
@@ -101,11 +113,21 @@ if ($action=='get') {
 	
 	// un groupe de ressources
 	}else{
-		
+
 		// si aucun tag est passé en paramètre, on affiche la liste complète de toutes les ressources.
 		//http://yopyop.ch/notification/    => va afficher la liste de toutes les notifications.
 		if (empty($tags)) {
-			$tousNotifications = $notificationManager->getNotifications();
+			
+			// seule la personne concernée à le droit de voir ses notifications
+			if (!empty($userID)) {
+				if ($_SESSION['id_personne']==$userID) {
+					$filtreMesNotifications = array('evaluation'=>$userID); // on ne veut que les notification de la personne dont on affiche le profile
+					$tousNotifications = $notificationManager->getNotifications($filtreMesNotifications,'date_creation desc');
+				}
+			}else{
+				$tousNotifications = $notificationManager->getNotifications();
+			}
+			
 			$notifications = array(); // tableau contenant des tableaux représentant la ressource
 			// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getNotifications()... et array_intersect
 			foreach ($tousNotifications as $key => $aNotification) {

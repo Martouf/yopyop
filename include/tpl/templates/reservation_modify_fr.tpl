@@ -1,4 +1,4 @@
-<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html">Retour à la fiche de la reservation</a>
+<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html"><img src="//<!--{$server_name}-->/utile/img/action_back.gif" alt="retour" /> Retour à la fiche de la reservation</a>
 
 <input type="hidden" name="idReservation" value="<!--{$reservation.id_reservation}-->" id="idReservation" />
 <input type="hidden" name="objetIdCalendrier" value="<!--{$objetReserve.id_calendrier}-->" id="objetIdCalendrier" />
@@ -9,7 +9,7 @@
 	
 	<div id="reservation" >
 			
-		<h1 class="barre vert">Réservation de <!--{$objetReserve.nom}--></h1>
+		<h1 class="barre vert">Réservation de l'objet <!--{$objetReserve.nom}--></h1>
 		
 		<div id="blocImagePresentation">
 			<a href="http://<!--{$server_name}-->/<!--{$imagePresentation.lienMoyenne}-->" title ="<!--{$imagePresentation.nom}-->" rel="shadowbox[album];options={animate:false,continuous:true}">
@@ -56,7 +56,7 @@
 
 		</div>
 		<p>
-			<label for="jourComplet">Jour entier</label>
+			<label title="Réserver le jour entier sans définir d'heure" for="jourComplet">Jour entier</label>
 			<input type="checkbox" name="jourComplet" id="jourComplet" <!--{if $evenementReserve.jour_entier=="true"}-->checked="checked"<!--{/if}-->  />
 		</p>
 		

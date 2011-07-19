@@ -20,7 +20,7 @@
 				<span class="blocTags"><!--{$aObjet.listeTags}--></span><br />
 				<!--{$aObjet.prix}--> Kong/jour <br />
 				Appartient à <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a><br />
-				<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." href="//<!--{$server_name}-->/calendrier/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier</a>
+				<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." href="//<!--{$server_name}-->/calendrier/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier des réservations...</a>
 			</p>
 		</div>
 	

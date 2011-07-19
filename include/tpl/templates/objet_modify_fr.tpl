@@ -1,4 +1,4 @@
-<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html">Retour à la fiche de l'objet</a>
+<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html"><img src="//<!--{$server_name}-->/utile/img/action_back.gif" alt="retour" /> Retour à la fiche de l'objet</a>
 	
 <input type="hidden" name="idObjet" value="<!--{$objet.id_objet}-->" id="idObjet" />
 <input type="hidden" name="idImage" value="<!--{$objet.id_image}-->" id="inputIdImage" />
@@ -20,7 +20,7 @@
 		</div>
 		
 		<p>
-			<label for="nom">nom</label>
+			<label for="nom">Nom</label>
 			<input type="text" name="nom" value="<!--{$objet.nom}-->" id="inputNom" />
 		</p>
 		
@@ -35,7 +35,7 @@
 		</p>
 		<p>
 			<label for="caution">Caution</label>
-			<input type="text" name="caution" value="<!--{$objet.caution}-->" id="inputCaution" /><br />
+			<input type="text" name="caution" value="<!--{$objet.caution}-->" id="inputCaution" /> <span class="info">Une caution peut être demandée pour les objets de grande valeur.</span> <br />
 		</p>
 		<p>	
 			<label for="caution">Disponibilités</label>
@@ -60,12 +60,15 @@
 		<div>
 			<div id="map" style="width: 400px; height: 300px"></div>
 			<p id="blocEdition">
+				<span class="info">Entrez, l'adresse à laquelle l'objet se trouve.</span><br />
+				<br />
+				<label>Adresse</label> <input type="text" name="lieu" value="<!--{$objet.lieu}-->" id="inputLieu" /> <span class="info">Ex: <em>Grandson 36, Boudry</em>. L'adresse doit être compréhensible par google maps.</span><br />
 				
-				<label>adresse</label> <input type="text" name="lieu" value="<!--{$objet.lieu}-->" id="inputLieu" /><br />
+				<span class="info">Utilisez le remplissage automatique à partir de google maps pour trouver les coordonnées, puis ajustez en cliquant au bon endroit sur la carte.</span><br />
+				<br />
+				<label>Latitude</label> <input type="text" name="latitude" value="<!--{$objet.latitude}-->" id="inputLatitude" /> <a href="#" id="getAdresse">obtenir les coordonnées depuis l'adresse</a><br />
 				
-				<label>latitude</label> <input type="text" name="latitude" value="<!--{$objet.latitude}-->" id="inputLatitude" /><a href="#" id="getAdresse">obtenir les coordonnées depuis l'adresse</a><br />
-				
-				<label>longitude</label> <input type="text" name="longitude" value="<!--{$objet.longitude}-->" id="inputLongitude" /><br />
+				<label>Longitude</label> <input type="text" name="longitude" value="<!--{$objet.longitude}-->" id="inputLongitude" /><br />
 			</p>
 		</div>
 		
@@ -73,7 +76,8 @@
 	
 	<p>
 		<a href="#" onclick="app.saveObjet(); return false;"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer les données de l'objet</a> &nbsp;|&nbsp; 
-		<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html" id="cancelObjet" >annuler</a>
+		<a href="//<!--{$server_name}-->/objet/<!--{$objet.id_objet}-->-<!--{$objet.nomSimplifie}-->.html" id="cancelObjet" >annuler</a> &nbsp;|&nbsp;
+		<a href="//<!--{$server_name}-->/objet/?new" id="cancelObjet" >ajouter un nouvel objet</a>
 	</p>
 
 <div id="loading">

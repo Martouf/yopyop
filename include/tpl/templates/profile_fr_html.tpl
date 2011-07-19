@@ -67,16 +67,21 @@
 		<h2 class="rose barre" title="les 50 premiers objets appartenant à <!--{$personne.surnom}-->">Les objets de <!--{$personne.surnom}--></h2>
 	<!--{/if}-->
 	<div id="listeObjet">
+		<!--{if $droitModification}-->
+		<p>
+			<a href="//<!--{$server_name}-->/objet/?new"><img src="//<!--{$server_name}-->/utile/img/camera_add.png" alt="ajouter un objet" title="ajouter un objet..." /> Ajouter un objet...</a>
+		</p>
+		<!--{/if}-->
 		
 		<!--{foreach from=$objets key=key item=aObjet}-->	
 			<div class="objetCarrousel">
 				<h2>
 					<!--{if $aObjet.etat==0}-->
-						<img src="http://<!--{$server_name}-->/utile/img/bullet_blue.png" alt="en création" title="en cours de création" />
+						<img src="//<!--{$server_name}-->/utile/img/bullet_blue.png" alt="en création" title="en cours de création" />
 					<!--{elseif $aObjet.etat==1}-->
-						<img src="http://<!--{$server_name}-->/utile/img/bullet_green.png" alt="disponible" title="disponible" />
+						<img src="//<!--{$server_name}-->/utile/img/bullet_green.png" alt="disponible" title="disponible" />
 					<!--{else}-->
-						<img src="http://<!--{$server_name}-->/utile/img/bullet_red.png" alt="privé" title="privé" />
+						<img src="//<!--{$server_name}-->/utile/img/bullet_red.png" alt="privé" title="privé" />
 					<!--{/if}-->
 					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
 				</h2>
@@ -92,5 +97,10 @@
 		
 		<!--{/foreach}-->
 		<hr />
+		<!--{if $droitModification}-->
+		<p>
+			<a href="//<!--{$server_name}-->/objet/?new"><img src="//<!--{$server_name}-->/utile/img/camera_add.png" alt="ajouter un objet" title="ajouter un objet..." /> Ajouter un objet...</a>
+		</p>
+		<!--{/if}-->
 	</div>
 </div>

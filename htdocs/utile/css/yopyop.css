@@ -72,6 +72,11 @@ a:visited{text-decoration:none;color:#666;}
     background-color: #4ebaff;
     padding: 5px;
 }
+.bleuFonce{
+    color: #fff;
+    background-color: #45f;
+    padding: 5px;
+}
 .jaune{
     color: #fff;
     background-color: #fbca54;
@@ -1398,6 +1403,8 @@ img.gravatar:hover{
 #blocImagePresentation{
 	width: 260px;
 	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 #outilsModif{
 	display: block;
@@ -1432,6 +1439,15 @@ img.gravatar:hover{
     -moz-box-shadow: 0 1px 3px #999;
     -webkit-box-shadow: 0 1px 3px #999;
     break-inside: avoid;
+}
+.objetCarrousel{
+	height: 300px;
+}
+.objetCarrousel h2{
+	margin-bottom: 5px;
+}
+.objetCarrousel p{
+	margin-bottom: 3px;
 }
 
 /*liste objets profile*/
@@ -1482,4 +1498,28 @@ h2, h1 {
 .dateNotification{
 	font-size: 13px;
 	color: #aaa;
+}
+.barreBouton{
+    text-shadow: 0 -1px 1px #999;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-box-shadow: 0 1px 3px #999;
+    -webkit-box-shadow: 0 1px 3px #999;
+	box-shadow: 0 1px 3px #999;
+	break-inside: avoid;
+}
+.barreBouton:hover{
+	text-shadow: 0 1px 1px #999;
+}
+.barreBouton a{
+	color: #fff;
+	font-style: bold;
+}
+span.info{
+	font-size: 12px;
+	color: #777;
+}
+#boutonReserver{
+	text-align: center;
+	margin: 40px;
 }

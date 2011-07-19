@@ -1,4 +1,4 @@
-<h1 id="nouvel_objet">Ajout d'un nouvel objet</h1>
+<h1 id="nouvel_objet" class="vert barre">Ajouter un nouvel objet</h1>
 <p>Veuillez lui donner un nom et fournir une photo de description.</p>
 
 <form action="objet.html?add" method="post" enctype="multipart/form-data" accept-charset="utf-8">

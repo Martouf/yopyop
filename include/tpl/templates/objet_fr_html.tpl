@@ -32,11 +32,14 @@
 	<span class="valeur"><a href="//<!--{$server_name}-->/profile/<!--{$objet.proprietaire.id_personne}-->-<!--{$objet.proprietaire.surnom}-->.html"><!--{$objet.proprietaire.surnom}--></a></span><br />
 	<label for="caution">Disponibilités</label>
 	<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations...</a>
-	</span><br />
+	</span>
 </p>
-<span class="jaune barre">
-	<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet...</a>
-</span>
+<div id="boutonReserver">
+	<span class="bleuFonce barreBouton">
+		<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet...</a>
+	</span>
+</div>
+
 <p id="descriptionObjet">
 	<!--{$objet.description}-->
 </p>

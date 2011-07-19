@@ -1523,3 +1523,19 @@ span.info{
 	text-align: center;
 	margin: 40px;
 }
+/**** Reservation avec nouvel utilisateur *******/
+#blocNouvellePersonne label{
+	display: block;
+	width: 200px;
+	text-align: right;
+	float: left;
+	clear: both;
+}
+/**** Edition personne *****/
+#blocEditionPersonne label{
+	display: block;
+	width: 150px;
+	text-align: right;
+	float: left;
+	clear: both;
+}

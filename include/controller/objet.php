@@ -278,8 +278,6 @@ if ($action=='get') {
 						$premier = false;
 					}
 
-					$objet['nomSimplifie'] = simplifieNom($aObjet['nom']);
-
 					// fourni les infos sur l'image de présentation.
 					$image = $photoManager->getPhoto($objets[$idObjet]['id_image']);
 					$image['lienVignette'] = $photoManager->getLienVignette($image['lien']);
@@ -500,7 +498,6 @@ if ($action=='get') {
 		// redirige sur l'interface de modification de l'objet pour ajouter le détail de celui-ci.
 		$urlModif = "http://".$serveur."/objet/".$idNewObjet."-".$nomSimplifieObjet.".html?modify";
 		header("Location: ".$urlModif);
-		break;
 		
 	}// utilisateur connu 
 

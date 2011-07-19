@@ -13,8 +13,7 @@
 			</a>
 		</div>
 		<p>
-			Demande de réservation pour <!--{$futurLocataire.prenom}--> <!--{$futurLocataire.nom}--> de l'objet: 
-			<!--{$objetAReserver.nom}-->
+			Cette demande de réservation est pour <!--{$futurLocataire.prenom}--> <!--{$futurLocataire.nom}-->
 		</p>
 		
 		<p>
@@ -53,7 +52,6 @@
 						<option <!--{if $minute==$reservation.evenement.minuteFin}-->selected="selected"<!--{/if}-->  value="<!--{$minute}-->"><!--{$minute}--></option>
 					<!--{/foreach}-->
 				</select>
-
 		</div>
 		<p>
 			<label for="jourComplet">Jour entier</label>
@@ -73,6 +71,9 @@
 		</p>
 		
 	</div>
-	<p><a href="#" id="createReservation"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> enregistrer la demande de réservation</a></p>
+	<p>
+		<a href="#" id="createReservation"><img src="http://<!--{$server_name}-->/utile/img/save.png" alt="save" /> Envoyer la demande de réservation</a>
+		<br /><span class="info">Le propriétaire de l'objet devra ensuite accepter la demande de réservation pour que vous puissiez avoir l'objet.</span>
+	</p>
 	
 	<img src="http://<!--{$server_name}-->/utile/ajax/ticket.php" width="1" height="1" alt="transparent" />

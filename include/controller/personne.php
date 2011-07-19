@@ -366,9 +366,14 @@ if ($_SESSION['id_personne'] != '1') {
 		}else{
 			$evaluation ='';
 		}
+		$fortune = ''; // on ne peut pas changer la fortune ainsi.. sinon ce serait facile !
 	
 		// fait la mise à jour
-		$personneManager->updatePersonne($idPersonne,$prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$evaluation);
+		$personneManager->updatePersonne($idPersonne,$prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$fortune,$evaluation);
+
+		// redirige sur l'interface de profil de la personne
+		$urlProfile = "http://".$serveur."/profile/".$idPersonne."-".$surnom.".html";
+		header("Location: ".$urlProfile);
 
 	////////////////
 	////  DELETE

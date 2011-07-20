@@ -36,6 +36,6 @@
 			<!--{if $reservation.type==1}--> définitive<!--{else}--> provisoire<!--{/if}--><br />
 			
 			<label>La réservation est </label>
-			<!--{if $reservation.etat==0}--> en attente de validation<!--{elseif $reservation.etat==1}--> acceptée<!--{else}--> refusée<!--{/if}-->
+			<!--{if $reservation.etat==0}--> en attente de validation par le propriétaire: <a href="//<!--{$server_name}-->/profile/<!--{$reservation.proprietaire.id_personne}-->-<!--{$reservation.proprietaire.surnom}-->.html"><!--{$reservation.proprietaire.surnom}--></a> <!--{elseif $reservation.etat==1}--> acceptée<!--{else}--> refusée<!--{/if}-->
 		</p>
 	</div>

@@ -1870,6 +1870,7 @@ if ($action=='get') {
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.magicpreview.pack.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.sexy-combo-2.0.6.min.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 		";	
 		
 		

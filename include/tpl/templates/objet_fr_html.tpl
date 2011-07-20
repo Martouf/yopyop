@@ -31,7 +31,11 @@
 	<label for="caution">Propriétaire</label>
 	<span class="valeur"><a href="//<!--{$server_name}-->/profile/<!--{$objet.proprietaire.id_personne}-->-<!--{$objet.proprietaire.surnom}-->.html"><!--{$objet.proprietaire.surnom}--></a></span><br />
 	<label for="caution">Disponibilités</label>
-	<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations...</a>
+	<!--{if $utilisateurConnu}-->
+		<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations...</a>
+	<!--{else}-->
+		<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/agenda/<!--{$objet.id_calendrier}-->-reservations-<!--{$objet.nomSimplifie}-->.html">Voir le calendrier des réservations...</a>
+	<!--{/if}-->
 	</span>
 </p>
 <div id="boutonReserver">

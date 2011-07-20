@@ -13,10 +13,7 @@
 			</a>
 		</div>
 		<p>
-			Cette demande de réservation est pour <!--{$futurLocataire.prenom}--> <!--{$futurLocataire.nom}-->
-		</p>
-		<p>
-			Pour réserver un objet, <strong>vous devez être identifié(e)</strong>. Pour le moment vous ne l'êtes pas.
+			Pour réserver un objet, <strong>vous devez être identifié(e)</strong>. Pour le moment vous ne l'êtes pas:
 		</p>
 		<ul>
 			<li>Soit <strong>vous avez un compte</strong>, mais vous n'êtes pas connecté(e), c'est le moment de le faire (en haut à droite).</li>
@@ -28,15 +25,15 @@
 		<div id="blocNouvellePersonne" >
 			<p><label>Prenom</label> <input type="text" name="prenom" value="" id="inputPrenom"></input></p>
 			<p><label>Nom</label> <input type="text" name="nom" value="" id="inputNom"></input></p>
-			<p><label title="le pseudo est utilisé pour vous connecter" >Pseudo<sup>*</sup></label> <input type="text" name="surnom" value="Bob" id="inputSurnom"></input></p>
+			<p><label title="le pseudo est utilisé pour vous connecter" >Pseudo<sup>*</sup></label> <input type="text" name="surnom" value="Bob" id="inputSurnom"></input> <span class="info">Le pseudo sera utilisé pour vous identifier sur ce site.</span></p>
 			<p><label>Mot de passe</label> <input type="password" name="mot_de_passe" value="" id="inputMotDePasse"></input></p>
 			<p><label>Répéter le mot de passe</label> <input type="password" name="mot_de_passe2" value="" id="inputMotDePasseRepete"></input></p>
-			<p><label>Date de naissance</label> <input type="text" name="date_naissance" value="12-07-1981" id="inputNaissance"></input></p>
+			<p><label>Date de naissance</label> <input type="text" name="date_naissance" value="1981-07-12 00:00:00" id="inputNaissance"></input> <span class="info">Selon le format: AAAA-MM-JJ 00:00:00 (ouais.. c'est un peu brut pour le moment :P)</span></p>
 			<p><label>Rue</label> <input type="text" name="rue" value="" id="inputRue"></input></p>
 			<p><label>NPA</label> <input type="text" name="npa" value="" id="inputNpa"></input></p>
 			<p><label>Localité</label> <input type="text" name="lieu" value="" id="inputLieu"></input></p>
-			<p><label>Tel</label> <input type="text" name="tel" value="" id="inputTel"></input></p>
-			<p><label>E-mail<sup>*</sup></label> <input type="text" name="email" value="" id="inputEmail"></input></p>
+			<p><label>Tel</label> <input type="text" name="tel" value="" id="inputTel"></input> <span class="info">Selon le format: +41 76 443 54 61</span></p>
+			<p><label>E-mail<sup>*</sup></label> <input type="text" name="email" value="" id="inputEmail"></input><span class="info">Cette adresse est utilisée pour afficher votre photo de profil via <a href="http://gravatar.com">gravatar</a>.</span></p> 
 			<p><label>Remarque</label> <input type="text" name="description" value="" id="inputDescription"></input></p>
 			<p><sup>*</sup>Champs requis</p>
 		</div>

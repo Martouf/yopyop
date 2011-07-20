@@ -96,7 +96,7 @@ if ($action=='get') {
 	$personne['dateNaissance'] = dateTime2DateHumain($personne['date_naissance']);
 	
 	// obtient la clé gravatar d'un e-mail, ainsi l'image de profile est le gravatar
-	$personne['gravatar'] = md5($personne['email']);
+	$personne['gravatar'] = md5(strtolower(trim($personne['email'])));
 	
 	$smarty->assign('personne',$personne);
 	

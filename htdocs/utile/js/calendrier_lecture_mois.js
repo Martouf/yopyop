@@ -27,6 +27,15 @@ var app;  // variable globale qui représente mon application
 		  $(this).slideUp('slow');
 		});
 
+		// formulaire identifiacation
+		// masque le formulaire le plus vite possible
+		 $('#form_identification').hide();
+
+		// toggles le div des infos suivant sa position
+		 $('a#toggleCoccinelle').click(function() {
+			$('#form_identification').toggle(400);  //slideToggle est aussi possible
+			return false;
+		 });
 		
 		// va au mois suivant.
 		$('a#boutonSuivant').click(function() {

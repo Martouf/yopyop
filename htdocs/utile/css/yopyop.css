@@ -1441,7 +1441,7 @@ img.gravatar:hover{
     break-inside: avoid;
 }
 .objetCarrousel{
-	height: 300px;
+	min-height: 300px;
 }
 .objetCarrousel h2{
 	margin-bottom: 5px;

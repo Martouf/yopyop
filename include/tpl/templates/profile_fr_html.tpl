@@ -5,7 +5,7 @@
 	</div>
 	<div id="blocAvatar">
 		<!--{if !empty($personne.email)}-->
-			<img alt="gravatar <!--{$personne.nomSimplifie}-->" class="avatarProfile" src="http://www.gravatar.com/avatar/<!--{$personne.gravatar}-->.jpg?default=identicon" />
+			<img alt="gravatar <!--{$personne.nomSimplifie}-->" class="avatarProfile ombre" src="http://www.gravatar.com/avatar/<!--{$personne.gravatar}-->.jpg?default=retro" />
 		<!--{/if}-->
 	</div>
 	<h1 id="blocpseudoPersonne"><!--{$personne.surnom}--></h1>

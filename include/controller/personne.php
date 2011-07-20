@@ -81,7 +81,10 @@ if ($_SESSION['id_personne'] != '1') {
 		
 			// supprime les \
 			stripslashes_deep($personne);
-		
+			
+			// obtient la clé gravatar d'un e-mail, ainsi l'image de profile est le gravatar
+			$personne['gravatar'] = md5($personne['email']);
+				
 			// affichage de la ressource
 			$smarty->assign('personne',$personne);	
 
@@ -419,7 +422,10 @@ if ($_SESSION['id_personne'] != '1') {
 	
 		// supprime les \
 		stripslashes_deep($personne);
-	
+		
+		// obtient la clé gravatar d'un e-mail, ainsi l'image de profile est le gravatar
+		$personne['gravatar'] = md5(strtolower(trim($personne['email'])));
+			
 		// passe les données de la personne à l'affichage
 		$smarty->assign('personne',$personne);
 	

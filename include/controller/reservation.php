@@ -129,6 +129,13 @@ if ($action=='get') {
 		// fourni pour smarty une chaine de caractère avec la liste des tags (offuscé pour les nom de famille)
 		$reservation['listeTags'] = $listeMotCle;
 		
+		// obtient des infos sur le propriétaire, l'objet
+		$objet = $objetManager->getObjet($reservation['id_objet']);
+		$proprietaire = $personneManager->getPersonne($objet['id_proprietaire']);
+		
+		$reservation['proprietaire'] = $proprietaire;
+		$reservation['objet'] = $objet;
+		
 		// affichage de la ressource
 		$smarty->assign('reservation',$reservation);
 		
@@ -207,6 +214,12 @@ if ($action=='get') {
 	
 	// un groupe de ressources
 	}else{
+		
+		// affichage réservé aux admin
+		if ($_SESSION['rang']!='1') {
+			echo "<h2>Vous n'avez pas le droit de voir cette page !</h2>";
+			exit(0);
+		}
 		
 		// si aucun tag est passé en paramètre, on affiche la liste complète de toutes les ressources.
 		//http://yopyop.ch/reservation/    => va afficher la liste de toutes les reservations.

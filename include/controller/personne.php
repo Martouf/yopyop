@@ -21,13 +21,6 @@
  * http://yopyop.ch/personne/?name  => (à voir si cette url fonctionne vraiment) fourni la liste des nom des ressources
  */
 
-/*
- *  Attention, il faut encore mettre en place la gestion des permissions !!!
- * Pour l'instant on limite l'accès en lecture et en écriture aux utilisateurs connus.
- */
-
-if ($_SESSION['id_personne'] != '1') {
-
 	// obtient l'id de l'élément si celui-ci existe, sinon, obtient une chaine vide.
 	$idPersonne = $ressourceId;
 
@@ -62,6 +55,14 @@ if ($_SESSION['id_personne'] != '1') {
 	}else{
 		$tags = explode("/", trim($ressourceTags,"/")); // transforme la chaine séparée par des / en tableau. Au passage supprime les / surnuméraires en début et fin de chaine
 	}
+
+/*
+ *  Attention, il faut encore mettre en place la gestion des permissions !!!
+ * Pour l'instant on limite l'accès en lecture et en écriture aux utilisateurs connus.
+ */
+
+if ($_SESSION['id_personne'] != '1') {
+
 
 	// on défini ensuite les différentes actions possible.
 	// Pour l'action get, il y a plusieurs formats de sortie possibles. Le template est choisi en conséqunce. Pour le format pdf, le choix est fait en amont par index.php qui va fournir à princeXML le fichier html correspondant.
@@ -191,98 +192,7 @@ if ($_SESSION['id_personne'] != '1') {
 
 		} //if groupe de ressource
 	
-	////////////////
-	////  ADD
-	///////////////
 	
-	}elseif ($action=='add') {
-		// obtient les données
-		if(isset($_POST['prenom'])){
-			$prenom = $_POST['prenom'];
-		}else{
-			$prenom ='';
-		}
-		if(isset($_POST['nom'])){
-			$nom = $_POST['nom'];
-		}else{
-			$nom ='';
-		}
-		if(isset($_POST['surnom'])){
-			$surnom = $_POST['surnom'];
-		}else{
-			$surnom ='';
-		}
-		if(isset($_POST['description'])){
-			$description = $_POST['description'];
-		}else{
-			$description ='';
-		}
-		if(isset($_POST['date_naissance'])){
-			$date_naissance = $_POST['date_naissance'];
-		}else{
-			$date_naissance ='';
-		}
-		if(isset($_POST['mot_de_passe'])){
-			$mot_de_passe = $_POST['mot_de_passe'];
-		}else{
-			$mot_de_passe ='';
-		}
-		if(isset($_POST['photo'])){
-			$photo = $_POST['photo'];
-		}else{
-			$photo ='';
-		}
-		if(isset($_POST['rue'])){
-			$rue = $_POST['rue'];
-		}else{
-			$rue ='';
-		}
-		if(isset($_POST['npa'])){
-			$npa = $_POST['npa'];
-		}else{
-			$npa ='';
-		}
-		if(isset($_POST['lieu'])){
-			$lieu = $_POST['lieu'];
-		}else{
-			$lieu ='';
-		}
-		if(isset($_POST['pays'])){
-			$pays = $_POST['pays'];
-		}else{
-			$pays ='';
-		}
-		if(isset($_POST['tel'])){
-			$tel = $_POST['tel'];
-		}else{
-			$tel ='';
-		}
-		if(isset($_POST['email'])){
-			$email = $_POST['email'];
-		}else{
-			$email ='';
-		}
-		if(isset($_POST['rang'])){
-			$rang = $_POST['rang'];
-		}else{
-			$rang ='';
-		}
-		if(isset($_POST['url'])){
-			$url = $_POST['url'];
-		}else{
-			$url ='';
-		}
-		if(isset($_POST['evaluation'])){
-			$evaluation = $_POST['evaluation'];
-		}else{
-			$evaluation ='0';
-		}
-	
-		// ajoute la nouvelle ressource
-		$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$evaluation);
-	
-		echo $idPersonne; // est utilisé pour transmettre l'id du nouvel élément lors d'une communication ajax
-
 	////////////////
 	////  UPDATE
 	///////////////
@@ -385,33 +295,6 @@ if ($_SESSION['id_personne'] != '1') {
 	}elseif ($action=='delete') {
 		$personneManager->deletePersonne($idPersonne);
 	
-	////////////////
-	////  NEW
-	///////////////
-	}elseif ($action=='new') {
-	
-		// quelques scripts utiles
-		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-		
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/personne.js\"></script>";	
-		$smarty->assign('additionalHeader',$additionalHeader);
-	
-		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
-		if ($theme=="no") {
-			$smarty->display("personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource
-		}else{
-			// affiche le formulaire de modification inclu dans le template du thème index.tpl
-			$smarty->assign('contenu',"personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource
-			$smarty->display($theme."index.tpl");
-		}
 
 	////////////////
 	////  MODIFY
@@ -453,4 +336,189 @@ if ($_SESSION['id_personne'] != '1') {
 		}	
 	}
 } // if utilisateur connu
+
+// les ation add et new sont accessible aux utilisateurs inconnus pour pouvoir créer des comptes utilisateurs
+
+
+	////////////////
+	////  ADD
+	///////////////
+	
+	if ($action=='add') {
+		// obtient les données
+		if(isset($_POST['prenom'])){
+			$prenom = $_POST['prenom'];
+		}else{
+			$prenom ='';
+		}
+		if(isset($_POST['nom'])){
+			$nom = $_POST['nom'];
+		}else{
+			$nom ='';
+		}
+		if(isset($_POST['surnom'])){
+			$surnom = $_POST['surnom'];
+		}else{
+			$surnom ='';
+		}
+		if(isset($_POST['description'])){
+			$description = $_POST['description'];
+		}else{
+			$description ='';
+		}
+		if(isset($_POST['date_naissance'])){
+			$date_naissance = $_POST['date_naissance'];
+		}else{
+			$date_naissance ='';
+		}
+		if(isset($_POST['mot_de_passe'])){
+			$mot_de_passe = $_POST['mot_de_passe'];
+		}else{
+			$mot_de_passe ='';
+		}
+		if(isset($_POST['photo'])){
+			$photo = $_POST['photo'];
+		}else{
+			$photo ='';
+		}
+		if(isset($_POST['rue'])){
+			$rue = $_POST['rue'];
+		}else{
+			$rue ='';
+		}
+		if(isset($_POST['npa'])){
+			$npa = $_POST['npa'];
+		}else{
+			$npa ='';
+		}
+		if(isset($_POST['lieu'])){
+			$lieu = $_POST['lieu'];
+		}else{
+			$lieu ='';
+		}
+		if(isset($_POST['pays'])){
+			$pays = $_POST['pays'];
+		}else{
+			$pays ='';
+		}
+		if(isset($_POST['tel'])){
+			$tel = $_POST['tel'];
+		}else{
+			$tel ='';
+		}
+		if(isset($_POST['email'])){
+			$email = $_POST['email'];
+		}else{
+			$email ='';
+		}
+		if(isset($_POST['rang'])){
+			$rang = $_POST['rang'];
+		}else{
+			$rang ='';
+		}
+		if(isset($_POST['url'])){
+			$url = $_POST['url'];
+		}else{
+			$url ='';
+		}
+		if(isset($_POST['evaluation'])){
+			$evaluation = $_POST['evaluation'];
+		}else{
+			$evaluation ='0';
+		}
+		$fortune = '0';
+	
+		/////// anti-spam //////
+		$domain = $_SERVER['HTTP_HOST'];
+		    if (preg_match("/([^\.]+\.[a-z]{2,4})$/",$domain,$match)) {
+		            $domain = $match[1]; // ne conserve que le domaine de second niveau (mondomaine.ch)
+		    }
+		    $domain = '.'.$domain; // notation ".mondomaine.ch" pour couvrir tous les sous-domaines
+		
+		    // nom du cookie d'authentification
+		    $authCookieName = 'ticket_commentaire';
+		// validité en secondes du cookie d'authentification
+		$authCookieLifetime = 3600;
+		
+		$errorMsg = array();
+		
+		if (isset($_COOKIE[$authCookieName]) && preg_match("/^[0-9A-Z]{32}$/i",$_COOKIE[$authCookieName])) {
+			// vérifie la validité du cookie d'authentification
+			$ticket_id = $_COOKIE[$authCookieName];
+		
+			// obtient le ticket qui correspond à l'id fourni
+			$ticket = $commentaireManager->checkTicket($ticket_id);
+		
+			if (!empty($ticket)) {
+				if (time() - $ticket['time'] > $authCookieLifetime) {
+		                    $errorMsg[] = "Votre session a expiré, veuillez remplir à nouveau le formulaire";
+		            } elseif ($domain !== $ticket['domain']) {
+		                    $errorMsg[] = "La session n'est valable que pour le domaine ".$ticket['domain'];
+		            } elseif ($_SERVER['REMOTE_ADDR'] !== $ticket['remote_ip']) {
+		                    $errorMsg[] = "La session n'est valable que pour l'adresse IP ".$ticket['remote_ip'];
+		            } else {
+		                    // marque le ticket comme utilisé (le conserve quelques temps à des fins d'historique)
+						$commentaireManager->putTicketToTrash($ticket_id);
+		
+		                    // efface le cookie du navigateur
+		                    setcookie($authCookieName,false,time()-1,'/',$ticket['domain']);
+		
+		                    // purge les tickets délivrés depuis plus de 4h (utilisés ou non)
+		                    $commentaireManager->ticketGarbageCollector();
+		            }
+			}else{
+				$errorMsg[] = "Votre session n'est plus valable, veillez remplir à nouveau le formulaire";
+			}
+		    } else {
+		            $errorMsg[] = "L'usage du script est interdit aux robots et pages externes (erreur d'authentification ou de flooding)";
+		    }
+		
+		// si aucune erreur d'anti-spam n'est survenue, alors on peut ajouter le commentaire. Sinon on retourne l'erreur
+		if (count($errorMsg) == 0) {
+		
+			// ajoute la nouvelle ressource
+			$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$fortune,$evaluation);
+
+		//	echo $idPersonne; // est utilisé pour transmettre l'id du nouvel élément lors d'une communication ajax
+			
+			// redirige sur l'interface de profil de la nouvelle personne
+			$urlProfile = "http://".$serveur."/profile/".$idPersonne."-.html"; // url très simple => todo: améliorer l'url en plaçant le nom mais c'est juste pour l'esthétique.
+			header("Location: ".$urlProfile);
+		
+		}else{
+			// affiche l'erreur
+			echo $errorMsg[0];
+		}
+	
+	////////////////
+	////  NEW
+	///////////////
+	}elseif ($action=='new') {
+
+		// quelques scripts utiles
+		$additionalHeader = "
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
+
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/personne.js\"></script>";	
+		$smarty->assign('additionalHeader',$additionalHeader);
+
+		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
+		if ($theme=="no") {
+			$smarty->display("personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource
+		}else{
+			// affiche le formulaire de modification inclu dans le template du thème index.tpl
+			$smarty->assign('contenu',"personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource
+			$smarty->display($theme."index.tpl");
+		}
+	}
+
+
 ?>

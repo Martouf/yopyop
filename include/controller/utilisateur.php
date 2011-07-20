@@ -335,9 +335,14 @@ if ($_SESSION['id_personne'] != '1') {
 		}else{
 			$evaluation ='0';
 		}
+		if(isset($_POST['fortune'])){
+			$fortune = $_POST['fortune'];
+		}else{
+			$evaluation ='0';
+		}
 	
 		// ajoute la nouvelle ressource
-		$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$evaluation);
+		$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$fortune,$evaluation);
 	
 		echo $idPersonne; // est utilisé pour transmettre l'id du nouvel élément lors d'une communication ajax
 
@@ -422,9 +427,14 @@ if ($_SESSION['id_personne'] != '1') {
 		}else{
 			$evaluation ='';
 		}
+		if(isset($_POST['fortune'])){
+			$fortune = $_POST['fortune'];
+		}else{
+			$evaluation ='0';
+		}
 	
 		// fait la mise à jour
-		$personneManager->updatePersonne($idPersonne,$prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$evaluation);
+		$personneManager->updatePersonne($idPersonne,$prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$fortune,$evaluation);
 
 	////////////////
 	////  DELETE

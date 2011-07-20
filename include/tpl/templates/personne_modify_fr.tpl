@@ -27,7 +27,8 @@
 	</p>
 	<p>
 		Gravatar est un service centralisé de photo de profil. Vous associez une adresse e-mail à une photo. <br />
-		Une fois que vous avez un compte sur <a href="http://gravatar.com">gravatar</a>, il suffit d'indiquer votre adresse e-mail pour que la photo liée soit affichée par les sites web compatibles. Il y en a beaucoup!<br />
+		Une fois que vous avez un compte sur <a href="http://gravatar.com">gravatar</a>, il suffit d'indiquer votre adresse e-mail pour que la photo liée soit affichée par les sites web compatibles. Il y en a beaucoup, ça vaut la peine de créer un compte. :D
+	</p><p>	
 		On voit souvent les gravatar utilisés dans les commentaires de blog wordpress.
 	</p>
 	

@@ -492,9 +492,10 @@ if ($action=='get') {
 		}
 	
 		$rang = '12'; // pour les nouvelles personne ainsi crée on ne donne pas beaucoup de confiance.
+		$fortune = '0';
 		
 		// crée une nouvelle personne dans la base
-		$idPersonne = $personneManager->insertPersonne($prenom,$nomPersonne,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$evaluation);
+		$idPersonne = $personneManager->insertPersonne($prenom,$nomPersonne,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$fortune,$evaluation);
 		
 		/*
 			TODO : éventuellement notification par e-mail (ou atom) de la création d'un nouveau compte. A l'admin pour contrôle et au nouvel inscrit pour qu'il garde se paramètres. (mot de passe arbitraire)
@@ -652,7 +653,7 @@ if ($action=='get') {
 	// 	$idReservation = $commentaireManager->insertReservation($nom,$description,$id_auteur,$mail,$url,$evaluation);
 	// 
 	// 	// lie ce commentaire avec la ressources désirée
-	// 	$commentaireManager->associerReservation($idReservation,$id_element, $table_element,$evaluation);
+	// 	$commentaireManager->associerCommentaire($idReservation,$id_element, $table_element,$evaluation);
 	// 
 	// 	echo $idReservation; // est utilisé pour transmettre l'id du nouvel élément lors d'une communication ajax
 	// }else{
@@ -938,10 +939,13 @@ if ($action=='get') {
 			
 			// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
 			if ($theme=="no") {
-				$smarty->display("reservation_avec_personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
+				$smarty->display("reservation_lien_nouveau_compte_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
+			//	$smarty->display("reservation_avec_personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
 			}else{
 				// affiche le formulaire de modification inclu dans le template du thème index.tpl
-				$smarty->assign('contenu',"reservation_avec_personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
+				$smarty->assign('contenu',"reservation_lien_nouveau_compte_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
+				//$smarty->assign('contenu',"reservation_avec_personne_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource et une personne
+				
 				$smarty->display($theme."index.tpl");
 			}
 		}

@@ -274,7 +274,8 @@ class personneManager {
 	 */
 	function getIdUserFromLogin($pseudo,$motDePasse,$placeCookie=true){
 		
-		if (preg_match('/^[a-z0-9]+$/i',$pseudo) && preg_match('/^[a-z0-9]+$/i',$motDePasse)) {
+		// on ne permet que les chiffres et les lettres dans le login mot de passe.. todo => changer l'expression régulière pour élargir au caractères spéciaux. (le _ fonctionne)
+		if (preg_match('/^[a-z0-9_]+$/i',$pseudo) && preg_match('/^[a-z0-9_]+$/i',$motDePasse)) {
 			
 			$request = "select * from ".$this->tablePrefix."personne where surnom='".$pseudo."' and mot_de_passe=MD5('".$motDePasse."')";
 			$resultat = $this->connection->query($request);			

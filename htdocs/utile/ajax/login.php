@@ -20,7 +20,7 @@
 		
 		$pseudo = $_POST['pseudo'];
 		$motDePasse = $_POST['password'];
-		
+
 		// va chercher l'id de la personne qui correspond au login mot de passe donné.
 		// retourne '1' si le login échoue. (1 est l'id correspondant à un inconnu)
 		// Place dans la session: id_personne, pseudo et rang. (et le mot de passe, pour regénérer un accès avec des droit identique pour générer les pdf)

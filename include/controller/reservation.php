@@ -589,14 +589,18 @@ if ($action=='get') {
 	$proprietaire = $personneManager->getPersonne($objet['id_proprietaire']);
 	
 	// envoie des notifications
-	$messageNotificationFuturLocataire = "Vous avez fait une <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
-	$messageNotificationProprietaire = "<a href=\"//".$serveur."/profile/".$futurLocataire['id_personne']."-".$futurLocataire['surnom'].".html\">".$futurLocataire['surnom']."</a> a fait une demande de réservation pour l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>. Veuillez <a href=\"//".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html?modify\"> accepter cette demande de réservation</a>.";
+	$messageNotificationFuturLocataire = "Vous avez fait une <a href=\"http://".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html\">demande de réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+	$messageNotificationProprietaire = "<a href=\"http://".$serveur."/profile/".$futurLocataire['id_personne']."-".$futurLocataire['surnom'].".html\">".$futurLocataire['surnom']."</a> a fait une demande de réservation pour l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>. Veuillez <a href=\"http://".$serveur."/reservation/".$idNewReservation."-".$objet['nom'].".html?modify\"> accepter cette demande de réservation</a>.";
 	
 	// notifie le locataire
 	$notificationManager->insertNotification('Demande de réservation',$messageNotificationFuturLocataire,'2','0',$idLocataire);
 	
 	// notifie le propriétaire
 	$notificationManager->insertNotification('Demande de réservation',$messageNotificationProprietaire,'3','0',$proprietaire['id_personne']);
+	
+	// notification par email aux gens
+//	$envoiOk = $notificationManager->notificationMail($futurLocataire['email'],$messageNotificationFuturLocataire,'Notification yopyop.ch'); // le locataire qui fait une réservation sait ce qu'il fait ! Pas besoin de le notifier.
+	$envoiOk = $notificationManager->notificationMail($proprietaire['email'],$messageNotificationProprietaire,'Notification yopyop.ch');
 	
 	echo $idNewReservation; // au cas où
 
@@ -750,7 +754,8 @@ if ($action=='get') {
 			if ($evenementExiste) {
 				
 				// l'événement existe, donc on le modifie selon les nouvelles données.
-				$evenementManager->updateEvenement($id_evenement,'','',$date_debut,$date_fin,$jour_entier);
+				$evenementManager->updateEvenement($id_evenement,'','',$date_debut,$date_fin,$jour_entier,'','','','','','','','','','');
+				
 			}else{ // l'evenement n'existe pas
 				// donc on recrée un événement qui correspond au donnée fournies.
 				
@@ -801,22 +806,22 @@ if ($action=='get') {
 		// si l'état a changé
 		if ($etatAvant != $etat) {
 			if ($etat == 1) {  // si l'etat a été validé (forcément par le propriétaire)
-				$messageNotificationProprietaire = "Vous avez <strong>accepté</strong> la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"//".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";				
-				$messageNotificationLocataire = $lienProfileMofificateur." <strong>accepté</strong> votre demande de <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = "Vous avez <strong>accepté</strong> la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"http://".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";				
+				$messageNotificationLocataire = $lienProfileMofificateur." <strong>accepté</strong> votre demande de <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 			}else{
-				$messageNotificationProprietaire = "Vous avez <strong>refusé</strong> la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"//".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";
-				$messageNotificationLocataire = $lienProfileMofificateur." <strong>refusé</strong> votre demande de <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = "Vous avez <strong>refusé</strong> la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"http://".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";
+				$messageNotificationLocataire = $lienProfileMofificateur." <strong>refusé</strong> votre demande de <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 			}
 		}else{  // c'est une autre modification que l'etat
 			
 			// si c'est le locataire qui modifie
 			if ($_SESSION['id_personne']==$locataire['id_personne']) {
-				$messageNotificationLocataire = "Vous avez modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
-				$messageNotificationProprietaire = $lienProfileMofificateur." modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationLocataire = "Vous avez modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = $lienProfileMofificateur." modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 
 			}else{ // si c'est le propriétaire
-				$messageNotificationLocataire = $lienProfileMofificateur." modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
-				$messageNotificationProprietaire = "Vous avez modifié la <a href=\"//".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"//".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationLocataire = $lienProfileMofificateur." modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+				$messageNotificationProprietaire = "Vous avez modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 			}
 		}
 
@@ -825,6 +830,10 @@ if ($action=='get') {
 
 		// notifie le propriétaire
 		$notificationManager->insertNotification('Mise à jour',$messageNotificationProprietaire,'5','0',$proprietaire['id_personne']);
+		
+		// notification par email aux gens
+		$envoiOk = $notificationManager->notificationMail($locataire['email'],$messageNotificationLocataire,'Notification yopyop.ch');
+		$envoiOk = $notificationManager->notificationMail($proprietaire['email'],$messageNotificationProprietaire,'Notification yopyop.ch');
 		
 		
 		echo "ok";		
@@ -960,7 +969,7 @@ if ($action=='get') {
 ///////////////
 }elseif ($action=='modify') {
 	
-	// si l'utilisateur est admin ou créateur de l'reservation
+	// si l'utilisateur est admin ou créateur de la reservation
 	if ($droitModification) {
 	
 		// va chercher les infos sur la ressource demandée

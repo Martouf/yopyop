@@ -478,7 +478,13 @@ if ($_SESSION['id_personne'] != '1') {
 		
 			// ajoute la nouvelle ressource
 			$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$fortune,$evaluation);
-
+			
+			$messageBienvenue = "Bienvenue sur yopyop.ch <br />Vous venez de créer un compte utilisateur avec le pseudo: ".$surnom." et le mot de passe lié: ".$mot_de_passe."<br /><href=\"http://yopyop.ch\">Aller sur yopyop.ch</a>";
+			$envoiOk = $notificationManager->notificationMail($email,$messageBienvenue,'Notification yopyop.ch');
+			
+			// notification
+			$notificationManager->insertNotification('Bienvenue','Bienvenue <em>'.$surnom.'</em>.','1','0',$idPersonne);
+			
 		//	echo $idPersonne; // est utilisé pour transmettre l'id du nouvel élément lors d'une communication ajax
 			
 			// redirige sur l'interface de profil de la nouvelle personne

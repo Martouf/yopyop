@@ -99,7 +99,7 @@ if ($action=='get') {
 	$personne['gravatar'] = md5(strtolower(trim($personne['email'])));
 	
 	$smarty->assign('personne',$personne);
-	
+
 	// quelques scripts utiles
 	$additionalHeader = "
 		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />

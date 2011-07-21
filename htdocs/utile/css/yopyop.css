@@ -1477,7 +1477,7 @@ h2, h1 {
 	font-style: italic;
 }
 #fenetreNotifications{
-	height: 400px;
+	height: 150px;
 	overflow: auto;
 }
 #listeNotifications{

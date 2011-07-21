@@ -149,5 +149,41 @@ class notificationManager {
 		return $this->connection->query($request);
 	}
 	
+	/**
+	 * Envoie un mail
+	 *
+	 * @param string $destinataire l'adresse mail du destinataire
+	 * @param string $message le contenu du message
+	 * @param string $sujet le sujet du mail
+	 */
+	function notificationMail($destinataire,$message,$sujet='Yopyop'){
+
+		// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+		$headers = 'From: Yopyop <kong@yopyop.ch>' . "\r\n";
+	    $headers .= 'MIME-Version: 1.0' . "\r\n";
+	    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+	    // En-têtes additionnels
+	    // $headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
+	    // $headers .= 'From: Anniversaire <anniversaire@example.com>' . "\r\n";
+	    // $headers .= 'Cc: anniversaire_archive@example.com' . "\r\n";
+	    //$headers .= 'Bcc: martouf@martouf.ch' . "\r\n";
+		$messageHtml = '
+		<html>
+		      <head>
+		       <title>Notification de YopYop</title>
+		      </head>
+		      <body>
+				<img src="http://yopyop.ch/utile/images/theme_yopyop/singe.png" />
+		       <p>
+				'.$message.'
+				</p>
+		      </body>
+		     </html>
+		';
+		
+		return mail($destinataire, $sujet, $messageHtml, $headers);
+	}
+	
 } // notificationManager
 ?>

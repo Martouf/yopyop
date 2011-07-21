@@ -787,7 +787,7 @@ if ($action=='get') {
 
 	//	echo "id:",$idReservation," nom:",$nom," descr:",$description," loc:",$id_locataire," id obj:",$id_objet," id evenement:",$id_evenement," type:",$type," etat:",$etat," eval:",$evaluation;
 		// fait la mise à jour
-		$reservationManager->updateReservation($idReservation,$nom,$description,$id_locataire,$id_objet,$id_evenement,$type,$etat,$evaluation);
+		$reservationManager->updateReservation($idReservation,$nom,$description,$id_locataire,$id_objet,$id_evenement,$type,$etat,$evaluation,'','','');  // les 3 derniers paramètres sont: $groupeAutoriseLecture,$groupeAutoriseEcriture,$groupeAutoriseCommentaire et ne sont pas gérer actuellement
 		
 		// obtient des infos sur le propriétaire, l'objet (et le locataire on a déjà plus haut)
 		$objet = $objetManager->getObjet($reservationAvantModif['id_objet']);

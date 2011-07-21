@@ -62,7 +62,7 @@
 		
 		<p>
 			<label for="caution">Disponibilités</label>
-			<span class="valeur"><a title="voir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objetReserve.id_calendrier}-->-reservations-<!--{$objetReserve.nom}-->.html">Voir le calendrier des réservations...</a>
+			<span class="valeur"><a title="Ouvrir le calendrier des réservations dans une nouvelle fenêtre..." target="blank" href="//<!--{$server_name}-->/calendrier/<!--{$objetReserve.id_calendrier}-->-reservations-<!--{$objetReserve.nom}-->.html">Vérifier les disponibilités sur le calendrier des réservations...</a>
 			</span><br />
 		<p>
 		<p>

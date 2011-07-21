@@ -770,6 +770,7 @@ input#tags{
 #liensPermanents{
 	width: 70%;
 	margin: auto;
+	text-align: center;
 }
 #pied{
 	clear: both;
@@ -787,7 +788,10 @@ input#tags{
 	width: 1300px;
 }
 
-#pied a{ color: #833;}
+#pied a{ 
+	color: #134a81;
+	font-size: 13px;
+}
 
 #feuille{
 	width: 900px;

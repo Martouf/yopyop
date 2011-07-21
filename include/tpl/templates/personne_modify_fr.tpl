@@ -13,7 +13,7 @@
 		<p><label>Tel</label> <input type="text" name="tel" value="<!--{$personne.tel}-->" id="inputTel"></input> <span class="info">Selon le format: +41 76 443 54 61</span></p>
 		<p><label>E-mail</label> <input type="text" name="email" value="<!--{$personne.email}-->" id="inputEmail"></input> <span class="info">Cette adresse est utilisée pour afficher votre photo de profil via <a href="http://gravatar.com">gravatar</a>.</span></p>
 		<p><label>site web perso</label> <input type="text" name="url" value="<!--{$personne.url}-->" id="inputUrl"></input></p>
-		<p><label>Remarque</label> <input type="text" name="description" value="<!--{$personne.description}-->" id="inputDescription"></input></p>
+		<p><label>Slogan / citation</label> <input type="text" name="description" value="<!--{$personne.description}-->" id="inputDescription"></input> <span class="info">Petite phrase pour personnaliser son profil.</span></p>
 	</div>
 	
 	<div id="blocAvatar">

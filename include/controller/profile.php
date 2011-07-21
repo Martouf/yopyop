@@ -112,7 +112,6 @@ if ($action=='get') {
 		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/profile.js\"></script>
 		<script type=\"text/javascript\">
 		Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
 		Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');

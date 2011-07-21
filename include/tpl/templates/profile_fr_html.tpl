@@ -33,6 +33,9 @@
 			<!--{/if}-->
 		</div>
 	<!--{/if}-->
+	<div id="sloganPerso">
+		<!--{$personne.description}-->
+	</div>
 </div>
 	<hr />
 

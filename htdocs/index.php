@@ -66,7 +66,7 @@
 	if(isset($resultat[3])){
 		$ressourceName = $resultat[3];
 	}else{
-		$ressourceName = "Yop";
+		$ressourceName = $defaultTitle; // défini dans le fichier de config
 	}
 	$smarty->assign('file_name',$ressourceName);
 	

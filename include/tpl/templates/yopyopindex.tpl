@@ -70,7 +70,7 @@
 				&nbsp;
 			</div>
 			<div id="liensPermanents">
-				<a href="//<!--{$server_name}-->/blog/news/flux.xml">flux Atom du blog</a> | <a href="http://creativecommons.org/licenses/by-sa/3.0/">2011 Licence Creative Commons by-sa</a>
+				<a href="//<!--{$server_name}-->/blog/news/">blog</a> | <a href="//<!--{$server_name}-->/blog/news/flux.xml">flux Atom du blog</a> | <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.fr">2011 Licence Creative Commons by-sa</a>
 			</div>
 		
 		</div><!--pied-->

@@ -132,6 +132,10 @@ $ressourcesSwitch = array();
 	$ressourcesSwitch['utilisateurs'] = 'utilisateur';
 	$ressourcesSwitch['notifications'] = 'notification';
 	
+// 	Chaine de caractère à utiliser dans la balise title quand aucun nom de ressources n'est fourni. C'est le cas du nom du site brut: yopyop.ch
+global $defaultTitle;
+$defaultTitle = "Yoyop ! Partageons nos ressources !";
+	
 //**********************************************************
 // Related documents
 //**********************************************************

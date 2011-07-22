@@ -175,10 +175,10 @@ class notificationManager {
 		      </head>
 		      <body>
 				<img src="http://yopyop.ch/utile/images/theme_yopyop/singe.png" />
-		       <p>
+				<div id="messageMail">
 				'.$message.'
-				</p>
-		      </body>
+		      	</div>
+				</body>
 		     </html>
 		';
 		

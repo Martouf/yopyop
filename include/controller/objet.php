@@ -639,6 +639,29 @@ if ($action=='get') {
 			$smarty->assign('contenu',"objet_new_".LANG.".tpl"); // affichage de l'interface vide qui permet de créer une ressource
 			$smarty->display($theme."index.tpl");
 		}
+	}else{
+		
+		$htmlDebut = <<<END
+
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+					"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+				<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+					<head>
+						<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+END;
+		echo $htmlDebut;
+		echo '<link type="text/css" rel="stylesheet" href="http://'.$serveur.'/utile/css/yopyop.css" media="screen" />';
+		echo "<title>YopYop.... identifiez vous d'abord !</title></head><body>";
+		echo '<div id="boiteDialogue" style="display: block !important;">';
+		echo "<h2>Vous n'est pas identifié(e)</h2>";
+		echo "<p>";
+		echo "<a href=\"http://".$serveur."\">Identifiez vous d'abord sur le site</a> pour pouvoir l'utiliser.";
+		echo "</p>";
+		echo "</div>";
+		echo "</body>";
+		echo "</html>";
 	}
 
 ////////////////

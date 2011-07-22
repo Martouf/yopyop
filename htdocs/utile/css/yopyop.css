@@ -516,6 +516,7 @@ div.moisEvenement{
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
+	border-radius: 10px;
 	font-size: 15px;
 }
 

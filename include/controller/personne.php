@@ -479,7 +479,7 @@ if ($_SESSION['id_personne'] != '1') {
 			// ajoute la nouvelle ressource
 			$idPersonne = $personneManager->insertPersonne($prenom,$nom,$surnom,$description,$date_naissance,$photo,$mot_de_passe,$rue,$npa,$lieu,$pays,$tel,$email,$rang,$url,$fortune,$evaluation);
 			
-			$messageBienvenue = "Bienvenue sur yopyop.ch <br />Vous venez de créer un compte utilisateur avec le pseudo: ".$surnom." et le mot de passe lié: ".$mot_de_passe."<br /><href=\"http://yopyop.ch\">Aller sur yopyop.ch</a>";
+			$messageBienvenue = "<p>Bienvenue sur yopyop.ch <br />Vous venez de créer un compte utilisateur avec le pseudo: ".$surnom." et le mot de passe: ".$mot_de_passe."</p><p><href=\"http://yopyop.ch/objet/?new\">Venez partager vos objets yopyop.ch</a></p>";
 			$envoiOk = $notificationManager->notificationMail($email,$messageBienvenue,'Notification yopyop.ch');
 			
 			// notification

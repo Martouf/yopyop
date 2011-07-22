@@ -812,16 +812,31 @@ if ($action=='get') {
 				$messageNotificationProprietaire = "Vous avez <strong>refusé</strong> la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a> pour <a href=\"http://".$serveur."/profile/".$locataire['id_personne']."-".$locataire['surnom'].".html\">".$locataire['surnom']."</a>";
 				$messageNotificationLocataire = $lienProfileMofificateur." <strong>refusé</strong> votre demande de <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 			}
+			// envoi uniquement au locataire. Le propriétaire sait ce qu'il fait !
+			$messageNotificationLocataireMail = "<p>".$messageNotificationLocataire."</p>";
+			$envoiOk = $notificationManager->notificationMail($locataire['email'],$messageNotificationLocataireMail,'Notification yopyop.ch');
+			
 		}else{  // c'est une autre modification que l'etat
 			
 			// si c'est le locataire qui modifie
 			if ($_SESSION['id_personne']==$locataire['id_personne']) {
 				$messageNotificationLocataire = "Vous avez modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 				$messageNotificationProprietaire = $lienProfileMofificateur." modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
-
-			}else{ // si c'est le propriétaire
+				
+				// notifie le propriétaire
+				$messageNotificationProprietaireMail = "<p>".$messageNotificationProprietaire."</p>";
+				$messageNotificationProprietaireMail .="<p>Le locataire peut être contacté à l'adresse ".$locataire['email']." en cas de besoin.</p>";
+				$envoiOk = $notificationManager->notificationMail($proprietaire['email'],$messageNotificationProprietaireMail,'Notification yopyop.ch');
+				
+			}else{ // si c'est le propriétaire qui modifie
 				$messageNotificationLocataire = $lienProfileMofificateur." modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de l'objet: <a title=\"Voir le détail de l'objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
 				$messageNotificationProprietaire = "Vous avez modifié la <a href=\"http://".$serveur."/reservation/".$idReservation."-".$objet['nom'].".html\"> réservation</a> de votre objet: <a title=\"Voir le détail de votre objet...\" href=\"http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nom'].".html\">".$objet['nom']."</a>";
+			
+				// envoi uniquement au locataire le propriétaire sait ce qu'il fait !
+				$messageNotificationLocataireMail = "<p>".$messageNotificationLocataire."</p>";
+				$messageNotificationLocataireMail .="<p>Le propriétaire peut être contacté à l'adresse ".$proprietaire['email']." en cas de besoin.</p>";
+				
+				$envoiOk = $notificationManager->notificationMail($locataire['email'],$messageNotificationLocataireMail,'Notification yopyop.ch');
 			}
 		}
 
@@ -830,11 +845,6 @@ if ($action=='get') {
 
 		// notifie le propriétaire
 		$notificationManager->insertNotification('Mise à jour',$messageNotificationProprietaire,'5','0',$proprietaire['id_personne']);
-		
-		// notification par email aux gens
-		$envoiOk = $notificationManager->notificationMail($locataire['email'],$messageNotificationLocataire,'Notification yopyop.ch');
-		$envoiOk = $notificationManager->notificationMail($proprietaire['email'],$messageNotificationProprietaire,'Notification yopyop.ch');
-		
 		
 		echo "ok";		
 	}else{

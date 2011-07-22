@@ -1544,3 +1544,8 @@ span.info{
 	float: left;
 	clear: both;
 }
+span.dateCommentaire{
+	color: #777;
+	font-size: 14px;
+	font-style: italic;
+}

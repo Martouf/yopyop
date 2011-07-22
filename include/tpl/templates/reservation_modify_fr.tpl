@@ -1,4 +1,4 @@
-<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html"><img src="//<!--{$server_name}-->/utile/img/action_back.gif" alt="retour" /> Retour à la fiche de la reservation</a>
+<a href="//<!--{$server_name}-->/reservation/<!--{$reservation.id_reservation}-->-<!--{$reservation.nomSimplifie}-->.html"><img src="//<!--{$server_name}-->/utile/img/action_back.gif" alt="retour" /> Retour à la fiche de la réservation (avec les commentaires)</a>
 
 <input type="hidden" name="idReservation" value="<!--{$reservation.id_reservation}-->" id="idReservation" />
 <input type="hidden" name="objetIdCalendrier" value="<!--{$objetReserve.id_calendrier}-->" id="objetIdCalendrier" />

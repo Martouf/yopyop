@@ -58,3 +58,13 @@
 <input type="hidden" name="latitude" value="<!--{$objet.latitude}-->" id="objetLatitude"></input>
 <input type="hidden" name="longitude" value="<!--{$objet.longitude}-->" id="objetLongitude"></input>
 <!--{/if}-->
+
+<hr />
+<!--{if $commentaireAutorise}-->
+
+<div id="blocGestionCommentaires">
+	<!--{include file="commentaire_identifie_multi_fr_html.tpl"}-->
+	<!--{include file="commentaire_identifie_new_fr.tpl"}-->
+</div>
+
+<!--{/if}-->

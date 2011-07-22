@@ -163,7 +163,8 @@ class groupeManager {
 		
 		// Correspondance entre une version texte et une version chiffrée des types d'element.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+	
 		$tableElement = $typeObjet[$tableElement];
 		
 		// teste si une liaison mot-clé<->élement existe déjà ?			
@@ -208,7 +209,8 @@ class groupeManager {
 		
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$tableElement = $typeObjet[$tableElement];
 		
 		$query = "delete from `".$this->tablePrefix."groupe-element` where id_element='".$idElement."' and id_groupe='".$id_groupe."' and table_element='".$tableElement."'";
@@ -252,7 +254,7 @@ class groupeManager {
 	function getMotCleElement($id_element='', $table_element='evenement'){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
 		$table_element = $typeObjet[$table_element];
 		
 		// requête qui ne sélectionne que les groupes de type 1 !
@@ -289,7 +291,8 @@ class groupeManager {
 	function getMotCle($type="evenement"){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$type = $typeObjet[$type];
 		
 		// la requête ne prend en compte que les groupes de type 1. Donc les vrais tags. Les groupes de types 2 sont des groupes destinés à être utilisé comme groupe de restriction d'accès. On ne veut donc pas les montrer dans le nuage de mots.
@@ -323,7 +326,8 @@ class groupeManager {
 	function getMotCleParTypeElement($type="evenement"){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$type = $typeObjet[$type];
 		
 		$query = "select ".$this->tablePrefix."groupe.id_groupe, nom from ".$this->tablePrefix."groupe, `".$this->tablePrefix."groupe-element` where ".$this->tablePrefix."groupe.id_groupe=`".$this->tablePrefix."groupe-element`.id_groupe and table_element='".$type."' group by ".$this->tablePrefix."groupe.id_groupe";  // order by nom (au besoin)
@@ -394,7 +398,8 @@ class groupeManager {
 	function getElementByTags($tags=array(),$table_element="evenement"){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$table_element = $typeObjet[$table_element];
 				
 		$listeElements = array(); // tableau qui contient la liste des id des éléments correspondants à TOUS les tags

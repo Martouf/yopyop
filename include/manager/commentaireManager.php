@@ -155,7 +155,8 @@ class commentaireManager {
 		
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'commentaire'=>12);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$tableElement = $typeObjet[$tableElement];
 		
 		$dateCourante = date('Y-m-d H:i:s',time());
@@ -187,7 +188,8 @@ class commentaireManager {
 		
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'commentaire'=>12);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$tableElement = $typeObjet[$tableElement];
 		
 		$query = "delete from `".$this->tablePrefix."commentaire-element` where id_element='".$idElement."' and id_commentaire='".$idCommentaire."' and table_element='".$tableElement."'";
@@ -205,7 +207,8 @@ class commentaireManager {
 	function getCommentaireElement($id_element='', $table_element='document'){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'commentaire'=>12);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$table_element = $typeObjet[$table_element];
 			
 		$query = "select * from ".$this->tablePrefix."commentaire, `".$this->tablePrefix."commentaire-element` where ".$this->tablePrefix."commentaire.id_commentaire=`".$this->tablePrefix."commentaire-element`.id_commentaire and `".$this->tablePrefix."commentaire-element`.id_element='".$id_element."' and `".$this->tablePrefix."commentaire-element`.table_element='".$table_element."' order by ".$this->tablePrefix."commentaire.date_creation";
@@ -230,7 +233,8 @@ class commentaireManager {
 
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array(1=>'personne',2=>'document',3=>'photo',4=>'evenement',5=>'calendrier',6=>'lieu',7=>'statut',8=>'commentaire',9=>'liste',10=>'element');
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		
 		$tab[1] = $typeObjet[$tab[1]];
 		return $tab;
@@ -247,7 +251,8 @@ class commentaireManager {
 	function getNbCommentaireElement($id_element='', $table_element='document'){
 		// Correspondance entre une version texte et une version chiffrée des types d'objet.
 		// la version texte est plus agréable à manipuler dans le code, mais la version chiffrée dans la base et 2 fois plus rapide pour faire les jointures.
-		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'commentaire'=>12);
+		$typeObjet = array('personne'=>1,'document'=>2,'photo'=>3,'evenement'=>4,'calendrier'=>5,'lieu'=>6,'statut'=>7,'commentaire'=>8,'liste'=>9,'element'=>10,'restriction'=>11,'groupe'=>12,'fichier'=>13,'objet'=>14,'reservation'=>15,'transaction'=>16,'meta'=>17);
+		
 		$table_element = $typeObjet[$table_element];
 			
 		$query = "select count(".$this->tablePrefix."commentaire.id_commentaire) from ".$this->tablePrefix."commentaire, `".$this->tablePrefix."commentaire-element` where ".$this->tablePrefix."commentaire.id_commentaire=`".$this->tablePrefix."commentaire-element`.id_commentaire and `".$this->tablePrefix."commentaire-element`.id_element='".$id_element."' and `".$this->tablePrefix."commentaire-element`.table_element='".$table_element."'";

@@ -38,4 +38,15 @@
 			<label>La réservation est </label>
 			<!--{if $reservation.etat==0}--> en attente de validation par le propriétaire: <a href="//<!--{$server_name}-->/profile/<!--{$reservation.proprietaire.id_personne}-->-<!--{$reservation.proprietaire.surnom}-->.html"><!--{$reservation.proprietaire.surnom}--></a> <!--{elseif $reservation.etat==1}--> acceptée<!--{else}--> refusée<!--{/if}-->
 		</p>
+		<input type="hidden" name="idReservation" value="<!--{$reservation.id_reservation}-->" id="idReservation" />
 	</div>
+
+	<hr />
+	<!--{if $commentaireAutorise}-->
+
+	<div id="blocGestionCommentaires">
+		<!--{include file="commentaire_identifie_multi_fr_html.tpl"}-->
+		<!--{include file="commentaire_identifie_new_fr.tpl"}-->
+	</div>
+
+	<!--{/if}-->

@@ -173,8 +173,43 @@ if ($action=='get') {
 			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>
+			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/objet_lecture.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/objet.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
+
+		// si aucune restriction sur les commentaires n'existe..
+		$commentairesObjetAutorise = true; // on accepte dans tous les cas
+		// affiche les commentaires courants et propose une interface pour en ajouter
+		if ($commentairesObjetAutorise) {
+		
+			// va chercher les commentaires qui sont associés à la ressource
+			$tousCommentaires = $commentaireManager->getCommentaireElement($idObjet,'objet');
+			$commentaires = array();
+			foreach ($tousCommentaires as $key => $aCommentaire) {
+				$commentaires[$key] = $aCommentaire;
+				$commentaires[$key]['description'] = nl2br($aCommentaire['description']);  // mise en forme basique des commentaire avec des retours chariots
+				$commentaires[$key]['dateCreation'] = dateTime2Humain($aCommentaire['date_creation']);
+				$commentaires[$key]['auteur'] = $personneManager->getPseudo($aCommentaire['id_auteur']); // pseudo de l'auteur plutôt que id
+				$commentaires[$key]['auteurCommentaire'] = $personneManager->getPersonne($aCommentaire['id_auteur']); // toutes les infos de la personne
+				$commentaires[$key]['gravatar'] = md5($aCommentaire['mail']);
+			}
+		
+			// supprime les \  et transmet l'affichage à smarty
+			stripslashes_deep($commentaires);
+			$smarty->assign('commentaires',$commentaires);
+		
+			// info sur l'utilisateur qui va poster un commentaire
+			$smarty->assign('idAuteurCommentaire',$_SESSION['id_personne']);
+			$smarty->assign('pseudoUtilisateur',@$_SESSION['pseudo']);
+			
+			$smarty->assign('auteurCommentaireEnCours',$personneManager->getPersonne($_SESSION['id_personne']));
+		
+			// on autorise le template à afficher les commentaires
+			$smarty->assign('commentaireAutorise',true);
+		}else{
+			// on autorise pas les commentaires
+			$smarty->assign('commentaireAutorise',false);
+		}
 
 		// certains formats ne sont jamais inclu dans un thème
 		if ($outputFormat=='xml') {			

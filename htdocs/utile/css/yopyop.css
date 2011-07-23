@@ -1446,18 +1446,19 @@ img.gravatar:hover{
     break-inside: avoid;
 }
 .objetCarrousel{
-	min-height: 300px;
+	min-height: 320px;
 }
 .objetCarrousel h2{
 	margin-bottom: 5px;
 }
 .objetCarrousel p{
+	margin-top: 0px;
 	margin-bottom: 3px;
 }
 
 /*liste objets profile*/
 .objetCarrousel{
-	width: 280px;
+	width: 285px;
 	float: left;
 }
 .ombre{

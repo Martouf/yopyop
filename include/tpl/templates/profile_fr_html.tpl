@@ -14,6 +14,7 @@
 			<p><label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong</p>
 		<!--{else}-->	
 			<p>
+				<label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong
 				<a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a>
 			</p>
 		<!--{/if}-->
@@ -86,7 +87,7 @@
 					<!--{else}-->
 						<img src="//<!--{$server_name}-->/utile/img/bullet_red.png" alt="privé" title="privé" />
 					<!--{/if}-->
-					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
+					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}--></a>
 				</h2>
 				
 				<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails...">

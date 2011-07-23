@@ -1,7 +1,5 @@
 
-<h1 class="rose barre">... Moins de biens, plus de liens ! Partageons nos ressources...</h1>
-
-<hr />
+<h1 class="rose barre">Moins de biens, plus de liens... &nbsp;&nbsp;&nbsp;Partageons nos ressources...</h1>
 
 <div id="blocPresentation">
 	<!--{$contenuPresentation}-->
@@ -13,7 +11,7 @@
 		<!--{foreach from=$objets key=key item=aObjet}-->	
 			<div class="objetCarrousel">
 				<h2>
-					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}-->...</a>
+					<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails..."><!--{$aObjet.nom}--></a>
 				</h2>
 				
 				<a href="//<!--{$server_name}-->/objet/<!--{$aObjet.id_objet}-->-<!--{$aObjet.nomSimplifie}-->.html" title="Voir les détails...">
@@ -21,7 +19,7 @@
 				</a>
 				<p>
 					<span class="blocTags"><!--{$aObjet.listeTags}--></span><br />
-					Appartient à <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a>
+					Partagé par <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a>
 				</p>
 			</div>
 		

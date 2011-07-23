@@ -50,7 +50,7 @@ $smarty->assign('contenuPresentation',stripcslashes($document['contenu']));
 $filtreObjets = array('etat'=>'1'); // on ne veut que les objets de la personne dont on affiche le profile qui sont publié (etat=1)
 
 
-$tousObjets = $objetManager->getObjets($filtreObjets,'date_creation desc limit 6'); // avec 'nom desc limit 1' => seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
+$tousObjets = $objetManager->getObjets($filtreObjets,'date_creation desc limit 9'); // avec 'nom desc limit 1' => seulement 1 et filtré par nom inverses.. (bref un peu les possibilités de la chose)
 	
 $objets = array(); // tableau contenant des tableaux représentant la ressource
 // le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getObjets()... et array_intersect

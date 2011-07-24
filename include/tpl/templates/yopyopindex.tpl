@@ -91,5 +91,6 @@
 		  })();
 
 		</script>
+		<script type="text/javascript" src="http://<!--{$server_name}-->/utile/js/pirate.js"></script>
 	</body>
 </html>

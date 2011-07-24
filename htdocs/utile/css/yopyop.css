@@ -782,11 +782,12 @@ input#tags{
 }
 #blocMontagnes{
 	background-image: url('../images/theme_yopyop/montagnes.png');
+	background-repeat: repeat-x;
 	height: 270px;
 	position: relative;
 	top: -100px;
 	left: -150px;
-	width: 1300px;
+	width: 1196px;
 }
 
 #pied a{ 

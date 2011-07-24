@@ -1,4 +1,4 @@
-<div id="listeObjet">
+<div id="listeObjetGlobale">
 	
 	<!--{foreach from=$objets key=key item=aObjet}-->	
 		<div class="objetCarrousel">
@@ -18,9 +18,8 @@
 			</a>
 			<p>
 				<span class="blocTags"><!--{$aObjet.listeTags}--></span><br />
-				<!--{$aObjet.prix}--> Kong/jour <br />
-				Appartient à <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a><br />
-				<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." href="//<!--{$server_name}-->/agenda/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier des réservations...</a>
+				<!--{$aObjet.prix}--> Kong/jour &nbsp;&nbsp;&nbsp;<a title="voir le calendrier des réservations dans une nouvelle fenêtre..." href="//<!--{$server_name}-->/agenda/<!--{$aObjet.id_calendrier}-->-reservations-<!--{$aObjet.nomSimplifie}-->.html">voir le calendrier</a><br />
+				Partagé par <a href="//<!--{$server_name}-->/profile/<!--{$aObjet.proprietaire.id_personne}-->-<!--{$aObjet.proprietaire.surnom}-->.html" title="Voir son profil..."><!--{$aObjet.proprietaire.surnom}--></a><br />
 			</p>
 		</div>
 	

@@ -1455,6 +1455,11 @@ img.gravatar:hover{
 	margin-top: 0px;
 	margin-bottom: 3px;
 }
+/* Liste objet globale qui a des infos en plus */
+#listeObjetGlobale .objetCarrousel{
+	min-height: 340px;
+}
+
 
 /*liste objets profile*/
 .objetCarrousel{

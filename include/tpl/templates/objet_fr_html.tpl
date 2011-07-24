@@ -64,7 +64,10 @@
 
 <div id="blocGestionCommentaires">
 	<!--{include file="commentaire_identifie_multi_fr_html.tpl"}-->
-	<!--{include file="commentaire_identifie_new_fr.tpl"}-->
+	
+	<!--{if $AjoutcommentaireAutorise}-->
+		<!--{include file="commentaire_identifie_new_fr.tpl"}-->
+	<!--{/if}-->
 </div>
 
 <!--{/if}-->

@@ -178,7 +178,8 @@ if ($action=='get') {
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// si aucune restriction sur les commentaires n'existe..
-		$commentairesObjetAutorise = true; // on accepte dans tous les cas
+		$commentairesObjetAutorise = true;
+		
 		// affiche les commentaires courants et propose une interface pour en ajouter
 		if ($commentairesObjetAutorise) {
 		
@@ -204,8 +205,16 @@ if ($action=='get') {
 			
 			$smarty->assign('auteurCommentaireEnCours',$personneManager->getPersonne($_SESSION['id_personne']));
 		
-			// on autorise le template à afficher les commentaires
 			$smarty->assign('commentaireAutorise',true);
+			
+			// si le visiteur est inconnu on autorise pas l'ajout de commentaire !
+			// seule la lecture est possible
+			if ($_SESSION['id_personne']=='1') {
+				$smarty->assign('AjoutcommentaireAutorise',false);
+			}else{
+				$smarty->assign('AjoutcommentaireAutorise',true);
+			}
+			
 		}else{
 			// on autorise pas les commentaires
 			$smarty->assign('commentaireAutorise',false);

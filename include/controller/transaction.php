@@ -209,11 +209,7 @@ if ($_SESSION['id_personne'] != '1') {
 				$smarty->assign('additionalHeader',$additionalHeader);
 
 				// certains formats ne sont jamais inclu dans un thème
-				if ($outputFormat=='vcf') {
-					header('Content-Type: text/x-vcard');
-					$smarty->display("transaction_".LANG."_".$outputFormat.".tpl"); // affichage de la ressource brute dans la langue demandée et le format demandé
-				}elseif ($outputFormat=='xml') {
-
+				if ($outputFormat=='xml') {
 					// calcule le nom de la même ressource, mais en page html
 					$alternateUrl = str_replace("xml","html",$serveur.$_SERVER['REQUEST_URI']);
 					$smarty->assign('alternateUrl',"http://".$alternateUrl);
@@ -239,7 +235,16 @@ if ($_SESSION['id_personne'] != '1') {
 				// si aucun tag est passé en paramètre, on affiche la liste complète de toutes les ressources.
 				//http://yopyop.ch/transaction/    => va afficher la liste de toutes les transactions.
 				if (empty($tags)) {
-					$transactions = $transactionManager->getTransactions();
+					$tousTransactions = $transactionManager->getTransactions();
+					
+					$transactions = array(); // tableau contenant des tableaux représentant la ressource
+					// le tri est effectué par id. Donc par ordre chronologique. Si l'on veut trier autrement, il faut utiliser la fonction getTransactions()... et array_intersect
+					foreach ($tousTransactions as $key => $aTransaction) {
+						$transaction = $aTransaction;
+
+						$transaction['dateCreation'] = dateTime2Humain($aTransaction['date_creation']);
+						$transactions[$aTransaction['id_transaction']] = $transaction;		
+					}
 				}else{
 
 					 // va chercher les id des éléments qui correspondent aux groupes et sous-groupes fait avec les tags
@@ -263,12 +268,8 @@ if ($_SESSION['id_personne'] != '1') {
 					<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
 					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
 					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-
-					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date.js\"></script>
-					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/date_fr.js\"></script>
-					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.datePicker.js\"></script>
-					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.uitablefilter.js\"></script>
+					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.tablesorter.pack.js\"></script>
 					<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/transaction.js\"></script>";	
 				$smarty->assign('additionalHeader',$additionalHeader);
 

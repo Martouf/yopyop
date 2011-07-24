@@ -28,7 +28,7 @@
 	</div>
 </div>
 <div id="blocNuage">
-	<h2 class="violet barre" title="Le nuage de mot-clés ci-dessous, représente les objets à disposition sur ce site...">Pioche dans le nuages pour trouver l'objet de tes rêves...</h2>
+	<h2 class="violet barre" title="Le nuage de mot-clés ci-dessous, représente les objets à disposition sur ce site...">Pioche dans le nuage pour trouver l'objet de tes rêves...</h2>
 	
 	<!--{$contenuNuage}-->	
 </div>

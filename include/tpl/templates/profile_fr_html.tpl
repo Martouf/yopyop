@@ -14,7 +14,7 @@
 			<p><label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong</p>
 		<!--{else}-->	
 			<p>
-				<label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong
+				<label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong <img src="//<!--{$server_name}-->/utile/images/theme_yopyop/singe.png" width="20px" height="20px" alt="singe" /><br />
 				<a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a>
 			</p>
 		<!--{/if}-->

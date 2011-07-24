@@ -464,7 +464,7 @@ class personneManager {
 	function augmenteFortune($idPersonne,$montant){
 		$champs = array();
 		$champs['date_modification'] = date('Y-m-d H:i:s',time());
-		$conditions['id_personne'] = $id_personne;
+		$conditions['id_personne'] = $idPersonne;
 		
 		$montantActuel = $this->getFortune($idPersonne);
 		
@@ -483,7 +483,7 @@ class personneManager {
 	function diminueFortune($idPersonne,$montant){
 		$champs = array();
 		$champs['date_modification'] = date('Y-m-d H:i:s',time());
-		$conditions['id_personne'] = $id_personne;
+		$conditions['id_personne'] = $idPersonne;
 		
 		$montantActuel = $this->getFortune($idPersonne);
 		

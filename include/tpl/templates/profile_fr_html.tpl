@@ -1,7 +1,7 @@
 <div id="infosPersonne">
-	<!--{if $droitModification}-->
+
 	<div id="modificationProfile">
-		<a href="//<!--{$server_name}-->/personne/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données du profile"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
+			<!--{if $droitModification}--><a href="//<!--{$server_name}-->/personne/<!--{$personne.id_personne}-->-<!--{$personne.nomSimplifie}-->.html?modify" title="modifier les données du profile"><img src="http://<!--{$server_name}-->/utile/img/vcard_edit.png" alt="editer"/>&nbsp;modifier</a><!--{/if}-->
 	</div>
 	<div id="blocAvatar">
 		<!--{if !empty($personne.email)}-->
@@ -15,7 +15,7 @@
 		<!--{else}-->	
 			<p>
 				<label>Fortune</label> <strong><!--{$personne.fortune}--></strong> kong <img src="//<!--{$server_name}-->/utile/images/theme_yopyop/singe.png" width="20px" height="20px" alt="singe" /><br />
-				<a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a>
+				<!--{if $utilisateurConnu}--><a href="//<!--{$server_name}-->/transaction/?new&amp;for=<!--{$personne.id_personne}-->">lui donner des kong...</a><!--{/if}-->
 			</p>
 		<!--{/if}-->
 	</div>

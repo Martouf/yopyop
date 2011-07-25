@@ -537,6 +537,10 @@ if ($action=='get') {
 		$idNewObjet = $objetManager->insertObjet($nom,$description,$url,$id_proprietaire,$id_image,$id_calendrier,$prix,$caution,$latitude,$longitude,$etat,$duree_max,$duree_min);
 		echo $idNewObjet; // au cas où
 		
+		// augmente la fortune de 10 kong pour chaque objet ajouté !
+		$montantAjoutObjet = 10; // todo => mettre ce montant dans le fichier de config
+		$personneManager->augmenteFortune($_SESSION['id_personne'],$montantAjoutObjet);
+		
 		$nomSimplifieObjet = simplifieNom($nom);
 		
 		// redirige sur l'interface de modification de l'objet pour ajouter le détail de celui-ci.

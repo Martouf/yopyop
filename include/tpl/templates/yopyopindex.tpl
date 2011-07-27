@@ -31,7 +31,7 @@
 				<div id="singe">
 					&nbsp;
 				</div>
-				<!--{if $sessionIdPersonne!='1'}-->
+				<!--{if $sessionRang=='1'}-->
 				<div id="blocOutils">
 					<!--{include file="outils_edition_fr.tpl"}-->
 				</div>

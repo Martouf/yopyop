@@ -183,7 +183,7 @@ if ($action=='get') {
 
 		// génère une bouton facebook like par la méthode du iframe. Ce qui dispense d'avoir un facebook app id. Pour la doc => https://developers.facebook.com/docs/reference/plugins/like/
 		$urlPageObjet = "http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nomSimplifie'].".html";
-		$urlPageObjetEncoded = urlencode($urlPageObjetEncoded);
+		$urlPageObjetEncoded = urlencode($urlPageObjet);
 		$likeButtonCode = '<iframe src="http://www.facebook.com/plugins/like.php?href='.$urlPageObjetEncoded.'&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>';
 		$smarty->assign('likeButtonCode',$likeButtonCode);
 

@@ -43,11 +43,12 @@
 		<a href="//<!--{$server_name}-->/reservation/?new&id_objet=<!--{$objet.id_objet}-->" title="réserver cet objet...">Réserver cet objet...</a>
 	</span>
 </div>
-
 <p id="descriptionObjet">
 	<!--{$objet.description}-->
 </p>
-
+<div id="fbLikeButton">
+	<!--{$likeButtonCode}-->
+</div>
 <p>
 	<label for="lieu">Lieu où se trouve l'objet</label>
 	<!--{$objet.lieu}-->

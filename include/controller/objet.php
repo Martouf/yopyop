@@ -156,8 +156,41 @@ if ($action=='get') {
 			$smarty->assign('utilisateurConnu',false);
 		}
 
+		//////// facebook open graph protocol  ///////
+		
+		// ex:
+		// <meta property="og:title" content="Grille pain"/>
+		// <meta property="og:type" content="product"/>
+		// <meta property="og:url" content="http://yopyop.ch/objet/123-grille-pain.html"/>
+		// <meta property="og:image" content="http://yopyop.ch/utile/images/divers/grille-pain.jpg"/>
+		// <meta property="og:site_name" content="YopYop"/>
+		// <meta property="fb:admins" content="684590465"/>
+		// <meta property ="og:location" content = "Atlanta, GA"/> 
+		// <meta property="og:latitude" content="37.416343"/>
+		// <meta property="og:longitude" content="-122.153013"/>
+		// <meta property="og:description" content="Un objet super utile"/>
+		
+		$metaOpenGraph =  "<meta property=\"og:title\" content=\"".$objet['nom']."\"/>\n";
+		$metaOpenGraph .= '<meta property="og:type" content="product"/>';
+		$metaOpenGraph .= '<meta property="og:url" content="http://'.$serveur.'/objet/'.$objet['id_objet'].'-'.$objet['nomSimplifie'].'.html"/>';
+		$metaOpenGraph .= '<meta property="og:image" content="http://'.$serveur.'/'.$imagePresentation['lienVignette'].'"/>';
+		$metaOpenGraph .= '<meta property="og:site_name" content="YopYop... partageons nos ressources..."/>';
+		$metaOpenGraph .= '<meta property="fb:admins" content="684590465"/>'; // martouf ! ... todo: ajouter le propriétaire de l'objet si son fb uid est connu
+		$metaOpenGraph .= '<meta property="og:location" content = "'.$objet['lieu'].'"/>';
+		$metaOpenGraph .= '<meta property="og:latitude" content="'.$objet['latitude'].'"/>';
+		$metaOpenGraph .= '<meta property="og:longitude" content="'.$objet['longitude'].'"/>';
+		$metaOpenGraph .= '<meta property="og:description" content="Un objet partagé sur YopYop par '.$proprietaire['surnom'].'"/>';
+
+		// génère une bouton facebook like par la méthode du iframe. Ce qui dispense d'avoir un facebook app id. Pour la doc => https://developers.facebook.com/docs/reference/plugins/like/
+		$urlPageObjet = "http://".$serveur."/objet/".$objet['id_objet']."-".$objet['nomSimplifie'].".html";
+		$urlPageObjetEncoded = urlencode($urlPageObjetEncoded);
+		$likeButtonCode = '<iframe src="http://www.facebook.com/plugins/like.php?href='.$urlPageObjetEncoded.'&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>';
+		$smarty->assign('likeButtonCode',$likeButtonCode);
+
+		$additionalHeader = $metaOpenGraph;
+		
 		// quelques scripts utiles
-		$additionalHeader = "
+		$additionalHeader .= "
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>

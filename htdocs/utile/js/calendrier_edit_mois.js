@@ -495,10 +495,12 @@ var app;  // variable globale qui représente mon application
 			
 			// crée l'événement dans la base de donnée
 			var url = chemin+"evenement/evenement.html?add";
+			
+			var idCalendrierCourant = $('#filtreCalendrier').val();
 
 			// url , param, fonction de callback
-			$.post(url,{'nom':'nouvel événement','date_debut':dateDebut,'date_fin':dateFin},app.addIdBlocEvenement);
-			
+			// $.post(url,{'nom':'nouvel événement','date_debut':dateDebut,'date_fin':dateFin},app.addIdBlocEvenement); // il faut cliquer pour modifier le nouvel événement créé .. Ce clic fonctionne dans firefox, mais pas dans chrome et safari ??
+			$.post(url,{'nom':'nouvel événement','date_debut':dateDebut,'date_fin':dateFin,'id_calendrier':idCalendrierCourant},app.showModifierEvenement); // ouvre directement la boite d'édition de l'événement après l'avoir créer. (fontionne aussi dans chrome et safari..)
 
 			var idEvenementTempo = 0; // id temporaire avant que l'on reçoivent le véritable id
 			 

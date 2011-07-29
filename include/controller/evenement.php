@@ -697,9 +697,11 @@ if ($action=='get') {
 	$modificateur = $personneManager->getPersonne($evenement['auteur_modif']);
 	
 	$evenement['emailCreateur'] = $createur['email'];
+	$evenement['pseudoCreateur'] = $createur['surnom'];
 	
 	$modificateur = $personneManager->getPersonne($evenement['auteur_modif']);
 	$evenement['emailModificateur'] = $modificateur['email'];
+	$evenement['pseudoModificateur'] = $modificateur['surnom'];
 	
 	// si l'événement est périodique
 	if ($evenement['periodicite']!='non') {
@@ -768,6 +770,10 @@ if ($action=='get') {
 		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
 		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/evenement.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
+	
+	// mode dans lequel on n'affiche pas le lieu, ni la personne de contact ni le choix de changer de calendrier
+	$modeEvenementSimple = true; // todo placer dans le fichier de config
+	$smarty->assign('modeEvenementSimple',$modeEvenementSimple);
 	
 	// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
 	if ($theme=="no") {

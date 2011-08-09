@@ -1,5 +1,5 @@
 
-<h1 class="rose barre">Moins de biens, plus de liens... &nbsp;&nbsp;&nbsp;Partageons nos ressources...</h1>
+<h1 class="rose barre">Moins de biens, plus de liens... &nbsp;&nbsp;&nbsp;Partageons nos objets...</h1>
 
 <div id="blocPresentation">
 	<!--{$contenuPresentation}-->

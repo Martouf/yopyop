@@ -366,11 +366,30 @@ if ($_SESSION['id_personne'] != '1') {
 		}else{
 			$description ='';
 		}
-		if(isset($_POST['date_naissance'])){
-			$date_naissance = $_POST['date_naissance'];
+		// remplacé par le détail de la date mois année
+		// if(isset($_POST['date_naissance'])){
+		// 	$date_naissance = $_POST['date_naissance'];
+		// }else{
+		// 	$date_naissance ='';
+		// }
+		if(isset($_POST['jourNaissanceDetail'])){
+			$jourNaissanceDetail = $_POST['jourNaissanceDetail'];
 		}else{
-			$date_naissance ='';
+			$jourNaissanceDetail ='';
 		}
+		if(isset($_POST['moisNaissanceDetail'])){
+			$moisNaissanceDetail = $_POST['moisNaissanceDetail'];
+		}else{
+			$moisNaissanceDetail ='';
+		}
+		if(isset($_POST['anneeNaissanceDetail'])){
+			$anneeNaissanceDetail = $_POST['anneeNaissanceDetail'];
+		}else{
+			$anneeNaissanceDetail ='';
+		}
+		// On construit une date au format de type datetime: 1981-07-12 00:00:00
+		$date_naissance = $anneeNaissanceDetail."-".$moisNaissanceDetail."-".$jourNaissanceDetail." 00:00:00";
+		
 		if(isset($_POST['mot_de_passe'])){
 			$mot_de_passe = $_POST['mot_de_passe'];
 		}else{
@@ -515,6 +534,44 @@ if ($_SESSION['id_personne'] != '1') {
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/personne.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
+		
+		// crée une base pour afficher les jours, mois années de la date de naissance
+		$jours = array();
+		$j = '';
+		for ($i=1; $i < 32 ; $i++) {
+			$j = $i;
+			if (strlen($j) < 2) {
+				$j = "0".$j;
+			}
+			$jours[] = $j;
+		}
+		$mois = array();
+		$j = '';
+		for ($i=1; $i < 13 ; $i++) { 
+			$j = $i;
+			if (strlen($j) < 2) {
+				$j = "0".$j;
+			}
+			$mois[] = $j;
+		}
+		
+		$annees = array();
+		
+		$anneeActuelle = date('Y');
+		$anneeDebut = $anneeActuelle - 101; // ça interdit l'utilisation du service aux gens de plus de 100 ans ! (il ne devrait pas y en avoir beaucoup !)
+		
+		$j = '';
+		for ($i=$anneeActuelle; $i > $anneeDebut ; $i--) { 
+			$j = $i;
+			$annees[] = $j;
+		}
+		
+
+		$smarty->assign('annees',$annees);
+		$smarty->assign('mois',$mois);
+		$smarty->assign('jours',$jours);
+		
+		
 
 		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
 		if ($theme=="no") {

@@ -21,6 +21,10 @@
  * http://yopyop.ch/photo/?name  => (à voir si cette url fonctionne vraiment) fourni la liste des nom des ressources
  */
 
+//$googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRSgySnZCpt_ZDIBPsG-wFu5a0oU6BSi8TdLywJh5fSfPHkead_uQZ4lSQ";  //yopyop.ch
+//$googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRRSMAugEfcv_MMHwK_fk7DalYdq0xT3z4lmg7IJaljNWbgDs1DlyX9MgA";  // martouf.ch
+$googleMapsKey = "ABQIAAAAsyuA7bSIBFzUGUhfQJbrIRToDFy_CfwiqU-h2cB1nNY3fiLA3xRdox0xI5V4o-w9oEv54-aaGr5nyg"; // ou-est-la-girafe.ch
+
 /*
  *  Attention, il faut encore mettre en place la gestion des permissions !!!
  *
@@ -153,17 +157,17 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal.css\" media=\"screen\" />
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal_print.css\" media=\"print\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal.css\" media=\"screen\" />
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal_print.css\" media=\"print\" />
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
 			<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo_seule.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo_seule.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// certains formats ne sont jamais inclu dans un thème
@@ -278,34 +282,40 @@ if ($action=='get') {
 		// supprime les \
 		stripslashes_deep($photos);
 		
+		// inverse l'ordre du tableau
+		$photos = array_reverse($photos);
+		
+		//print_r($photos);
+		
 		// transmets les ressources à smarty
 		$smarty->assign('photos',$photos);
 		
 		// url du flux atom pour suivre les photos de cette catégorie
 		$urlFlux = "http://".$serveur."/photo/".trim($ressourceTags,"/")."/flux.xml";
 
-		// <link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/lightbox.css\" media=\"screen\" />
-		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/prototype.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/scriptaculous.js\"></script>
-		// <script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/lightbox.js\"></script>
+		// <link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/lightbox.css\" media=\"screen\" />
+		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/prototype.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/scriptaculous.js\"></script>
+		// <script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/lightbox.js\"></script>
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal.css\" media=\"screen\" />
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal_print.css\" media=\"print\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/shadowbox.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal.css\" media=\"screen\" />
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal_print.css\" media=\"print\" />
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox.js\"></script>
 			<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/geophoto.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/global.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/geophoto.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/global.js\"></script>
 			<script type=\"text/javascript\">
-			Shadowbox.loadSkin('classic', 'http://".$serveur."/utile/js/shadowbox/src/skin');
-			Shadowbox.loadLanguage('fr', 'http://".$serveur."/utile/js/shadowbox/build/lang');
-			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$serveur."/utile/js/shadowbox/build/player');
+			Shadowbox.loadSkin('classic', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/src/skin');
+			Shadowbox.loadLanguage('fr', 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/lang');
+			Shadowbox.loadPlayer(['img', 'flv'], 'http://".$_SERVER['SERVER_NAME']."/utile/js/shadowbox/build/player');
 			window.onload = Shadowbox.init;
 			</script>
 			<link rel=\"alternate\" type=\"application/atom+xml\" title=\"Atom\" href=\"".$urlFlux."\" />";
@@ -318,7 +328,41 @@ if ($action=='get') {
 			$smarty->assign('alternateUrl',"http://".$alternateUrl);
 			
 			header('Content-Type: application/atom+xml; charset=UTF-8');
-			$smarty->display("photo_multi_".LANG."_".$outputFormat.".tpl"); // affiche les ressources qui correspondent aux tags.
+			$smarty->display("photo_multi_".LANG."_xml.tpl"); // affiche les ressources qui correspondent aux tags.
+		}elseif ($outputFormat=='json'){
+			header('Content-Type: application/json; charset=UTF-8');
+			$smarty->display("geophoto_fr_json.tpl"); // affiche les ressources qui correspondent aux tags.
+			// echo "{\"photos\":[";
+			// 		foreach ($photos as $key => $aPhoto) {
+			// 			echo "\"id\":\"".$aPhoto['id_photo']."\",";
+			// 			echo "\"latLieu\":";
+			// 			if (!empty($aPhoto['latitude'])) {
+			// 				echo $aPhoto['latitude'],",";
+			// 			}else{
+			// 				echo "0",",";
+			// 			}
+			// 			echo "\"longLieu\":";
+			// 			if (!empty($aPhoto['longitude'])) {
+			// 				echo $aPhoto['longitude'],",";
+			// 			}else{
+			// 				echo "0",",";
+			// 			}
+			// 			echo "\"lienMoyenne\":\"";
+			// 			if ($aPhoto['externe']!= '1') {
+			// 				echo "http://",$_SERVER['SERVER_NAME'],"/";
+			// 			}
+			// 			echo $aPhoto['lienMoyenne'],"\",";
+			// 			echo "\"lienVignette\":\"";
+			// 			if ($aPhoto['externe']!= '1') {
+			// 				echo "http://",$_SERVER['SERVER_NAME'],"/";
+			// 			}
+			// 			echo $aPhoto['lienVignette'],"\",";
+			// 			echo "\"lienIndividuel\":\"http://",$_SERVER['SERVER_NAME'],"/photo/",$aPhoto['id_photo'],"-",$aPhoto['nom'],".html\",";
+			// 			echo "\"description\":\"",$aPhoto['description'],"\"";
+			// 			echo "},";
+			// 		}
+			// 		
+			// 		echo "]}";
 		}else{
 			
 			// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -502,18 +546,19 @@ if ($action=='get') {
 ///////////////
 }elseif ($action=='new') {
 	
+	//<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/dimensions.js\"></script>
 	
 	// si l'utilisateur est connu
 	if ($_SESSION['id_personne'] != '1') {
 	
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>";	
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 	
 		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -579,17 +624,17 @@ if ($action=='get') {
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal.css\" media=\"screen\" />
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/regal_print.css\" media=\"print\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/tiny_mce/tiny_mce.js\"></script>
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal.css\" media=\"screen\" />
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/regal_print.css\" media=\"print\" />
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/tiny_mce/tiny_mce.js\"></script>
 			<script src=\"http://maps.google.com/maps?file=api&v=2.x&key=".$googleMapsKey."\" type=\"text/javascript\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/wms236.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo_edit.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/wms236.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo_edit.js\"></script>
 			<script type=\"text/javascript\">startRichEditor();</script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
@@ -611,12 +656,12 @@ if ($action=='get') {
 
 	// quelques scripts utiles
 	$additionalHeader = "
-		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/yop2.css\" media=\"screen\" />
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-		<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>";	
+		<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/yop2.css\" media=\"screen\" />
+		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+		<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>";	
 	$smarty->assign('additionalHeader',$additionalHeader);
 
 	// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -732,7 +777,7 @@ if ($action=='get') {
 				<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 					<head>
 						<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-						<script src="//$serveur/utile/js/tiny_mce/tiny_mce_popup.js" type="text/javascript" charset="utf-8" ></script>
+						<script src="/utile/js/tiny_mce/tiny_mce_popup.js" type="text/javascript" charset="utf-8" ></script>
 
 END;
 			echo $htmlDebut;
@@ -766,12 +811,12 @@ END;
 		
 		// quelques scripts utiles
 		$additionalHeader = "
-			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$serveur."/utile/css/datePicker.css\" media=\"screen\" />
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.bgiframe.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>";	
+			<link type=\"text/css\" rel=\"stylesheet\" href=\"http://".$_SERVER['SERVER_NAME']."/utile/css/datePicker.css\" media=\"screen\" />
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.bgiframe.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -888,10 +933,10 @@ END;
 
 		// quelques scripts utiles
 		$additionalHeader = "
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.pack.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/interface.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/jquery.autocomplete.js\"></script>
-			<script type=\"text/javascript\" src=\"http://".$serveur."/utile/js/photo.js\"></script>";	
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.pack.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/interface.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/jquery.autocomplete.js\"></script>
+			<script type=\"text/javascript\" src=\"http://".$_SERVER['SERVER_NAME']."/utile/js/photo.js\"></script>";	
 		$smarty->assign('additionalHeader',$additionalHeader);
 
 		// permet de choisir le thème dans lequel on veut inclure le contenu. Si le thème=="no". On affiche que le code html du contenu. Ceci permet de l'inclure par ajax dans un div sans avoir l'entête.
@@ -954,7 +999,7 @@ END;
 			}
 			
 			echo "<p class=\"ok\">Indexation réussie de la galerie picasa !</p>";
-			echo "<p><a href=\"//" . $serveur . "/photo/".$albumTag."/\">Voir la galerie...</a></p>";
+			echo "<p><a href=\"/photo/".$albumTag."/\">Voir la galerie...</a></p>";
 
 		}else{
 			echo "aucune adresse de flux picasa fournie";

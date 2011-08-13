@@ -1,12 +1,13 @@
 /*******************************************************************************************
- * Nom du fichier		: geophoto.js
+ * Nom du fichier		: geoobjet.js
  * Date					: 5 juin 2008 pour la partie machinerie google
- * Modif				: 4 avril 2009 pour la gestion d'une photo
+ * Modif				: 4 avril 2009 pour la gestion d'un objet
  * 						: 1 mai pour adapter une galerie multicarte.
  *						: 11.12.9 pour remplacer les multicartes par une grande
+ * 						: 13.08.11 pour faire un geoobjet basé sur geophoto
  * Auteur				: Mathieu Despont
  * Adresse E-mail		: mathieu (at) marfaux.ch
- * But de ce fichier	: Fournir la partie javascript de manipulation de photos
+ * But de ce fichier	: Fournir la partie javascript de manipulation de objets
  *******************************************************************************************
  * 
  *
@@ -36,8 +37,8 @@ jQuery.noConflict();
 		app.addGMapNeuchatel();
 		
 		// url des données json
-		url = chemin+"geophoto/geo/galerie.json"; // on prend le tag geo pour n'avoir que des photos géolocalisées
-		
+		url = chemin+"geoobjet/galerie.json";
+				
 		// va chercher les données
 		app.fetchJsonSource(url);
 		
@@ -66,14 +67,14 @@ jQuery.noConflict();
 		//	console.log("données json parsée");
 			
 			// crée un marker infobulle pour chaque événement
-	        for (var i=0; i<jsonData.photos.length; i++) {
-				var lat = parseFloat(jsonData.photos[i].latLieu);
-				var lng = parseFloat(jsonData.photos[i].longLieu);
+	        for (var i=0; i<jsonData.objets.length; i++) {
+				var lat = parseFloat(jsonData.objets[i].latLieu);
+				var lng = parseFloat(jsonData.objets[i].longLieu);
 				if (lat!=0 && lng!=0) {
 					var point = new GLatLng(lat,lng);
-					//var idEvent = jsonData.photos[i].id;
-					var description = jsonData.photos[i].description;
-					var lienVignette = jsonData.photos[i].lienVignette;
+					//var idEvent = jsonData.objets[i].id;
+					var description = jsonData.objets[i].description;
+					var lienVignette = jsonData.objets[i].lienVignette;
 					var contenuImage = '<img src="'+lienVignette+'" alt="girafe"/>';
 				//	var html = contenuImage+description; 
 					var html = contenuImage;
@@ -161,7 +162,7 @@ jQuery.noConflict();
 				// map.addMapType(carteHolisticPlan);
 				// map.addMapType(carteHolisticPlan10000);
 
-				map.setCenter(new GLatLng(47.00601167615606,6.77032470703125), 2,carteOrthoGoogle);
+				map.setCenter(new GLatLng(47.00601167615606,6.77032470703125), 10,carteOrthoGoogle);
 				
 				// ajoute les contrôles
 				map.addControl(new GLargeMapControl());
@@ -222,8 +223,8 @@ jQuery.noConflict();
 			}
 			
 			
-			var latitude = parseFloat($('#photoLatitude'+id).val());
-			var longitude = parseFloat($('#photoLongitude'+id).val());
+			var latitude = parseFloat($('#objetLatitude'+id).val());
+			var longitude = parseFloat($('#objetLongitude'+id).val());
 			//console.log(longitude+','+latitude);
 			
 			var point = new GLatLng(latitude,longitude);

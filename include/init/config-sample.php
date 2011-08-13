@@ -90,6 +90,7 @@ $ressourcesSwitch = array();
 	$ressourcesSwitch['historique'] = 'historique';
 	$ressourcesSwitch['fichier'] = 'fichier';
 	$ressourcesSwitch['objet'] = 'objet';
+	$ressourcesSwitch['geoobjet'] = 'geoobjet';
 	$ressourcesSwitch['reservation'] = 'reservation';
 	$ressourcesSwitch['transaction'] = 'transaction';
 	$ressourcesSwitch['meta'] = 'meta';

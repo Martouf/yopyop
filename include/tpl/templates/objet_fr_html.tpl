@@ -24,7 +24,7 @@
 </div>
 
 <p id="infosDetailObjet">
-	<label for="prix">Prix</label> 
+	<label for="prix">Prix indicatif</label> 
 	<span class="valeur"><!--{$objet.prix}--> kong/jour </span><br />
 	<label for="caution">Caution</label>
 	<span class="valeur"><!--{$objet.caution}--></span><br />

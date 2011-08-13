@@ -30,7 +30,7 @@
 			</p>
 		</div>
 		<p>
-			<label for="prix">Prix</label>
+			<label for="prix">Prix indicatif</label>
 			<input type="text" name="prix" value="<!--{$objet.prix}-->" id="inputPrix" /> Kong / jour
 		</p>
 		<p>

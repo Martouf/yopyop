@@ -197,7 +197,12 @@ class photoManager {
 		if ($mime!="image/jpeg") {
 			$exif = false;
 		}else{
-			$exif = exif_read_data($imagePath, 0, true);  //todo bug quand l'exif n'existe pas !!
+			// vérifie que cette installation de php supporte la lecture des informations exif
+			if (function_exists('exif_read_data')) {
+				$exif = exif_read_data($imagePath, 0, true);  //todo bug quand l'exif n'existe pas
+			}else{
+				$exif = false;
+			}
 		}
 		
 		if ($exif===false) {
@@ -233,7 +238,12 @@ class photoManager {
 		if ($mime!="image/jpeg") {
 			$exif = false;
 		}else{
-			$exif = exif_read_data($imagePath, 0, true);  //todo bug si d'exif dans le jpg !
+			// vérifie que cette installation de php supporte la lecture des informations exif
+			if (function_exists('exif_read_data')) {
+				$exif = exif_read_data($imagePath, 0, true);  //todo: bug si pas d'exif dans le jpg
+			}else{
+				$exif = false;
+			}
 		}
 		
 		if($exif===false){
@@ -469,8 +479,13 @@ class photoManager {
 	 */
 	function rotateJpgFromExifOrientation($imagePath){
 		
-		// lire le champ exif orientation
-		$exif = exif_read_data($imagePath);  // todo: bug quand exif n'est pas là... Warning: exif_read_data(dsc_1783.jpg) [exif_read_data]: Process tag(x0000=UndefinedTa): Illegal pointer offset(x4E20434F + x4E494B4F = x9C698E9E > x02C3) in /Users/mdespont/Sites/yopyop/include/manager/photoManager.php on line 468
+		// vérifie que cette installation de php supporte la lecture des informations exif
+		if (function_exists('exif_read_data')) {
+			$exif = exif_read_data($imagePath);  //todo ne fonctionne qu'avec le jpg et le tif.. donc bug avec le png
+			 // todo: bug quand exif n'est pas là... Warning: exif_read_data(dsc_1783.jpg) [exif_read_data]: Process tag(x0000=UndefinedTa): Illegal pointer offset(x4E20434F + x4E494B4F = x9C698E9E > x02C3) in /Users/mdespont/Sites/yopyop/include/manager/photoManager.php on line 468
+		}else{
+			$exif = false;
+		}		
 		
 		if ($exif!=false) {
 			

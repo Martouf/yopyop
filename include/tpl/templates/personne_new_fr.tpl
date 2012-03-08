@@ -30,8 +30,8 @@
 				<p><label>Npa</label> <input type="text" name="npa" value="" id="inputNpa"></input></p>
 				<p><label>Localité</label> <input type="text" name="lieu" value="" id="inputLieu"></input></p>
 				<p><label>Tel</label> <input type="text" name="tel" value="" id="inputTel"></input> <span class="info">Selon le format: +41 76 443 54 61</span></p>
-				<p><label>E-mail</label> <input type="text" name="email" value="" id="inputEmail"> <span class="info">Si vous avez un compte <a href="http://gravatar.com">gravatar</a>. Utilisez une adresse liée à une photo de profil.</span></input></p>
-				<p><label>Site web perso</label> <input type="text" name="url" value="" id="inputUrl"></input></p>
+				<p><label>E-mail</label> <input type="email" name="email" value="" id="inputEmail"> <span class="info">Si vous avez un compte <a href="http://gravatar.com">gravatar</a>. Utilisez une adresse liée à une photo de profil.</span></input></p>
+				<p><label>Site web perso</label> <input type="url" name="url" value="" id="inputUrl"></input> <span class="info">Sans oublier le http://</span></p>
 				<p><label>Slogan / citation</label> <input type="text" name="description" value="" id="inputDescription"></input> <span class="info">Petite phrase pour personnaliser votre profil</span></p>
 			</div>
 

@@ -59,10 +59,10 @@ class Init{
 
 		$this->includeAllFiles($path);
 		$this->initGPVariables();
-		$this->connection = self::getConnection($DBHost, $DBUser, $DBPwd, $DBName);
+		$this->connection = self::getConnection($DBHost, $DBUser, $DBPwd, $DBName, $DBPort);
 		$this->includeAllObjects($path);
 		$this->getUrlParams();   // va chercher les paramètres get qui sont bloqués par la réécriture d'url. Les place dans le tableau: $parametreUrl
-		
+
 	}
 
 	/**
@@ -169,8 +169,8 @@ class Init{
 		$smarty->right_delimiter = '}-->';
 	}
 
-	function getConnection($DBHost, $DBUser, $DBPwd, $DBName) {
-		$aConnection = new DBMysql($DBHost, $DBUser, $DBPwd);
+	function getConnection($DBHost, $DBUser, $DBPwd, $DBName, $DBPort) {
+		$aConnection = new DBMysql($DBHost, $DBUser, $DBPwd, $DBPort);
 		$aConnection->connect($DBName);
 		return $aConnection;
 	}

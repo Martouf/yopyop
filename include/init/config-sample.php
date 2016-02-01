@@ -6,6 +6,7 @@ $DBHost= 'localhost';
 $DBUser= 'root';
 $DBPwd = '';
 $DBName= 'yopyop';
+$DBPort= 3306;
 
 //**********************************************************
 // Local settings

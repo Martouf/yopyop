@@ -67,7 +67,7 @@
 //*********************************************************/
 
 class DBMysql {
-	protected $hostname, $username, $pwd, $bdLink, $bdName;
+	protected $hostname, $username, $pwd, $bdLink, $bdName, $port;
 	const cstErrConnect = "Impossible de se connecter a la base de donnees";
 	const cstErrSelectBD = "Impossible de selectionner la base de donnees";
 	const cstErrReconnect = "Connexion a la BD impossible, une autre conexion est deja en cours";
@@ -76,11 +76,12 @@ class DBMysql {
 	const cstModeNoError = 0;
 	const cstModeError = 1;
 
-	function __construct($host, $user, $pwd) {
+	function __construct($host, $user, $pwd, $port) {
 
 		$this->hostname = $host;
 		$this->username = $user;
 		$this->pwd = $pwd;
+		$this->port = $port;
 		unset ($this->bdLink);
 	}
 
@@ -91,7 +92,7 @@ class DBMysql {
 
 // est ce qu'avoir une connexion persistante avec mysqli_pconnect permettrai de gagner en performance ??
 	function connect($bdName = "") {
-		$this->bdLink = @ mysqli_connect($this->hostname, $this->username, $this->pwd);
+		$this->bdLink = @ mysqli_connect($this->hostname, $this->username, $this->pwd, '', $this->port);
 		self :: GestionErreur(!$this->bdLink, 'Connect - '.self :: cstErrConnect.' '.$this->hostname);
 		if ($bdName != "") {
 			self :: SelectBd($bdName);
